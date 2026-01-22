@@ -50,7 +50,7 @@ think of it like react for video - you declare the structure, the engine figures
 </Render>
 ```
 
-no imports needed - the render runtime automatically supplies jsx components and providers (fal, elevenlabs).
+**no imports needed** - the render runtime auto-imports all components (`Render`, `Clip`, `Video`, `Image`, `Music`, `Speech`, `Title`, `Grid`, etc.) and providers (`fal`, `elevenlabs`). just write jsx and export default.
 
 ## character consistency
 
@@ -181,8 +181,14 @@ when using reference images, focus on motion + camera:
 
 consistent character across multiple dramatic scenes with epic music.
 
+**warrior-princess.tsx** (complete file - no imports needed):
 ```tsx
-const hero = <Image prompt="portrait, soft light, center composition. warrior princess with flowing crimson hair reaching past her shoulders, piercing emerald eyes reflecting inner fire, wearing battle-worn silver armor with intricate celtic knot engravings, a thin scar across her left cheek from an old battle, expression of quiet determination mixed with weariness. ghibli style, painterly brushstrokes, warm color palette with golden undertones" />;
+// Warrior Princess - Cinematic Character Video
+// run: bunx vargai@latest render warrior-princess.tsx --verbose
+
+const hero = (
+  <Image prompt="portrait, soft light, center composition. warrior princess with flowing crimson hair reaching past her shoulders, piercing emerald eyes reflecting inner fire, wearing battle-worn silver armor with intricate celtic knot engravings, a thin scar across her left cheek from an old battle, expression of quiet determination mixed with weariness. ghibli style, painterly brushstrokes, warm color palette with golden undertones" />
+);
 
 export default (
   <Render width={1080} height={1920}>
@@ -213,19 +219,27 @@ export default (
 
 animated influencer character with speech, captions, and background music.
 
+**skincare-promo.tsx** (complete file - no imports needed):
 ```tsx
-const influencer = <Image 
-  prompt={{ 
-    text: "extreme close-up face shot, ring light reflection in eyes, surprised expression with wide eyes and raised eyebrows, mouth slightly open in excitement, looking directly at camera. young woman with short platinum blonde hair, minimal makeup, silver hoop earrings, wearing oversized vintage band t-shirt. clean white background, professional studio lighting, tiktok creator aesthetic",
-    images: ["https://reference-photo-url.jpg"]  // optional: reference for likeness
-  }}
-  model={fal.imageModel("nano-banana-pro/edit")}
-  aspectRatio="9:16"
-/>;
+// Skincare Product TikTok - Talking Head with Captions
+// run: bunx vargai@latest render skincare-promo.tsx --verbose
 
-const speech = <Speech voice="bella" model={elevenlabs.speechModel("turbo")}>
-  Oh my god you guys, I literally cannot believe this actually works! I've been using this for like two weeks and my skin has never looked better. Link in bio, seriously go get it!
-</Speech>;
+const influencer = (
+  <Image 
+    prompt={{ 
+      text: "extreme close-up face shot, ring light reflection in eyes, surprised expression with wide eyes and raised eyebrows, mouth slightly open in excitement, looking directly at camera. young woman with short platinum blonde hair, minimal makeup, silver hoop earrings, wearing oversized vintage band t-shirt. clean white background, professional studio lighting, tiktok creator aesthetic",
+      images: ["https://reference-photo-url.jpg"]  // optional: reference for likeness
+    }}
+    model={fal.imageModel("nano-banana-pro/edit")}
+    aspectRatio="9:16"
+  />
+);
+
+const speech = (
+  <Speech voice="bella" model={elevenlabs.speechModel("turbo")}>
+    Oh my god you guys, I literally cannot believe this actually works! I've been using this for like two weeks and my skin has never looked better. Link in bio, seriously go get it!
+  </Speech>
+);
 
 export default (
   <Render width={1080} height={1920}>
@@ -250,7 +264,7 @@ export default (
         prompt="product shot: sleek skincare bottle rotating slowly on marble surface, soft key light from above, pink and gold gradient background, light rays catching the glass, water droplets on bottle suggesting freshness. smooth 360 rotation, professional product photography, beauty commercial aesthetic"
         model={fal.videoModel("kling-v2.5")}
       />
-      <Title position="bottom" color="#ffffff">✨ LINK IN BIO ✨</Title>
+      <Title position="bottom" color="#ffffff">LINK IN BIO</Title>
     </Clip>
     
     <Clip duration={3}>
@@ -270,7 +284,11 @@ export default (
 
 4-panel nature video grid showcasing different elements.
 
+**four-elements.tsx** (complete file - no imports needed):
 ```tsx
+// Four Elements - 2x2 Video Grid
+// run: bunx vargai@latest render four-elements.tsx --verbose
+
 export default (
   <Render width={1920} height={1080}>
     <Clip duration={6}>
