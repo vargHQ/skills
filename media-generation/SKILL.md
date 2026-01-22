@@ -26,7 +26,6 @@ think of it like react for video - you declare the structure, the engine figures
 | **Clip** | timeline segment with duration, contains visual/audio layers |
 | **Image** | static image - generated from prompt or loaded from file |
 | **Video** | video clip - text-to-video OR image-to-video animation |
-| **Animate** | explicit image-to-video with separate motion prompt |
 | **Music** | background audio - generated from prompt or loaded from file |
 | **Speech** | text-to-speech with voice selection |
 | **Title/Subtitle** | text overlays with positioning |
@@ -51,6 +50,23 @@ think of it like react for video - you declare the structure, the engine figures
 ```
 
 **no imports needed** - the render runtime auto-imports all components (`Render`, `Clip`, `Video`, `Image`, `Music`, `Speech`, `Title`, `Grid`, etc.) and providers (`fal`, `elevenlabs`). just write jsx and export default.
+
+## Video component
+
+`Video` handles both text-to-video and image-to-video:
+
+```tsx
+// text-to-video - generate from scratch
+<Video prompt="cat playing piano in a jazz club" />
+
+// image-to-video - animate an image with motion description
+<Video 
+  prompt={{
+    text: "eyes widen, head tilts forward, subtle smile forming",
+    images: [<Image prompt="portrait of woman" />]
+  }}
+/>
+```
 
 ## character consistency
 
@@ -250,11 +266,12 @@ export default (
     />
     
     <Clip duration={3}>
-      <Animate
-        image={influencer}
-        motion="eyes widen dramatically in genuine surprise, eyebrows shoot up, mouth opens into excited smile, subtle forward lean toward camera as if sharing a secret. natural blinking, authentic micro-expressions"
+      <Video 
+        prompt={{
+          text: "eyes widen dramatically in genuine surprise, eyebrows shoot up, mouth opens into excited smile, subtle forward lean toward camera as if sharing a secret. natural blinking, authentic micro-expressions",
+          images: [influencer]
+        }}
         model={fal.videoModel("wan-2.5")}
-        duration={5}
       />
       {speech}
     </Clip>
@@ -268,9 +285,11 @@ export default (
     </Clip>
     
     <Clip duration={3}>
-      <Animate
-        image={influencer}
-        motion="enthusiastic nodding while speaking, hands come into frame gesturing excitedly, genuine smile reaching her eyes, occasional hair flip, pointing at camera on 'go get it'"
+      <Video 
+        prompt={{
+          text: "enthusiastic nodding while speaking, hands come into frame gesturing excitedly, genuine smile reaching her eyes, occasional hair flip, pointing at camera on 'go get it'",
+          images: [influencer]
+        }}
         model={fal.videoModel("wan-2.5")}
       />
     </Clip>
@@ -373,8 +392,7 @@ elevenlabs.musicModel()               // music generation
 | `<Render>` | `width`, `height`, `fps` |
 | `<Clip>` | `duration`, `transition={{ name: "fade", duration: 0.5 }}` |
 | `<Image>` | `prompt`, `src`, `model`, `aspectRatio`, `resize`, `zoom` |
-| `<Video>` | `prompt`, `image`, `src`, `model`, `duration`, `cutFrom`, `cutTo` |
-| `<Animate>` | `image`, `motion`, `model`, `duration` |
+| `<Video>` | `prompt`, `src`, `model`, `duration`, `cutFrom`, `cutTo` |
 | `<Music>` | `prompt`, `src`, `model`, `duration`, `volume`, `loop` |
 | `<Speech>` | `voice`, `model`, `volume`, children=text |
 | `<Title>` | `position`, `color`, children=text |
