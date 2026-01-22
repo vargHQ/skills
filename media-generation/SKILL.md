@@ -147,8 +147,26 @@ export default (
 
 ## render
 
+### preview first (recommended workflow)
+
+use `--preview` to generate only images/thumbnails without rendering full videos. this is faster and cheaper for iteration:
+
+```bash
+bunx vargai@latest render video.tsx --preview --verbose
+```
+
+once you're happy with the preview frames, render the full video:
+
 ```bash
 bunx vargai@latest render video.tsx --verbose
+```
+
+### open the result
+
+after rendering, open the video with the system default player:
+
+```bash
+open output/video.mp4
 ```
 
 ## setup
