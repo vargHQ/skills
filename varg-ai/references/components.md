@@ -23,6 +23,9 @@ Every template must export a `<Render>` as the default export.
 
 // Square (1:1 for Instagram)
 <Render width={1080} height={1080}>
+
+// Portrait (4:5 for Instagram)
+<Render width={1080} height={1350}>
 ```
 
 ---
@@ -33,14 +36,43 @@ Defines a section of the timeline. Clips play sequentially.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `duration` | `number` | auto | Duration in seconds. Should match inner Video duration. |
+| `duration` | `number \| "auto"` | auto | Duration in seconds. Use `"auto"` for speech-driven clips where duration matches the audio length. Should match inner Video duration when set explicitly. |
 | `transition` | `{ name, duration }` | none | Transition from previous clip |
 | `cutFrom` | `number` | 0 | Trim start (seconds). Use `0.3` to skip AI warm-up frames. |
 | `cutTo` | `number` | end | Trim end (seconds). Source duration must be >= cutTo. |
 
 ### Transitions
 
-Available `name` values: `fade`, `dissolve`, `wipeleft`, `wiperight`, `wipeup`, `wipedown`, `slideleft`, `slideright`, `slideup`, `slidedown`, and all FFmpeg xfade transitions.
+Available `name` values (any FFmpeg xfade transition name works):
+
+**Common transitions:**
+
+| Name | Effect |
+|------|--------|
+| `fade` | Fade to/from black (default) |
+| `dissolve` | Cross-dissolve between clips |
+| `crossfade` | Smooth cross-fade (alias for dissolve) |
+| `wipeleft` / `wiperight` | Horizontal wipe |
+| `wipeup` / `wipedown` | Vertical wipe |
+| `slideleft` / `slideright` | Horizontal slide |
+| `slideup` / `slidedown` | Vertical slide |
+
+**Creative transitions:**
+
+| Name | Effect |
+|------|--------|
+| `cube` | 3D cube rotation between clips |
+| `pixelize` | Pixelation dissolve |
+| `circlecrop` | Circular iris in/out |
+| `radial` | Radial wipe |
+| `smoothleft` / `smoothright` | Smooth directional blend |
+| `smoothup` / `smoothdown` | Smooth vertical blend |
+| `squeezeh` / `squeezev` | Squeeze horizontal/vertical |
+| `hlwind` / `hrwind` | Wind effect left/right |
+| `vuwind` / `vdwind` | Wind effect up/down |
+| `coverleft` / `coverright` | Cover slide |
+| `coverup` / `coverdown` | Cover slide vertical |
+| `zoomin` | Zoom into next clip |
 
 ```tsx
 <Clip duration={5} transition={{ name: "fade", duration: 0.5 }}>
@@ -63,7 +95,11 @@ Available `name` values: `fade`, `dissolve`, `wipeleft`, `wiperight`, `wipeup`, 
 |------|------|-------------|
 | `model` | `ImageModelV3` | Required. e.g. `varg.imageModel("nano-banana-pro")` |
 | `prompt` | `string \| { text, images }` | Text prompt or edit prompt with references |
-| `aspectRatio` | `string` | `"16:9"`, `"9:16"`, `"1:1"`, `"4:3"`, `"3:4"` |
+| `aspectRatio` | `string` | `"16:9"`, `"9:16"`, `"1:1"`, `"4:3"`, `"3:4"`, `"4:5"` |
+| `zoom` | `"in" \| "out" \| "left" \| "right"` | Ken Burns zoom/pan animation (for slideshows) |
+| `resize` | `"cover" \| "contain" \| "contain-blur" \| "stretch"` | How image fills the frame. Default: `"cover"` |
+| `cropPosition` | `string` | Crop anchor when using `resize: "cover"`: `"top"`, `"center"`, `"bottom"`, `"left"`, `"right"` |
+| `removeBackground` | `boolean` | Remove image background |
 | `providerOptions` | `object` | Model-specific options |
 
 ```tsx
@@ -79,6 +115,72 @@ const edited = Image({
   model: varg.imageModel("nano-banana-pro/edit"),
   prompt: { text: "same person on a beach", images: [referenceImage] },
   aspectRatio: "9:16"
+})
+```
+
+### Ken Burns (Zoom / Pan)
+
+Add cinematic motion to still images in slideshows. The `zoom` prop creates a slow Ken Burns animation over the clip duration.
+
+```tsx
+// Slow zoom in -- dramatic reveal
+const landscape = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "vast mountain range at sunset, layers of purple and gold",
+  zoom: "in"
+})
+
+// Slow zoom out -- establishing shot
+const portrait = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "warrior princess, piercing emerald eyes, battle-worn silver armor",
+  zoom: "out"
+})
+
+// Pan left -- panoramic sweep
+const cityscape = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "tokyo skyline at night, neon lights reflecting on wet streets",
+  zoom: "left"
+})
+
+// Pan right
+const beach = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "tropical beach at golden hour, palm trees silhouetted",
+  zoom: "right"
+})
+
+export default (
+  <Render width={1920} height={1080}>
+    <Clip duration={4}>{landscape}</Clip>
+    <Clip duration={4} transition={{ name: "dissolve", duration: 0.8 }}>{portrait}</Clip>
+    <Clip duration={4} transition={{ name: "dissolve", duration: 0.8 }}>{cityscape}</Clip>
+    <Clip duration={4} transition={{ name: "dissolve", duration: 0.8 }}>{beach}</Clip>
+  </Render>
+)
+```
+
+**Tip**: Ken Burns + `dissolve` transitions = classic documentary/slideshow feel. Combine with `<Music>` for a polished result.
+
+### Resize Modes
+
+Control how images/videos fill the frame when their aspect ratio doesn't match the output:
+
+| Mode | Behavior |
+|------|----------|
+| `"cover"` | Fill frame, crop overflow (default) |
+| `"contain"` | Fit inside frame, letterbox/pillarbox with black bars |
+| `"contain-blur"` | Fit inside frame, blurred version fills background |
+| `"stretch"` | Stretch to fill (distorts aspect ratio) |
+
+```tsx
+// Contain with blurred background (popular for portrait-in-landscape)
+const img = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "portrait photo",
+  aspectRatio: "9:16",
+  resize: "contain-blur"
 })
 ```
 

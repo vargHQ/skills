@@ -120,7 +120,16 @@ Image({
 
 ### Aspect Ratios (images and videos)
 
-`16:9`, `9:16`, `1:1`, `4:3`, `3:4` -- most models support all standard ratios.
+| Ratio | Pixels | Use Case |
+|-------|--------|----------|
+| `16:9` | 1920 x 1080 | YouTube, landscape video |
+| `9:16` | 1080 x 1920 | TikTok, Reels, Shorts |
+| `1:1` | 1080 x 1080 | Instagram feed, square |
+| `4:3` | 1440 x 1080 | Classic TV, presentations |
+| `3:4` | 1080 x 1440 | Portrait photos |
+| `4:5` | 1080 x 1350 | Instagram portrait (recommended for feed) |
+
+Most models support all standard ratios.
 
 ---
 

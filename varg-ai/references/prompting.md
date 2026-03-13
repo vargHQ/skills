@@ -110,6 +110,49 @@ Describe what happens in the scene. Be specific about movement direction and spe
 
 ---
 
+## Native Audio / Dialogue Prompts
+
+Some video models support native audio generation (speech, sound effects, ambient audio baked into the video). Enable with `providerOptions: { varg: { generate_audio: true } }`.
+
+**Supported models**: `kling-v2.6`, `ltx-2-19b-distilled`, `grok-imagine`
+
+### Dialogue Formatting
+
+Format spoken lines explicitly in the prompt:
+
+```
+Character says: "Your line here."
+```
+
+**Tips:**
+- Keep dialogue short -- under 10 words per 5-second clip for best lip-sync quality
+- Specify delivery tone: `"speaking quietly"`, `"calling out over wind"`, `"whispering nervously"`
+- For multiple speakers: `Man says: "Hello." Woman replies: "Hi there."`
+- For silence: include `"no dialogue"` or `"actors not speaking"` or `"ambient sounds only"`
+- Describe environmental audio: `"birds chirping"`, `"rain on windows"`, `"crowd murmur"`
+
+### Examples
+
+```tsx
+// Character with dialogue
+Video({
+  model: varg.videoModel("kling-v2.6"),
+  prompt: "woman at a cafe table, she picks up her coffee and says: \"This is perfect.\" Warm smile, gentle ambient cafe sounds.",
+  duration: 5,
+  providerOptions: { varg: { generate_audio: true } }
+})
+
+// Atmospheric scene (no dialogue)
+Video({
+  model: varg.videoModel("kling-v2.6"),
+  prompt: "aerial shot of ocean waves crashing on rocky shore, no dialogue, ambient ocean sounds, wind, seagulls in distance",
+  duration: 8,
+  providerOptions: { varg: { generate_audio: true } }
+})
+```
+
+---
+
 ## Image-to-Video Prompt Tips
 
 When animating a reference image, your prompt should describe **the motion**, not re-describe the image:
@@ -139,6 +182,78 @@ Music prompts describe a vibe, not lyrics:
 - "dark atmospheric, deep bass, industrial textures"
 
 Keep music prompts under 30 words. Focus on: genre, mood, instruments, tempo, energy level.
+
+---
+
+## Rich Prompting Examples
+
+These demonstrate the 4-dimensional formula at full quality. Study the level of detail -- this is what produces cinematic results.
+
+### Example 1: Warrior Princess (character + environment + action + cinematic)
+
+**Hero image prompt:**
+```
+portrait, soft light, center composition. warrior princess with flowing crimson
+hair reaching past her shoulders, piercing emerald eyes reflecting inner fire,
+wearing battle-worn silver armor with intricate celtic knot engravings, a thin
+scar across her left cheek from an old battle, expression of quiet determination
+mixed with weariness. ghibli style, painterly brushstrokes, warm color palette
+with golden undertones
+```
+
+**Scene 1 (i2v) -- cliff edge establishing shot:**
+```
+wide shot, golden hour, dramatic edge lighting from behind. she stands at the
+edge of a windswept cliff overlooking a vast misty valley with ancient ruins
+below, her crimson hair and tattered cape billowing dramatically in the wind,
+one hand resting on sword hilt at her side. slow camera pull-out revealing the
+epic landscape, dust particles catching the amber sunlight. cinematic, ghibli
+style, film grain, anamorphic lens
+```
+
+**Scene 2 (i2v) -- intimate close-up:**
+```
+close-up, Rembrandt lighting, shallow depth of field. she draws her sword slowly,
+the blade catching firelight, jaw set with resolve, eyes narrowing as she stares
+into the darkness ahead. subtle rack focus from sword edge to her face. warm
+amber tones, candlelight flicker, bokeh in background
+```
+
+### Example 2: Skincare TikTok (influencer + product + energy)
+
+**Character image prompt (with reference editing):**
+```
+extreme close-up face shot, ring light reflection in eyes, surprised expression
+with wide eyes and raised eyebrows, mouth slightly open in excitement, looking
+directly at camera. young woman with short platinum blonde hair, minimal makeup,
+silver hoop earrings, wearing oversized vintage band t-shirt. clean white
+background, professional studio lighting, tiktok creator aesthetic
+```
+
+**Speech (fast, energetic delivery):**
+```
+Oh my god you guys, I literally cannot believe this actually works! I've been
+using this for like two weeks and my skin has never looked better. Link in bio,
+seriously go get it!
+```
+
+### Example 3: Nature Documentary (atmosphere + detail)
+
+**4-panel grid prompts (one per element):**
+
+- **Water**: `"extreme close-up of ocean wave crashing against volcanic black rocks, slow motion 120fps, crystal clear turquoise water exploding into white foam spray, individual water droplets suspended in golden hour sunlight, mist rising. cinematic, national geographic style, shallow depth of field on water texture"`
+- **Fire**: `"intimate close-up of flames dancing in stone fireplace, warm orange and yellow tongues of fire licking weathered logs, glowing embers pulsing beneath, sparks occasionally rising. cozy cabin atmosphere, shallow focus on flame tips, hygge aesthetic"`
+- **Rain**: `"macro shot of rain droplets hitting window glass, each drop creating expanding ripples and trails, city lights blurred into colorful bokeh beyond the glass, melancholic blue hour lighting. asmr visual aesthetic, slow motion, focus pulling between drops"`
+- **Sky**: `"timelapse of cumulus clouds drifting across deep blue sky, dramatic god rays breaking through cloud gaps, cloud shadows moving across distant mountain range. epic landscape, wide angle, peaceful meditative mood, nature documentary cinematography"`
+
+### Key Takeaways from These Examples
+
+1. **Specify exact visual details** -- hair color, clothing, expression, not just "a woman"
+2. **Layer the atmosphere** -- lighting type + time of day + weather + mood
+3. **Name the camera work** -- "slow camera pull-out", "rack focus", "push-in"
+4. **Include texture words** -- "dust particles", "bokeh", "film grain", "mist rising"
+5. **Reference art styles** -- "ghibli style", "national geographic", "tiktok creator aesthetic"
+6. **Keep i2v prompts focused on motion** -- the image already defines the look
 
 ---
 
