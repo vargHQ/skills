@@ -1,0 +1,131 @@
+# Local Render Mode
+
+Write a `.tsx` file and render locally via the varg CLI. Requires `bun` and `ffmpeg` + `ffprobe`.
+
+Local rendering is faster than cloud rendering, supports custom npm packages, Remotion components, and gives you full control over the output.
+
+## TSX Format
+
+Local mode requires imports and an explicit provider setup:
+
+```tsx
+/** @jsxImportSource vargai */
+import { Render, Clip, Music, Captions, Title, Image, Video, Speech } from "vargai/react"
+import { createVarg } from "@vargai/gateway"
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
+```
+
+Use `varg.imageModel(...)`, `varg.videoModel(...)`, `varg.speechModel(...)`, `varg.musicModel(...)` for all model references. This routes through the gateway for caching and unified billing.
+
+### Minimal Example
+
+```tsx
+/** @jsxImportSource vargai */
+import { Render, Clip, Image } from "vargai/react"
+import { createVarg } from "@vargai/gateway"
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
+
+const img = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "a cozy cabin in mountains at sunset, warm golden light",
+  aspectRatio: "16:9"
+})
+
+export default (
+  <Render width={1920} height={1080}>
+    <Clip duration={3}>{img}</Clip>
+  </Render>
+)
+```
+
+### Full Example (video + speech + music + captions)
+
+```tsx
+/** @jsxImportSource vargai */
+import { Render, Clip, Music, Captions, Title, Image, Video, Speech } from "vargai/react"
+import { createVarg } from "@vargai/gateway"
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
+
+const hero = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "cinematic portrait of a warrior princess, golden hour lighting",
+  aspectRatio: "9:16"
+})
+
+const scene = Video({
+  model: varg.videoModel("kling-v3"),
+  prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
+  duration: 5
+})
+
+const voice = Speech({
+  model: varg.speechModel("eleven_v3"),
+  voice: "rachel",
+  children: "In a world beyond imagination..."
+})
+
+export default (
+  <Render width={1080} height={1920} fps={30}>
+    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
+    <Clip duration={5}>
+      {scene}
+      <Title position="bottom">The Last Guardian</Title>
+    </Clip>
+    <Captions src={voice} style="tiktok" />
+  </Render>
+)
+```
+
+## CLI Commands
+
+```bash
+# Preview with free placeholders (validate structure before paying)
+bunx vargai render video.tsx --preview
+
+# Full render (costs credits)
+bunx vargai render video.tsx --verbose
+
+# Force regeneration (bypass cache -- use sparingly, costs $$$)
+bunx vargai render video.tsx --no-cache
+
+# Open the result
+open output/video.mp4
+```
+
+## Background Rendering
+
+Renders take 3-15+ minutes. Run in the background to avoid blocking:
+
+```bash
+nohup bunx vargai render video.tsx --verbose > output/render.log 2>&1 &
+echo "PID: $!"
+
+# Check progress
+tail -f output/render.log
+```
+
+## Iteration Workflow
+
+1. **Preview first**: Run with `--preview` to validate structure with free placeholders.
+2. **Keep prompts stable**: When modifying a multi-clip render, keep unchanged prompt strings EXACTLY the same (character-for-character) to avoid cache misses and re-generation.
+3. **Iterate on one clip**: Change only the prompts you need to update. Cached clips render instantly at $0.
+4. **Full render**: Once preview looks correct, run without `--preview` for the final output.
+
+## Setup
+
+If you haven't set up a project yet:
+
+```bash
+# Run the setup script (from the skill directory)
+bun scripts/setup.ts
+
+# Or manually:
+# 1. Ensure VARG_API_KEY is in .env
+echo "VARG_API_KEY=varg_xxx" >> .env
+
+# 2. Quick smoke test
+bunx vargai hello
+```

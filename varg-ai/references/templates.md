@@ -12,6 +12,8 @@ These examples show the complete cloud render workflow using `curl`. No bun or f
 
 ### Submit a video render
 
+> **Note**: These examples use [`jq`](https://jqlang.github.io/jq/) for JSON parsing. If `jq` is not available, see the grep-based fallback below each snippet.
+
 ```bash
 # Write TSX code to a file first (for reference/iteration)
 cat > video.tsx << 'TEMPLATE'
@@ -34,7 +36,7 @@ export default (
 );
 TEMPLATE
 
-# Submit to render service
+# Submit to render service (requires jq)
 JOB_ID=$(curl -s -X POST https://render.varg.ai/api/render \
   -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" \
@@ -43,6 +45,24 @@ JOB_ID=$(curl -s -X POST https://render.varg.ai/api/render \
 
 echo "Job submitted: $JOB_ID"
 ```
+
+<details>
+<summary>Without jq</summary>
+
+```bash
+# Read TSX and escape it for JSON (no jq needed)
+CODE=$(sed 's/\\/\\\\/g; s/"/\\"/g; s/$/\\n/' video.tsx | tr -d '\n' | sed 's/\\n$//')
+
+RESPONSE=$(curl -s -X POST https://render.varg.ai/api/render \
+  -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "{\"code\": \"$CODE\"}")
+
+JOB_ID=$(echo "$RESPONSE" | grep -o '"job_id":"[^"]*"' | cut -d'"' -f4)
+echo "Job submitted: $JOB_ID"
+```
+
+</details>
 
 ### Poll for result
 
@@ -63,6 +83,28 @@ while true; do
   sleep 10
 done
 ```
+
+<details>
+<summary>Without jq</summary>
+
+```bash
+while true; do
+  RESULT=$(curl -s "https://render.varg.ai/api/render/jobs/$JOB_ID" \
+    -H "Authorization: Bearer $VARG_API_KEY")
+  STATUS=$(echo "$RESULT" | grep -o '"status":"[^"]*"' | cut -d'"' -f4)
+  echo "Status: $STATUS"
+  if [ "$STATUS" = "completed" ]; then
+    echo "$RESULT" | grep -o '"output_url":"[^"]*"' | cut -d'"' -f4
+    break
+  elif [ "$STATUS" = "failed" ]; then
+    echo "$RESULT" | grep -o '"error":"[^"]*"' | cut -d'"' -f4
+    break
+  fi
+  sleep 10
+done
+```
+
+</details>
 
 ### Cloud render: Talking Head
 

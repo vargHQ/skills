@@ -27,6 +27,7 @@ echo ""
 
 HAS_BUN=0
 HAS_FFMPEG=0
+HAS_FFPROBE=0
 HAS_KEY=0
 
 # 1. Check VARG_API_KEY
@@ -93,6 +94,7 @@ fi
 # 4. Check ffprobe
 if command -v ffprobe &>/dev/null; then
   echo "  $(green '[OK]') ffprobe found"
+  HAS_FFPROBE=1
 else
   echo "  $(dim '[--]') ffprobe not found $(dim '(needed for local render mode only)')"
 fi
@@ -102,7 +104,7 @@ echo ""
 bold "── Available Mode ──────────────────────────"
 echo ""
 
-if [ "$HAS_BUN" -eq 1 ] && [ "$HAS_FFMPEG" -eq 1 ]; then
+if [ "$HAS_BUN" -eq 1 ] && [ "$HAS_FFMPEG" -eq 1 ] && [ "$HAS_FFPROBE" -eq 1 ]; then
   echo "  $(green 'LOCAL RENDER') $(dim '(full power)')"
   echo ""
   echo "  You have all local tools. You can use either:"
@@ -134,8 +136,8 @@ else
     dim "    curl -fsSL https://bun.sh/install | bash"
     echo ""
   fi
-  if [ "$HAS_FFMPEG" -eq 0 ]; then
-    echo "  To unlock local render mode, install ffmpeg:"
+  if [ "$HAS_FFMPEG" -eq 0 ] || [ "$HAS_FFPROBE" -eq 0 ]; then
+    echo "  To unlock local render mode, install ffmpeg (includes ffprobe):"
     dim "    brew install ffmpeg        # macOS"
     dim "    apt install ffmpeg         # Ubuntu/Debian"
     dim "    winget install ffmpeg      # Windows"
