@@ -241,3 +241,210 @@ Error response format:
   "message": "Insufficient balance. Required: 150 credits, available: 50 credits"
 }
 ```
+
+---
+
+## Render API (Video Composition)
+
+For composing multi-clip videos with transitions, music, captions, and effects, use the render service. This takes TSX code and produces a final `.mp4` video. The render service handles all asset generation (images, video, speech, music) and ffmpeg composition in the cloud.
+
+### Base URL
+
+```
+https://render.varg.ai
+```
+
+### Submit Render Job
+
+```bash
+POST /api/render
+Authorization: Bearer varg_xxx
+Content-Type: application/json
+```
+
+Request body:
+
+```json
+{
+  "code": "<TSX code string with export default>",
+  "verbose": false,
+  "mode": "strict"
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `code` | `string` | Yes | TSX code with `export default`. No imports needed -- all components are globals. |
+| `verbose` | `boolean` | No | Enable verbose logging (default: false) |
+| `mode` | `"strict" \| "preview"` | No | `"preview"` uses cheaper placeholders |
+
+Response (`202 Accepted`):
+
+```json
+{
+  "job_id": "550e8400-e29b-41d4-a716-446655440000",
+  "status": "rendering",
+  "estimated_duration_ms": 35000,
+  "queue": { "active": 3, "waiting": 0 }
+}
+```
+
+### Poll Job Status
+
+```bash
+GET /api/render/jobs/{job_id}
+Authorization: Bearer varg_xxx
+```
+
+Response (`200 OK`):
+
+```json
+{
+  "job_id": "550e8400-e29b-41d4-a716-446655440000",
+  "status": "completed",
+  "output_url": "https://s3.varg.ai/renders/1710345600_abc123.mp4",
+  "files": [
+    {
+      "url": "https://s3.varg.ai/cache/def456.png",
+      "mediaType": "image/png",
+      "metadata": { "type": "image", "model": "flux-schnell", "prompt": "..." }
+    }
+  ],
+  "duration_ms": 45000,
+  "created_at": "2026-03-13T12:00:00Z",
+  "completed_at": "2026-03-13T12:00:45Z"
+}
+```
+
+Status values: `"rendering"`, `"completed"`, `"failed"`.
+
+On failure, `error` and `error_category` fields are included:
+
+```json
+{
+  "status": "failed",
+  "error": "Insufficient balance",
+  "error_category": "quota_exceeded"
+}
+```
+
+Error categories: `quota_exceeded`, `rate_limited`, `timeout`, `invalid_source`, `internal`.
+
+### SSE Stream (Real-Time Updates)
+
+```bash
+GET /api/render/jobs/{job_id}/stream
+Authorization: Bearer varg_xxx
+Accept: text/event-stream
+```
+
+Receives real-time status events. Preferred over polling for long-running renders:
+
+```
+event: status
+data: {"job_id":"...","status":"rendering","started_at":"..."}
+
+:keepalive
+
+event: status
+data: {"job_id":"...","status":"completed","output_url":"https://...","files":[...]}
+```
+
+### List Jobs
+
+```bash
+GET /api/jobs?limit=50
+Authorization: Bearer varg_xxx
+```
+
+Returns recent render jobs for the authenticated user.
+
+### Rate Limits
+
+| Limit | Value |
+|-------|-------|
+| Requests per minute | 10 per user |
+| Concurrent jobs | 5 per user |
+| Job timeout | 15 minutes |
+
+Rate limit info is returned in response headers:
+
+```
+X-RateLimit-Limit: 10
+X-RateLimit-Remaining: 9
+X-RateLimit-Reset: 2026-03-13T12:01:00.000Z
+```
+
+### Cloud Render TSX Format
+
+No imports needed -- all components and providers are auto-injected as globals. The user's API key (from the `Authorization` header) is used for all AI generation calls automatically.
+
+**Available globals:**
+
+| Category | Globals |
+|----------|---------|
+| Components | `Render`, `Clip`, `Image`, `Video`, `Speech`, `Music`, `Captions`, `Title`, `Subtitle`, `Overlay`, `Split`, `Grid`, `Slot`, `Slider`, `Swipe`, `Packshot`, `TalkingHead` |
+| Providers | `fal`, `elevenlabs`, `higgsfield`, `openai`, `replicate`, `google`, `together` |
+| Data | `VOICES` (voice name to ElevenLabs ID mapping) |
+
+**Restrictions:**
+
+- Must have `export default` returning a `<Render>` element
+- No named exports (`export const x = ...` is forbidden)
+- No external imports (`vargai/*` imports are allowed but stripped)
+- No `require()` calls
+- `Image` `src` values must be `http://` or `https://` URLs
+
+**Minimal working example:**
+
+```tsx
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={5}>
+      <Video prompt="a cat playing piano" model={fal.videoModel("kling-v3")} duration={5} />
+    </Clip>
+  </Render>
+);
+```
+
+**Full example with multiple clips:**
+
+```tsx
+const img = Image({
+  model: fal.imageModel("nano-banana-pro"),
+  prompt: "cinematic portrait, golden hour lighting",
+  aspectRatio: "9:16"
+});
+
+const vid = Video({
+  model: fal.videoModel("kling-v3"),
+  prompt: { text: "person walks forward, camera follows", images: [img] },
+  duration: 5
+});
+
+const voice = Speech({
+  model: elevenlabs.speechModel("eleven_v3"),
+  voice: "rachel",
+  children: "Welcome to our show!"
+});
+
+export default (
+  <Render width={1080} height={1920} fps={30}>
+    <Music model={elevenlabs.musicModel("music_v1")} prompt="epic orchestral" duration={10} volume={0.3} />
+    <Clip duration={5}>
+      {vid}
+      <Title position="bottom">Welcome</Title>
+    </Clip>
+    <Captions src={voice} style="tiktok" />
+  </Render>
+);
+```
+
+### Render API Error Responses
+
+| Status | Meaning |
+|--------|---------|
+| 400 | Invalid TSX code, missing `export default`, or Zod validation failure |
+| 401 | Missing or invalid Bearer token |
+| 429 | Rate limit or concurrency limit exceeded (`Retry-After` header included) |
+| 503 | Queue unavailable (Redis/BullMQ down) |
