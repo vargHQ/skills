@@ -1,0 +1,151 @@
+#!/usr/bin/env bash
+#
+# varg-ai skill setup
+#
+# Detects environment capabilities and determines the available rendering mode.
+# No dependencies required -- runs on any system with bash and curl.
+#
+# Usage:
+#   bash scripts/setup.sh
+#
+
+set -euo pipefail
+
+# ── Colors ─────────────────────────────────────────────────────
+
+green()  { printf '\033[32m%s\033[0m' "$1"; }
+red()    { printf '\033[31m%s\033[0m' "$1"; }
+yellow() { printf '\033[33m%s\033[0m' "$1"; }
+dim()    { printf '\033[2m%s\033[0m' "$1"; }
+bold()   { printf '\033[1m%s\033[0m' "$1"; }
+
+# ── Main ───────────────────────────────────────────────────────
+
+echo ""
+bold "varg-ai Skill Setup"
+echo ""
+
+HAS_BUN=0
+HAS_FFMPEG=0
+HAS_FFPROBE=0
+HAS_KEY=0
+
+# 1. Check VARG_API_KEY
+echo "API Key:"
+
+if [ -n "${VARG_API_KEY:-}" ]; then
+  echo "  $(green '[OK]') VARG_API_KEY is set"
+  HAS_KEY=1
+
+  # Test gateway connectivity
+  if command -v curl &>/dev/null; then
+    RESPONSE=$(curl -s -w "\n%{http_code}" \
+      -H "Authorization: Bearer $VARG_API_KEY" \
+      "https://api.varg.ai/v1/balance" 2>/dev/null || echo "error")
+
+    HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+    BODY=$(echo "$RESPONSE" | sed '$d')
+
+    if [ "$HTTP_CODE" = "200" ]; then
+      # Try to extract balance (works with basic grep)
+      BALANCE=$(echo "$BODY" | grep -o '"balance_cents":[0-9]*' | grep -o '[0-9]*' || echo "")
+      if [ -n "$BALANCE" ]; then
+        DOLLARS=$(echo "scale=2; $BALANCE / 100" | bc 2>/dev/null || echo "?")
+        echo "  $(green '[OK]') Gateway connected. Balance: $BALANCE credits (\$$DOLLARS)"
+      else
+        echo "  $(green '[OK]') Gateway connected."
+      fi
+    elif [ "$HTTP_CODE" = "401" ]; then
+      echo "  $(red '[ERR]') Invalid API key (401 Unauthorized)"
+    else
+      echo "  $(yellow '[WARN]') Could not verify API key (HTTP $HTTP_CODE)"
+    fi
+  fi
+else
+  echo "  $(red '[MISSING]') VARG_API_KEY not set"
+  echo ""
+  echo "  Get your API key at: https://varg.ai"
+  echo "  Then set it:"
+  echo "    export VARG_API_KEY=varg_xxx"
+  echo "  Or add to .env:"
+  echo "    echo 'VARG_API_KEY=varg_xxx' >> .env"
+fi
+
+# 2. Check bun
+echo ""
+echo "Local Tools:"
+
+if command -v bun &>/dev/null; then
+  BUN_VERSION=$(bun --version 2>/dev/null || echo "unknown")
+  echo "  $(green '[OK]') bun $BUN_VERSION"
+  HAS_BUN=1
+else
+  echo "  $(dim '[--]') bun not found $(dim '(needed for local render mode only)')"
+fi
+
+# 3. Check ffmpeg
+if command -v ffmpeg &>/dev/null; then
+  echo "  $(green '[OK]') ffmpeg found"
+  HAS_FFMPEG=1
+else
+  echo "  $(dim '[--]') ffmpeg not found $(dim '(needed for local render mode only)')"
+fi
+
+# 4. Check ffprobe
+if command -v ffprobe &>/dev/null; then
+  echo "  $(green '[OK]') ffprobe found"
+  HAS_FFPROBE=1
+else
+  echo "  $(dim '[--]') ffprobe not found $(dim '(needed for local render mode only)')"
+fi
+
+# 5. Determine mode
+echo ""
+bold "── Available Mode ──────────────────────────"
+echo ""
+
+if [ "$HAS_BUN" -eq 1 ] && [ "$HAS_FFMPEG" -eq 1 ] && [ "$HAS_FFPROBE" -eq 1 ]; then
+  echo "  $(green 'LOCAL RENDER') $(dim '(full power)')"
+  echo ""
+  echo "  You have all local tools. You can use either:"
+  echo ""
+  echo "  Local render (faster, more flexible):"
+  dim "    bunx vargai render video.tsx --preview   (free preview)"
+  echo ""
+  dim "    bunx vargai render video.tsx --verbose   (full render)"
+  echo ""
+  echo "  Cloud render (via API):"
+  echo "  $(dim '  curl -X POST https://render.varg.ai/api/render \')"
+  echo "  $(dim '    -H "Authorization: Bearer $VARG_API_KEY" \')"
+  echo "  $(dim '    -H "Content-Type: application/json" \')"
+  echo "  $(dim '    -d '\''{"code": "..."}'\''')"
+  echo ""
+else
+  echo "  $(yellow 'CLOUD RENDER') $(dim '(zero-install)')"
+  echo ""
+  echo "  Send TSX code to the render service via curl:"
+  echo ""
+  echo "  $(dim 'curl -X POST https://render.varg.ai/api/render \')"
+  echo "  $(dim '  -H "Authorization: Bearer $VARG_API_KEY" \')"
+  echo "  $(dim '  -H "Content-Type: application/json" \')"
+  echo "  $(dim '  -d '\''{"code": "export default (<Render>...</Render>)"}'\''')"
+  echo ""
+
+  if [ "$HAS_BUN" -eq 0 ]; then
+    echo "  To unlock local render mode, install bun:"
+    dim "    curl -fsSL https://bun.sh/install | bash"
+    echo ""
+  fi
+  if [ "$HAS_FFMPEG" -eq 0 ] || [ "$HAS_FFPROBE" -eq 0 ]; then
+    echo "  To unlock local render mode, install ffmpeg (includes ffprobe):"
+    dim "    brew install ffmpeg        # macOS"
+    dim "    apt install ffmpeg         # Ubuntu/Debian"
+    dim "    winget install ffmpeg      # Windows"
+    echo ""
+  fi
+fi
+
+if [ "$HAS_KEY" -eq 0 ]; then
+  echo "  $(red 'Note: VARG_API_KEY is required for both modes.')"
+  echo ""
+fi

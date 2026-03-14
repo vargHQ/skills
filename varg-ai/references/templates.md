@@ -2,6 +2,157 @@
 
 Copy-paste-ready templates. All use the varg gateway (`VARG_API_KEY`).
 
+Each template is shown in **local mode** (with imports and `createVarg`). For **cloud mode**, omit imports and replace `varg.imageModel(...)` with `fal.imageModel(...)`, `varg.videoModel(...)` with `fal.videoModel(...)`, etc.
+
+---
+
+## Cloud Render Quick Start
+
+These examples show the complete cloud render workflow using `curl`. No bun or ffmpeg needed.
+
+### Submit a video render
+
+> **Note**: These examples use [`jq`](https://jqlang.github.io/jq/) for JSON parsing. If `jq` is not available, see the grep-based fallback below each snippet.
+
+```bash
+# Write TSX code to a file first (for reference/iteration)
+cat > video.tsx << 'TEMPLATE'
+const img = Image({
+  model: fal.imageModel("nano-banana-pro"),
+  prompt: "a cozy cabin in the mountains at sunset, warm golden light, snow on peaks",
+  aspectRatio: "16:9"
+});
+
+const vid = Video({
+  model: fal.videoModel("kling-v3"),
+  prompt: { text: "gentle camera push-in, smoke rising from chimney, birds flying across sky", images: [img] },
+  duration: 5
+});
+
+export default (
+  <Render width={1920} height={1080}>
+    <Clip duration={5}>{vid}</Clip>
+  </Render>
+);
+TEMPLATE
+
+# Submit to render service (requires jq)
+JOB_ID=$(curl -s -X POST https://render.varg.ai/api/render \
+  -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "{\"code\": $(cat video.tsx | jq -Rs .)}" \
+  | jq -r '.job_id')
+
+echo "Job submitted: $JOB_ID"
+```
+
+<details>
+<summary>Without jq</summary>
+
+```bash
+# Read TSX and escape it for JSON (no jq needed)
+CODE=$(sed 's/\\/\\\\/g; s/"/\\"/g; s/$/\\n/' video.tsx | tr -d '\n' | sed 's/\\n$//')
+
+RESPONSE=$(curl -s -X POST https://render.varg.ai/api/render \
+  -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "{\"code\": \"$CODE\"}")
+
+JOB_ID=$(echo "$RESPONSE" | grep -o '"job_id":"[^"]*"' | cut -d'"' -f4)
+echo "Job submitted: $JOB_ID"
+```
+
+</details>
+
+### Poll for result
+
+```bash
+# Poll until status is "completed" or "failed"
+while true; do
+  RESULT=$(curl -s "https://render.varg.ai/api/render/jobs/$JOB_ID" \
+    -H "Authorization: Bearer $VARG_API_KEY")
+  STATUS=$(echo "$RESULT" | jq -r '.status')
+  echo "Status: $STATUS"
+  if [ "$STATUS" = "completed" ]; then
+    echo "$RESULT" | jq -r '.output_url'
+    break
+  elif [ "$STATUS" = "failed" ]; then
+    echo "$RESULT" | jq -r '.error'
+    break
+  fi
+  sleep 10
+done
+```
+
+<details>
+<summary>Without jq</summary>
+
+```bash
+while true; do
+  RESULT=$(curl -s "https://render.varg.ai/api/render/jobs/$JOB_ID" \
+    -H "Authorization: Bearer $VARG_API_KEY")
+  STATUS=$(echo "$RESULT" | grep -o '"status":"[^"]*"' | cut -d'"' -f4)
+  echo "Status: $STATUS"
+  if [ "$STATUS" = "completed" ]; then
+    echo "$RESULT" | grep -o '"output_url":"[^"]*"' | cut -d'"' -f4
+    break
+  elif [ "$STATUS" = "failed" ]; then
+    echo "$RESULT" | grep -o '"error":"[^"]*"' | cut -d'"' -f4
+    break
+  fi
+  sleep 10
+done
+```
+
+</details>
+
+### Cloud render: Talking Head
+
+```bash
+cat > talking-head.tsx << 'TEMPLATE'
+const character = Image({
+  model: fal.imageModel("nano-banana-pro"),
+  prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
+  aspectRatio: "9:16"
+});
+
+const animated = Video({
+  model: fal.videoModel("kling-v3"),
+  prompt: { text: "woman talks naturally to camera, subtle hand gestures", images: [character] },
+  duration: 10
+});
+
+const voice = Speech({
+  model: elevenlabs.speechModel("eleven_v3"),
+  voice: "rachel",
+  children: "Hey everyone! Welcome back. Today we are going to talk about something really exciting."
+});
+
+const synced = Video({
+  model: fal.videoModel("sync-v2-pro"),
+  prompt: { video: animated, audio: voice }
+});
+
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={10}>{synced}</Clip>
+    <Captions src={voice} style="tiktok" position="bottom" />
+  </Render>
+);
+TEMPLATE
+
+curl -s -X POST https://render.varg.ai/api/render \
+  -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d "{\"code\": $(cat talking-head.tsx | jq -Rs .)}"
+```
+
+---
+
+## Local Render Templates
+
+The following templates use local mode with imports. Run with `bunx vargai render <file> --verbose`.
+
 ---
 
 ## 1. Hello World -- Single Image + Video

@@ -1,26 +1,37 @@
 ---
 name: varg-ai
 description: >-
-  Generate AI videos, images, speech, and music using varg SDK.
+  Generate AI videos, images, speech, and music using varg.
   Use when creating videos, animations, talking characters, slideshows,
   product showcases, social content, or single-asset generation.
-  JSX-based video composition with AI-powered media generation.
+  Supports zero-install cloud rendering (just API key + curl) and
+  full local rendering (bun + ffmpeg).
   Triggers: "create a video", "generate video", "make a slideshow",
   "talking head", "product video", "generate image", "text to speech",
   "varg", "vargai", "render video", "lip sync", "captions".
-compatibility: Requires bun runtime. VARG_API_KEY or FAL_KEY required.
+license: MIT
+metadata:
+  author: vargHQ
+  version: "2.0.0"
+compatibility: >-
+  Requires VARG_API_KEY (get at https://varg.ai).
+  Cloud mode: curl only (zero dependencies).
+  Local mode: bun runtime + ffmpeg.
 ---
 
-## Prerequisites
+## Environment Detection
 
-Before generating anything, verify the environment:
+Before generating anything, determine the rendering mode.
 
-1. Run `bun scripts/setup.ts` (from the skill directory) to check API keys and connectivity
-2. Required: `VARG_API_KEY` (single gateway key) **or** `FAL_KEY` (direct fal.ai access)
-3. Optional: `ELEVENLABS_API_KEY` (speech/music), `REPLICATE_API_TOKEN`, `HIGGSFIELD_API_KEY`
-4. Quick smoke test: `bunx vargai hello`
+Run `bash scripts/setup.sh` from the skill directory to auto-detect, or check manually:
 
-If using the varg gateway (recommended), a single `VARG_API_KEY` covers all providers.
+| bun | ffmpeg | Mode |
+|-----|--------|------|
+| No  | No     | **Cloud Render** -- read [cloud-render.md](references/cloud-render.md) |
+| Yes | No     | **Cloud Render** -- read [cloud-render.md](references/cloud-render.md) |
+| Yes | Yes    | **Local Render** (recommended) -- read [local-render.md](references/local-render.md) |
+
+`VARG_API_KEY` is required for all modes. Get one at https://varg.ai
 
 ## Critical Rules
 
@@ -28,26 +39,62 @@ Everything you know about varg is likely outdated. Always verify against this sk
 
 1. **Never guess model IDs** -- consult [models.md](references/models.md) for current models, pricing, and constraints.
 2. **Function calls for media, JSX for composition** -- `Image({...})` creates media, `<Clip>` composes timeline. Never write `<Image prompt="..." />`.
-3. **Cache is sacred** -- identical prompt + params = instant $0 cache hit. When iterating, keep unchanged prompts EXACTLY the same to avoid regeneration. Never clear cache. Use `--no-cache` only for intentional re-renders.
-4. **One image per Video** -- passing multiple images in `Video({ prompt: { images: [...] } })` causes errors. Pass exactly one.
-5. **Render in background** -- render jobs take 3-15+ minutes and cost real money ($0.05-$5+ per generation). Use `nohup bun run render video.tsx > output/render.log 2>&1 &`.
-6. **Gateway namespace** -- when using the varg gateway, write `providerOptions: { varg: {...} }`, never `fal`.
-7. **Duration constraints differ by model** -- kling-v3 allows 3-15s (integer). kling-v2.5 allows ONLY 5 or 10. Check [models.md](references/models.md) before setting duration.
-8. **Preview before paying** -- run `bunx vargai render video.tsx --preview` to validate structure with free placeholders before spending credits.
+3. **Cache is sacred** -- identical prompt + params = instant $0 cache hit. When iterating, keep unchanged prompts EXACTLY the same. Never clear cache.
+4. **One image per Video** -- `Video({ prompt: { images: [img] } })` takes exactly one image. Multiple images cause errors.
+5. **Duration constraints differ by model** -- kling-v3: 3-15s (integer only). kling-v2.5: ONLY 5 or 10. Check [models.md](references/models.md).
+6. **Gateway namespace** -- use `providerOptions: { varg: {...} }`, never `fal`, when going through the gateway (both modes).
+7. **Renders cost money** -- 1 credit = 1 cent. A typical 3-clip video costs $2-5. Use preview mode (local) or cheap models to iterate.
 
-## Two Modes of Operation
+## Quick Start
 
-### Mode 1: Full Video Rendering (TSX Templates)
-
-Write a `.tsx` file that composes multi-clip videos with transitions, music, captions, and voiceover. The varg SDK renders it into a final `.mp4`.
+### Cloud Render (no bun/ffmpeg needed)
 
 ```bash
-bunx vargai render video.tsx --verbose
+# Submit TSX code to the render service
+curl -s -X POST https://render.varg.ai/api/render \
+  -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"code": "const img = Image({ model: fal.imageModel(\"nano-banana-pro\"), prompt: \"a cabin in mountains at sunset\", aspectRatio: \"16:9\" });\nexport default (<Render width={1920} height={1080}><Clip duration={3}>{img}</Clip></Render>);"}'
+
+# Poll for result (repeat until "completed" or "failed")
+curl -s https://render.varg.ai/api/render/jobs/JOB_ID \
+  -H "Authorization: Bearer $VARG_API_KEY"
 ```
 
-### Mode 2: Single Asset Generation (Gateway API)
+Full details: [cloud-render.md](references/cloud-render.md)
 
-Use the gateway REST API directly for one-off images, videos, speech, or music without building a template. See [gateway-api.md](references/gateway-api.md).
+### Local Render (bun + ffmpeg)
+
+```tsx
+/** @jsxImportSource vargai */
+import { Render, Clip, Image } from "vargai/react"
+import { createVarg } from "@vargai/gateway"
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
+
+const img = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "a cabin in mountains at sunset",
+  aspectRatio: "16:9"
+})
+
+export default (
+  <Render width={1920} height={1080}>
+    <Clip duration={3}>{img}</Clip>
+  </Render>
+)
+```
+
+```bash
+bunx vargai render video.tsx --preview   # free preview
+bunx vargai render video.tsx --verbose   # full render (costs credits)
+```
+
+Full details: [local-render.md](references/local-render.md)
+
+### Single Asset (no video composition)
+
+For one-off images, videos, speech, or music without building a multi-clip template:
 
 ```bash
 curl -X POST https://api.varg.ai/v1/image \
@@ -55,208 +102,77 @@ curl -X POST https://api.varg.ai/v1/image \
   -d '{"model": "nano-banana-pro", "prompt": "a sunset over mountains"}'
 ```
 
-## Video Template Anatomy
+Full API reference: [gateway-api.md](references/gateway-api.md)
 
-Every template follows this pattern:
+## How to Write Video Code
+
+Video code has two layers: **media generation** (function calls) and **composition** (JSX).
 
 ```tsx
-/** @jsxImportSource vargai */
-import { Render, Clip, Music, Captions, Title, Image, Video, Speech } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+// 1. GENERATE media via function calls
+const img = Image({ model: ..., prompt: "..." })
+const vid = Video({ model: ..., prompt: { text: "...", images: [img] }, duration: 5 })
+const voice = Speech({ model: ..., voice: "rachel", children: "Hello!" })
 
-const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
-
-// Step 1: Generate media via function calls
-const hero = Image({
-  model: varg.imageModel("nano-banana-pro"),
-  prompt: "cinematic portrait of a warrior princess, golden hour lighting",
-  aspectRatio: "9:16"
-})
-
-const scene = Video({
-  model: varg.videoModel("kling-v3"),
-  prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
-  duration: 5
-})
-
-const voice = Speech({
-  model: varg.speechModel("eleven_v3"),
-  voice: "rachel",
-  children: "In a world beyond imagination..."
-})
-
-// Step 2: Compose via JSX tree
+// 2. COMPOSE via JSX tree
 export default (
-  <Render width={1080} height={1920} fps={30}>
-    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
+  <Render width={1080} height={1920}>
+    <Music model={...} prompt="upbeat electronic" duration={10} volume={0.3} />
     <Clip duration={5}>
-      {scene}
-      <Title position="bottom">The Last Guardian</Title>
+      {vid}
+      <Title position="bottom">Welcome</Title>
     </Clip>
     <Captions src={voice} style="tiktok" />
   </Render>
 )
 ```
 
-### Key Layers
+### Component Summary
 
-| Layer | Purpose | Example |
-|-------|---------|---------|
-| `<Render>` | Root container -- sets dimensions, fps | `<Render width={1080} height={1920}>` |
-| `<Clip>` | Timeline segment -- duration, transitions, trimming | `<Clip duration={5} transition={{ name: "fade", duration: 0.5 }}>` |
-| `Image()` | Generate still image | `Image({ model, prompt, aspectRatio })` |
-| `Video()` | Generate video (text-to-video or image-to-video) | `Video({ model, prompt, duration })` |
-| `Speech()` | Text-to-speech | `Speech({ model, voice, children: "text" })` |
-| `<Music>` | Background audio | `<Music model prompt duration volume />` |
-| `<Captions>` | Subtitle track | `<Captions src={speech} style="tiktok" />` |
-| `<Title>` | Text overlay | `<Title position="bottom">Text</Title>` |
-| `<Overlay>` | Positioned overlay | `<Overlay left={10} top={10} width={200}>` |
+| Component | Type | Purpose |
+|-----------|------|---------|
+| `Image()` | Function call | Generate still image |
+| `Video()` | Function call | Generate video (text-to-video or image-to-video) |
+| `Speech()` | Function call | Text-to-speech audio |
+| `<Render>` | JSX | Root container -- sets width, height, fps |
+| `<Clip>` | JSX | Timeline segment -- duration, transitions |
+| `<Music>` | JSX | Background audio (always set `duration`!) |
+| `<Captions>` | JSX | Subtitle track from Speech |
+| `<Title>` | JSX | Text overlay |
+| `<Overlay>` | JSX | Positioned layer |
+| `<Split>` / `<Grid>` | JSX | Layout helpers |
 
-For complete props reference, see [components.md](references/components.md).
+Full props: [components.md](references/components.md)
 
-### Render Commands
+### Provider Differences (Cloud vs Local)
 
-```bash
-bunx vargai render video.tsx --verbose       # Full render (costs credits)
-bunx vargai render video.tsx --preview        # Preview with placeholders (free)
-bunx vargai render video.tsx --no-cache       # Force regeneration (ignores cache)
-```
+| Cloud Render | Local Render |
+|---|---|
+| No imports needed | `import { ... } from "vargai/react"` |
+| `fal.imageModel("nano-banana-pro")` | `varg.imageModel("nano-banana-pro")` |
+| `fal.videoModel("kling-v3")` | `varg.videoModel("kling-v3")` |
+| `elevenlabs.speechModel("eleven_v3")` | `varg.speechModel("eleven_v3")` |
+| Globals are auto-injected | Must call `createVarg()` |
 
-## Character Consistency (Multi-Scene)
+## Cost & Iteration
 
-When a character or product appears across multiple clips, use this 3-step workflow:
-
-1. **Reference image** -- generate (or receive) a character hero shot
-2. **Scene images via /edit** -- use `nano-banana-pro/edit` to place the character into each scene, always passing the reference via `images: [ref]`
-3. **Animate via i2v** -- pass each scene image to `Video()` for image-to-video generation
-
-This ensures the character looks the same in every scene. Never generate scene images from scratch.
-
-```tsx
-// 1. Character reference
-const ref = Image({
-  prompt: "a man in a dark suit, dramatic side lighting, neutral background",
-  model: varg.imageModel("nano-banana-pro"),
-  aspectRatio: "9:16"
-})
-
-// 2. Scene images -- swap character into different environments
-const scene1 = Image({
-  prompt: { text: "same man sitting at a wooden desk, warm lamp light", images: [ref] },
-  model: varg.imageModel("nano-banana-pro/edit"),
-  aspectRatio: "9:16"
-})
-const scene2 = Image({
-  prompt: { text: "same man standing by a tall window, cold grey daylight", images: [ref] },
-  model: varg.imageModel("nano-banana-pro/edit"),
-  aspectRatio: "9:16"
-})
-
-// 3. Animate each scene
-const vid1 = Video({
-  prompt: { text: "man looks up from desk, slight head turn", images: [scene1] },
-  model: varg.videoModel("kling-v3"),
-  duration: 5
-})
-const vid2 = Video({
-  prompt: { text: "man turns from window, eyes cast down", images: [scene2] },
-  model: varg.videoModel("kling-v3"),
-  duration: 5
-})
-
-export default (
-  <Render width={1080} height={1920}>
-    <Clip duration={5}>{vid1}</Clip>
-    <Clip duration={5} transition={{ name: "fade", duration: 0.3 }}>{vid2}</Clip>
-  </Render>
-)
-```
-
-## Key Patterns & Recipes
-
-### Talking Head (character + speech + lipsync + captions)
-
-```tsx
-const character = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "friendly host" })
-const animated = Video({ model: varg.videoModel("kling-v3"), prompt: { text: "person talking naturally", images: [character] }, duration: 10 })
-const voice = Speech({ model: varg.speechModel("eleven_v3"), voice: "rachel", children: "Welcome to our channel!" })
-const synced = Video({ model: varg.videoModel("sync-v2-pro"), prompt: { video: animated, audio: voice } })
-
-export default (
-  <Render width={1080} height={1920}>
-    <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" />
-  </Render>
-)
-```
-
-### Longer Videos (chained clips)
-
-Each clip is 3-15 seconds (kling-v3). Chain multiple clips with transitions for longer videos:
-
-```tsx
-<Render width={1080} height={1920}>
-  <Clip duration={5}>{vid1}</Clip>
-  <Clip duration={5} transition={{ name: "fade", duration: 0.5 }}>{vid2}</Clip>
-  <Clip duration={10} transition={{ name: "wipeleft", duration: 0.3 }}>{vid3}</Clip>
-</Render>
-```
-
-### Slideshow (data-driven)
-
-```tsx
-const slides = ["sunset over ocean", "mountain peak at dawn", "forest path in autumn"]
-const images = slides.map(prompt => Image({ model: varg.imageModel("nano-banana-pro"), prompt }))
-
-export default (
-  <Render width={1920} height={1080}>
-    {images.map((img, i) => (
-      <Clip key={i} duration={3} transition={i > 0 ? { name: "slideleft", duration: 0.5 } : undefined}>
-        {img}
-      </Clip>
-    ))}
-  </Render>
-)
-```
-
-### Speech + Music + Captions (full audio)
-
-```tsx
-const speech = Speech({ model: varg.speechModel("turbo"), voice: "adam", children: "Welcome to the showcase" })
-
-export default (
-  <Render width={1080} height={1920}>
-    <Music model={varg.musicModel("music_v1")} prompt="gentle ambient" volume={0.2} duration={10} ducking />
-    <Clip duration={10}>
-      {video}
-      <Captions src={speech} style="tiktok" position="bottom" />
-    </Clip>
-  </Render>
-)
-```
-
-**Important**: Always set `duration` on `<Music>` to match the total video length. Without it, ElevenLabs generates ~60s of audio which extends the video beyond intended length.
-
-## Iteration & Cost Awareness
-
-- **Cache-aware editing**: When modifying a render, keep unchanged prompt strings EXACTLY the same. Even minor whitespace changes cause a cache miss and re-generation ($$$).
-- **Preview first**: Use `--preview` to validate structure with free placeholders before paying for generations.
-- **Credit costs**: nano-banana-pro = 5 credits, kling-v3 = 150 credits, speech = 20-25 credits. See [models.md](references/models.md) for full pricing.
-- **1 credit = 1 cent**. A typical 3-clip video costs $2-5.
-
-## Output Format Persistence
-
-When iterating on a previous request, preserve the output format (image, video, audio) unless explicitly told otherwise.
-
-**Explicit format-change triggers**: "animate", "make it move", "create a video", "turn into a video", "add motion", "sequence", "multiple scenes"
-
-**Ambiguous instructions** (e.g., "add effects", "enhance"): Ask for clarification. Example: "Want this as a static image with visual FX, or animated?"
+- **1 credit = 1 cent.** nano-banana-pro = 5 credits, kling-v3 = 150 credits, speech = 20-25 credits.
+- **Cache saves money.** Keep unchanged prompts character-for-character identical across iterations.
+- **Preview first** (local mode only): `--preview` generates free placeholders to validate structure.
+- Full pricing: [models.md](references/models.md)
 
 ## References
 
-- [models.md](references/models.md) -- Complete model catalog with pricing, constraints, and provider options
-- [components.md](references/components.md) -- All JSX components: props, types, and usage patterns
-- [prompting.md](references/prompting.md) -- Video and image prompt engineering guide
-- [gateway-api.md](references/gateway-api.md) -- Single-asset generation via REST API
-- [common-errors.md](references/common-errors.md) -- Debugging, gotchas, and constraint violations
-- [templates.md](references/templates.md) -- Complete working templates ready to copy-paste
+Load these on demand based on what you need:
+
+| Need | Reference | When to load |
+|------|-----------|-------------|
+| Render via API | [cloud-render.md](references/cloud-render.md) | No bun/ffmpeg, or user wants cloud rendering |
+| Render locally | [local-render.md](references/local-render.md) | bun + ffmpeg available |
+| Patterns & workflows | [recipes.md](references/recipes.md) | Talking head, character consistency, slideshow, lipsync |
+| Model selection | [models.md](references/models.md) | Choosing models, checking prices, duration constraints |
+| Component props | [components.md](references/components.md) | Need detailed props for any component |
+| Better prompts | [prompting.md](references/prompting.md) | User wants cinematic / high-quality results |
+| REST API | [gateway-api.md](references/gateway-api.md) | Single-asset generation or Render API details |
+| Debugging | [common-errors.md](references/common-errors.md) | Something failed or produced unexpected results |
+| Full examples | [templates.md](references/templates.md) | Need complete copy-paste-ready templates |
