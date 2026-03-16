@@ -173,16 +173,25 @@ Identical requests (same model + prompt + parameters) return cached results inst
 
 ## BYOK (Bring Your Own Key)
 
-Use your own provider API keys for $0 billing:
+Use your own provider API keys for $0 varg billing. Pass keys as headers alongside your `Authorization` header:
 
-```
-X-Provider-Key-Fal: fal_xxx
-X-Provider-Key-ElevenLabs: el_xxx
-X-Provider-Key-Higgsfield: hf_xxx
-X-Provider-Key-Replicate: r8_xxx
+```bash
+curl -X POST https://api.varg.ai/v1/image \
+  -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "X-Provider-Key-Fal: $FAL_KEY" \
+  -d '{"model": "nano-banana-pro", "prompt": "a sunset over mountains"}'
 ```
 
-When a BYOK header is present, the gateway routes through your key and doesn't deduct credits.
+| Provider | Header |
+|----------|--------|
+| fal.ai | `X-Provider-Key-Fal` |
+| ElevenLabs | `X-Provider-Key-ElevenLabs` |
+| Higgsfield | `X-Provider-Key-Higgsfield` |
+| Replicate | `X-Provider-Key-Replicate` |
+
+When a BYOK header is present, the gateway routes through your key and doesn't deduct credits. You still need `VARG_API_KEY` for gateway authentication.
+
+For the full BYOK guide (TypeScript client, cloud render, local render, provider key setup), see [byok.md](byok.md).
 
 ---
 
