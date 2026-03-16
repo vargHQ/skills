@@ -176,3 +176,4 @@ Load these on demand based on what you need:
 | REST API | [gateway-api.md](references/gateway-api.md) | Single-asset generation or Render API details |
 | Debugging | [common-errors.md](references/common-errors.md) | Something failed or produced unexpected results |
 | Full examples | [templates.md](references/templates.md) | Need complete copy-paste-ready templates |
+| BYOK keys | [byok.md](references/byok.md) | Using your own provider API keys for $0 billing |
