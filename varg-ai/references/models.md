@@ -149,16 +149,28 @@ Use with `varg.speechModel("id")` or `elevenlabs.speechModel("id")`.
 
 ### Available Voices
 
-`adam`, `alice`, `aria`, `bill`, `brian`, `callum`, `charlie`, `charlotte`, `chris`, `daniel`, `eric`, `george`, `jessica`, `laura`, `liam`, `lily`, `matilda`, `rachel`, `river`, `roger`, `sarah`, `will`
+**50+ curated voices** available, plus any ElevenLabs `voice_id` (1000+ public voices). Popular picks:
 
-Classic voices: `rachel`, `domi`, `sarah`, `antoni`, `elli`, `josh`, `arnold`, `adam`, `sam`
+`adam`, `rachel`, `brian`, `george`, `alice`, `daniel`, `charlie`, `jessica`, `sarah`, `will`
+
+Classic aliases: `rachel`, `domi`, `sarah`, `bella`, `antoni`, `elli`, `josh`, `arnold`, `adam`, `sam`
+
+Full catalog with voice_ids, gender, accent, and use-case recommendations: **[voices.md](voices.md)**
 
 ### Speech Usage
 
 ```tsx
-const voice = Speech({
+// By name
+const audio = Speech({
   model: varg.speechModel("eleven_v3"),
-  voice: "rachel",
+  voice: "adam",
+  children: "Welcome to our product showcase."
+})
+
+// By voice_id (any valid ElevenLabs voice_id works)
+const audio = Speech({
+  model: varg.speechModel("eleven_v3"),
+  voice: "JBFqnCBsd6RMkjVDRZzb",  // George
   children: "Welcome to our product showcase."
 })
 ```

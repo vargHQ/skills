@@ -124,7 +124,7 @@ const animated = Video({
 
 const voice = Speech({
   model: elevenlabs.speechModel("eleven_v3"),
-  voice: "rachel",
+  voice: "rachel",  // or any ElevenLabs voice_id — see voices.md
   children: "Hey everyone! Welcome back. Today we are going to talk about something really exciting."
 });
 

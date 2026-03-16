@@ -69,7 +69,17 @@ POST /v1/speech
 {
   "model": "eleven_v3",
   "text": "Welcome to our product showcase.",
-  "voice": "rachel"
+  "voice": "adam"
+}
+```
+
+The `voice` field accepts a friendly name (`"adam"`, `"rachel"`) or any ElevenLabs voice_id (`"JBFqnCBsd6RMkjVDRZzb"`). Omit for the default voice (Rachel). See [voices.md](voices.md) for the full catalog.
+
+```json
+{
+  "model": "eleven_v3",
+  "text": "Welcome to our product showcase.",
+  "voice": "JBFqnCBsd6RMkjVDRZzb"
 }
 ```
 
@@ -218,8 +228,19 @@ The `@vargai/gateway` package implements the Vercel AI SDK `ProviderV3` interfac
 GET /v1/balance      # Credit balance
 GET /v1/usage        # Usage records (optional: ?from=2026-01-01&to=2026-01-31)
 GET /v1/pricing      # Model pricing
-GET /v1/voices       # Available ElevenLabs voices
 ```
+
+### Voice Catalog
+
+```bash
+GET /v1/voices                              # All voices (paginated)
+GET /v1/voices?search=deep+male             # Search by name/description
+GET /v1/voices?gender=female&accent=british  # Filter
+GET /v1/voices?sort_by=usage_count&page_size=10  # Most popular
+POST /v1/voices/sync                        # Refresh catalog from ElevenLabs
+```
+
+Query params: `search`, `gender`, `age`, `accent`, `category`, `is_curated`, `sort_by` (usage_count|name|created_at), `sort_order` (asc|desc), `page`, `page_size`. Full details: [voices.md](voices.md)
 
 ---
 
@@ -385,7 +406,7 @@ No imports needed -- all components and providers are auto-injected as globals. 
 |----------|---------|
 | Components | `Render`, `Clip`, `Image`, `Video`, `Speech`, `Music`, `Captions`, `Title`, `Subtitle`, `Overlay`, `Split`, `Grid`, `Slot`, `Slider`, `Swipe`, `Packshot`, `TalkingHead` |
 | Providers | `fal`, `elevenlabs`, `higgsfield`, `openai`, `replicate`, `google`, `together` |
-| Data | `VOICES` (voice name to ElevenLabs ID mapping) |
+| Data | `VOICES` (classic voice name to ElevenLabs voice_id mapping — see [voices.md](voices.md)) |
 
 **Restrictions:**
 

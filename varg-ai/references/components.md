@@ -229,7 +229,7 @@ const synced = Video({
 | Prop | Type | Description |
 |------|------|-------------|
 | `model` | `SpeechModelV3` | Required. e.g. `varg.speechModel("eleven_v3")` |
-| `voice` | `string` | Voice name (see [models.md](models.md) for list) |
+| `voice` | `string` | Voice name or ElevenLabs voice_id. See [voices.md](voices.md) for full catalog |
 | `children` | `string` | Text to speak |
 
 ```tsx
@@ -419,7 +419,7 @@ Combines image generation, animation, speech, and lipsync into one component.
 | Prop | Type | Description |
 |------|------|-------------|
 | `character` | `string` | Character description prompt |
-| `voice` | `string` | Voice name |
+| `voice` | `string` | Voice name or ElevenLabs voice_id. See [voices.md](voices.md) |
 | `model` | `VideoModelV3` | Video model for animation |
 | `lipsyncModel` | `VideoModelV3` | Lipsync model |
 | `children` | `string` | Speech text |
