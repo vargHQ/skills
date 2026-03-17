@@ -74,7 +74,7 @@ export default (
       {scene}
       <Title position="bottom">The Last Guardian</Title>
     </Clip>
-    <Captions src={voice} style="tiktok" />
+    <Captions src={voice} style="tiktok" withAudio />
   </Render>
 )
 ```

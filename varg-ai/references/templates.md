@@ -136,7 +136,7 @@ const synced = Video({
 export default (
   <Render width={1080} height={1920}>
     <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" position="bottom" />
+    <Captions src={voice} style="tiktok" position="bottom" withAudio />
   </Render>
 );
 TEMPLATE
@@ -230,7 +230,7 @@ const synced = Video({
 export default (
   <Render width={1080} height={1920}>
     <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" position="bottom" />
+    <Captions src={voice} style="tiktok" position="bottom" withAudio />
   </Render>
 )
 ```
@@ -318,7 +318,7 @@ export default (
         blinking
       />
     </Clip>
-    <Captions src={voice} style="karaoke" position="bottom" />
+    <Captions src={voice} style="karaoke" position="bottom" withAudio />
   </Render>
 )
 ```

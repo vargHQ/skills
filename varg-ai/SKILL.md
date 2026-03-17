@@ -122,7 +122,7 @@ export default (
       {vid}
       <Title position="bottom">Welcome</Title>
     </Clip>
-    <Captions src={voice} style="tiktok" />
+    <Captions src={voice} style="tiktok" withAudio />
   </Render>
 )
 ```

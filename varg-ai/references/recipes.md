@@ -94,7 +94,7 @@ const synced = Video({
 export default (
   <Render width={1080} height={1920}>
     <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" position="bottom" />
+    <Captions src={voice} style="tiktok" position="bottom" withAudio />
   </Render>
 )
 ```
@@ -163,7 +163,7 @@ export default (
     <Music model={varg.musicModel("music_v1")} prompt="gentle ambient" volume={0.2} duration={10} ducking />
     <Clip duration={10}>
       {video}
-      <Captions src={speech} style="tiktok" position="bottom" />
+      <Captions src={speech} style="tiktok" position="bottom" withAudio />
     </Clip>
   </Render>
 )

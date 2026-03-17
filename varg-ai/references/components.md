@@ -278,12 +278,19 @@ const narration = Speech({
 | `srt` | `string` | - | SRT content (alternative to src) |
 | `style` | `string` | `"tiktok"` | `tiktok`, `karaoke`, `bounce`, `typewriter` |
 | `position` | `string` | `"bottom"` | `top`, `center`, `bottom` |
+| `withAudio` | `boolean` | `false` | Include the Speech audio track in the video |
 
 ```tsx
 const speech = Speech({ ... })
 
+// Captions only (no audio)
 <Captions src={speech} style="tiktok" position="bottom" />
+
+// Captions + audio from the speech element
+<Captions src={speech} style="tiktok" position="bottom" withAudio />
 ```
+
+> By default, `<Captions src={speech} />` renders captions only (no audio). Add `withAudio` to include the speech audio track. When using `withAudio`, do NOT also add `{speech}` as a separate Clip child -- that causes double audio.
 
 ### Caption Styles
 
