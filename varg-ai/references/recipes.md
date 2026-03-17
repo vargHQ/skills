@@ -58,6 +58,104 @@ export default (
 
 ---
 
+## Audio-First Workflow (segment-based narration)
+
+Audio drives the video. Generate all narration in a single `Speech()` call with an array of children -- one string per scene. This produces `segments` with word-level timing that determine clip durations, lipsync boundaries, and caption placement. No hardcoded durations.
+
+**When to use:** Any narrated video with 2+ scenes. This replaces making separate `await Speech()` calls per scene.
+
+### Pattern A: Single voiceover (smooth transitions)
+
+Full audio placed at `<Render>` level for continuous playback. Lipsync clips use `keepAudio: false` since audio comes from the voiceover track. Supports crossfade transitions between clips.
+
+```tsx
+// 1. AUDIO FIRST -- one call produces segments with timing
+const { audio, segments } = await Speech({
+  voice: "rachel",
+  model: varg.speechModel("turbo"),
+  children: [
+    "Welcome to the future of content creation.",
+    "Our AI generates stunning visuals in seconds.",
+    "Try it today and see the difference."
+  ]
+})
+
+// 2. Generate a portrait for lipsync
+const portrait = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "friendly female host, studio background, looking at camera",
+  aspectRatio: "9:16"
+})
+
+// 3. VISUALS -- durations come from segment timing
+const talking1 = Video({
+  model: varg.videoModel("veed-fabric-1.0"),
+  keepAudio: false,  // audio comes from the voiceover track
+  prompt: { images: [portrait], audio: segments[0] },
+})
+const brollImg = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "sleek product dashboard, glowing UI",
+  aspectRatio: "9:16"
+})
+const talking2 = Video({
+  model: varg.videoModel("veed-fabric-1.0"),
+  keepAudio: false,
+  prompt: { images: [portrait], audio: segments[2] },
+})
+
+// 4. COMPOSE -- full audio as voiceover, segments drive clip durations
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={segments[0].duration}>{talking1}</Clip>
+    <Clip duration={segments[1].duration} transition={{ name: "fade", duration: 0.3 }}>{brollImg}</Clip>
+    <Clip duration={segments[2].duration} transition={{ name: "fade", duration: 0.3 }}>{talking2}</Clip>
+    {audio}
+    <Captions src={audio} style="tiktok" position="bottom" />
+    <Music model={varg.musicModel("music_v1")} prompt="gentle ambient" volume={0.2} duration={audio.duration} ducking />
+  </Render>
+)
+```
+
+### Pattern B: Per-clip audio (hard cuts)
+
+Each segment placed as a clip child. Lipsync clips use `keepAudio: true` so the generated video includes its own audio. Use hard cuts only -- transitions cause audio overlap.
+
+```tsx
+const { segments } = await Speech({
+  voice: "adam",
+  model: varg.speechModel("turbo"),
+  children: [
+    "Scene one narration goes here.",
+    "Scene two is a b-roll with voiceover.",
+    "Scene three wraps it up."
+  ]
+})
+
+const portrait = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "male host, studio, looking at camera", aspectRatio: "9:16" })
+
+const talking1 = Video({ model: varg.videoModel("veed-fabric-1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[0] } })
+const brollImg = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "city skyline timelapse", aspectRatio: "9:16" })
+const talking2 = Video({ model: varg.videoModel("veed-fabric-1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[2] } })
+
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={segments[0].duration}>{talking1}</Clip>
+    <Clip duration={segments[1].duration}>{brollImg}{segments[1]}</Clip>
+    <Clip duration={segments[2].duration}>{talking2}</Clip>
+  </Render>
+)
+```
+
+### Which pattern to use?
+
+| Pattern | Transitions | Audio source | Best for |
+|---------|-------------|-------------|----------|
+| Single voiceover (A) | Crossfade OK | Full audio at Render level | Smooth narrated videos, b-roll montages |
+| Per-clip audio (B) | Hard cuts only | Each segment as clip child | UGC-style, podcast clips, scene-by-scene |
+
+---
+
 ## Talking Head (character + speech + lipsync + captions)
 
 Full pipeline: generate a character, animate them, create voiceover, lipsync the audio to the video, add captions.
