@@ -13,6 +13,15 @@ license: MIT
 metadata:
   author: vargHQ
   version: "2.0.0"
+  openclaw:
+    requires:
+      env:
+        - VARG_API_KEY
+      anyBins:
+        - curl
+        - bun
+    primaryEnv: VARG_API_KEY
+    homepage: https://varg.ai
 compatibility: >-
   Requires VARG_API_KEY (get at https://varg.ai).
   Cloud mode: curl only (zero dependencies).

@@ -1,0 +1,142 @@
+name: Publish to ClawHub
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "varg-ai/**"
+
+  # Allow manual trigger for re-publish or version bumps
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version bump type"
+        required: false
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      dry_run:
+        description: "Dry run (show what would be published)"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed for git tagging
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Authenticate with ClawHub
+        run: bunx clawhub@latest login --token "$CLAWHUB_TOKEN"
+        env:
+          CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
+
+      - name: Compute next version
+        id: version
+        run: |
+          # Read current version from SKILL.md frontmatter
+          CURRENT=$(grep -A10 'metadata:' varg-ai/SKILL.md | grep 'version:' | head -1 | sed 's/.*"\(.*\)"/\1/')
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+          BUMP="${{ github.event.inputs.bump || 'patch' }}"
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+
+          case "$BUMP" in
+            major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
+            minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
+            patch) PATCH=$((PATCH + 1)) ;;
+          esac
+
+          NEXT="${MAJOR}.${MINOR}.${PATCH}"
+          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+          echo "Current: $CURRENT -> Next: $NEXT ($BUMP)"
+
+      - name: Publish to ClawHub
+        id: publish
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          VERSION="${{ steps.version.outputs.next }}"
+          CHANGELOG="Auto-published from ${{ github.repository }}@${GITHUB_SHA::8}"
+
+          echo "Publishing vargai@${VERSION}..."
+          bunx clawhub@latest publish ./varg-ai \
+            --slug vargai \
+            --name "vargai" \
+            --version "$VERSION" \
+            --tags latest \
+            --changelog "$CHANGELOG" 2>&1 | tee /tmp/publish-output.txt
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        env:
+          CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
+
+      - name: Update version in SKILL.md
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          VERSION="${{ steps.publish.outputs.version }}"
+          sed -i "s/version: \".*\"/version: \"$VERSION\"/" varg-ai/SKILL.md
+
+          # Commit the version bump back
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add varg-ai/SKILL.md
+          git diff --cached --quiet && echo "No version change" || \
+            git commit -m "chore: bump varg-ai to v${VERSION} [skip ci]"
+          git push origin main
+
+      - name: Tag release
+        if: |
+          github.event.inputs.dry_run != 'true' &&
+          steps.publish.outputs.version != ''
+        run: |
+          VERSION="${{ steps.publish.outputs.version }}"
+          TAG="v${VERSION}"
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG already exists, skipping"
+          else
+            git tag -a "$TAG" -m "Published to ClawHub: vargai@${VERSION}"
+            git push origin "$TAG"
+            echo "Tagged and pushed $TAG"
+          fi
+
+      - name: Dry run
+        if: github.event.inputs.dry_run == 'true'
+        run: |
+          echo "DRY RUN — would publish:"
+          echo "  Slug:    vargai"
+          echo "  Version: ${{ steps.version.outputs.next }}"
+          echo "  Path:    ./varg-ai"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## ClawHub Publish Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            echo "> Dry run — nothing was published." >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "- **Skill**: vargai" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Version**: ${{ steps.version.outputs.current }} -> ${{ steps.publish.outputs.version || steps.version.outputs.next }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Commit**: \`${GITHUB_SHA::8}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Bump**: ${{ github.event.inputs.bump || 'patch' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Registry**: https://clawhub.ai/skills/vargai" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/publish-output.txt ]; then
+            echo "### Output" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            cat /tmp/publish-output.txt >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
