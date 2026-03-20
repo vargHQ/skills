@@ -163,6 +163,18 @@ Full props: [components.md](references/components.md)
 | `elevenlabs.speechModel("eleven_v3")` | `varg.speechModel("eleven_v3")` |
 | Globals are auto-injected | Must call `createVarg()` |
 
+### When to Use Which Provider
+
+| Scenario | Use | Auth |
+|----------|-----|------|
+| New project, simplest setup | `varg.*Model()` (gateway) | `VARG_API_KEY` only |
+| Existing project with fal/elevenlabs keys | `fal.*Model()` / `elevenlabs.*Model()` | Individual keys |
+| Cloud render via curl/API | Gateway (only option) | `VARG_API_KEY` |
+| Need $0 billing with own keys | Gateway + BYOK headers | `VARG_API_KEY` + provider keys |
+| Specific provider feature not in gateway | Direct provider | Individual key |
+
+**Default recommendation**: Use the gateway (`varg.*Model()` + `VARG_API_KEY`). It handles routing, caching, billing, and works with a single key.
+
 ## Cost & Iteration
 
 - **1 credit = 1 cent.** nano-banana-pro = 5 credits, kling-v3 = 150 credits, speech = 20-25 credits.

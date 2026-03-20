@@ -273,6 +273,77 @@ The `ducking` prop automatically lowers music volume when speech is playing.
 
 ---
 
+## Personalized Greeting / Birthday Video
+
+### Pattern: AI Narrator + Subject Character Scenes
+
+Mix a consistent AI narrator character (VEED lipsync) with generated scenes featuring the recipient (nano-banana-pro/edit with reference photos).
+
+**Ingredients:**
+- 1-3 reference photos of the recipient (portrait headshot = most important)
+- Style reference images (optional, for scene aesthetics)
+- Speech-first workflow: `await Speech()` -> segments drive clip durations
+- Mixed clips: VEED lipsync (narrator) + image+voiceover (recipient scenes)
+
+**Architecture:**
+
+1. **Speech first**: Single `await Speech()` call with all narrator lines as array children. Returns `{ audio, segments }` -- each segment has `.duration` for clip timing.
+
+2. **Narrator character**: Generate a base image (`nano-banana-pro`), then 3-4 angle variants via `nano-banana-pro/edit` referencing the base. Use VEED lipsync for talking clips.
+
+3. **Subject scenes**: Use `nano-banana-pro/edit` with the recipient's portrait headshot as reference image. Add style reference images for environment/aesthetic consistency.
+
+4. **Composition**: Alternate narrator clips and subject scene clips. Narrator clips use VEED `keepAudio: true`. Scene clips use the speech segment as clip child for voiceover.
+
+```tsx
+// Upload recipient photos to S3 first
+const recipientRef = "https://s3.varg.ai/clients/birthday/portrait.jpg"
+
+const { audio, segments } = await Speech({
+  model: varg.speechModel("eleven_multilingual_v2"),
+  voice: "adam",
+  children: [
+    "Happy birthday, dear friend!",
+    "From your early days, you've always been special.",
+    "Here's to many more adventures ahead!",
+  ]
+})
+
+const narrator = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "friendly AI robot character, warm smile, studio background",
+  aspectRatio: "9:16"
+})
+
+const talking = Video({
+  model: varg.videoModel("veed-fabric-1.0"),
+  keepAudio: true,
+  prompt: { images: [narrator], audio: segments[0] },
+})
+
+const scene1 = Image({
+  model: varg.imageModel("nano-banana-pro/edit"),
+  prompt: { text: "same person in a futuristic celebration scene", images: [recipientRef] },
+  aspectRatio: "9:16"
+})
+
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={segments[0].duration}>{talking}</Clip>
+    <Clip duration={segments[1].duration}>{scene1}{segments[1]}</Clip>
+    <Captions src={audio} style="tiktok" position="bottom" />
+  </Render>
+)
+```
+
+**Key tips:**
+- Keep `Speech()` parameters IDENTICAL between renders (avoids cache invalidation cascade -- see [common-errors.md](common-errors.md))
+- Upload reference photos to S3 first (gateway `POST /v1/files` or `fal.storage.upload()`)
+- Use descriptive character consistency prompts: "Same man -- dark beard, warm smile, same face"
+- VEED Fabric 1.0 is fastest for narrator lipsync (image + audio -> talking video)
+
+---
+
 ## Output Format Persistence
 
 When iterating on a previous request, preserve the output format (image, video, audio) unless explicitly told otherwise.
