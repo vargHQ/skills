@@ -15,8 +15,8 @@ Run through this before your first render in any project:
 5. **Correct imports**:
    ```tsx
    import { Render, Clip, Image, Video, Speech, Music, Captions } from "vargai/react";
-   import { varg } from "vargai/ai";           // gateway (recommended)
-   // or: import { fal, elevenlabs } from "vargai/ai";  // direct (needs individual keys)
+   import { createVarg } from "@vargai/gateway";
+   const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
    ```
 6. **Test structure first**: `bunx vargai render video.tsx --preview` validates composition for $0
 7. **Then full render**: `bunx vargai render video.tsx -o output/video.mp4`
