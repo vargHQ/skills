@@ -38,6 +38,42 @@ Use with `varg.videoModel("id")` or `fal.videoModel("id")`.
 | `omnihuman-v1.5` | varies | Advanced human motion. |
 | `veed-fabric-1.0` | varies | VEED fabric lipsync. |
 
+### Lipsync Model Selection Guide
+
+| Model | Pipeline | Input | Speed | Quality | Best For |
+|-------|----------|-------|-------|---------|----------|
+| `veed-fabric-1.0` | Image + audio -> video | Still image + audio | Fast (~30-50s) | Good | Speech-first workflows, narrator clips |
+| `sync-v2-pro` | Video + audio -> video | Pre-animated video + audio | Medium (~60-90s) | Best | High-quality talking heads, facial detail |
+| `sync-v2` | Video + audio -> video | Pre-animated video + audio | Medium | Good | Budget alternative to sync-v2-pro |
+| `omnihuman-v1.5` | Image + audio -> video | Still image + audio | Slow | Variable | Full-body motion, experimental |
+
+**Decision matrix:**
+- **"I have a speech audio and a character image"** -> `veed-fabric-1.0` (simplest, fastest)
+- **"I have an animated video and want to add lip movement"** -> `sync-v2-pro` (best quality)
+- **"I need full-body gestures matching speech"** -> `omnihuman-v1.5` (experimental)
+
+**VEED Fabric workflow** (speech-first):
+```tsx
+const portrait = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "..." });
+const talking = Video({
+  model: varg.videoModel("veed-fabric-1.0"),
+  keepAudio: true,
+  prompt: { images: [portrait], audio: speechSegment },
+  providerOptions: { varg: { resolution: "720p" } },  // 480p or 720p only
+});
+```
+
+**sync-v2-pro workflow** (animate-then-lipsync):
+```tsx
+const portrait = Image({ ... });
+const animated = Video({ model: varg.videoModel("kling-v3"), prompt: { images: [portrait], text: "person talking" }, duration: 5 });
+const talking = Video({
+  model: varg.videoModel("sync-v2-pro"),
+  keepAudio: true,
+  prompt: { images: [animated], audio: speechSegment },
+});
+```
+
 ### Video Prompt Format
 
 **Text-to-video** (string prompt):

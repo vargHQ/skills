@@ -216,3 +216,75 @@ import { createVarg } from "@vargai/gateway"
 ```
 
 This is especially useful for fast-cut edits and montages.
+
+---
+
+## FFmpeg Composition Failure (exit code 254, 1, etc.)
+
+**Error**: `Failed with exit code 254` during the editly/ffmpeg step, AFTER all AI generation succeeds.
+
+**Common causes**:
+1. **Missing output directory** -- the `output/` folder doesn't exist. FFmpeg cannot create directories.
+   Fix: `mkdir -p output` before rendering, or use `-o /path/that/exists/video.mp4`.
+2. **Corrupted input file** -- a temp file was cleaned up or is 0 bytes.
+   Fix: Clear `.cache/ai/` and re-render (regenerates all assets).
+3. **FFmpeg version incompatibility** -- very old or very new ffmpeg may not support all filters.
+   Fix: Use ffmpeg 6.x-8.x. Run `ffmpeg -version` to check.
+
+**Debugging**: Run with `--verbose` flag to see the full ffmpeg command, then run it manually in your terminal to see the actual stderr error message.
+
+**Note**: The SDK currently swallows ffmpeg stderr (fix pending in vargHQ/sdk#167). Until merged, `--verbose` + manual re-run is the only way to see the real error.
+
+---
+
+## Missing Provider API Key
+
+**Error**: `ELEVENLABS_API_KEY not set` or image/video generation returns "Unauthorized".
+
+**Cause**: Using direct provider imports (`fal`, `elevenlabs` from `"vargai/ai"`) without the corresponding API key in `.env`.
+
+**Fix -- Option A (recommended)**: Use the gateway provider with a single key:
+- Set `VARG_API_KEY` in `.env`
+- Use `varg.imageModel(...)`, `varg.speechModel(...)` etc. instead of `fal.*` / `elevenlabs.*`
+- All providers route through `api.varg.ai` -- one key for everything
+
+**Fix -- Option B**: Add individual provider keys to `.env`:
+```
+FAL_API_KEY=fal_xxxxx
+ELEVENLABS_API_KEY=sk_xxxxx
+```
+
+**Note**: Bun auto-loads `.env` from the project root. No `dotenv` needed.
+
+---
+
+## Cannot Find Module 'vargai/jsx-dev-runtime'
+
+**Error**: `Cannot find module 'vargai/jsx-dev-runtime'` when running `bun run render`.
+
+**Cause**: The render CLI copies your file to an internal cache directory where the `vargai` tsconfig path alias doesn't resolve correctly. This affects Bun <= 1.3.x.
+
+**Fix -- use relative imports**:
+```tsx
+/** @jsxImportSource ./sdk/src/react/runtime */
+import { Render, Clip, Image, Video, Speech } from "./sdk/src/react/index.ts";
+import { fal, elevenlabs } from "./sdk/src/ai-sdk/index.ts";
+```
+
+This triggers the CLI's "relative import" code path, which imports your file directly from its original location instead of copying it.
+
+**Alternative**: If your file has no relative imports and no top-level await, the standard `@jsxImportSource vargai` + `"vargai/react"` imports should work via the CLI's cache-copy mechanism.
+
+---
+
+## VEED/Lipsync Videos Regenerate Despite Same Prompts
+
+**Symptom**: VEED lipsync videos regenerate (costing credits + time) even though you didn't change any Video prompts.
+
+**Cause**: The cache key for Video includes the duration and URL of speech segments used as audio input. ElevenLabs TTS is non-deterministic -- re-running `Speech()` with identical text/voice/model can produce audio with slightly different durations (by milliseconds). This changes the cache key for all downstream Video elements.
+
+**Cascade**: Speech re-gen -> different segment durations -> different segment URLs -> different Video cache keys -> all VEED videos miss cache -> full regeneration.
+
+**Fix**: When iterating on visuals, keep the `Speech()` call and all its parameters EXACTLY the same. Don't add/remove/reorder speech lines, don't change the voice or model. If you need to change speech content, expect all lipsync videos to regenerate.
+
+**Cost impact**: Each VEED lipsync video costs 50-80 credits ($0.50-0.80). A 4-clip narrator video wastes $2-3 on unnecessary regeneration.
