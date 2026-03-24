@@ -329,21 +329,37 @@ const speech = Speech({ ... })
 
 ## `<Overlay>` -- Positioned Layer
 
+Works in two modes:
+- **Global** (sibling of `<Clip>` inside `<Render>`) -- applied to ALL clips for the entire video
+- **Per-clip** (inside a `<Clip>`) -- scoped to that clip only, with optional `start`/`end` timing
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `left` | `number` | 0 | X position (pixels) |
-| `top` | `number` | 0 | Y position (pixels) |
-| `width` | `number` | auto | Width (pixels) |
-| `height` | `number` | auto | Height (pixels) |
+| `left` | `number\|string` | 0 | X position (pixels or `"5%"`) |
+| `top` | `number\|string` | 0 | Y position (pixels or `"5%"`) |
+| `width` | `number\|string` | auto | Width (pixels or `"25%"`) |
+| `height` | `number\|string` | auto | Height (pixels or `"25%"`) |
 | `volume` | `number` | 1.0 | Audio volume for overlay content |
+| `start` | `number` | -- | Start time in seconds (relative to clip). Per-clip only. |
+| `end` | `number` | -- | End time in seconds (relative to clip). Per-clip only. |
 
 ```tsx
+// Per-clip overlay with timing (appears at 1s, disappears at 3s within this clip)
 <Clip duration={5}>
   {backgroundVideo}
-  <Overlay left={50} top={50} width={300} height={300}>
+  <Overlay left="3%" top="3%" width="25%" height="25%" start={1} end={3}>
     {logoImage}
   </Overlay>
 </Clip>
+
+// Global overlay (appears on ALL clips for entire video)
+<Render width={1920} height={1080}>
+  <Clip duration={5}>{scene1}</Clip>
+  <Clip duration={5}>{scene2}</Clip>
+  <Overlay left="80%" top="5%" width="15%">
+    {watermarkImage}
+  </Overlay>
+</Render>
 ```
 
 ---
