@@ -26,6 +26,7 @@ compatibility: >-
   Requires VARG_API_KEY (get at https://varg.ai).
   Cloud mode: curl only (zero dependencies).
   Local mode: bun runtime + ffmpeg.
+allowed-tools: Bash(bun:*) Bash(bunx:*) Bash(curl:*) Read Write Edit
 ---
 
 ## Environment Detection
