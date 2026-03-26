@@ -1,6 +1,6 @@
 # Recipes & Patterns
 
-Common video workflows. All examples use local-mode syntax (`varg.imageModel(...)`). For cloud mode, replace `varg.*` with `fal.*` / `elevenlabs.*` and omit imports.
+Common video workflows. All examples use `varg.*` syntax which works in both local and cloud render modes. For cloud mode, just omit imports.
 
 ---
 
@@ -338,7 +338,7 @@ export default (
 
 **Key tips:**
 - Keep `Speech()` parameters IDENTICAL between renders (avoids cache invalidation cascade -- see [common-errors.md](common-errors.md))
-- Upload reference photos to S3 first (gateway `POST /v1/files` or `fal.storage.upload()`)
+- Upload reference photos to S3 first (gateway `POST /v1/files`)
 - Use descriptive character consistency prompts: "Same man -- dark beard, warm smile, same face"
 - VEED Fabric 1.0 is fastest for narrator lipsync (image + audio -> talking video)
 

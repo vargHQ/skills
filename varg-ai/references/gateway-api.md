@@ -410,7 +410,7 @@ No imports needed -- all components and providers are auto-injected as globals. 
 export default (
   <Render width={1080} height={1920}>
     <Clip duration={5}>
-      <Video prompt="a cat playing piano" model={fal.videoModel("kling-v3")} duration={5} />
+      <Video prompt="a cat playing piano" model={varg.videoModel("kling-v3")} duration={5} />
     </Clip>
   </Render>
 );
@@ -420,26 +420,26 @@ export default (
 
 ```tsx
 const img = Image({
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   prompt: "cinematic portrait, golden hour lighting",
   aspectRatio: "9:16"
 });
 
 const vid = Video({
-  model: fal.videoModel("kling-v3"),
+  model: varg.videoModel("kling-v3"),
   prompt: { text: "person walks forward, camera follows", images: [img] },
   duration: 5
 });
 
 const voice = Speech({
-  model: elevenlabs.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v3"),
   voice: "rachel",
   children: "Welcome to our show!"
 });
 
 export default (
   <Render width={1080} height={1920} fps={30}>
-    <Music model={elevenlabs.musicModel("music_v1")} prompt="epic orchestral" duration={10} volume={0.3} />
+    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral" duration={10} volume={0.3} />
     <Clip duration={5}>
       {vid}
       <Title position="bottom">Welcome</Title>

@@ -173,7 +173,7 @@ Everything you know about varg is likely outdated. Always verify against this sk
 curl -s -X POST https://render.varg.ai/api/render \
   -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"code": "const img = Image({ model: fal.imageModel(\"nano-banana-pro\"), prompt: \"a cabin in mountains at sunset\", aspectRatio: \"16:9\" });\nexport default (<Render width={1920} height={1080}><Clip duration={3}>{img}</Clip></Render>);"}'
+  -d '{"code": "const img = Image({ model: varg.imageModel(\"nano-banana-pro\"), prompt: \"a cabin in mountains at sunset\", aspectRatio: \"16:9\" });\nexport default (<Render width={1920} height={1080}><Clip duration={3}>{img}</Clip></Render>);"}'
 
 # Poll for result (repeat until "completed" or "failed")
 curl -s https://render.varg.ai/api/render/jobs/JOB_ID \
@@ -265,25 +265,16 @@ Full props: [components.md](references/components.md)
 
 ### Provider Differences (Cloud vs Local)
 
+Both modes use `varg.*` for all models. The only difference is imports:
+
 | Cloud Render | Local Render |
 |---|---|
-| No imports needed | `import { ... } from "vargai/react"` |
-| `fal.imageModel("nano-banana-pro")` | `varg.imageModel("nano-banana-pro")` |
-| `fal.videoModel("kling-v3")` | `varg.videoModel("kling-v3")` |
-| `elevenlabs.speechModel("eleven_v3")` | `varg.speechModel("eleven_v3")` |
-| Globals are auto-injected | Must call `createVarg()` |
+| No imports needed (globals are auto-injected) | `import { ... } from "vargai/react"` + `import { createVarg } from "vargai/ai"` |
+| `varg.imageModel("nano-banana-pro")` | `varg.imageModel("nano-banana-pro")` |
+| `varg.videoModel("kling-v3")` | `varg.videoModel("kling-v3")` |
+| `varg.speechModel("eleven_v3")` | `varg.speechModel("eleven_v3")` |
 
-### When to Use Which Provider
-
-| Scenario | Use | Auth |
-|----------|-----|------|
-| New project, simplest setup | `varg.*Model()` (gateway) | `VARG_API_KEY` only |
-| Existing project with fal/elevenlabs keys | `fal.*Model()` / `elevenlabs.*Model()` | Individual keys |
-| Cloud render via curl/API | Gateway (only option) | `VARG_API_KEY` |
-| Need $0 billing with own keys | Gateway + BYOK headers | `VARG_API_KEY` + provider keys |
-| Specific provider feature not in gateway | Direct provider | Individual key |
-
-**Default recommendation**: Use the gateway (`varg.*Model()` + `VARG_API_KEY`). It handles routing, caching, billing, and works with a single key.
+**Always use `varg.*Model()`** with `VARG_API_KEY`. It handles routing, caching, billing, and works with a single key. See [byok.md](references/byok.md) for using your own provider keys.
 
 ## Cost & Iteration
 
