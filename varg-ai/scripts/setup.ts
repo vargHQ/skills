@@ -177,7 +177,7 @@ if (!hasExample) {
 
   const provider = vargKey ? "gateway" : "fal"
   const importLine = vargKey
-    ? `import { createVarg } from "@vargai/gateway"\n\nconst varg = createVarg({ apiKey: process.env.VARG_API_KEY! })`
+    ? `import { createVarg } from "vargai/ai"\n\nconst varg = createVarg({ apiKey: process.env.VARG_API_KEY! })`
     : `import { fal } from "vargai/ai"`
 
   const modelPrefix = vargKey ? "varg" : "fal"

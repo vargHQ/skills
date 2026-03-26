@@ -4,7 +4,7 @@
 
 ## Video Models
 
-Use with `varg.videoModel("id")` or `fal.videoModel("id")`.
+Use with `varg.videoModel("id")`.
 
 | Model ID | Credits | Duration | Notes |
 |----------|---------|----------|-------|
@@ -119,7 +119,7 @@ Video({
 
 ## Image Models
 
-Use with `varg.imageModel("id")` or `fal.imageModel("id")`.
+Use with `varg.imageModel("id")`.
 
 | Model ID | Credits | Prompt Format | Notes |
 |----------|---------|---------------|-------|
@@ -171,7 +171,7 @@ Most models support all standard ratios.
 
 ## Speech Models (ElevenLabs)
 
-Use with `varg.speechModel("id")` or `elevenlabs.speechModel("id")`.
+Use with `varg.speechModel("id")`.
 
 | Model ID | Credits | Notes |
 |----------|---------|-------|
@@ -203,7 +203,7 @@ const voice = Speech({
 
 ## Music Model (ElevenLabs)
 
-Use with `varg.musicModel("music_v1")` or `elevenlabs.musicModel()`.
+Use with `varg.musicModel("music_v1")`.
 
 | Model ID | Credits | Notes |
 |----------|---------|-------|

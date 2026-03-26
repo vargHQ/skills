@@ -174,12 +174,12 @@ const vid = Video({ ..., duration: 5 })
 
 **Error**: Code fails to evaluate in the render service.
 
-**Cause**: The render service strips import statements and provides globals. Only `vargai/*` and `@vargai/gateway` imports are allowed.
+**Cause**: The render service strips import statements and provides globals. Only `vargai/*` imports are allowed.
 
 **Fix for render service**: Don't import anything. All components and providers are auto-provided as globals:
 ```tsx
 // In render service (no imports needed)
-const img = Image({ model: fal.imageModel("nano-banana-pro"), prompt: "..." })
+const img = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "..." })
 export default <Render>...</Render>
 ```
 
@@ -187,7 +187,7 @@ export default <Render>...</Render>
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 ```
 
 ---
@@ -243,7 +243,7 @@ This is especially useful for fast-cut edits and montages.
 
 **Cause**: Using direct provider imports (`fal`, `elevenlabs` from `"vargai/ai"`) without the corresponding API key in `.env`.
 
-**Fix -- Option A (recommended)**: Use the gateway provider with a single key:
+**Fix (recommended)**: Use the `varg` provider with a single key:
 - Set `VARG_API_KEY` in `.env`
 - Use `varg.imageModel(...)`, `varg.speechModel(...)` etc. instead of `fal.*` / `elevenlabs.*`
 - All providers route through `api.varg.ai` -- one key for everything

@@ -2,7 +2,7 @@
 
 Copy-paste-ready templates. All use the varg gateway (`VARG_API_KEY`).
 
-Each template is shown in **local mode** (with imports and `createVarg`). For **cloud mode**, omit imports and replace `varg.imageModel(...)` with `fal.imageModel(...)`, `varg.videoModel(...)` with `fal.videoModel(...)`, etc.
+Each template is shown in **local mode** (with imports and `createVarg`). For **cloud mode**, just omit the imports -- `varg` is auto-injected as a global. Same `varg.*Model()` syntax works in both modes.
 
 ---
 
@@ -18,13 +18,13 @@ These examples show the complete cloud render workflow using `curl`. No bun or f
 # Write TSX code to a file first (for reference/iteration)
 cat > video.tsx << 'TEMPLATE'
 const img = Image({
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light, snow on peaks",
   aspectRatio: "16:9"
 });
 
 const vid = Video({
-  model: fal.videoModel("kling-v3"),
+  model: varg.videoModel("kling-v3"),
   prompt: { text: "gentle camera push-in, smoke rising from chimney, birds flying across sky", images: [img] },
   duration: 5
 });
@@ -111,25 +111,25 @@ done
 ```bash
 cat > talking-head.tsx << 'TEMPLATE'
 const character = Image({
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
   aspectRatio: "9:16"
 });
 
 const animated = Video({
-  model: fal.videoModel("kling-v3"),
+  model: varg.videoModel("kling-v3"),
   prompt: { text: "woman talks naturally to camera, subtle hand gestures", images: [character] },
   duration: 10
 });
 
 const voice = Speech({
-  model: elevenlabs.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v3"),
   voice: "rachel",
   children: "Hey everyone! Welcome back. Today we are going to talk about something really exciting."
 });
 
 const synced = Video({
-  model: fal.videoModel("sync-v2-pro"),
+  model: varg.videoModel("sync-v2-pro"),
   prompt: { video: animated, audio: voice }
 });
 
@@ -162,7 +162,7 @@ The simplest possible template: one image, one video, one clip.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -196,7 +196,7 @@ Full talking-head pipeline with AI-generated character.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video, Speech, Captions } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -246,7 +246,7 @@ Multi-scene product video with consistent character, transitions, music, and pac
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Captions, Title, Image, Video, Speech, Packshot } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -334,7 +334,7 @@ Generate a slideshow from an array of prompts. Easy to customize.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Image } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -375,7 +375,7 @@ Side-by-side layout with two videos.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Split, Image, Video, Title } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -425,7 +425,7 @@ The ref -> edit -> animate pattern for a consistent character across 3 scenes.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Image, Video } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 

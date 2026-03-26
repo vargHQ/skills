@@ -13,16 +13,16 @@ In cloud mode, **no imports are needed**. All components and providers are auto-
 | Category | Names |
 |----------|-------|
 | Components | `Render`, `Clip`, `Image`, `Video`, `Speech`, `Music`, `Captions`, `Title`, `Subtitle`, `Overlay`, `Split`, `Grid`, `Slot`, `Slider`, `Swipe`, `Packshot`, `TalkingHead` |
-| Providers | `fal`, `elevenlabs`, `higgsfield`, `openai`, `replicate`, `google`, `together` |
+| Providers | `varg` (recommended), `fal`, `elevenlabs`, `higgsfield`, `openai`, `replicate`, `google`, `together` |
 | Data | `VOICES` (voice name to ElevenLabs ID mapping) |
 
-The user's `VARG_API_KEY` (from the `Authorization` header) is automatically used for all AI generation calls. No `createVarg()` needed.
+The user's `VARG_API_KEY` (from the `Authorization` header) is automatically used for all AI generation calls. No `createVarg()` needed. Use `varg.*` for all models -- same syntax as local render mode.
 
 ### Minimal Example
 
 ```tsx
 const img = Image({
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   prompt: "a cozy cabin in mountains at sunset, warm golden light",
   aspectRatio: "16:9"
 });
@@ -38,26 +38,26 @@ export default (
 
 ```tsx
 const hero = Image({
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   prompt: "cinematic portrait of a warrior princess, golden hour lighting",
   aspectRatio: "9:16"
 });
 
 const scene = Video({
-  model: fal.videoModel("kling-v3"),
+  model: varg.videoModel("kling-v3"),
   prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
   duration: 5
 });
 
 const voice = Speech({
-  model: elevenlabs.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v3"),
   voice: "rachel",
   children: "In a world beyond imagination..."
 });
 
 export default (
   <Render width={1080} height={1920} fps={30}>
-    <Music model={elevenlabs.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
+    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
     <Clip duration={5}>
       {scene}
       <Title position="bottom">The Last Guardian</Title>
@@ -86,7 +86,7 @@ Write the TSX code to a local `.tsx` file for reference and iteration:
 ```bash
 cat > video.tsx << 'EOF'
 const img = Image({
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   prompt: "a sunset over mountains",
   aspectRatio: "16:9"
 });
