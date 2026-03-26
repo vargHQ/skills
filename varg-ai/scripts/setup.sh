@@ -18,6 +18,24 @@ red()    { printf '\033[31m%s\033[0m' "$1"; }
 yellow() { printf '\033[33m%s\033[0m' "$1"; }
 dim()    { printf '\033[2m%s\033[0m' "$1"; }
 bold()   { printf '\033[1m%s\033[0m' "$1"; }
+cyan()   { printf '\033[36m%s\033[0m' "$1"; }
+
+# ── Helpers ────────────────────────────────────────────────────
+
+CREDENTIALS_FILE="$HOME/.varg/credentials"
+
+# Check for saved credentials at ~/.varg/credentials
+check_saved_credentials() {
+  if [ -f "$CREDENTIALS_FILE" ]; then
+    # Extract api_key using grep/sed (works without jq)
+    SAVED_KEY=$(grep -o '"api_key"[[:space:]]*:[[:space:]]*"[^"]*"' "$CREDENTIALS_FILE" 2>/dev/null | sed 's/.*"api_key"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/' || echo "")
+    SAVED_EMAIL=$(grep -o '"email"[[:space:]]*:[[:space:]]*"[^"]*"' "$CREDENTIALS_FILE" 2>/dev/null | sed 's/.*"email"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/' || echo "")
+    if [ -n "$SAVED_KEY" ]; then
+      return 0
+    fi
+  fi
+  return 1
+}
 
 # ── Main ───────────────────────────────────────────────────────
 
@@ -30,11 +48,11 @@ HAS_FFMPEG=0
 HAS_FFPROBE=0
 HAS_KEY=0
 
-# 1. Check VARG_API_KEY
+# 1. Check VARG_API_KEY (env var, then saved credentials)
 echo "API Key:"
 
 if [ -n "${VARG_API_KEY:-}" ]; then
-  echo "  $(green '[OK]') VARG_API_KEY is set"
+  echo "  $(green '[OK]') VARG_API_KEY is set (env)"
   HAS_KEY=1
 
   # Test gateway connectivity
@@ -47,7 +65,37 @@ if [ -n "${VARG_API_KEY:-}" ]; then
     BODY=$(echo "$RESPONSE" | sed '$d')
 
     if [ "$HTTP_CODE" = "200" ]; then
-      # Try to extract balance (works with basic grep)
+      BALANCE=$(echo "$BODY" | grep -o '"balance_cents":[0-9]*' | grep -o '[0-9]*' || echo "")
+      if [ -n "$BALANCE" ]; then
+        DOLLARS=$(echo "scale=2; $BALANCE / 100" | bc 2>/dev/null || echo "?")
+        echo "  $(green '[OK]') Gateway connected. Balance: $BALANCE credits (\$$DOLLARS)"
+      else
+        echo "  $(green '[OK]') Gateway connected."
+      fi
+    elif [ "$HTTP_CODE" = "401" ]; then
+      echo "  $(red '[ERR]') Invalid API key (401 Unauthorized)"
+    else
+      echo "  $(yellow '[WARN]') Could not verify API key (HTTP $HTTP_CODE)"
+    fi
+  fi
+elif check_saved_credentials; then
+  echo "  $(green '[OK]') VARG_API_KEY found ($CREDENTIALS_FILE)"
+  if [ -n "$SAVED_EMAIL" ]; then
+    echo "  $(dim "    Account: $SAVED_EMAIL")"
+  fi
+  export VARG_API_KEY="$SAVED_KEY"
+  HAS_KEY=1
+
+  # Test gateway connectivity
+  if command -v curl &>/dev/null; then
+    RESPONSE=$(curl -s -w "\n%{http_code}" \
+      -H "Authorization: Bearer $VARG_API_KEY" \
+      "https://api.varg.ai/v1/balance" 2>/dev/null || echo "error")
+
+    HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+    BODY=$(echo "$RESPONSE" | sed '$d')
+
+    if [ "$HTTP_CODE" = "200" ]; then
       BALANCE=$(echo "$BODY" | grep -o '"balance_cents":[0-9]*' | grep -o '[0-9]*' || echo "")
       if [ -n "$BALANCE" ]; then
         DOLLARS=$(echo "scale=2; $BALANCE / 100" | bc 2>/dev/null || echo "?")
@@ -64,11 +112,14 @@ if [ -n "${VARG_API_KEY:-}" ]; then
 else
   echo "  $(red '[MISSING]') VARG_API_KEY not set"
   echo ""
-  echo "  Get your API key at: https://varg.ai"
+  echo "  Get your API key at: $(cyan 'https://app.varg.ai')"
+  echo ""
   echo "  Then set it:"
-  echo "    export VARG_API_KEY=varg_xxx"
-  echo "  Or add to .env:"
-  echo "    echo 'VARG_API_KEY=varg_xxx' >> .env"
+  echo "    $(cyan 'export VARG_API_KEY=varg_xxx')"
+  echo "    $(dim 'echo VARG_API_KEY=varg_xxx >> .env')"
+  echo ""
+  echo "  Or save globally:"
+  echo "    $(dim "mkdir -p ~/.varg && echo '{\"api_key\":\"varg_xxx\"}' > ~/.varg/credentials && chmod 600 ~/.varg/credentials")"
 fi
 
 # 2. Check bun
@@ -147,5 +198,6 @@ fi
 
 if [ "$HAS_KEY" -eq 0 ]; then
   echo "  $(red 'Note: VARG_API_KEY is required for both modes.')"
+  echo "  $(dim "Get your key at $(cyan 'https://app.varg.ai')")"
   echo ""
 fi

@@ -2,7 +2,42 @@
 
 A collection of [Agent Skills](https://agentskills.io) for AI video, image, speech, and music generation using the varg platform.
 
+Works with **Claude Code**, **OpenCode**, **ClawHub**, and any tool that supports the [Agent Skills](https://agentskills.io) standard.
+
 ## Installation
+
+### ClawHub (recommended)
+
+```bash
+# Install a specific skill
+npx clawhub@latest install vargai
+
+# Or install all skills from this repo
+npx clawhub@latest install vargai
+```
+
+### Claude Code
+
+```bash
+# Clone into personal skills directory (available in all projects)
+git clone https://github.com/vargHQ/skills.git ~/.claude/skills/varg
+
+# Or symlink individual skills
+ln -s /path/to/skills/varg-ai ~/.claude/skills/varg-ai
+```
+
+### OpenCode
+
+```bash
+# Clone into any supported skills directory
+git clone https://github.com/vargHQ/skills.git ~/.opencode/skills/varg
+
+# Also works with:
+#   ~/.agents/skills/
+#   .opencode/skills/ (project-level)
+```
+
+### Agent Skills CLI
 
 ```bash
 npx skills add vargHQ/skills
@@ -10,73 +45,103 @@ npx skills add vargHQ/skills
 
 ## Available Skills
 
-### varg-ai
+| Skill | Description | ClawHub Slug |
+|-------|-------------|--------------|
+| [varg-ai](./varg-ai/) | AI video, image, speech, and music generation | `vargai` |
 
-Generate AI videos, images, speech, and music using the varg SDK and gateway API.
+## Requirements
 
-**Use when:**
-- Creating videos, animations, talking characters
-- Building TikTok/Reels/Shorts content
-- Generating slideshows with AI images
-- Making talking head videos with lipsync
-- Product showcases and commercials
-- Single-asset generation (one-off images, video clips, speech, music)
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) -- required for all skills
+- **Cloud mode**: curl only (zero dependencies)
+- **Local mode**: bun runtime + ffmpeg
 
-**Requirements:**
-- Bun runtime
-- `VARG_API_KEY` (recommended -- single key for all providers) or `FAL_KEY` (direct fal.ai access)
-- Optional: `ELEVENLABS_API_KEY`, `REPLICATE_API_TOKEN`, `HIGGSFIELD_API_KEY`
+## Skill Structure
 
-**Features:**
-- JSX-based video composition with AI-powered media generation
-- 10+ video models, 12+ image models, 6+ speech models
-- Character consistency across multi-scene videos
-- Automatic caching (same prompt = instant $0 cache hit)
-- Music, captions, lipsync, transitions, layouts
-- Gateway REST API for single-asset generation
-- Preview mode (free placeholders for structure validation)
+Each skill follows the [Agent Skills specification](https://agentskills.io/specification):
+
+```
+skill-name/
+├── SKILL.md            # Core instructions (required)
+├── references/         # On-demand reference docs
+│   ├── models.md       # Model catalog, pricing
+│   ├── components.md   # Component reference
+│   └── ...
+├── scripts/            # Executable setup/helper scripts
+│   └── setup.sh
+└── assets/             # Static resources (optional)
+```
+
+## Adding a New Skill
+
+1. Create a directory at the repo root with your skill name (lowercase, hyphens only):
+
+```bash
+mkdir my-new-skill
+```
+
+2. Create `my-new-skill/SKILL.md` with cross-compatible frontmatter:
+
+```yaml
+---
+name: my-new-skill
+description: >-
+  What this skill does and when to use it.
+  Include trigger keywords for auto-discovery.
+license: MIT
+metadata:
+  author: vargHQ
+  version: "1.0.0"
+  openclaw:
+    requires:
+      env:
+        - VARG_API_KEY
+      anyBins:
+        - curl
+        - bun
+    primaryEnv: VARG_API_KEY
+    homepage: https://varg.ai
+compatibility: >-
+  Describe environment requirements here.
+allowed-tools: Bash(bun:*) Bash(curl:*) Read Write Edit
+---
+
+Your skill instructions here...
+```
+
+3. Add reference docs in `my-new-skill/references/` (keep `SKILL.md` under 500 lines).
+
+4. Push to `main` -- the GitHub Actions workflow auto-publishes all changed skills to ClawHub via `clawhub sync`.
+
+### Frontmatter Field Reference
+
+| Field | Standard | Purpose |
+|-------|----------|---------|
+| `name` | Agent Skills | Skill identifier (must match directory name) |
+| `description` | Agent Skills | What + when (used for discovery in all tools) |
+| `license` | Agent Skills | License (MIT for ClawHub) |
+| `metadata.author` | Agent Skills | Author identifier |
+| `metadata.version` | Agent Skills | Semver version string |
+| `metadata.openclaw` | ClawHub | Runtime requirements, env vars, binaries |
+| `compatibility` | Agent Skills | Human-readable requirements description |
+| `allowed-tools` | Claude Code / OpenCode | Pre-approved tools (experimental in OpenCode) |
+
+All fields are cross-compatible -- tools ignore fields they don't recognize.
 
 ## Quick Start
 
 ```bash
 # 1. Install the skill
-npx skills add vargHQ/skills
+npx clawhub@latest install vargai
 
 # 2. Set your API key
 export VARG_API_KEY=varg_xxx
 
 # 3. Run setup to verify environment
-bun scripts/setup.ts
+bash varg-ai/scripts/setup.sh
 
 # 4. Render your first video
 bunx vargai render hello.tsx --preview    # Free preview
 bunx vargai render hello.tsx --verbose    # Full render
-```
-
-## Skill Structure
-
-```
-varg-ai/
-├── SKILL.md                # Core instructions
-├── references/
-│   ├── models.md           # Complete model catalog with pricing
-│   ├── components.md       # All JSX components and props
-│   ├── prompting.md        # Prompt engineering guide
-│   ├── gateway-api.md      # REST API for single-asset generation
-│   ├── common-errors.md    # Debugging and gotchas
-│   └── templates.md        # 6 ready-to-use templates
-└── scripts/
-    └── setup.ts            # Environment setup and verification
-```
-
-## Example Prompts
-
-```
-Create a 15-second TikTok video about a warrior princess
-Generate a talking head video with a friendly tech host
-Make a product showcase for wireless earbuds
-Create a slideshow of nature scenes with ambient music
-Generate a single hero image for a landing page
 ```
 
 ## Documentation
@@ -84,6 +149,7 @@ Generate a single hero image for a landing page
 - [vargHQ/sdk](https://github.com/vargHQ/sdk) -- Full SDK documentation
 - [vargHQ/templates](https://github.com/vargHQ/templates) -- Video template examples
 - [Agent Skills Spec](https://agentskills.io/specification) -- Agent Skills format
+- [ClawHub](https://clawhub.ai) -- Skill registry
 
 ## License
 
