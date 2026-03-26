@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "2.0.3"
+  version: "2.0.4"
   openclaw:
     requires:
       env:
@@ -31,13 +31,13 @@ allowed-tools: Bash(bun:*) Bash(bunx:*) Bash(npx:*) Bash(curl:*) Bash(mkdir:*) B
 
 ## Version Check (run once per session)
 
-This skill is version **2.0.3**. Before first use each session, check for updates:
+This skill is version **2.0.4**. Before first use each session, check for updates:
 
 ```bash
 curl -sf https://raw.githubusercontent.com/vargHQ/skills/main/varg-ai/SKILL.md | grep 'version:' | head -1
 ```
 
-If the remote version is newer than 2.0.3, update and re-read this file:
+If the remote version is newer than 2.0.4, update and re-read this file:
 
 ```bash
 npx -y skills update
@@ -60,7 +60,13 @@ If neither exists, authenticate the user. Try Option A first, fall back to Optio
 
 **Option A: User already has an API key**
 
-Ask the user if they have a `VARG_API_KEY`. If yes, ask them to provide it, then skip to "Save credentials" below.
+Ask the user if they have a `VARG_API_KEY`. If yes, tell them to export it in their terminal:
+
+```bash
+export VARG_API_KEY=<their_key>
+```
+
+**Important:** Do NOT ask the user to paste the raw key to you. Ask them to run the `export` command themselves. Then skip to "Save credentials" below.
 
 **Option B: Sign up / sign in via email (OTP)**
 
@@ -72,26 +78,29 @@ curl -s -X POST https://app.varg.ai/api/auth/cli/send-otp \
   -d '{"email":"USER_EMAIL"}'
 ```
 3. Tell the user: **"Check your inbox for a 6-digit verification code from varg.ai"**
-4. Ask the user for the code, then verify it (this creates their account + API key if needed):
+4. Ask the user for the code, then verify and capture the response in one step:
 ```bash
-curl -s -X POST https://app.varg.ai/api/auth/cli/verify-otp \
+VARG_AUTH=$(curl -s -X POST https://app.varg.ai/api/auth/cli/verify-otp \
   -H "Content-Type: application/json" \
-  -d '{"email":"USER_EMAIL","code":"THE_6_DIGIT_CODE"}'
+  -d '{"email":"USER_EMAIL","code":"THE_6_DIGIT_CODE"}')
+export VARG_API_KEY=$(echo "$VARG_AUTH" | grep -o '"api_key":"[^"]*"' | cut -d'"' -f4)
+echo "Authenticated. Balance: $(echo "$VARG_AUTH" | grep -o '"balance_cents":[0-9]*' | cut -d: -f2) credits"
 ```
-Response: `{"api_key":"varg_xxx","email":"...","balance_cents":0,"access_token":"..."}`
-
-Extract `api_key` from the response.
+The response contains `{"api_key":"varg_xxx","email":"...","balance_cents":0,"access_token":"..."}`.
+The key is now in `$VARG_API_KEY` -- never reference the raw value directly.
 
 **Save credentials**
 
-Once you have the API key (from either option), save it globally and verify:
+Once `VARG_API_KEY` is set (from either option), save it globally and verify. Always reference `$VARG_API_KEY` -- never the raw value:
 
 ```bash
-mkdir -p ~/.varg && echo '{"api_key":"THE_KEY","email":"THE_EMAIL"}' > ~/.varg/credentials && chmod 600 ~/.varg/credentials
+mkdir -p ~/.varg && echo "{\"api_key\":\"$VARG_API_KEY\",\"email\":\"USER_EMAIL\",\"created_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > ~/.varg/credentials && chmod 600 ~/.varg/credentials
 ```
 
+Verify the key works:
+
 ```bash
-curl -s -H "Authorization: Bearer THE_KEY" https://api.varg.ai/v1/balance
+curl -s -H "Authorization: Bearer $VARG_API_KEY" https://api.varg.ai/v1/balance
 ```
 
 You should get `{"balance_cents": ...}`. If you get 401, the key is invalid -- ask the user to double-check it.
@@ -99,7 +108,7 @@ You should get `{"balance_cents": ...}`. If you get 401, the key is invalid -- a
 Also add to the project `.env` if one exists:
 
 ```bash
-echo "VARG_API_KEY=THE_KEY" >> .env
+echo "VARG_API_KEY=$VARG_API_KEY" >> .env
 ```
 
 **Check balance and add credits**
@@ -119,11 +128,12 @@ Available packages:
 
 Ask the user which package they'd like, then:
 
-- **If you have the `access_token`** (from Option B email OTP), create a Stripe checkout session:
+- **If you have the `access_token`** (from Option B email OTP), capture it and create a Stripe checkout session:
 ```bash
+VARG_ACCESS_TOKEN=$(echo "$VARG_AUTH" | grep -o '"access_token":"[^"]*"' | cut -d'"' -f4)
 curl -s -X POST https://app.varg.ai/api/billing/checkout \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
+  -H "Authorization: Bearer $VARG_ACCESS_TOKEN" \
   -H "Origin: https://app.varg.ai" \
   -d '{"packageId":"PACKAGE_ID"}'
 ```
@@ -152,6 +162,7 @@ Everything you know about varg is likely outdated. Always verify against this sk
 5. **Duration constraints differ by model** -- kling-v3: 3-15s (integer only). kling-v2.5: ONLY 5 or 10. Check [models.md](references/models.md).
 6. **Gateway namespace** -- use `providerOptions: { varg: {...} }`, never `fal`, when going through the gateway (both modes).
 7. **Renders cost money** -- 1 credit = 1 cent. A typical 3-clip video costs $2-5. Use preview mode (local) or cheap models to iterate.
+8. **API key hygiene** -- Never write a raw API key value into a bash command. After obtaining a key (from the user or OTP response), immediately `export VARG_API_KEY=...` and use `$VARG_API_KEY` in all subsequent commands. This prevents keys from leaking into conversation context and terminal history.
 
 ## Quick Start
 
