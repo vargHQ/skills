@@ -192,6 +192,7 @@ Load these on demand based on what you need:
 | Render locally | [local-render.md](references/local-render.md) | bun + ffmpeg available |
 | Patterns & workflows | [recipes.md](references/recipes.md) | Talking head, character consistency, slideshow, lipsync |
 | Model selection | [models.md](references/models.md) | Choosing models, checking prices, duration constraints |
+| Voice selection | [voices.md](references/voices.md) | Choosing voices, using voice_id, browsing 50+ voice catalog |
 | Component props | [components.md](references/components.md) | Need detailed props for any component |
 | Better prompts | [prompting.md](references/prompting.md) | User wants cinematic / high-quality results |
 | REST API | [gateway-api.md](references/gateway-api.md) | Single-asset generation or Render API details |

@@ -252,7 +252,7 @@ Full audio setup with background music that ducks under speech:
 ```tsx
 const speech = Speech({
   model: varg.speechModel("turbo"),
-  voice: "adam",
+  voice: "adam",  // or use any voice_id: "JBFqnCBsd6RMkjVDRZzb" — see voices.md
   children: "Welcome to the showcase. Today we have something special for you."
 })
 
