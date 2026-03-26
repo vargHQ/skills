@@ -162,7 +162,7 @@ The simplest possible template: one image, one video, one clip.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -196,7 +196,7 @@ Full talking-head pipeline with AI-generated character.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video, Speech, Captions } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -246,7 +246,7 @@ Multi-scene product video with consistent character, transitions, music, and pac
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Captions, Title, Image, Video, Speech, Packshot } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -334,7 +334,7 @@ Generate a slideshow from an array of prompts. Easy to customize.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Image } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -375,7 +375,7 @@ Side-by-side layout with two videos.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Split, Image, Video, Title } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -425,7 +425,7 @@ The ref -> edit -> animate pattern for a consistent character across 3 scenes.
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Image, Video } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 

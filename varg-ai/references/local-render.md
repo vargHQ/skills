@@ -15,7 +15,7 @@ Run through this before your first render in any project:
 5. **Correct imports**:
    ```tsx
    import { Render, Clip, Image, Video, Speech, Music, Captions } from "vargai/react";
-   import { createVarg } from "@vargai/gateway";
+   import { createVarg } from "vargai/ai";
    const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
    ```
 6. **Test structure first**: `bunx vargai render video.tsx --preview` validates composition for $0
@@ -28,7 +28,7 @@ Local mode requires imports and an explicit provider setup:
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Captions, Title, Image, Video, Speech } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 ```
@@ -40,7 +40,7 @@ Use `varg.imageModel(...)`, `varg.videoModel(...)`, `varg.speechModel(...)`, `va
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -62,7 +62,7 @@ export default (
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Music, Captions, Title, Image, Video, Speech } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 

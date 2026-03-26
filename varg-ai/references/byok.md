@@ -101,7 +101,7 @@ Pass `providerKeys` to `createVarg()`:
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({
   apiKey: process.env.VARG_API_KEY!,
@@ -131,7 +131,7 @@ The gateway client automatically converts `providerKeys` to the correct `X-Provi
 For standalone asset generation via the TypeScript client:
 
 ```typescript
-import { VargClient } from "@vargai/gateway"
+import { VargClient } from "vargai/ai"
 
 const client = new VargClient({
   apiKey: process.env.VARG_API_KEY!,

@@ -200,7 +200,7 @@ For the full BYOK guide (TypeScript client, cloud render, local render, provider
 For programmatic access from TypeScript:
 
 ```typescript
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
@@ -213,7 +213,7 @@ const result = await generateImage({
 })
 ```
 
-The `@vargai/gateway` package implements the Vercel AI SDK `ProviderV3` interface, exposing:
+The `vargai/ai` package implements the Vercel AI SDK `ProviderV3` interface, exposing:
 - `varg.imageModel(id)` -- returns `ImageModelV3`
 - `varg.videoModel(id)` -- returns `VideoModelV3`
 - `varg.speechModel(id)` -- returns `SpeechModelV3`

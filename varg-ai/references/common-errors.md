@@ -174,7 +174,7 @@ const vid = Video({ ..., duration: 5 })
 
 **Error**: Code fails to evaluate in the render service.
 
-**Cause**: The render service strips import statements and provides globals. Only `vargai/*` and `@vargai/gateway` imports are allowed.
+**Cause**: The render service strips import statements and provides globals. Only `vargai/*` imports are allowed.
 
 **Fix for render service**: Don't import anything. All components and providers are auto-provided as globals:
 ```tsx
@@ -187,7 +187,7 @@ export default <Render>...</Render>
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 ```
 
 ---

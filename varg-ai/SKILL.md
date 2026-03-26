@@ -187,7 +187,7 @@ Full details: [cloud-render.md](references/cloud-render.md)
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image } from "vargai/react"
-import { createVarg } from "@vargai/gateway"
+import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
