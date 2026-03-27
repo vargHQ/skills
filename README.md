@@ -40,7 +40,7 @@ git clone https://github.com/vargHQ/skills.git ~/.opencode/skills/varg
 ### Agent Skills CLI
 
 ```bash
-npx skills add vargHQ/skills
+npx skills add vargHQ/skills --yes
 ```
 
 ## Available Skills

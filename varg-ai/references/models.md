@@ -185,16 +185,42 @@ Use with `varg.speechModel("id")`.
 
 ### Available Voices
 
-`adam`, `alice`, `aria`, `bill`, `brian`, `callum`, `charlie`, `charlotte`, `chris`, `daniel`, `eric`, `george`, `jessica`, `laura`, `liam`, `lily`, `matilda`, `rachel`, `river`, `roger`, `sarah`, `will`
+ElevenLabs default (premade) voices. Pass the `voice_id` directly in the `voice` prop.
 
-Classic voices: `rachel`, `domi`, `sarah`, `antoni`, `elli`, `josh`, `arnold`, `adam`, `sam`
+| Name | Voice ID | Gender | Accent | Style |
+|------|----------|--------|--------|-------|
+| Adam | `pNInz6obpgDQGcFmaJgB` | Male | American | Dominant, firm |
+| Alice | `Xb7hH8MSUJpSbSDYk0k2` | Female | British | Clear, engaging |
+| Bella | `hpp4J3VqNfWAUOO0d1Us` | Female | American | Professional, warm |
+| Bill | `pqHfZKP75CvOlQylNhV4` | Male | American | Wise, mature |
+| Brian | `nPczCjzI2devNBz1zQrb` | Male | American | Deep, resonant |
+| Callum | `N2lVS1w4EtoT3dr4eOWO` | Male | American | Husky, character |
+| Charlie | `IKne3meq5aSn9XLyUdCD` | Male | Australian | Confident, energetic |
+| Chris | `iP95p4xoKVk53GoZ742B` | Male | American | Charming, casual |
+| Daniel | `onwK4e9ZLuTAKqWW03F9` | Male | British | Steady, broadcast |
+| Eric | `cjVigY5qzO86Huf0OWal` | Male | American | Smooth, trustworthy |
+| George | `JBFqnCBsd6RMkjVDRZzb` | Male | British | Warm, storyteller |
+| Harry | `SOYHLrjzK2X1ezoPC6cr` | Male | American | Fierce, character |
+| Jessica | `cgSgspJ2msm6clMCkdW9` | Female | American | Playful, bright |
+| Laura | `FGY2WhTYpPnrIDTdsKH5` | Female | American | Enthusiastic, quirky |
+| Liam | `TX3LPaxmHKxFdv7VOQHJ` | Male | American | Energetic, social media |
+| Lily | `pFZP5JQG7iQjIQuC4Bku` | Female | British | Velvety, refined |
+| Matilda | `XrExE9yKIg1WjnnlVkGX` | Female | American | Knowledgeable, professional |
+| River | `SAz9YHcvj6GT2YYXdXww` | Neutral | American | Relaxed, informative |
+| Roger | `CwhRBWXzGAHq8TQ4Fs17` | Male | American | Laid-back, casual |
+| Sarah | `EXAVITQu4vr4xnSDxMaL` | Female | American | Mature, reassuring |
+| Will | `bIHbv24MWmeRgasZH58o` | Male | American | Relaxed, optimistic |
+
+**Recommended:** `Sarah`, `Brian`, `Matilda`, `George`, `Jessica` cover most use cases.
+
+> Any valid ElevenLabs `voice_id` can also be passed directly — not limited to this list.
 
 ### Speech Usage
 
 ```tsx
 const voice = Speech({
   model: varg.speechModel("eleven_v3"),
-  voice: "rachel",
+  voice: "EXAVITQu4vr4xnSDxMaL",
   children: "Welcome to our product showcase."
 })
 ```
