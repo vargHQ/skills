@@ -10,6 +10,8 @@ Use with `varg.videoModel("id")` or `fal.videoModel("id")`.
 |----------|---------|----------|-------|
 | `kling-v3` | 150 | 3-15s (integer) | **Best quality (default)**. O3 Pro tier. |
 | `kling-v3-standard` | 100 | 3-15s (integer) | O3 Standard tier. Good quality, cheaper. |
+| `seedance-2-preview` | 250 | **5 or 10 ONLY** | ByteDance Seedance 2. Excellent quality. Auto watermark removal. |
+| `seedance-2-fast-preview` | 150 | **5 or 10 ONLY** | ByteDance Seedance 2 Fast. Faster generation, auto watermark removal. |
 | `kling-v2.6` | 150 | 3-15s (integer) | Native audio support: `providerOptions: { varg: { generate_audio: true } }` |
 | `kling-v2.5` | 100 | **5 or 10 ONLY** | Legacy. Any other duration causes 422 error. |
 | `kling-v2.1` | 100 | 5 or 10 | Legacy. |
@@ -268,7 +270,9 @@ Use with `varg.musicModel("music_v1")` or `elevenlabs.musicModel()`.
 | Image editing | `nano-banana-pro/edit` | 5 |
 | Image (fast) | `flux-schnell` | 5 |
 | Video (default) | `kling-v3` | 150 |
+| Video (premium) | `seedance-2-preview` | 250 |
 | Video (budget) | `kling-v3-standard` | 100 |
+| Video (fast, ByteDance) | `seedance-2-fast-preview` | 150 |
 | Video (cheapest) | `ltx-2-19b-distilled` | 50 |
 | Speech | `eleven_v3` or `turbo` | 20-25 |
 | Music | `music_v1` | 30 |
