@@ -1,8 +1,13 @@
-# varg AI Agent Skills
+# varg — AI Agent Skills for Video, Image, Speech & Music Generation
 
-A collection of [Agent Skills](https://agentskills.io) for AI video, image, speech, and music generation using the varg platform.
+A collection of [Agent Skills](https://agentskills.io) for AI video, image, speech, and music generation using the varg platform. One skill to access Kling, Flux, ElevenLabs, Sora, and more — zero code, just prompt.
 
-Works with **Claude Code**, **OpenCode**, **ClawHub**, and any tool that supports the [Agent Skills](https://agentskills.io) standard.
+<p align="center">
+  <a href="https://github.com/vargHQ/skills/stargazers"><img src="https://img.shields.io/github/stars/vargHQ/skills" alt="GitHub stars"></a>
+  <a href="https://github.com/vargHQ/skills/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+</p>
+
+Works with **Claude Code**, **Cursor**, **Windsurf**, **OpenCode**, **ClawHub**, and any tool that supports the [Agent Skills](https://agentskills.io) standard.
 
 ## Installation
 
