@@ -213,10 +213,11 @@ const animated = Video({
   duration: 5
 })
 
-// Lipsync (video + audio)
-const synced = Video({
-  model: varg.videoModel("sync-v2-pro"),
-  prompt: { video: animatedCharacter, audio: voiceover }
+// Lipsync — image + audio (VEED, recommended)
+const talking = Video({
+  model: varg.videoModel("veed-fabric-1.0"),
+  keepAudio: true,
+  prompt: { images: [portrait], audio: voiceover }
 })
 ```
 
@@ -435,25 +436,43 @@ Used inside Grid or Split for fine positioning.
 
 ---
 
-## `<TalkingHead>` -- Animated Character
+## `TalkingHead()` -- Lipsync Character
 
-Combines image generation, animation, speech, and lipsync into one component.
+Combines an image + speech into a lipsync talking-head video. **Must be called as a function, not JSX.** Requires three props: `image`, `audio`, and `model`.
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `character` | `string` | Character description prompt |
-| `voice` | `string` | Voice name |
-| `model` | `VideoModelV3` | Video model for animation |
-| `lipsyncModel` | `VideoModelV3` | Lipsync model |
-| `children` | `string` | Speech text |
+**Best model: `veed-fabric-1.0`** — takes image + audio directly (one step, fastest). For sync-v2/sync-v3, TalkingHead auto-animates the image first then lipsyncs (two-step, slower).
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `image` | `VargElement<"image">` | **Yes** | An `Image()` element (the character portrait) |
+| `audio` | `VargElement<"speech">` | **Yes** | A `Speech()` element (the voiceover — await first for duration) |
+| `model` | `VideoModelV3` | **Yes** | Lipsync model. Use `varg.videoModel("veed-fabric-1.0")` (recommended) |
+| `lipsyncModel` | `VideoModelV3` | No | Override lipsync model (defaults to `model`) |
+| `resolution` | `"480p" \| "720p" \| "1080p"` | No | Video resolution (default: `"720p"`) |
+| `position` | `Position \| object` | No | Position within the clip |
+| `size` | `{ width, height }` | No | Size override |
+
+**IMPORTANT:** Do NOT pass `character`, `voice`, `src`, or `children` to TalkingHead — those are NOT valid props. Only `image`, `audio`, `model`.
 
 ```tsx
-<TalkingHead
-  character="friendly female host, studio background"
-  voice="rachel"
-  model={varg.videoModel("kling-v3")}
-  lipsyncModel={varg.videoModel("sync-v2-pro")}
->
-  Welcome to our show! Today we're going to talk about...
-</TalkingHead>
+const portrait = Image({
+  model: varg.imageModel("nano-banana-pro"),
+  prompt: "friendly female host, studio background, looking at camera",
+  aspectRatio: "9:16"
+})
+
+const audio = await Speech({
+  model: varg.speechModel("eleven_v3"),
+  voice: "rachel",
+  children: "Welcome to our show! Today we're going to talk about something exciting."
+})
+
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={audio.duration}>
+      <TalkingHead image={portrait} audio={audio} model={varg.videoModel("veed-fabric-1.0")} />
+      <Captions src={audio} style="tiktok" />
+    </Clip>
+  </Render>
+)
 ```
