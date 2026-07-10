@@ -2,77 +2,73 @@
 
 1 credit = 1 cent. $1 = 100 credits.
 
+> Credits below are **estimates** from the live catalog. Always verify with `GET https://api.varg.ai/v2/pricing` (public, no auth) or price the exact request with `POST /v2/estimate` (same body as the generation call, no job created).
+
 ## Video Models
 
 Use with `varg.videoModel("id")`.
 
-| Model ID | Credits | Duration | Notes |
+| Model ID | Credits (~) | Duration | Notes |
 |----------|---------|----------|-------|
-| `kling-v3` | 150 | 3-15s (integer) | **Best quality (default)**. O3 Pro tier. |
-| `kling-v3-standard` | 100 | 3-15s (integer) | O3 Standard tier. Good quality, cheaper. |
-| `seedance-2-preview` | 250 | **5 or 10 ONLY** | ByteDance Seedance 2. Excellent quality. Auto watermark removal. |
-| `seedance-2-fast-preview` | 150 | **5 or 10 ONLY** | ByteDance Seedance 2 Fast. Faster generation, auto watermark removal. |
-| `kling-v2.6` | 150 | 3-15s (integer) | Native audio support: `providerOptions: { varg: { generate_audio: true } }` |
-| `kling-v2.5` | 100 | **5 or 10 ONLY** | Legacy. Any other duration causes 422 error. |
-| `kling-v2.1` | 100 | 5 or 10 | Legacy. |
-| `kling-v2` | 100 | 5 or 10 | Legacy. |
-| `wan-2.5` | 80 | varies | Fast and affordable. |
-| `wan-2.5-preview` | 60 | varies | Preview version. |
-| `minimax` | 80 | varies | Alternative provider. |
-| `ltx-2-19b-distilled` | 50 | varies | **Cheapest**. Uses `num_frames` not `duration`, `video_size` not `aspect_ratio`. Native audio support. |
-| `grok-imagine` | 100 | varies | xAI model. Native audio support. |
+| `kling_v3` | 221 | 3-15s (integer) | **Best quality (default)**. Pro tier. |
+| `kling_v3_standard` | 221 | 3-15s (integer) | Standard tier. |
+| `seedance_2_preview` | 394 | **5 or 10 ONLY** | ByteDance Seedance 2. Excellent quality. Auto watermark removal. |
+| `seedance_2_fast_preview` | 237 | **5 or 10 ONLY** | ByteDance Seedance 2 Fast. Faster generation, auto watermark removal. |
+| `sora_2` | 105 | varies | OpenAI video model. |
+| `sora_2_pro` | 315 | varies | OpenAI premium tier. |
+| `kling_v2.6` | varies | 3-15s (integer) | Native audio support: `providerOptions: { varg: { generate_audio: true } }` |
+| `kling_v2.5` | 147 | **5 or 10 ONLY** | Legacy. Any other duration causes 422 error. |
+| `kling_v2.1` | 147 | 5 or 10 | Legacy. |
+| `kling_v2` | 147 | 5 or 10 | Legacy. |
+| `wan_2.5` | 158 | varies | Fast and affordable. |
+| `wan_2.5_preview` | 158 | varies | Preview version. |
+| `minimax` | 84 | varies | Alternative provider. |
+| `ltx_2_19b_distilled` | 53 | varies | **Cheapest**. Uses `num_frames` not `duration`, `video_size` not `aspect_ratio`. Native audio support. |
+| `grok_imagine` | 105 | varies | xAI model. Native audio support. |
 
 ### Video Editing / Motion Control
 
-| Model ID | Credits | Notes |
+| Model ID | Credits (~) | Notes |
 |----------|---------|-------|
-| `grok-imagine-edit` | 100 | Video editing via xAI. |
-| `kling-v2.6-motion` | 150 | Motion control (camera trajectories). |
-| `kling-v2.6-motion-standard` | 100 | Motion control, standard tier. |
+| `grok_imagine_edit` | 105 | Video editing via xAI. |
+| `sora_2_remix` | 105 | Sora video remix. |
+| `kling_v2.6_motion` | 221 | Motion control (camera trajectories). |
 
 ### Lipsync Models
 
-| Model ID | Credits | Notes |
+| Model ID | Credits (~) | Notes |
 |----------|---------|-------|
-| `sync-v2` | 50 | Standard lipsync. |
-| `sync-v2-pro` | 80 | Higher quality lipsync. |
-| `lipsync` | 50 | Basic lipsync. |
-| `omnihuman-v1.5` | varies | Advanced human motion. |
-| `veed-fabric-1.0` | varies | VEED fabric lipsync. |
+| `sync_v2` | 53 | Standard lipsync. |
+| `sync_v2_pro` | 84 | Higher quality lipsync. |
+| `sync_v3` | 105 | Latest sync. |
+| `lipsync` | 53 | Basic lipsync. |
+| `omnihuman_v1.5` | ~1008 | Advanced human motion. Expensive. |
+| `veed_fabric_1.0` | ~473 | VEED fabric lipsync. |
 
 ### Lipsync Model Selection Guide
 
+**`veed_fabric_1.0` is the best and recommended model for talking heads.** It takes a still image + audio and produces a talking video directly — simplest pipeline, fastest results, best quality for speech-first workflows.
+
 | Model | Pipeline | Input | Speed | Quality | Best For |
 |-------|----------|-------|-------|---------|----------|
-| `veed-fabric-1.0` | Image + audio -> video | Still image + audio | Fast (~30-50s) | Good | Speech-first workflows, narrator clips |
-| `sync-v2-pro` | Video + audio -> video | Pre-animated video + audio | Medium (~60-90s) | Best | High-quality talking heads, facial detail |
-| `sync-v2` | Video + audio -> video | Pre-animated video + audio | Medium | Good | Budget alternative to sync-v2-pro |
-| `omnihuman-v1.5` | Image + audio -> video | Still image + audio | Slow | Variable | Full-body motion, experimental |
+| `veed_fabric_1.0` | Image + audio -> video | Still image + audio | Fast (~30-50s) | **Best** | **Talking heads, narrator clips (RECOMMENDED)** |
+| `sync_v2` | Video + audio -> video | Pre-animated video + audio | Medium | Good | Adding lip movement to existing video |
+| `omnihuman_v1.5` | Image + audio -> video | Still image + audio | Slow | Variable | Full-body motion, experimental |
 
 **Decision matrix:**
-- **"I have a speech audio and a character image"** -> `veed-fabric-1.0` (simplest, fastest)
-- **"I have an animated video and want to add lip movement"** -> `sync-v2-pro` (best quality)
-- **"I need full-body gestures matching speech"** -> `omnihuman-v1.5` (experimental)
+- **"I need a talking head"** -> `veed_fabric_1.0` (best, simplest, fastest)
+- **"I have a speech audio and a character image"** -> `veed_fabric_1.0`
+- **"I have an animated video and want to add lip movement"** -> `sync_v2`
+- **"I need full-body gestures matching speech"** -> `omnihuman_v1.5` (experimental)
 
-**VEED Fabric workflow** (speech-first):
+**VEED Fabric workflow** (recommended — speech-first):
 ```tsx
-const portrait = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "..." });
+const portrait = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "..." });
 const talking = Video({
-  model: varg.videoModel("veed-fabric-1.0"),
+  model: varg.videoModel("veed_fabric_1.0"),
   keepAudio: true,
   prompt: { images: [portrait], audio: speechSegment },
   providerOptions: { varg: { resolution: "720p" } },  // 480p or 720p only
-});
-```
-
-**sync-v2-pro workflow** (animate-then-lipsync):
-```tsx
-const portrait = Image({ ... });
-const animated = Video({ model: varg.videoModel("kling-v3"), prompt: { images: [portrait], text: "person talking" }, duration: 5 });
-const talking = Video({
-  model: varg.videoModel("sync-v2-pro"),
-  keepAudio: true,
-  prompt: { images: [animated], audio: speechSegment },
 });
 ```
 
@@ -80,22 +76,31 @@ const talking = Video({
 
 **Text-to-video** (string prompt):
 ```tsx
-Video({ model: varg.videoModel("kling-v3"), prompt: "a cat playing piano", duration: 5 })
+Video({ model: varg.videoModel("kling_v3"), prompt: "a cat playing piano", duration: 5 })
 ```
 
 **Image-to-video** (object prompt with ONE image):
 ```tsx
 Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "cat starts playing keys", images: [catImage] },
   duration: 5
 })
 ```
 
-**Lipsync** (video + audio):
+**Lipsync — image + audio** (recommended, VEED):
 ```tsx
 Video({
-  model: varg.videoModel("sync-v2-pro"),
+  model: varg.videoModel("veed_fabric_1.0"),
+  keepAudio: true,
+  prompt: { images: [portrait], audio: voiceover }
+})
+```
+
+**Lipsync — video + audio** (for pre-animated video):
+```tsx
+Video({
+  model: varg.videoModel("sync_v2"),
   prompt: { video: animatedCharacter, audio: voiceover }
 })
 ```
@@ -104,13 +109,13 @@ Video({
 
 ```tsx
 Video({
-  model: varg.videoModel("kling-v2.6"),
+  model: varg.videoModel("kling_v2.6"),
   prompt: "...",
   duration: 5,
   aspectRatio: "9:16",
   providerOptions: {
     varg: {
-      generate_audio: true,   // Native audio (kling-v2.6, ltx, grok)
+      generate_audio: true,   // Native audio (kling_v2.6, ltx, grok)
       resolution: "2K",       // Higher resolution
     }
   }
@@ -123,34 +128,33 @@ Video({
 
 Use with `varg.imageModel("id")`.
 
-| Model ID | Credits | Prompt Format | Notes |
+| Model ID | Credits (~) | Prompt Format | Notes |
 |----------|---------|---------------|-------|
-| `nano-banana-pro` | 5 | `string` | **Best default**. Text-to-image. |
-| `nano-banana-pro/edit` | 5 | `{ text, images }` | Reference-based editing. Always pass reference via `images: [ref]`. |
-| `nano-banana-2` | 5 | `{ text, images? }` | Newer model (slower). |
-| `nano-banana-2/edit` | 5 | `{ text, images }` | Explicit edit mode. |
-| `flux-schnell` | 5 | `string` | Fast text-to-image. |
-| `flux-dev` | 8 | `string` | Better quality Flux. |
-| `flux-pro` | 10 | `string` | Best Flux quality. |
-| `recraft-v3` | 10 | `string` | Stylized / design images. |
-| `recraft-v4-pro` | 10 | `string` | Latest Recraft. |
-| `seedream-v4.5/edit` | 5 | `{ text, images }` | ByteDance image editing. |
-| `qwen-angles` | 8 | `{ text, images }` | Multi-angle generation from reference. |
-| `qwen-image-2` | varies | `string` | Qwen image generation. |
-| `qwen-image-2-pro` | varies | `string` | Qwen pro tier. |
-| `soul` | 15 | `string` | Higgsfield character generation. 80+ style presets. |
+| `nano_banana_pro` | 126 | `string` | **Best quality**. Text-to-image. |
+| `nano_banana_pro/edit` | 126 | `{ text, images }` | Reference-based editing. Always pass reference via `images: [ref]`. |
+| `nano_banana_2` | 68 | `{ text, images? }` | Cheaper nano banana. |
+| `nano_banana_2/edit` | 68 | `{ text, images }` | Explicit edit mode. |
+| `grok_imagine_image` | 4 | `string` | **Cheapest**. xAI image generation. |
+| `flux_schnell` | ~5 | `string` | Fast text-to-image. |
+| `flux_dev` | 68 | `string` | Better quality Flux. |
+| `flux_pro` | 68 | `string` | Best Flux quality. |
+| `recraft_v3` | 11 | `string` | Stylized / design images. |
+| `seedream_v4.5/edit` | 53 | `{ text, images }` | ByteDance image editing. |
+| `qwen_angles` | 9 | `{ text, images }` | Multi-angle generation from reference. |
+| `phota` | 38 | `string` | Photorealistic generation. |
+| `soul` | 21 | `string` | Higgsfield character generation. 80+ style presets. |
 
 ### Image Prompt Examples
 
-**Text-to-image** (nano-banana-pro, flux):
+**Text-to-image** (nano_banana_pro, flux):
 ```tsx
-Image({ model: varg.imageModel("nano-banana-pro"), prompt: "a sunset over the ocean", aspectRatio: "16:9" })
+Image({ model: varg.imageModel("nano_banana_pro"), prompt: "a sunset over the ocean", aspectRatio: "16:9" })
 ```
 
-**Reference editing** (nano-banana-pro/edit):
+**Reference editing** (nano_banana_pro/edit):
 ```tsx
 Image({
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   prompt: { text: "same person in a tropical beach setting", images: [referenceImage] },
   aspectRatio: "9:16"
 })
@@ -175,15 +179,17 @@ Most models support all standard ratios.
 
 Use with `varg.speechModel("id")`.
 
-| Model ID | Credits | Notes |
+| Model ID | Credits (~) | Notes |
 |----------|---------|-------|
-| `turbo` | 20 | Alias for `eleven_turbo_v2`. Fast, recommended. |
-| `eleven_turbo_v2` | 20 | Fast English TTS. |
-| `eleven_turbo_v2_5` | 20 | Updated turbo. |
-| `eleven_flash_v2` | 20 | Ultra-fast. |
-| `eleven_flash_v2_5` | 20 | Updated flash. |
-| `eleven_multilingual_v2` | 25 | Multi-language support. |
-| `eleven_v3` | 25 | Latest, highest quality. |
+| `turbo` | 105 | Alias for `eleven_turbo_v2`. Fast English only. |
+| `eleven_turbo_v2` | 105 | Fast English TTS. |
+| `eleven_turbo_v2_5` | 105 | Updated turbo. |
+| `eleven_flash_v2` | 105 | Ultra-fast. |
+| `eleven_flash_v2_5` | 105 | Updated flash. |
+| `eleven_multilingual_v2` | 210 | Multi-language support. |
+| `eleven_v3` | 210 | Latest, highest quality. |
+
+> Speech is billed per character — the credits above are catalog estimates for a typical utterance. Short lines cost less; use `POST /v2/estimate` with your actual `text` for the real price.
 
 ### Available Voices
 
@@ -233,9 +239,10 @@ const voice = Speech({
 
 Use with `varg.musicModel("music_v1")`.
 
-| Model ID | Credits | Notes |
+| Model ID | Credits (~) | Notes |
 |----------|---------|-------|
-| `music_v1` | 30 | AI music generation. Always set `duration`. |
+| `music_v1` | 79 | AI music generation. Always set `duration`. |
+| `eleven_music` | 79 | Alias. |
 
 ### Music Usage
 
@@ -255,25 +262,31 @@ Use with `varg.musicModel("music_v1")`.
 
 ## Transcription Models
 
-| Model ID | Credits | Notes |
+| Model ID | Credits (~) | Notes |
 |----------|---------|-------|
-| `whisper` | 10 | OpenAI Whisper via fal. |
-| `whisper-large-v3` | 10 | Whisper large model. |
+| `whisper` | 6 | OpenAI Whisper via fal. |
+| `whisper_large_v3` | 6 | Whisper large model. |
+| `groq_whisper_large_v3_turbo` | 4 | Fastest/cheapest via Groq. |
 
 ---
 
 ## Quick Reference: Recommended Defaults
 
-| Task | Model | Credits |
+| Task | Model | Credits (~) |
 |------|-------|---------|
-| Image (default) | `nano-banana-pro` | 5 |
-| Image editing | `nano-banana-pro/edit` | 5 |
-| Image (fast) | `flux-schnell` | 5 |
-| Video (default) | `kling-v3` | 150 |
-| Video (premium) | `seedance-2-preview` | 250 |
-| Video (budget) | `kling-v3-standard` | 100 |
-| Video (fast, ByteDance) | `seedance-2-fast-preview` | 150 |
-| Video (cheapest) | `ltx-2-19b-distilled` | 50 |
-| Speech | `eleven_v3` or `turbo` | 20-25 |
-| Music | `music_v1` | 30 |
-| Lipsync | `sync-v2-pro` | 80 |
+| Image (best quality) | `nano_banana_pro` | 126 |
+| Image editing | `nano_banana_pro/edit` | 126 |
+| Image (cheap) | `grok_imagine_image` | 4 |
+| Image (fast) | `flux_schnell` | ~5 |
+| Video (default) | `kling_v3` | 221 |
+| Video (premium) | `seedance_2_preview` | 394 |
+| Video (affordable) | `sora_2` | 105 |
+| Video (fast, ByteDance) | `seedance_2_fast_preview` | 237 |
+| Video (cheapest) | `ltx_2_19b_distilled` | 53 |
+| Speech (fast) | `eleven_turbo_v2_5` | ~105 |
+| Speech (best) | `eleven_v3` | ~210 |
+| Music | `music_v1` | 79 |
+| Lipsync (cheap, video+audio) | `sync_v2` | 53 |
+| Talking Head (image+audio) | `veed_fabric_1.0` | ~473 |
+
+Live catalog: `GET https://api.varg.ai/v2/pricing`.

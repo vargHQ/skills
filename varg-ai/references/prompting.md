@@ -24,7 +24,7 @@ Be specific about appearance, clothing, expression:
 - "A golden retriever puppy with floppy ears"
 - "A weathered lighthouse on a rocky cliff"
 
-For characters appearing in multiple scenes, generate a reference image first and use `nano-banana-pro/edit` to maintain consistency (see SKILL.md character consistency section).
+For characters appearing in multiple scenes, generate a reference image first and use `nano_banana_pro/edit` to maintain consistency (see SKILL.md character consistency section).
 
 ---
 
@@ -114,7 +114,7 @@ Describe what happens in the scene. Be specific about movement direction and spe
 
 Some video models support native audio generation (speech, sound effects, ambient audio baked into the video). Enable with `providerOptions: { varg: { generate_audio: true } }`.
 
-**Supported models**: `kling-v2.6`, `ltx-2-19b-distilled`, `grok-imagine`
+**Supported models**: `kling_v2.6`, `ltx_2_19b_distilled`, `grok_imagine`
 
 ### Dialogue Formatting
 
@@ -136,7 +136,7 @@ Character says: "Your line here."
 ```tsx
 // Character with dialogue
 Video({
-  model: varg.videoModel("kling-v2.6"),
+  model: varg.videoModel("kling_v2.6"),
   prompt: "woman at a cafe table, she picks up her coffee and says: \"This is perfect.\" Warm smile, gentle ambient cafe sounds.",
   duration: 5,
   providerOptions: { varg: { generate_audio: true } }
@@ -144,7 +144,7 @@ Video({
 
 // Atmospheric scene (no dialogue)
 Video({
-  model: varg.videoModel("kling-v2.6"),
+  model: varg.videoModel("kling_v2.6"),
   prompt: "aerial shot of ocean waves crashing on rocky shore, no dialogue, ambient ocean sounds, wind, seagulls in distance",
   duration: 8,
   providerOptions: { varg: { generate_audio: true } }

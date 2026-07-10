@@ -9,7 +9,7 @@ Common video workflows. All examples use `varg.*` syntax which works in both loc
 When a character or product appears across multiple clips, use this 3-step workflow to keep them looking the same:
 
 1. **Reference image** -- generate (or receive) a character hero shot
-2. **Scene images via /edit** -- use `nano-banana-pro/edit` to place the character into each scene, always passing the reference via `images: [ref]`
+2. **Scene images via /edit** -- use `nano_banana_pro/edit` to place the character into each scene, always passing the reference via `images: [ref]`
 3. **Animate via i2v** -- pass each scene image to `Video()` for image-to-video generation
 
 Never generate scene images from scratch -- they won't look like the same character.
@@ -18,31 +18,31 @@ Never generate scene images from scratch -- they won't look like the same charac
 // 1. Character reference
 const ref = Image({
   prompt: "a man in a dark suit, dramatic side lighting, neutral background",
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   aspectRatio: "9:16"
 })
 
 // 2. Scene images -- swap character into different environments
 const scene1 = Image({
   prompt: { text: "same man sitting at a wooden desk, warm lamp light", images: [ref] },
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   aspectRatio: "9:16"
 })
 const scene2 = Image({
   prompt: { text: "same man standing by a tall window, cold grey daylight", images: [ref] },
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   aspectRatio: "9:16"
 })
 
 // 3. Animate each scene
 const vid1 = Video({
   prompt: { text: "man looks up from desk, slight head turn", images: [scene1] },
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   duration: 5
 })
 const vid2 = Video({
   prompt: { text: "man turns from window, eyes cast down", images: [scene2] },
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   duration: 5
 })
 
@@ -72,7 +72,7 @@ Full audio placed at `<Render>` level for continuous playback. Lipsync clips use
 // 1. AUDIO FIRST -- one call produces segments with timing
 const { audio, segments } = await Speech({
   voice: "rachel",
-  model: varg.speechModel("turbo"),
+  model: varg.speechModel("eleven_v3"),
   children: [
     "Welcome to the future of content creation.",
     "Our AI generates stunning visuals in seconds.",
@@ -82,24 +82,24 @@ const { audio, segments } = await Speech({
 
 // 2. Generate a portrait for lipsync
 const portrait = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "friendly female host, studio background, looking at camera",
   aspectRatio: "9:16"
 })
 
 // 3. VISUALS -- durations come from segment timing
 const talking1 = Video({
-  model: varg.videoModel("veed-fabric-1.0"),
+  model: varg.videoModel("veed_fabric_1.0"),
   keepAudio: false,  // audio comes from the voiceover track
   prompt: { images: [portrait], audio: segments[0] },
 })
 const brollImg = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "sleek product dashboard, glowing UI",
   aspectRatio: "9:16"
 })
 const talking2 = Video({
-  model: varg.videoModel("veed-fabric-1.0"),
+  model: varg.videoModel("veed_fabric_1.0"),
   keepAudio: false,
   prompt: { images: [portrait], audio: segments[2] },
 })
@@ -124,7 +124,7 @@ Each segment placed as a clip child. Lipsync clips use `keepAudio: true` so the 
 ```tsx
 const { segments } = await Speech({
   voice: "adam",
-  model: varg.speechModel("turbo"),
+  model: varg.speechModel("eleven_v3"),
   children: [
     "Scene one narration goes here.",
     "Scene two is a b-roll with voiceover.",
@@ -132,11 +132,11 @@ const { segments } = await Speech({
   ]
 })
 
-const portrait = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "male host, studio, looking at camera", aspectRatio: "9:16" })
+const portrait = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "male host, studio, looking at camera", aspectRatio: "9:16" })
 
-const talking1 = Video({ model: varg.videoModel("veed-fabric-1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[0] } })
-const brollImg = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "city skyline timelapse", aspectRatio: "9:16" })
-const talking2 = Video({ model: varg.videoModel("veed-fabric-1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[2] } })
+const talking1 = Video({ model: varg.videoModel("veed_fabric_1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[0] } })
+const brollImg = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "city skyline timelapse", aspectRatio: "9:16" })
+const talking2 = Video({ model: varg.videoModel("veed_fabric_1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[2] } })
 
 export default (
   <Render width={1080} height={1920}>
@@ -158,52 +158,46 @@ export default (
 
 ## Talking Head (character + speech + lipsync + captions)
 
-Full pipeline: generate a character, animate them, create voiceover, lipsync the audio to the video, add captions.
+**Best model for talking heads: `veed_fabric_1.0`** — takes a still image + audio and produces a talking video directly. No animation step needed. Simplest and fastest pipeline.
 
 ```tsx
-// 1. Generate character
+// 1. Generate character portrait
 const character = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
   aspectRatio: "9:16"
 })
 
-// 2. Animate character
-const animated = Video({
-  model: varg.videoModel("kling-v3"),
-  prompt: { text: "woman talks naturally to camera, subtle hand gestures, professional demeanor", images: [character] },
-  duration: 10
-})
-
-// 3. Generate voiceover
-const voice = Speech({
+// 2. Generate voiceover
+const voice = await Speech({
   model: varg.speechModel("eleven_v3"),
   voice: "rachel",
   children: "Hey everyone! Welcome back to the channel. Today we're going to talk about something really exciting."
 })
 
-// 4. Lipsync video to speech
-const synced = Video({
-  model: varg.videoModel("sync-v2-pro"),
-  prompt: { video: animated, audio: voice }
+// 3. Lipsync image + audio directly (VEED — one step, no animation needed)
+const talking = Video({
+  model: varg.videoModel("veed_fabric_1.0"),
+  keepAudio: true,
+  prompt: { images: [character], audio: voice }
 })
 
-// 5. Compose
+// 4. Compose
 export default (
   <Render width={1080} height={1920}>
-    <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" position="bottom" withAudio />
+    <Clip duration={voice.duration}>{talking}</Clip>
+    <Captions src={voice} style="tiktok" position="bottom" />
   </Render>
 )
 ```
 
-**Cost**: ~310 credits ($3.10) -- 5 (image) + 150 (video) + 25 (speech) + 80 (lipsync) + 50 (captions/transcription)
+**Cost**: ~180 credits ($1.80) -- 5 (image) + 25 (speech) + 100 (veed lipsync) + 50 (captions/transcription)
 
 ---
 
 ## Longer Videos (chained clips)
 
-Each video clip is 3-15 seconds (kling-v3). Chain multiple clips with transitions for longer videos:
+Each video clip is 3-15 seconds (kling_v3). Chain multiple clips with transitions for longer videos:
 
 ```tsx
 <Render width={1080} height={1920}>
@@ -224,7 +218,7 @@ Generate a slideshow from an array of prompts. Easy to customize for any topic.
 ```tsx
 const slides = ["sunset over ocean", "mountain peak at dawn", "forest path in autumn"]
 const images = slides.map(prompt =>
-  Image({ model: varg.imageModel("nano-banana-pro"), prompt, aspectRatio: "16:9" })
+  Image({ model: varg.imageModel("nano_banana_pro"), prompt, aspectRatio: "16:9" })
 )
 
 export default (
@@ -251,7 +245,7 @@ Full audio setup with background music that ducks under speech:
 
 ```tsx
 const speech = Speech({
-  model: varg.speechModel("turbo"),
+  model: varg.speechModel("eleven_v3"),
   voice: "adam",
   children: "Welcome to the showcase. Today we have something special for you."
 })
@@ -277,7 +271,7 @@ The `ducking` prop automatically lowers music volume when speech is playing.
 
 ### Pattern: AI Narrator + Subject Character Scenes
 
-Mix a consistent AI narrator character (VEED lipsync) with generated scenes featuring the recipient (nano-banana-pro/edit with reference photos).
+Mix a consistent AI narrator character (VEED lipsync) with generated scenes featuring the recipient (nano_banana_pro/edit with reference photos).
 
 **Ingredients:**
 - 1-3 reference photos of the recipient (portrait headshot = most important)
@@ -289,9 +283,9 @@ Mix a consistent AI narrator character (VEED lipsync) with generated scenes feat
 
 1. **Speech first**: Single `await Speech()` call with all narrator lines as array children. Returns `{ audio, segments }` -- each segment has `.duration` for clip timing.
 
-2. **Narrator character**: Generate a base image (`nano-banana-pro`), then 3-4 angle variants via `nano-banana-pro/edit` referencing the base. Use VEED lipsync for talking clips.
+2. **Narrator character**: Generate a base image (`nano_banana_pro`), then 3-4 angle variants via `nano_banana_pro/edit` referencing the base. Use VEED lipsync for talking clips.
 
-3. **Subject scenes**: Use `nano-banana-pro/edit` with the recipient's portrait headshot as reference image. Add style reference images for environment/aesthetic consistency.
+3. **Subject scenes**: Use `nano_banana_pro/edit` with the recipient's portrait headshot as reference image. Add style reference images for environment/aesthetic consistency.
 
 4. **Composition**: Alternate narrator clips and subject scene clips. Narrator clips use VEED `keepAudio: true`. Scene clips use the speech segment as clip child for voiceover.
 
@@ -310,19 +304,19 @@ const { audio, segments } = await Speech({
 })
 
 const narrator = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "friendly AI robot character, warm smile, studio background",
   aspectRatio: "9:16"
 })
 
 const talking = Video({
-  model: varg.videoModel("veed-fabric-1.0"),
+  model: varg.videoModel("veed_fabric_1.0"),
   keepAudio: true,
   prompt: { images: [narrator], audio: segments[0] },
 })
 
 const scene1 = Image({
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   prompt: { text: "same person in a futuristic celebration scene", images: [recipientRef] },
   aspectRatio: "9:16"
 })
@@ -338,7 +332,7 @@ export default (
 
 **Key tips:**
 - Keep `Speech()` parameters IDENTICAL between renders (avoids cache invalidation cascade -- see [common-errors.md](common-errors.md))
-- Upload reference photos to S3 first (gateway `POST /v1/files`)
+- Upload reference photos first (`POST /v2/files`, raw binary body, max 200MB) and use the returned `url`
 - Use descriptive character consistency prompts: "Same man -- dark beard, warm smile, same face"
 - VEED Fabric 1.0 is fastest for narrator lipsync (image + audio -> talking video)
 

@@ -100,10 +100,10 @@ mkdir -p ~/.varg && echo "{\"api_key\":\"$VARG_API_KEY\",\"email\":\"USER_EMAIL\
 Verify the key works:
 
 ```bash
-curl -s -H "Authorization: Bearer $VARG_API_KEY" https://api.varg.ai/v1/balance
+curl -s -H "Authorization: Bearer $VARG_API_KEY" https://api.varg.ai/v2/billing/balance
 ```
 
-You should get `{"balance_cents": ...}`. If you get 401, the key is invalid -- ask the user to double-check it.
+You should get `{"available": ..., "total_balance": ..., ...}` (values in credits/cents). If you get 401, the key is invalid -- ask the user to double-check it.
 
 Also add to the project `.env` if one exists:
 
@@ -113,7 +113,7 @@ echo "VARG_API_KEY=$VARG_API_KEY" >> .env
 
 **Check balance and add credits**
 
-Check `balance_cents` from the verify-otp response or the balance check above. If balance is 0 (or too low for the user's task), the user needs credits before generating anything. 1 credit = 1 cent. A typical video costs $2-5 (200-500 credits).
+Check `balance_cents` from the verify-otp response, or `available` from the balance check above. If balance is 0 (or too low for the user's task), the user needs credits before generating anything. 1 credit = 1 cent. A typical video costs $2-5 (200-500 credits).
 
 Available packages:
 
@@ -159,7 +159,7 @@ Everything you know about varg is likely outdated. Always verify against this sk
 2. **Function calls for media, JSX for composition** -- `Image({...})` creates media, `<Clip>` composes timeline. Never write `<Image prompt="..." />`.
 3. **Cache is sacred** -- identical prompt + params = instant $0 cache hit. When iterating, keep unchanged prompts EXACTLY the same. Never clear cache.
 4. **One image per Video** -- `Video({ prompt: { images: [img] } })` takes exactly one image. Multiple images cause errors.
-5. **Duration constraints differ by model** -- kling-v3: 3-15s (integer only). kling-v2.5: ONLY 5 or 10. Check [models.md](references/models.md).
+5. **Duration constraints differ by model** -- kling_v3: 3-15s (integer only). kling_v2.5: ONLY 5 or 10. Check [models.md](references/models.md).
 6. **Gateway namespace** -- use `providerOptions: { varg: {...} }`, never `fal`, when going through the gateway (both modes).
 7. **Renders cost money** -- 1 credit = 1 cent. A typical 3-clip video costs $2-5. Use preview mode (local) or cheap models to iterate.
 8. **API key hygiene** -- Never write a raw API key value into a bash command. After obtaining a key (from the user or OTP response), immediately `export VARG_API_KEY=...` and use `$VARG_API_KEY` in all subsequent commands. This prevents keys from leaking into conversation context and terminal history.
@@ -169,14 +169,14 @@ Everything you know about varg is likely outdated. Always verify against this sk
 ### Cloud Render (no bun/ffmpeg needed)
 
 ```bash
-# Submit TSX code to the render service
-curl -s -X POST https://render.varg.ai/api/render \
+# Submit TSX code to the render service — returns a job: {"id": "job_xxx", "status": "queued", ...}
+curl -s -X POST https://api.varg.ai/v2/render \
   -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"code": "const img = Image({ model: varg.imageModel(\"nano-banana-pro\"), prompt: \"a cabin in mountains at sunset\", aspectRatio: \"16:9\" });\nexport default (<Render width={1920} height={1080}><Clip duration={3}>{img}</Clip></Render>);"}'
+  -d '{"code": "const img = Image({ model: varg.imageModel(\"nano_banana_pro\"), prompt: \"a cabin in mountains at sunset\", aspectRatio: \"16:9\" });\nexport default (<Render width={1920} height={1080}><Clip duration={3}>{img}</Clip></Render>);"}'
 
-# Poll for result (repeat until "completed" or "failed")
-curl -s https://render.varg.ai/api/render/jobs/JOB_ID \
+# Poll for result (repeat until "completed" or "failed"; video at output.outputs[0].url)
+curl -s https://api.varg.ai/v2/jobs/JOB_ID \
   -H "Authorization: Bearer $VARG_API_KEY"
 ```
 
@@ -192,7 +192,7 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const img = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "a cabin in mountains at sunset",
   aspectRatio: "16:9"
 })
@@ -216,9 +216,10 @@ Full details: [local-render.md](references/local-render.md)
 For one-off images, videos, speech, or music without building a multi-clip template:
 
 ```bash
-curl -X POST https://api.varg.ai/v1/image \
+curl -X POST https://api.varg.ai/v2/image \
   -H "Authorization: Bearer $VARG_API_KEY" \
-  -d '{"model": "nano-banana-pro", "prompt": "a sunset over mountains"}'
+  -H "Content-Type: application/json" \
+  -d '{"model": "nano_banana_pro", "prompt": "a sunset over mountains"}'
 ```
 
 Full API reference: [gateway-api.md](references/gateway-api.md)
@@ -270,15 +271,15 @@ Both modes use `varg.*` for all models. The only difference is imports:
 | Cloud Render | Local Render |
 |---|---|
 | No imports needed (globals are auto-injected) | `import { ... } from "vargai/react"` + `import { createVarg } from "vargai/ai"` |
-| `varg.imageModel("nano-banana-pro")` | `varg.imageModel("nano-banana-pro")` |
-| `varg.videoModel("kling-v3")` | `varg.videoModel("kling-v3")` |
+| `varg.imageModel("nano_banana_pro")` | `varg.imageModel("nano_banana_pro")` |
+| `varg.videoModel("kling_v3")` | `varg.videoModel("kling_v3")` |
 | `varg.speechModel("eleven_v3")` | `varg.speechModel("eleven_v3")` |
 
-**Always use `varg.*Model()`** with `VARG_API_KEY`. It handles routing, caching, billing, and works with a single key. See [byok.md](references/byok.md) for using your own provider keys.
+**Always use `varg.*Model()`** with `VARG_API_KEY`. It handles routing, caching, billing, and works with a single key. BYOK via the API is not available in v2 — see [byok.md](references/byok.md) for what works (local-render direct provider modules only).
 
 ## Cost & Iteration
 
-- **1 credit = 1 cent.** nano-banana-pro = 5 credits, kling-v3 = 150 credits, speech = 20-25 credits.
+- **1 credit = 1 cent.** grok_imagine_image = 4 credits, nano_banana_pro = 126 credits, kling_v3 (5s) = 221 credits, sora_2 (5s) = 105 credits, speech = ~105 credits. Live catalog: `GET https://api.varg.ai/v2/pricing` (no auth). Estimate any request: `POST /v2/estimate`.
 - **Cache saves money.** Keep unchanged prompts character-for-character identical across iterations.
 - **Preview first** (local mode only): `--preview` generates free placeholders to validate structure.
 - Full pricing: [models.md](references/models.md)

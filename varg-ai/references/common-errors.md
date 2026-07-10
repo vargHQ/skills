@@ -2,13 +2,13 @@
 
 ## Duration Constraint Violations
 
-### kling-v2.5: "422 Unprocessable Entity"
+### kling_v2.5: "422 Unprocessable Entity"
 
-**Cause**: kling-v2.5 only accepts duration `5` or `10`. Any other value (3, 7, 12, etc.) fails.
+**Cause**: kling_v2.5 only accepts duration `5` or `10`. Any other value (3, 7, 12, etc.) fails.
 
-**Fix**: Use exactly `duration: 5` or `duration: 10`. Or switch to kling-v3 which accepts any integer 3-15.
+**Fix**: Use exactly `duration: 5` or `duration: 10`. Or switch to kling_v3 which accepts any integer 3-15.
 
-### kling-v3: duration must be integer 3-15
+### kling_v3: duration must be integer 3-15
 
 **Cause**: Non-integer or out-of-range duration.
 
@@ -64,52 +64,52 @@ Rule: match the namespace to the provider you're using. Gateway = `varg`. Direct
 **Fix**: Media generation must use function calls:
 ```tsx
 // CORRECT
-const img = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "..." })
+const img = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "..." })
 
 // WRONG
-const img = <Image model={varg.imageModel("nano-banana-pro")} prompt="..." />
+const img = <Image model={varg.imageModel("nano_banana_pro")} prompt="..." />
 ```
 
 JSX is only for composition components: `<Render>`, `<Clip>`, `<Music>`, `<Captions>`, `<Title>`, `<Overlay>`, `<Split>`, `<Grid>`, `<Packshot>`.
 
 ---
 
-## nano-banana-pro/edit: Missing Images
+## nano_banana_pro/edit: Missing Images
 
 **Error**: "images is required" or generation produces generic image ignoring reference.
 
-**Cause**: Using `nano-banana-pro/edit` with a plain string prompt instead of `{ text, images }`.
+**Cause**: Using `nano_banana_pro/edit` with a plain string prompt instead of `{ text, images }`.
 
 **Fix**:
 ```tsx
 // CORRECT
 Image({
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   prompt: { text: "same person on a beach", images: [referenceImage] }
 })
 
 // WRONG
 Image({
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   prompt: "same person on a beach"
 })
 ```
 
 ---
 
-## nano-banana-pro (non-edit): Wrong Prompt Format
+## nano_banana_pro (non-edit): Wrong Prompt Format
 
 **Error**: Unexpected results or errors.
 
-**Cause**: Passing `{ text, images }` object to `nano-banana-pro` (non-edit variant).
+**Cause**: Passing `{ text, images }` object to `nano_banana_pro` (non-edit variant).
 
-**Fix**: `nano-banana-pro` (without `/edit`) takes a plain string:
+**Fix**: `nano_banana_pro` (without `/edit`) takes a plain string:
 ```tsx
 // CORRECT
-Image({ model: varg.imageModel("nano-banana-pro"), prompt: "a sunset over the ocean" })
+Image({ model: varg.imageModel("nano_banana_pro"), prompt: "a sunset over the ocean" })
 
 // WRONG
-Image({ model: varg.imageModel("nano-banana-pro"), prompt: { text: "a sunset", images: [] } })
+Image({ model: varg.imageModel("nano_banana_pro"), prompt: { text: "a sunset", images: [] } })
 ```
 
 ---
@@ -154,9 +154,9 @@ const vid = Video({ ..., duration: 5 })
 **Cause**: Not enough credits for the requested generation.
 
 **Fix**: 
-- Check balance: `GET /v1/balance`
+- Check balance: `GET https://api.varg.ai/v2/billing/balance` (the `available` field)
+- Estimate before running: `POST /v2/estimate` with the same body
 - Use cheaper models (see [models.md](models.md))
-- Use BYOK headers to bypass billing
 
 ---
 
@@ -179,7 +179,7 @@ const vid = Video({ ..., duration: 5 })
 **Fix for render service**: Don't import anything. All components and providers are auto-provided as globals:
 ```tsx
 // In render service (no imports needed)
-const img = Image({ model: varg.imageModel("nano-banana-pro"), prompt: "..." })
+const img = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "..." })
 export default <Render>...</Render>
 ```
 
@@ -196,13 +196,13 @@ import { createVarg } from "vargai/ai"
 
 **Error**: Render job stays in "processing" or times out after 10-15 minutes.
 
-**Cause**: Complex renders with many AI generation calls can take 15+ minutes. Video models like kling-v3 take 2-5 minutes per clip.
+**Cause**: Complex renders with many AI generation calls can take 15+ minutes. Video models like kling_v3 take 2-5 minutes per clip.
 
 **Fix**:
 - Use `--preview` first to validate structure
 - Break very long sequences into separate render jobs
-- Use faster/cheaper models for prototyping (flux-schnell, ltx-2-19b-distilled)
-- Check job status via SSE stream: `GET /v1/jobs/{id}/stream`
+- Use faster/cheaper models for prototyping (flux_schnell, ltx_2_19b_distilled)
+- Check job progress: `GET /v2/jobs/{id}/status` (`progress` 0..1, `progress_message`)
 
 ---
 

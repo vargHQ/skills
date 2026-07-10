@@ -1,6 +1,6 @@
-# Gateway API Reference
+# varg API Reference (v2)
 
-The varg gateway at `api.varg.ai` provides a unified REST API for generating images, videos, speech, and music with a single API key. Use this for one-off asset generation without building a full TSX template.
+The varg API at `api.varg.ai/v2` is a unified REST API for generating images, videos, speech, music, and full rendered videos with a single API key. Use this for one-off asset generation without building a full TSX template, or `POST /v2/render` for cloud rendering.
 
 ## Authentication
 
@@ -8,61 +8,79 @@ The varg gateway at `api.varg.ai` provides a unified REST API for generating ima
 Authorization: Bearer varg_xxx
 ```
 
-Get your API key at the varg dashboard.
+Get your API key at the varg dashboard (app.varg.ai). Only `GET /v2/pricing` is public.
 
 ## Base URL
 
 ```
-https://api.varg.ai/v1
+https://api.varg.ai/v2
 ```
 
 ---
 
-## Endpoints
+## Core concepts
+
+| Concept | Example | What it is |
+|---------|---------|------------|
+| **Tool** | `image`, `video`, `speech` | A capability with its own endpoint (`POST /v2/image`) |
+| **Model** | `flux_schnell`, `kling_v3` | The `model` field. One model can be served by multiple providers |
+| **Provider** | `fal`, `elevenlabs` | Who runs the generation. varg picks automatically, or pin with `fal:flux_schnell` |
+
+Model ids use underscores (`kling_v3`, `nano_banana_pro`). Dashed spellings (`kling-v3`) are accepted and normalized.
+
+---
+
+## Generation endpoints
+
+All return `202 Accepted` with a job. Poll `GET /v2/jobs/{id}` until terminal.
 
 ### Generate Image
 
 ```bash
-POST /v1/image
+POST /v2/image
 ```
 
 ```json
 {
-  "model": "nano-banana-pro",
+  "model": "nano_banana_pro",
   "prompt": "a sunset over mountains, cinematic, golden hour",
   "aspect_ratio": "16:9"
 }
 ```
 
+Image editing: send a source image in `files` with an edit model (`nano_banana_pro/edit`). Upscaling: `clarity_upscaler`, `aura_sr`, `topaz`.
+
 ### Generate Video
 
 ```bash
-POST /v1/video
+POST /v2/video
 ```
 
 ```json
 {
-  "model": "kling-v3",
+  "model": "kling_v3",
   "prompt": "a bird soaring over mountains, aerial shot",
   "duration": 5,
   "aspect_ratio": "16:9"
 }
 ```
 
-With image input (image-to-video):
+Image-to-video (start frame in `files` — varg routes to the model's i2v variant automatically):
 ```json
 {
-  "model": "kling-v3",
+  "model": "kling_v3",
   "prompt": "person starts walking forward",
-  "files": [{ "url": "https://s3.varg.ai/uploads/character.png" }],
+  "files": [{ "url": "https://s3.varg.ai/files/acc_x/character.png" }],
   "duration": 5
 }
 ```
 
+Lipsync (video + audio in `files`): `sync_v2`, `veed_fabric_1.0`, `omnihuman_v1.5`. Video upscale: `topaz_video`, `seedvr_video`.
+
 ### Generate Speech
 
 ```bash
-POST /v1/speech
+POST /v2/speech
 ```
 
 ```json
@@ -76,7 +94,7 @@ POST /v1/speech
 ### Generate Music
 
 ```bash
-POST /v1/music
+POST /v2/music
 ```
 
 ```json
@@ -90,7 +108,7 @@ POST /v1/music
 ### Transcribe Audio
 
 ```bash
-POST /v1/transcription
+POST /v2/transcription
 ```
 
 ```json
@@ -100,98 +118,217 @@ POST /v1/transcription
 }
 ```
 
+### FFmpeg operations
+
+One endpoint, operation selected by `model`:
+
+```bash
+POST /v2/ffmpeg
+```
+
+| Model | Operation | Key fields |
+|-------|-----------|------------|
+| `rendi_ffmpeg_trim` | Trim | `url`, `start`, `end` or `duration`, `precise` |
+| `rendi_ffmpeg_resize` | Resize | `url`, `width`/`height`, `fit` (cover/contain/stretch) |
+| `rendi_ffmpeg_slice` | Slice into segments | `video_url`, `every`/`at`/`count`/`ranges`, `thumbnails` |
+| `rendi_ffmpeg` | Generic command | `command` with `{{in_1}}`/`{{out_1}}`, `input_files`, `output_files` |
+
+```json
+{
+  "model": "rendi_ffmpeg_trim",
+  "url": "https://s3.varg.ai/files/acc_x/video.mp4",
+  "start": 2.5,
+  "duration": 5
+}
+```
+
+All ffmpeg ops cost ~6 credits. To probe media metadata (dimensions, duration) synchronously without a job, use `POST /v2/files/probe` with `{"url": "..."}`.
+
+### Render (cloud video composition)
+
+```bash
+POST /v2/render
+```
+
+```json
+{
+  "code": "<TSX code string with export default>",
+  "mode": "strict",
+  "output": "video",
+  "verbose": false
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `code` | `string` | Yes | TSX code with `export default` returning a `<Render>` element |
+| `mode` | `"strict" \| "preview"` | No | `"preview"` uses placeholders for failed generations |
+| `output` | `"video" \| "frames"` | No | `"frames"` skips stitching for image-only renders |
+| `verbose` | `boolean` | No | Detailed logging (default: false) |
+
+Render is a regular job — poll `GET /v2/jobs/{id}`, final video at `output.outputs[0].url`. Billing: flat ~5 credit stitching fee + each AI sub-generation billed as its own job. See [cloud-render.md](cloud-render.md) for the full workflow and TSX format.
+
 ### Upload File
 
 ```bash
-POST /v1/files
-Content-Type: application/octet-stream
+POST /v2/files
+Content-Type: image/jpeg        # the file's media type
+X-Filename: photo.jpg           # optional
+X-Content-Hash: sha256:<hex>    # optional, enables dedup
 ```
 
-Binary body. Max 50MB. Returns a public URL.
+Raw binary body. **Max 200MB.** Returns `{"file_id": "file_xxx", "url": "https://s3.varg.ai/...", ...}`.
+
+Import by URL instead of uploading bytes:
+
+```bash
+POST /v2/files/import
+{"url": "https://example.com/photo.jpg"}
+```
+
+Dedup pre-check before uploading: `GET /v2/files/check?hash=sha256:<hex>`.
 
 ---
 
 ## Job Lifecycle
 
-All generation endpoints return `202 Accepted` with a job reference:
+```
+queued → submitting → running → completed | failed | cancelled
+```
+
+All generation endpoints return `202 Accepted` with a job:
 
 ```json
 {
-  "job_id": "abc123",
+  "id": "job_a1b2c3d4e5f6",
   "status": "queued",
-  "model": "kling-v3",
-  "created_at": "2026-01-15T10:30:00Z",
-  "cache": { "hit": false }
+  "tool": "video",
+  "input": { "model": "kling_v3", "prompt": "..." },
+  "estimated_cost_cents": 221,
+  "pricing": { "estimated": 221, "billing": "metered" },
+  "urls": {
+    "self": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6",
+    "status": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6/status",
+    "cancel": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6/cancel",
+    "retry": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6/retry"
+  }
 }
 ```
 
 ### Poll for Result
 
 ```bash
-GET /v1/jobs/{job_id}
+GET /v2/jobs/{id}
 ```
 
-Returns current status. When `status: "completed"`:
+When `status: "completed"`, the result is in `output.outputs[]`:
 
 ```json
 {
-  "job_id": "abc123",
+  "id": "job_a1b2c3d4e5f6",
   "status": "completed",
   "output": {
-    "url": "https://s3.varg.ai/o/abc123.mp4",
-    "media_type": "video/mp4"
-  }
+    "version": "v1",
+    "outputs": [
+      {
+        "url": "https://s3.varg.ai/files/acc_x/file_abc.mp4",
+        "file_id": "file_abc123",
+        "media_type": "video/mp4",
+        "thumbnail_url": "https://s3.varg.ai/thumbs/file_abc123.jpg"
+      }
+    ]
+  },
+  "actual_cost_cents": 221
 }
 ```
 
-### SSE Stream (real-time updates)
+Lightweight polling (includes `progress` 0..1 and `progress_message`):
 
 ```bash
-GET /v1/jobs/{job_id}/stream
-Accept: text/event-stream
+GET /v2/jobs/{id}/status
 ```
 
-Receives real-time status events. Preferred over polling.
+There is **no SSE stream** — poll, or use webhooks.
 
-### Cancel Job
+### Webhooks (instead of polling)
+
+Add `options.webhook_url` to any generation request. When the job reaches a terminal status, varg POSTs the job snapshot to your URL, signed with `X-Varg-Signature: v1=<hmac-sha256>`, with 8 retries.
+
+```json
+{
+  "model": "kling_v3",
+  "prompt": "...",
+  "options": { "webhook_url": "https://example.com/varg-hook" }
+}
+```
+
+### Job actions
 
 ```bash
-DELETE /v1/jobs/{job_id}
+POST /v2/jobs/{id}/cancel    # abort a running job (409 if terminal)
+POST /v2/jobs/{id}/retry     # retry a failed job
+POST /v2/jobs/{id}/refresh   # force re-poll of the provider
+GET  /v2/jobs/{id}/price     # pricing breakdown (estimated/actual/billed_units)
+GET  /v2/jobs                # list your jobs
+```
+
+### Idempotency
+
+Pass `Idempotency-Key: <any unique string>` on job-creating POSTs. Retrying with the same key returns the existing job (`200`) instead of creating and charging a new one (`202`). Use this to make retries safe.
+
+---
+
+## Tools discovery (for agents)
+
+Discover the API surface at runtime without docs:
+
+```bash
+GET  /v2/tools                          # list all tools
+GET  /v2/tools/{tool_key}               # input JSON Schema + output shape + worked example
+GET  /v2/tools/{tool_key}?model=X       # explicit per-provider options for model X
+POST /v2/tools/{tool_key}/call          # generic call (same as POST /v2/{tool_key})
 ```
 
 ---
 
 ## Cache Behavior
 
-Identical requests (same model + prompt + parameters) return cached results instantly at zero cost.
-
-- Cache TTL: 30 days
-- Cache headers: `X-Cache: HIT|MISS`, `X-Cache-Key`, `X-Cache-TTL`
-- To bypass cache: `Cache-Control: no-cache`
+Identical requests (same model + prompt + parameters) return a completed job instantly with `actual_cost_cents: 0` and `pricing.cached: true`. **Cache hits are free.**
 
 ---
 
-## BYOK (Bring Your Own Key)
+## Pricing & Billing
 
-Use your own provider API keys for $0 varg billing. Pass keys as headers alongside your `Authorization` header:
+1 credit = 1 cent = $0.01. Flow: **reserve** estimated cost at creation (402 if insufficient) → **commit** on completion → **release** on failure.
 
 ```bash
-curl -X POST https://api.varg.ai/v1/image \
-  -H "Authorization: Bearer $VARG_API_KEY" \
-  -H "X-Provider-Key-Fal: $FAL_KEY" \
-  -d '{"model": "nano-banana-pro", "prompt": "a sunset over mountains"}'
+GET  /v2/pricing              # public model catalog with prices (no auth)
+POST /v2/estimate             # price a request WITHOUT creating a job (same body as generation)
+GET  /v2/billing/balance      # balance breakdown
+GET  /v2/billing/usage        # usage records (?from=&to=)
+GET  /v2/billing/transactions # ledger (spend/topup history)
 ```
 
-| Provider | Header |
-|----------|--------|
-| fal.ai | `X-Provider-Key-Fal` |
-| ElevenLabs | `X-Provider-Key-ElevenLabs` |
-| Higgsfield | `X-Provider-Key-Higgsfield` |
-| Replicate | `X-Provider-Key-Replicate` |
+Balance response:
 
-When a BYOK header is present, the gateway routes through your key and doesn't deduct credits. You still need `VARG_API_KEY` for gateway authentication.
+```json
+{
+  "available": 8200,
+  "reserved": 300,
+  "total_balance": 8500,
+  "subscription_balance": 5000,
+  "rollover_balance": 2000,
+  "onetime_balance": 1500
+}
+```
 
-For the full BYOK guide (TypeScript client, cloud render, local render, provider key setup), see [byok.md](byok.md).
+`available` = total − reserved (what you can spend right now).
+
+---
+
+## BYOK
+
+**BYOK via the API is not available in v2.** The v1 `X-Provider-Key-*` headers were not ported. All API requests bill varg credits. For local rendering with your own provider keys (env `FAL_KEY`, etc.), see [byok.md](byok.md).
 
 ---
 
@@ -208,7 +345,7 @@ const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 import { generateImage } from "ai"
 
 const result = await generateImage({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "a sunset over mountains"
 })
 ```
@@ -221,239 +358,50 @@ The `vargai/ai` package implements the Vercel AI SDK `ProviderV3` interface, exp
 
 ---
 
-## Account & Usage
-
-```bash
-GET /v1/balance      # Credit balance
-GET /v1/usage        # Usage records (optional: ?from=2026-01-01&to=2026-01-31)
-GET /v1/pricing      # Model pricing
-GET /v1/voices       # Available ElevenLabs voices
-```
-
----
-
 ## Error Responses
 
-| Status | Meaning |
-|--------|---------|
-| 400 | Invalid request (check model ID, prompt format) |
-| 401 | Invalid or missing API key |
-| 402 | Insufficient credits |
-| 404 | Job not found |
-| 429 | Rate limited (240 requests/minute) |
-| 502 | Provider error (fal/elevenlabs/etc. failed) |
+All errors use one envelope:
 
-Error response format:
 ```json
 {
-  "error": "InsufficientBalanceError",
-  "message": "Insufficient balance. Required: 150 credits, available: 50 credits"
+  "error": {
+    "code": "insufficient_balance",
+    "message": "Insufficient balance to run this job"
+  }
 }
 ```
+
+| Status | Code | Meaning |
+|--------|------|---------|
+| 400 | `invalid_request`, `invalid_json` | Malformed body |
+| 401 | `unauthorized` | Invalid or missing API key |
+| 402 | `insufficient_balance` | Balance too low to reserve estimated cost |
+| 404 | `model_not_found`, `tool_not_found`, `job_not_found`, `file_not_found` | Unknown resource |
+| 409 | — | Job already terminal (cancel/refresh) |
+| 413 | `file_too_large` | Upload over 200MB |
+| 422 | `invalid_request` | Body failed schema validation |
+| 429 | `rate_limited` | Too many requests — honor `Retry-After` |
+| 503 | `no_pricing` | Model temporarily has no active pricing |
+
+Rate limiting is a sliding window per API key; responses carry `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`.
 
 ---
 
-## Render API (Video Composition)
+## Migrating from v1
 
-For composing multi-clip videos with transitions, music, captions, and effects, use the render service. This takes TSX code and produces a final `.mp4` video. The render service handles all asset generation (images, video, speech, music) and ffmpeg composition in the cloud.
-
-### Base URL
-
-```
-https://render.varg.ai
-```
-
-### Submit Render Job
-
-```bash
-POST /api/render
-Authorization: Bearer varg_xxx
-Content-Type: application/json
-```
-
-Request body:
-
-```json
-{
-  "code": "<TSX code string with export default>",
-  "verbose": false,
-  "mode": "strict"
-}
-```
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `code` | `string` | Yes | TSX code with `export default`. No imports needed -- all components are globals. |
-| `verbose` | `boolean` | No | Enable verbose logging (default: false) |
-| `mode` | `"strict" \| "preview"` | No | `"preview"` uses cheaper placeholders |
-
-Response (`202 Accepted`):
-
-```json
-{
-  "job_id": "550e8400-e29b-41d4-a716-446655440000",
-  "status": "rendering",
-  "estimated_duration_ms": 35000,
-  "queue": { "active": 3, "waiting": 0 }
-}
-```
-
-### Poll Job Status
-
-```bash
-GET /api/render/jobs/{job_id}
-Authorization: Bearer varg_xxx
-```
-
-Response (`200 OK`):
-
-```json
-{
-  "job_id": "550e8400-e29b-41d4-a716-446655440000",
-  "status": "completed",
-  "output_url": "https://s3.varg.ai/renders/1710345600_abc123.mp4",
-  "files": [
-    {
-      "url": "https://s3.varg.ai/cache/def456.png",
-      "mediaType": "image/png",
-      "metadata": { "type": "image", "model": "flux-schnell", "prompt": "..." }
-    }
-  ],
-  "duration_ms": 45000,
-  "created_at": "2026-03-13T12:00:00Z",
-  "completed_at": "2026-03-13T12:00:45Z"
-}
-```
-
-Status values: `"rendering"`, `"completed"`, `"failed"`.
-
-On failure, `error` and `error_category` fields are included:
-
-```json
-{
-  "status": "failed",
-  "error": "Insufficient balance",
-  "error_category": "quota_exceeded"
-}
-```
-
-Error categories: `quota_exceeded`, `rate_limited`, `timeout`, `invalid_source`, `internal`.
-
-### SSE Stream (Real-Time Updates)
-
-```bash
-GET /api/render/jobs/{job_id}/stream
-Authorization: Bearer varg_xxx
-Accept: text/event-stream
-```
-
-Receives real-time status events. Preferred over polling for long-running renders:
-
-```
-event: status
-data: {"job_id":"...","status":"rendering","started_at":"..."}
-
-:keepalive
-
-event: status
-data: {"job_id":"...","status":"completed","output_url":"https://...","files":[...]}
-```
-
-### List Jobs
-
-```bash
-GET /api/jobs?limit=50
-Authorization: Bearer varg_xxx
-```
-
-Returns recent render jobs for the authenticated user.
-
-### Rate Limits
-
-| Limit | Value |
-|-------|-------|
-| Requests per minute | 10 per user |
-| Concurrent jobs | 5 per user |
-| Job timeout | 15 minutes |
-
-Rate limit info is returned in response headers:
-
-```
-X-RateLimit-Limit: 10
-X-RateLimit-Remaining: 9
-X-RateLimit-Reset: 2026-03-13T12:01:00.000Z
-```
-
-### Cloud Render TSX Format
-
-No imports needed -- all components and providers are auto-injected as globals. The user's API key (from the `Authorization` header) is used for all AI generation calls automatically.
-
-**Available globals:**
-
-| Category | Globals |
-|----------|---------|
-| Components | `Render`, `Clip`, `Image`, `Video`, `Speech`, `Music`, `Captions`, `Title`, `Subtitle`, `Overlay`, `Split`, `Grid`, `Slot`, `Slider`, `Swipe`, `Packshot`, `TalkingHead` |
-| Providers | `fal`, `elevenlabs`, `higgsfield`, `openai`, `replicate`, `google`, `together` |
-| Data | `VOICES` (voice name to ElevenLabs ID mapping) |
-
-**Restrictions:**
-
-- Must have `export default` returning a `<Render>` element
-- No named exports (`export const x = ...` is forbidden)
-- No external imports (`vargai/*` imports are allowed but stripped)
-- No `require()` calls
-- `Image` `src` values must be `http://` or `https://` URLs
-
-**Minimal working example:**
-
-```tsx
-export default (
-  <Render width={1080} height={1920}>
-    <Clip duration={5}>
-      <Video prompt="a cat playing piano" model={varg.videoModel("kling-v3")} duration={5} />
-    </Clip>
-  </Render>
-);
-```
-
-**Full example with multiple clips:**
-
-```tsx
-const img = Image({
-  model: varg.imageModel("nano-banana-pro"),
-  prompt: "cinematic portrait, golden hour lighting",
-  aspectRatio: "9:16"
-});
-
-const vid = Video({
-  model: varg.videoModel("kling-v3"),
-  prompt: { text: "person walks forward, camera follows", images: [img] },
-  duration: 5
-});
-
-const voice = Speech({
-  model: varg.speechModel("eleven_v3"),
-  voice: "rachel",
-  children: "Welcome to our show!"
-});
-
-export default (
-  <Render width={1080} height={1920} fps={30}>
-    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral" duration={10} volume={0.3} />
-    <Clip duration={5}>
-      {vid}
-      <Title position="bottom">Welcome</Title>
-    </Clip>
-    <Captions src={voice} style="tiktok" withAudio />
-  </Render>
-);
-```
-
-### Render API Error Responses
-
-| Status | Meaning |
-|--------|---------|
-| 400 | Invalid TSX code, missing `export default`, or Zod validation failure |
-| 401 | Missing or invalid Bearer token |
-| 429 | Rate limit or concurrency limit exceeded (`Retry-After` header included) |
-| 503 | Queue unavailable (Redis/BullMQ down) |
+| v1 | v2 |
+|----|----|
+| `api.varg.ai/v1` | `api.varg.ai/v2` |
+| `job_id` field | `id` field |
+| `output.url` (single) | `output.outputs[]` (array, each with `file_id`) |
+| `GET /jobs/{id}/stream` (SSE) | Removed — poll or `options.webhook_url` |
+| `DELETE /jobs/{id}` | `POST /jobs/{id}/cancel` |
+| `GET /balance` | `GET /billing/balance` |
+| `GET /usage` | `GET /billing/usage` |
+| `POST /ffmpeg/trim` etc. | Single `POST /ffmpeg`, op selected by `model` |
+| `POST /ffmpeg/probe` | `POST /files/probe` |
+| `GET /voices` | Not ported — pass `voice` by name |
+| `render.varg.ai/api/render` | `POST api.varg.ai/v2/render` |
+| `X-Provider-Key-*` BYOK headers | Removed |
+| Files max 50MB | Max 200MB |
+| Flat error shape | `{"error": {"code", "message"}}` envelope |
