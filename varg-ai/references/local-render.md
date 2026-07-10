@@ -45,7 +45,7 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const img = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "a cozy cabin in mountains at sunset, warm golden light",
   aspectRatio: "16:9"
 })
@@ -67,13 +67,13 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const hero = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "cinematic portrait of a warrior princess, golden hour lighting",
   aspectRatio: "9:16"
 })
 
 const scene = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
   duration: 5
 })

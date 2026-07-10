@@ -18,13 +18,13 @@ These examples show the complete cloud render workflow using `curl`. No bun or f
 # Write TSX code to a file first (for reference/iteration)
 cat > video.tsx << 'TEMPLATE'
 const img = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light, snow on peaks",
   aspectRatio: "16:9"
 });
 
 const vid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "gentle camera push-in, smoke rising from chimney, birds flying across sky", images: [img] },
   duration: 5
 });
@@ -37,11 +37,11 @@ export default (
 TEMPLATE
 
 # Submit to render service (requires jq)
-JOB_ID=$(curl -s -X POST https://render.varg.ai/api/render \
+JOB_ID=$(curl -s -X POST https://api.varg.ai/v2/render \
   -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" \
   -d "{\"code\": $(cat video.tsx | jq -Rs .)}" \
-  | jq -r '.job_id')
+  | jq -r '.id')
 
 echo "Job submitted: $JOB_ID"
 ```
@@ -53,12 +53,12 @@ echo "Job submitted: $JOB_ID"
 # Read TSX and escape it for JSON (no jq needed)
 CODE=$(sed 's/\\/\\\\/g; s/"/\\"/g; s/$/\\n/' video.tsx | tr -d '\n' | sed 's/\\n$//')
 
-RESPONSE=$(curl -s -X POST https://render.varg.ai/api/render \
+RESPONSE=$(curl -s -X POST https://api.varg.ai/v2/render \
   -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" \
   -d "{\"code\": \"$CODE\"}")
 
-JOB_ID=$(echo "$RESPONSE" | grep -o '"job_id":"[^"]*"' | cut -d'"' -f4)
+JOB_ID=$(echo "$RESPONSE" | grep -o '"id":"job_[^"]*"' | cut -d'"' -f4)
 echo "Job submitted: $JOB_ID"
 ```
 
@@ -67,17 +67,17 @@ echo "Job submitted: $JOB_ID"
 ### Poll for result
 
 ```bash
-# Poll until status is "completed" or "failed"
+# Poll until status is "completed", "failed", or "cancelled"
 while true; do
-  RESULT=$(curl -s "https://render.varg.ai/api/render/jobs/$JOB_ID" \
+  RESULT=$(curl -s "https://api.varg.ai/v2/jobs/$JOB_ID" \
     -H "Authorization: Bearer $VARG_API_KEY")
   STATUS=$(echo "$RESULT" | jq -r '.status')
   echo "Status: $STATUS"
   if [ "$STATUS" = "completed" ]; then
-    echo "$RESULT" | jq -r '.output_url'
+    echo "$RESULT" | jq -r '.output.outputs[0].url'
     break
-  elif [ "$STATUS" = "failed" ]; then
-    echo "$RESULT" | jq -r '.error'
+  elif [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "$RESULT" | jq -r '.error.message // .error'
     break
   fi
   sleep 10
@@ -89,15 +89,15 @@ done
 
 ```bash
 while true; do
-  RESULT=$(curl -s "https://render.varg.ai/api/render/jobs/$JOB_ID" \
+  RESULT=$(curl -s "https://api.varg.ai/v2/jobs/$JOB_ID" \
     -H "Authorization: Bearer $VARG_API_KEY")
   STATUS=$(echo "$RESULT" | grep -o '"status":"[^"]*"' | cut -d'"' -f4)
   echo "Status: $STATUS"
   if [ "$STATUS" = "completed" ]; then
-    echo "$RESULT" | grep -o '"output_url":"[^"]*"' | cut -d'"' -f4
+    echo "$RESULT" | grep -o '"url":"[^"]*"' | head -1 | cut -d'"' -f4
     break
-  elif [ "$STATUS" = "failed" ]; then
-    echo "$RESULT" | grep -o '"error":"[^"]*"' | cut -d'"' -f4
+  elif [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "$RESULT" | grep -o '"message":"[^"]*"' | cut -d'"' -f4
     break
   fi
   sleep 10
@@ -108,40 +108,37 @@ done
 
 ### Cloud render: Talking Head
 
+Uses **veed_fabric_1.0** — the best and simplest model for talking heads. Takes a still image + audio and produces a talking video directly (no animation step needed).
+
 ```bash
 cat > talking-head.tsx << 'TEMPLATE'
 const character = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
   aspectRatio: "9:16"
 });
 
-const animated = Video({
-  model: varg.videoModel("kling-v3"),
-  prompt: { text: "woman talks naturally to camera, subtle hand gestures", images: [character] },
-  duration: 10
-});
-
-const voice = Speech({
+const voice = await Speech({
   model: varg.speechModel("eleven_v3"),
   voice: "rachel",
   children: "Hey everyone! Welcome back. Today we are going to talk about something really exciting."
 });
 
-const synced = Video({
-  model: varg.videoModel("sync-v2-pro"),
-  prompt: { video: animated, audio: voice }
+const talking = Video({
+  model: varg.videoModel("veed_fabric_1.0"),
+  keepAudio: true,
+  prompt: { images: [character], audio: voice }
 });
 
 export default (
   <Render width={1080} height={1920}>
-    <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" position="bottom" withAudio />
+    <Clip duration={voice.duration}>{talking}</Clip>
+    <Captions src={voice} style="tiktok" position="bottom" />
   </Render>
 );
 TEMPLATE
 
-curl -s -X POST https://render.varg.ai/api/render \
+curl -s -X POST https://api.varg.ai/v2/render \
   -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" \
   -d "{\"code\": $(cat talking-head.tsx | jq -Rs .)}"
@@ -167,13 +164,13 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const img = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light, snow on peaks",
   aspectRatio: "16:9"
 })
 
 const vid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "gentle camera push-in, smoke rising from chimney, birds flying across sky", images: [img] },
   duration: 5
 })
@@ -191,7 +188,7 @@ export default (
 
 ## 2. Talking Head -- Character + Speech + Lipsync + Captions
 
-Full talking-head pipeline with AI-generated character.
+Full talking-head pipeline using **veed_fabric_1.0** — the best and simplest model for talking heads. Takes a still image + audio directly (no animation step needed).
 
 ```tsx
 /** @jsxImportSource vargai */
@@ -200,42 +197,36 @@ import { createVarg } from "vargai/ai"
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
-// 1. Generate character
+// 1. Generate character portrait
 const character = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
   aspectRatio: "9:16"
 })
 
-// 2. Animate character
-const animated = Video({
-  model: varg.videoModel("kling-v3"),
-  prompt: { text: "woman talks naturally to camera, subtle hand gestures, professional demeanor", images: [character] },
-  duration: 10
-})
-
-// 3. Generate voiceover
-const voice = Speech({
+// 2. Generate voiceover
+const voice = await Speech({
   model: varg.speechModel("eleven_v3"),
   voice: "rachel",
   children: "Hey everyone! Welcome back to the channel. Today we're going to talk about something really exciting."
 })
 
-// 4. Lipsync video to speech
-const synced = Video({
-  model: varg.videoModel("sync-v2-pro"),
-  prompt: { video: animated, audio: voice }
+// 3. Lipsync image + audio directly (VEED — one step)
+const talking = Video({
+  model: varg.videoModel("veed_fabric_1.0"),
+  keepAudio: true,
+  prompt: { images: [character], audio: voice }
 })
 
 export default (
   <Render width={1080} height={1920}>
-    <Clip duration={10}>{synced}</Clip>
-    <Captions src={voice} style="tiktok" position="bottom" withAudio />
+    <Clip duration={voice.duration}>{talking}</Clip>
+    <Captions src={voice} style="tiktok" position="bottom" />
   </Render>
 )
 ```
 
-**Cost**: ~310 credits ($3.10) -- 5 (image) + 150 (video) + 25 (speech) + 80 (lipsync) + 50 (captions/transcription)
+**Cost**: ~180 credits ($1.80) -- 5 (image) + 25 (speech) + 100 (veed lipsync) + 50 (captions/transcription)
 
 ---
 
@@ -256,43 +247,43 @@ const BRAND = "AuraSound"
 
 // -- Character reference (for consistency) --
 const model_ref = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "young woman, casual streetwear, confident expression, neutral background",
   aspectRatio: "9:16"
 })
 
 // -- Scene 1: Hero product shot --
 const heroImg = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: `${PRODUCT}, floating against dark gradient, dramatic studio lighting`,
   aspectRatio: "9:16"
 })
 const heroVid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "slow 360 rotation, light rays catching surface, camera orbits", images: [heroImg] },
   duration: 5
 })
 
 // -- Scene 2: Lifestyle (character using product) --
 const lifestyleImg = Image({
-  model: varg.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano_banana_pro/edit"),
   prompt: { text: "same woman wearing wireless earbuds, walking through city street, golden hour", images: [model_ref] },
   aspectRatio: "9:16"
 })
 const lifestyleVid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "woman walks confidently, bobbing head to music, city blurs behind", images: [lifestyleImg] },
   duration: 5
 })
 
 // -- Scene 3: Close-up detail --
 const detailImg = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: `extreme close-up of ${PRODUCT}, touch controls glowing blue, soft bokeh`,
   aspectRatio: "9:16"
 })
 const detailVid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "finger taps earbud, blue pulse radiates outward, satisfying click", images: [detailImg] },
   duration: 5
 })
@@ -347,7 +338,7 @@ const slides = [
 ]
 
 const images = slides.map(prompt =>
-  Image({ model: varg.imageModel("nano-banana-pro"), prompt, aspectRatio: "16:9" })
+  Image({ model: varg.imageModel("nano_banana_pro"), prompt, aspectRatio: "16:9" })
 )
 
 const totalDuration = slides.length * 3
@@ -380,23 +371,23 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const beforeImg = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "messy cluttered desk, papers everywhere, dim lighting",
   aspectRatio: "9:16"
 })
 const beforeVid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "camera slowly reveals the chaos, papers flutter", images: [beforeImg] },
   duration: 5
 })
 
 const afterImg = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "perfectly organized minimalist desk, clean lines, bright natural light",
   aspectRatio: "9:16"
 })
 const afterVid = Video({
-  model: varg.videoModel("kling-v3"),
+  model: varg.videoModel("kling_v3"),
   prompt: { text: "camera glides across clean surface, light catches polished wood", images: [afterImg] },
   duration: 5
 })
@@ -431,7 +422,7 @@ const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 // 1. Character reference
 const ref = Image({
-  model: varg.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano_banana_pro"),
   prompt: "a woman in her 30s, dark hair in a ponytail, wearing a leather jacket, determined expression",
   aspectRatio: "9:16"
 })
@@ -445,7 +436,7 @@ const scenes = [
 
 const sceneImages = scenes.map(s =>
   Image({
-    model: varg.imageModel("nano-banana-pro/edit"),
+    model: varg.imageModel("nano_banana_pro/edit"),
     prompt: { text: `same woman ${s.env}`, images: [ref] },
     aspectRatio: "9:16"
   })
@@ -453,7 +444,7 @@ const sceneImages = scenes.map(s =>
 
 const sceneVideos = scenes.map((s, i) =>
   Video({
-    model: varg.videoModel("kling-v3"),
+    model: varg.videoModel("kling_v3"),
     prompt: { text: s.motion, images: [sceneImages[i]] },
     duration: 5
   })

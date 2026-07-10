@@ -51,14 +51,14 @@ function checkSavedCredentials(): { apiKey: string; email: string } | undefined 
 
 async function checkGateway(apiKey: string): Promise<boolean> {
   try {
-    const res = await fetch(`${GATEWAY_URL}/v1/balance`, {
+    const res = await fetch(`${GATEWAY_URL}/v2/billing/balance`, {
       headers: { Authorization: `Bearer ${apiKey}` },
       signal: AbortSignal.timeout(5000),
     })
     if (res.ok) {
-      const data = await res.json() as { balance_cents?: number }
-      const credits = data.balance_cents ?? 0
-      console.log(green(`  ✓ Gateway connected. Balance: ${credits} credits ($${(credits / 100).toFixed(2)})`))
+      const data = await res.json() as { available?: number; total_balance?: number }
+      const credits = data.available ?? data.total_balance ?? 0
+      console.log(green(`  ✓ API connected. Balance: ${credits} credits ($${(credits / 100).toFixed(2)})`))
       return true
     }
     if (res.status === 401) {
@@ -187,13 +187,13 @@ import { Render, Clip, Image, Video } from "vargai/react"
 ${importLine}
 
 const img = Image({
-  model: ${modelPrefix}.imageModel("nano-banana-pro"),
+  model: ${modelPrefix}.imageModel("nano_banana_pro"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light",
   aspectRatio: "16:9"
 })
 
 const vid = Video({
-  model: ${modelPrefix}.videoModel("kling-v3"),
+  model: ${modelPrefix}.videoModel("kling_v3"),
   prompt: { text: "gentle push-in, smoke rising from chimney", images: [img] },
   duration: 5
 })
