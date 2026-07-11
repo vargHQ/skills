@@ -128,14 +128,14 @@ POST /v2/ffmpeg
 
 | Model | Operation | Key fields |
 |-------|-----------|------------|
-| `rendi_ffmpeg_trim` | Trim | `url`, `start`, `end` or `duration`, `precise` |
-| `rendi_ffmpeg_resize` | Resize | `url`, `width`/`height`, `fit` (cover/contain/stretch) |
-| `rendi_ffmpeg_slice` | Slice into segments | `video_url`, `every`/`at`/`count`/`ranges`, `thumbnails` |
-| `rendi_ffmpeg` | Generic command | `command` with `{{in_1}}`/`{{out_1}}`, `input_files`, `output_files` |
+| `trim` | Trim | `url`, `start`, `end` or `duration`, `precise` |
+| `resize` | Resize | `url`, `width`/`height`, `fit` (cover/contain/stretch) |
+| `slice` | Slice into segments | `video_url`, `every`/`at`/`count`/`ranges`, `thumbnails` |
+| `ffmpeg` | Generic command | `command` with `{{in_1}}`/`{{out_1}}`, `input_files`, `output_files` |
 
 ```json
 {
-  "model": "rendi_ffmpeg_trim",
+  "model": "trim",
   "url": "https://s3.varg.ai/files/acc_x/video.mp4",
   "start": 2.5,
   "duration": 5
