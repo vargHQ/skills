@@ -159,7 +159,7 @@ Everything you know about varg is likely outdated. Always verify against this sk
 2. **Function calls for media, JSX for composition** -- `Image({...})` creates media, `<Clip>` composes timeline. Never write `<Image prompt="..." />`.
 3. **Cache is sacred** -- identical prompt + params = instant $0 cache hit. When iterating, keep unchanged prompts EXACTLY the same. Never clear cache.
 4. **One image per Video** -- `Video({ prompt: { images: [img] } })` takes exactly one image. Multiple images cause errors.
-5. **Duration constraints differ by model** -- kling_v3: 3-15s (integer only). kling_v2.5: ONLY 5 or 10. Check [models.md](references/models.md).
+5. **Duration constraints differ by model** -- kling_v3: 3-15s (integer only). kling_v2_5: ONLY 5 or 10. Check [models.md](references/models.md).
 6. **Gateway namespace** -- use `providerOptions: { varg: {...} }`, never `fal`, when going through the gateway (both modes).
 7. **Renders cost money** -- 1 credit = 1 cent. A typical 3-clip video costs $2-5. Use preview mode (local) or cheap models to iterate.
 8. **API key hygiene** -- Never write a raw API key value into a bash command. After obtaining a key (from the user or OTP response), immediately `export VARG_API_KEY=...` and use `$VARG_API_KEY` in all subsequent commands. This prevents keys from leaking into conversation context and terminal history.

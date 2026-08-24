@@ -215,7 +215,7 @@ const animated = Video({
 
 // Lipsync — image + audio (VEED, recommended)
 const talking = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [portrait], audio: voiceover }
 })
@@ -440,13 +440,13 @@ Used inside Grid or Split for fine positioning.
 
 Combines an image + speech into a lipsync talking-head video. **Must be called as a function, not JSX.** Requires three props: `image`, `audio`, and `model`.
 
-**Best model: `veed_fabric_1.0`** — takes image + audio directly (one step, fastest). For sync_v2/sync-v3, TalkingHead auto-animates the image first then lipsyncs (two-step, slower).
+**Best model: `veed_fabric_1_0`** — takes image + audio directly (one step, fastest). For sync_v2/sync-v3, TalkingHead auto-animates the image first then lipsyncs (two-step, slower).
 
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
 | `image` | `VargElement<"image">` | **Yes** | An `Image()` element (the character portrait) |
 | `audio` | `VargElement<"speech">` | **Yes** | A `Speech()` element (the voiceover — await first for duration) |
-| `model` | `VideoModelV3` | **Yes** | Lipsync model. Use `varg.videoModel("veed_fabric_1.0")` (recommended) |
+| `model` | `VideoModelV3` | **Yes** | Lipsync model. Use `varg.videoModel("veed_fabric_1_0")` (recommended) |
 | `lipsyncModel` | `VideoModelV3` | No | Override lipsync model (defaults to `model`) |
 | `resolution` | `"480p" \| "720p" \| "1080p"` | No | Video resolution (default: `"720p"`) |
 | `position` | `Position \| object` | No | Position within the clip |
@@ -470,7 +470,7 @@ const audio = await Speech({
 export default (
   <Render width={1080} height={1920}>
     <Clip duration={audio.duration}>
-      <TalkingHead image={portrait} audio={audio} model={varg.videoModel("veed_fabric_1.0")} />
+      <TalkingHead image={portrait} audio={audio} model={varg.videoModel("veed_fabric_1_0")} />
       <Captions src={audio} style="tiktok" />
     </Clip>
   </Render>

@@ -75,7 +75,7 @@ Image-to-video (start frame in `files` — varg routes to the model's i2v varian
 }
 ```
 
-Lipsync (video + audio in `files`): `sync_v2`, `veed_fabric_1.0`, `omnihuman_v1.5`. Video upscale: `topaz_video`, `seedvr_video`.
+Lipsync (video + audio in `files`): `sync_v2`, `veed_fabric_1_0`, `omnihuman_v1_5`. Video upscale: `topaz_video`, `seedvr_video`.
 
 ### Generate Speech
 

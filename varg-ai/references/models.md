@@ -16,12 +16,12 @@ Use with `varg.videoModel("id")`.
 | `seedance_2_fast_preview` | 237 | **5 or 10 ONLY** | ByteDance Seedance 2 Fast. Faster generation, auto watermark removal. |
 | `sora_2` | 105 | varies | OpenAI video model. |
 | `sora_2_pro` | 315 | varies | OpenAI premium tier. |
-| `kling_v2.6` | varies | 3-15s (integer) | Native audio support: `providerOptions: { varg: { generate_audio: true } }` |
-| `kling_v2.5` | 147 | **5 or 10 ONLY** | Legacy. Any other duration causes 422 error. |
-| `kling_v2.1` | 147 | 5 or 10 | Legacy. |
+| `kling_v2_6` | varies | 3-15s (integer) | Native audio support: `providerOptions: { varg: { generate_audio: true } }` |
+| `kling_v2_5` | 147 | **5 or 10 ONLY** | Legacy. Any other duration causes 422 error. |
+| `kling_v2_1` | 147 | 5 or 10 | Legacy. |
 | `kling_v2` | 147 | 5 or 10 | Legacy. |
-| `wan_2.5` | 158 | varies | Fast and affordable. |
-| `wan_2.5_preview` | 158 | varies | Preview version. |
+| `wan_2_5` | 158 | varies | Fast and affordable. |
+| `wan_2_5_preview` | 158 | varies | Preview version. |
 | `minimax` | 84 | varies | Alternative provider. |
 | `ltx_2_19b_distilled` | 53 | varies | **Cheapest**. Uses `num_frames` not `duration`, `video_size` not `aspect_ratio`. Native audio support. |
 | `grok_imagine` | 105 | varies | xAI model. Native audio support. |
@@ -32,7 +32,7 @@ Use with `varg.videoModel("id")`.
 |----------|---------|-------|
 | `grok_imagine_edit` | 105 | Video editing via xAI. |
 | `sora_2_remix` | 105 | Sora video remix. |
-| `kling_v2.6_motion` | 221 | Motion control (camera trajectories). |
+| `kling_v2_6_motion` | 221 | Motion control (camera trajectories). |
 
 ### Lipsync Models
 
@@ -42,30 +42,30 @@ Use with `varg.videoModel("id")`.
 | `sync_v2_pro` | 84 | Higher quality lipsync. |
 | `sync_v3` | 105 | Latest sync. |
 | `lipsync` | 53 | Basic lipsync. |
-| `omnihuman_v1.5` | ~1008 | Advanced human motion. Expensive. |
-| `veed_fabric_1.0` | ~473 | VEED fabric lipsync. |
+| `omnihuman_v1_5` | ~1008 | Advanced human motion. Expensive. |
+| `veed_fabric_1_0` | ~473 | VEED fabric lipsync. |
 
 ### Lipsync Model Selection Guide
 
-**`veed_fabric_1.0` is the best and recommended model for talking heads.** It takes a still image + audio and produces a talking video directly — simplest pipeline, fastest results, best quality for speech-first workflows.
+**`veed_fabric_1_0` is the best and recommended model for talking heads.** It takes a still image + audio and produces a talking video directly — simplest pipeline, fastest results, best quality for speech-first workflows.
 
 | Model | Pipeline | Input | Speed | Quality | Best For |
 |-------|----------|-------|-------|---------|----------|
-| `veed_fabric_1.0` | Image + audio -> video | Still image + audio | Fast (~30-50s) | **Best** | **Talking heads, narrator clips (RECOMMENDED)** |
+| `veed_fabric_1_0` | Image + audio -> video | Still image + audio | Fast (~30-50s) | **Best** | **Talking heads, narrator clips (RECOMMENDED)** |
 | `sync_v2` | Video + audio -> video | Pre-animated video + audio | Medium | Good | Adding lip movement to existing video |
-| `omnihuman_v1.5` | Image + audio -> video | Still image + audio | Slow | Variable | Full-body motion, experimental |
+| `omnihuman_v1_5` | Image + audio -> video | Still image + audio | Slow | Variable | Full-body motion, experimental |
 
 **Decision matrix:**
-- **"I need a talking head"** -> `veed_fabric_1.0` (best, simplest, fastest)
-- **"I have a speech audio and a character image"** -> `veed_fabric_1.0`
+- **"I need a talking head"** -> `veed_fabric_1_0` (best, simplest, fastest)
+- **"I have a speech audio and a character image"** -> `veed_fabric_1_0`
 - **"I have an animated video and want to add lip movement"** -> `sync_v2`
-- **"I need full-body gestures matching speech"** -> `omnihuman_v1.5` (experimental)
+- **"I need full-body gestures matching speech"** -> `omnihuman_v1_5` (experimental)
 
 **VEED Fabric workflow** (recommended — speech-first):
 ```tsx
 const portrait = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "..." });
 const talking = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [portrait], audio: speechSegment },
   providerOptions: { varg: { resolution: "720p" } },  // 480p or 720p only
@@ -91,7 +91,7 @@ Video({
 **Lipsync — image + audio** (recommended, VEED):
 ```tsx
 Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [portrait], audio: voiceover }
 })
@@ -109,13 +109,13 @@ Video({
 
 ```tsx
 Video({
-  model: varg.videoModel("kling_v2.6"),
+  model: varg.videoModel("kling_v2_6"),
   prompt: "...",
   duration: 5,
   aspectRatio: "9:16",
   providerOptions: {
     varg: {
-      generate_audio: true,   // Native audio (kling_v2.6, ltx, grok)
+      generate_audio: true,   // Native audio (kling_v2_6, ltx, grok)
       resolution: "2K",       // Higher resolution
     }
   }
@@ -139,7 +139,7 @@ Use with `varg.imageModel("id")`.
 | `flux_dev` | 68 | `string` | Better quality Flux. |
 | `flux_pro` | 68 | `string` | Best Flux quality. |
 | `recraft_v3` | 11 | `string` | Stylized / design images. |
-| `seedream_v4.5/edit` | 53 | `{ text, images }` | ByteDance image editing. |
+| `seedream_v4_5/edit` | 53 | `{ text, images }` | ByteDance image editing. |
 | `qwen_angles` | 9 | `{ text, images }` | Multi-angle generation from reference. |
 | `phota` | 38 | `string` | Photorealistic generation. |
 | `soul` | 21 | `string` | Higgsfield character generation. 80+ style presets. |
@@ -287,6 +287,6 @@ Use with `varg.musicModel("music_v1")`.
 | Speech (best) | `eleven_v3` | ~210 |
 | Music | `music_v1` | 79 |
 | Lipsync (cheap, video+audio) | `sync_v2` | 53 |
-| Talking Head (image+audio) | `veed_fabric_1.0` | ~473 |
+| Talking Head (image+audio) | `veed_fabric_1_0` | ~473 |
 
 Live catalog: `GET https://api.varg.ai/v2/pricing`.

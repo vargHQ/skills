@@ -108,7 +108,7 @@ done
 
 ### Cloud render: Talking Head
 
-Uses **veed_fabric_1.0** — the best and simplest model for talking heads. Takes a still image + audio and produces a talking video directly (no animation step needed).
+Uses **veed_fabric_1_0** — the best and simplest model for talking heads. Takes a still image + audio and produces a talking video directly (no animation step needed).
 
 ```bash
 cat > talking-head.tsx << 'TEMPLATE'
@@ -125,7 +125,7 @@ const voice = await Speech({
 });
 
 const talking = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [character], audio: voice }
 });
@@ -188,7 +188,7 @@ export default (
 
 ## 2. Talking Head -- Character + Speech + Lipsync + Captions
 
-Full talking-head pipeline using **veed_fabric_1.0** — the best and simplest model for talking heads. Takes a still image + audio directly (no animation step needed).
+Full talking-head pipeline using **veed_fabric_1_0** — the best and simplest model for talking heads. Takes a still image + audio directly (no animation step needed).
 
 ```tsx
 /** @jsxImportSource vargai */
@@ -213,7 +213,7 @@ const voice = await Speech({
 
 // 3. Lipsync image + audio directly (VEED — one step)
 const talking = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [character], audio: voice }
 })

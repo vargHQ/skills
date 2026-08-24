@@ -2,9 +2,9 @@
 
 ## Duration Constraint Violations
 
-### kling_v2.5: "422 Unprocessable Entity"
+### kling_v2_5: "422 Unprocessable Entity"
 
-**Cause**: kling_v2.5 only accepts duration `5` or `10`. Any other value (3, 7, 12, etc.) fails.
+**Cause**: kling_v2_5 only accepts duration `5` or `10`. Any other value (3, 7, 12, etc.) fails.
 
 **Fix**: Use exactly `duration: 5` or `duration: 10`. Or switch to kling_v3 which accepts any integer 3-15.
 

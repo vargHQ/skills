@@ -89,7 +89,7 @@ const portrait = Image({
 
 // 3. VISUALS -- durations come from segment timing
 const talking1 = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: false,  // audio comes from the voiceover track
   prompt: { images: [portrait], audio: segments[0] },
 })
@@ -99,7 +99,7 @@ const brollImg = Image({
   aspectRatio: "9:16"
 })
 const talking2 = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: false,
   prompt: { images: [portrait], audio: segments[2] },
 })
@@ -134,9 +134,9 @@ const { segments } = await Speech({
 
 const portrait = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "male host, studio, looking at camera", aspectRatio: "9:16" })
 
-const talking1 = Video({ model: varg.videoModel("veed_fabric_1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[0] } })
+const talking1 = Video({ model: varg.videoModel("veed_fabric_1_0"), keepAudio: true, prompt: { images: [portrait], audio: segments[0] } })
 const brollImg = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "city skyline timelapse", aspectRatio: "9:16" })
-const talking2 = Video({ model: varg.videoModel("veed_fabric_1.0"), keepAudio: true, prompt: { images: [portrait], audio: segments[2] } })
+const talking2 = Video({ model: varg.videoModel("veed_fabric_1_0"), keepAudio: true, prompt: { images: [portrait], audio: segments[2] } })
 
 export default (
   <Render width={1080} height={1920}>
@@ -158,7 +158,7 @@ export default (
 
 ## Talking Head (character + speech + lipsync + captions)
 
-**Best model for talking heads: `veed_fabric_1.0`** — takes a still image + audio and produces a talking video directly. No animation step needed. Simplest and fastest pipeline.
+**Best model for talking heads: `veed_fabric_1_0`** — takes a still image + audio and produces a talking video directly. No animation step needed. Simplest and fastest pipeline.
 
 ```tsx
 // 1. Generate character portrait
@@ -177,7 +177,7 @@ const voice = await Speech({
 
 // 3. Lipsync image + audio directly (VEED — one step, no animation needed)
 const talking = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [character], audio: voice }
 })
@@ -310,7 +310,7 @@ const narrator = Image({
 })
 
 const talking = Video({
-  model: varg.videoModel("veed_fabric_1.0"),
+  model: varg.videoModel("veed_fabric_1_0"),
   keepAudio: true,
   prompt: { images: [narrator], audio: segments[0] },
 })
