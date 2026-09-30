@@ -135,6 +135,7 @@ Use with `varg.imageModel("id")`.
 | `nano_banana_2` | 68 | `{ text, images? }` | Cheaper nano banana. |
 | `nano_banana_2/edit` | 68 | `{ text, images }` | Explicit edit mode. |
 | `grok_imagine_image` | 4 | `string` | **Cheapest**. xAI image generation. |
+| `ideogram_v4_5` | 7 (4 low, 24 high) | `string` or `{ text, images }` | **Best for text in images** — posters, logos, signs. With `images` it edits: first image is the source, up to 4 more are references. Quality/mask/precision via `providerOptions.fal` (`quality`, `mask_url`, `edit_precision`). |
 | `flux_schnell` | ~5 | `string` | Fast text-to-image. |
 | `flux_dev` | 68 | `string` | Better quality Flux. |
 | `flux_pro` | 68 | `string` | Best Flux quality. |
@@ -278,6 +279,7 @@ Use with `varg.musicModel("music_v1")`.
 | Image editing | `nano_banana_pro/edit` | 126 |
 | Image (cheap) | `grok_imagine_image` | 4 |
 | Image (fast) | `flux_schnell` | ~5 |
+| Image with text (posters, logos) | `ideogram_v4_5` | 7 |
 | Video (default) | `kling_v3` | 221 |
 | Video (premium) | `seedance_2_preview` | 394 |
 | Video (affordable) | `sora_2` | 105 |
