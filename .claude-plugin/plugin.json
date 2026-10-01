@@ -2,7 +2,6 @@
   "name": "varg",
   "displayName": "varg",
   "description": "Generate AI videos, images, speech, and music with varg — Kling, Seedance, Veo, Sora, Flux, ElevenLabs and more through one API key. Includes the varg-ai skill and the hosted varg MCP server.",
-  "version": "1.0.0",
   "author": {
     "name": "varg",
     "url": "https://varg.ai"
