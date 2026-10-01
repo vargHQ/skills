@@ -21,7 +21,18 @@ npx clawhub@latest install vargai
 npx clawhub@latest install vargai
 ```
 
-### Claude Code
+### Claude Code plugin
+
+Installs the `varg-ai` skill and the hosted varg MCP server (`https://mcp.varg.ai/mcp`, sign in with OAuth on first use):
+
+```bash
+claude plugin marketplace add vargHQ/skills
+claude plugin install varg@varg
+```
+
+Or inside Claude Code: `/plugin marketplace add vargHQ/skills`, then `/plugin install varg@varg`.
+
+### Claude Code (manual)
 
 ```bash
 # Clone into personal skills directory (available in all projects)
