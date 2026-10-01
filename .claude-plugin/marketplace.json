@@ -1,0 +1,18 @@
+{
+  "name": "varg",
+  "owner": {
+    "name": "varg",
+    "url": "https://varg.ai"
+  },
+  "metadata": {
+    "description": "Official varg plugins for AI video, image, speech, and music generation."
+  },
+  "plugins": [
+    {
+      "name": "varg",
+      "description": "Generate AI videos, images, speech, and music with varg — one API key for Kling, Seedance, Veo, Sora, Flux, ElevenLabs and more.",
+      "source": "./",
+      "category": "media"
+    }
+  ]
+}
