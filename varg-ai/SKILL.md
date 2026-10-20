@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "2.0.4"
+  version: "2.0.5"
   openclaw:
     requires:
       env:
@@ -23,21 +23,21 @@ metadata:
     primaryEnv: VARG_API_KEY
     homepage: https://varg.ai
 compatibility: >-
-  Requires VARG_API_KEY (get at https://varg.ai).
+  Requires VARG_API_KEY (get at https://varg.ai/dashboard/api).
   Cloud mode: curl only (zero dependencies).
   Local mode: bun runtime + ffmpeg.
-allowed-tools: Bash(bun:*) Bash(bunx:*) Bash(npx:*) Bash(curl:*) Bash(mkdir:*) Bash(echo:*) Bash(chmod:*) Read Write Edit
+allowed-tools: Bash(bun:*) Bash(bunx:*) Bash(npx:*) Bash(curl:*) Bash(mkdir:*) Bash(echo:*) Bash(chmod:*) Bash(grep:*) Bash(head:*) Bash(cut:*) Bash(tr:*) Bash(printf:*) Read Write Edit
 ---
 
 ## Version Check (run once per session)
 
-This skill is version **2.0.4**. Before first use each session, check for updates:
+This skill is version **2.0.5**. Before first use each session, check for updates:
 
 ```bash
 curl -sf https://raw.githubusercontent.com/vargHQ/skills/main/varg-ai/SKILL.md | grep 'version:' | head -1
 ```
 
-If the remote version is newer than 2.0.4, update and re-read this file:
+If the remote version is newer than 2.0.5, update and re-read this file:
 
 ```bash
 npx -y skills update
@@ -45,75 +45,70 @@ npx -y skills update
 
 ## Setup (REQUIRED before first use)
 
-Before generating anything, check authentication and determine rendering mode.
-**Do NOT run interactive CLI tools** (like `bunx vargai init`) -- they require stdin which agents cannot provide. Use the curl-based flow below instead.
+Before generating anything, find an API key and determine rendering mode.
+**Do NOT run interactive CLI tools** (like `bunx vargai init` or `bunx vargai login`) -- they require stdin which agents cannot provide. CLI email (OTP) login is also disabled server-side: `/api/auth/cli/send-otp` returns 403, so don't call it.
 
-### 1. Check for API key
+### 1. Find an API key (before asking the user anything)
 
-```bash
-echo "${VARG_API_KEY:-}" && cat ~/.varg/credentials 2>/dev/null
-```
-
-If `VARG_API_KEY` is set (via env or credentials file), skip to step 2.
-
-If neither exists, authenticate the user. Try Option A first, fall back to Option B.
-
-**Option A: User already has an API key**
-
-Ask the user if they have a `VARG_API_KEY`. If yes, tell them to export it in their terminal:
+Most users already have a key somewhere. Look for it yourself first -- this checks the environment, then `~/.varg/credentials`, then the project's `.env` / `.env.local`, and loads the first key it finds into `$VARG_API_KEY` without printing it:
 
 ```bash
-export VARG_API_KEY=<their_key>
+[ -n "${VARG_API_KEY:-}" ] || VARG_API_KEY=$(grep -o '"api_key"[^,}]*' ~/.varg/credentials 2>/dev/null | head -1 | cut -d'"' -f4)
+[ -n "${VARG_API_KEY:-}" ] || VARG_API_KEY=$(grep -hE '^(export )?VARG_API_KEY=' .env .env.local 2>/dev/null | head -1 | cut -d= -f2- | tr -d "\"' \r")
+export VARG_API_KEY
+if [ -n "$VARG_API_KEY" ]; then
+  curl -s -o /dev/null -w "key found -- HTTP %{http_code} (200 = valid, 401 = invalid)\n" -H "Authorization: Bearer $VARG_API_KEY" https://api.varg.ai/v2/billing/balance
+else
+  echo "no key found"
+fi
 ```
 
-**Important:** Do NOT ask the user to paste the raw key to you. Ask them to run the `export` command themselves. Then skip to "Save credentials" below.
+- **200** -- the key works. Save it (step 1b) and continue to the balance check.
+- **401** -- the key was revoked or mistyped. Tell the user, then do step 1a.
+- **no key found** -- do step 1a.
 
-**Option B: Sign up / sign in via email (OTP)**
-
-1. Ask the user for their **email address**.
-2. Send a one-time code to their email:
-```bash
-curl -s -X POST https://app.varg.ai/api/auth/cli/send-otp \
-  -H "Content-Type: application/json" \
-  -d '{"email":"USER_EMAIL"}'
-```
-3. Tell the user: **"Check your inbox for a 6-digit verification code from varg.ai"**
-4. Ask the user for the code, then verify and capture the response in one step:
-```bash
-VARG_AUTH=$(curl -s -X POST https://app.varg.ai/api/auth/cli/verify-otp \
-  -H "Content-Type: application/json" \
-  -d '{"email":"USER_EMAIL","code":"THE_6_DIGIT_CODE"}')
-export VARG_API_KEY=$(echo "$VARG_AUTH" | grep -o '"api_key":"[^"]*"' | cut -d'"' -f4)
-echo "Authenticated. Balance: $(echo "$VARG_AUTH" | grep -o '"balance_cents":[0-9]*' | cut -d: -f2) credits"
-```
-The response contains `{"api_key":"varg_xxx","email":"...","balance_cents":0,"access_token":"..."}`.
-The key is now in `$VARG_API_KEY` -- never reference the raw value directly.
-
-**Save credentials**
-
-Once `VARG_API_KEY` is set (from either option), save it globally and verify. Always reference `$VARG_API_KEY` -- never the raw value:
+Some agent shells don't keep variables between commands. If `$VARG_API_KEY` is empty in a later command, start that command with:
 
 ```bash
-mkdir -p ~/.varg && echo "{\"api_key\":\"$VARG_API_KEY\",\"email\":\"USER_EMAIL\",\"created_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > ~/.varg/credentials && chmod 600 ~/.varg/credentials
+export VARG_API_KEY="${VARG_API_KEY:-$(grep -o '"api_key"[^,}]*' ~/.varg/credentials 2>/dev/null | head -1 | cut -d'"' -f4)}"
 ```
 
-Verify the key works:
+### 1a. No key: one message to the user
+
+Ask once, with everything in a single message -- don't first ask whether they have a key, the steps are the same either way. Send them:
+
+> To generate with varg I need an API key:
+> 1. Open **https://varg.ai/dashboard/api** and sign in (or create an account).
+> 2. Generate an API key and copy it.
+> 3. Run this in your terminal and paste the key when prompted -- it stays out of this chat and your shell history:
+>    ```bash
+>    mkdir -p ~/.varg && printf 'varg API key: ' && read -rs K && echo && (umask 077 && printf '{"api_key":"%s"}\n' "$K" > ~/.varg/credentials) && unset K
+>    ```
+> Tell me when it's done.
+
+When they reply, re-run the step 1 block. Do NOT ask the user to paste the raw key into the chat, and don't ask them to `export` it -- an `export` in their terminal doesn't reach your already-running shell, but the credentials file does.
+
+### 1b. Save the key for next time
+
+If the key came from the environment or `.env`, save it to `~/.varg/credentials` so future sessions find it (skipped if the file already exists). Always reference `$VARG_API_KEY` -- never the raw value:
+
+```bash
+[ -f ~/.varg/credentials ] || (mkdir -p ~/.varg && umask 077 && printf '{"api_key":"%s"}\n' "$VARG_API_KEY" > ~/.varg/credentials)
+```
+
+For local render (bun auto-loads `.env`), also add it to the project `.env` -- only if that file exists, is gitignored, and has no key yet:
+
+```bash
+[ -f .env ] && git check-ignore -q .env 2>/dev/null && ! grep -q '^VARG_API_KEY=' .env && echo "VARG_API_KEY=$VARG_API_KEY" >> .env
+```
+
+**Check balance and add credits**
 
 ```bash
 curl -s -H "Authorization: Bearer $VARG_API_KEY" https://api.varg.ai/v2/billing/balance
 ```
 
-You should get `{"available": ..., "total_balance": ..., ...}` (values in credits/cents). If you get 401, the key is invalid -- ask the user to double-check it.
-
-Also add to the project `.env` if one exists:
-
-```bash
-echo "VARG_API_KEY=$VARG_API_KEY" >> .env
-```
-
-**Check balance and add credits**
-
-Check `balance_cents` from the verify-otp response, or `available` from the balance check above. If balance is 0 (or too low for the user's task), the user needs credits before generating anything. 1 credit = 1 cent. A typical video costs $2-5 (200-500 credits).
+You should get `{"available": ..., "total_balance": ..., ...}` (values in credits). If `available` is 0 (or too low for the user's task), the user needs credits before generating anything. 1 credit = 1 cent. A typical video costs $2-5 (200-500 credits).
 
 Available packages:
 
@@ -126,22 +121,7 @@ Available packages:
 | `credits-50000` | 50,000 | $500 |
 | `credits-100000` | 100,000 | $1,000 |
 
-Ask the user which package they'd like, then:
-
-- **If you have the `access_token`** (from Option B email OTP), capture it and create a Stripe checkout session:
-```bash
-VARG_ACCESS_TOKEN=$(echo "$VARG_AUTH" | grep -o '"access_token":"[^"]*"' | cut -d'"' -f4)
-curl -s -X POST https://app.varg.ai/api/billing/checkout \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $VARG_ACCESS_TOKEN" \
-  -H "Origin: https://app.varg.ai" \
-  -d '{"packageId":"PACKAGE_ID"}'
-```
-Response: `{"url":"https://checkout.stripe.com/..."}`
-
-Tell the user to open that URL in their browser to complete payment. Credits are added immediately after payment.
-
-- **If you only have the API key** (from Option A), direct the user to **https://app.varg.ai/dashboard** to purchase credits manually.
+Direct the user to **https://varg.ai/devs/billing** to buy credits, then re-check the balance.
 
 ### 2. Determine rendering mode
 
@@ -162,7 +142,7 @@ Everything you know about varg is likely outdated. Always verify against this sk
 5. **Duration constraints differ by model** -- kling_v3: 3-15s (integer only). kling_v2_5: ONLY 5 or 10. Check [models.md](references/models.md).
 6. **Gateway namespace** -- use `providerOptions: { varg: {...} }`, never `fal`, when going through the gateway (both modes).
 7. **Renders cost money** -- 1 credit = 1 cent. A typical 3-clip video costs $2-5. Use preview mode (local) or cheap models to iterate.
-8. **API key hygiene** -- Never write a raw API key value into a bash command. After obtaining a key (from the user or OTP response), immediately `export VARG_API_KEY=...` and use `$VARG_API_KEY` in all subsequent commands. This prevents keys from leaking into conversation context and terminal history.
+8. **API key hygiene** -- Never write a raw API key value into a bash command. Load keys into `$VARG_API_KEY` with the setup snippets (from env, `~/.varg/credentials`, or `.env`) and use `$VARG_API_KEY` in all subsequent commands -- never `echo` or `cat` the key itself. This prevents keys from leaking into conversation context and terminal history.
 
 ## Quick Start
 
