@@ -134,7 +134,7 @@ if (higgsfieldKey) {
 if (!vargKey && !falKey) {
   console.log(red("\n  ✗ No API keys found."))
   console.log()
-  console.log(`  Get your API key at: ${cyan("https://app.varg.ai")}`)
+  console.log(`  Get your API key at: ${cyan("https://varg.ai/dashboard/api")}`)
   console.log()
   console.log(`  Then set it:`)
   console.log(`    ${cyan("export VARG_API_KEY=varg_xxx")}`)

@@ -8,7 +8,7 @@ The varg API at `api.varg.ai/v2` is a unified REST API for generating images, vi
 Authorization: Bearer varg_xxx
 ```
 
-Get your API key at the varg dashboard (app.varg.ai). Only `GET /v2/pricing` is public.
+Get your API key at https://varg.ai/dashboard/api. Only `GET /v2/pricing` is public.
 
 ## Base URL
 
