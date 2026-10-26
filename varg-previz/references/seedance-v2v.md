@@ -82,3 +82,10 @@ a run is ambiguous.
 5. Poll `get_job`; download outputs to `out/XX_<run>.mp4`; compare frames against the previz clip at the same times
    (a 2-row montage) before accepting. Then lip-sync (`sync_v2_pro`) the sung/spoken shots from voice slices, and cut
    clips onto the timeline with the placement table.
+
+## Pass-through check (do it on every output)
+
+One 4 s run came back as the previz itself, re-encoded (grey 3D render, frame-identical) and billed less (65 credits).
+Compare a few frames of every output with its @video1 before using it. Retake fix that worked: send the reference as
+**greyscale** (`ffmpeg -vf hue=s=0`) and say "@video1 is a black-and-white previz … redraw every frame as full-colour
+hand-drawn anime; the result must not look like @video1".
