@@ -64,6 +64,7 @@ npx skills add vargHQ/skills --yes
 | Skill | Description | ClawHub Slug |
 |-------|-------------|--------------|
 | [varg-ai](./varg-ai/) | AI video, image, speech, and music generation | `vargai` |
+| [varg-previz](./varg-previz/) | Plan multi-shot AI videos: story, anchors, a three.js grey-box previz with auto cameras, Seedance video-to-video packs | — |
 
 ## Requirements
 
