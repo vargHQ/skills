@@ -18,13 +18,13 @@ These examples show the complete cloud render workflow using `curl`. No bun or f
 # Write TSX code to a file first (for reference/iteration)
 cat > video.tsx << 'TEMPLATE'
 const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light, snow on peaks",
   aspectRatio: "16:9"
 });
 
 const vid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "gentle camera push-in, smoke rising from chimney, birds flying across sky", images: [img] },
   duration: 5
 });
@@ -113,13 +113,13 @@ Uses **veed_fabric_1_0** — the best and simplest model for talking heads. Take
 ```bash
 cat > talking-head.tsx << 'TEMPLATE'
 const character = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
   aspectRatio: "9:16"
 });
 
 const voice = await Speech({
-  model: varg.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v4"),
   voice: "rachel",
   children: "Hey everyone! Welcome back. Today we are going to talk about something really exciting."
 });
@@ -148,7 +148,7 @@ curl -s -X POST https://api.varg.ai/v2/render \
 
 ## Local Render Templates
 
-The following templates use local mode with imports. Run with `bunx vargai render <file> --verbose`.
+The following templates use local mode with imports. Run with `bunx vargai@alpha render <file> --verbose`.
 
 ---
 
@@ -164,13 +164,13 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light, snow on peaks",
   aspectRatio: "16:9"
 })
 
 const vid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "gentle camera push-in, smoke rising from chimney, birds flying across sky", images: [img] },
   duration: 5
 })
@@ -182,7 +182,7 @@ export default (
 )
 ```
 
-**Cost**: ~155 credits ($1.55) -- 5 (image) + 150 (video)
+**Cost**: ~220 credits ($2.20) -- 8 (image) + 210 (5s seedance_2_5 at 720p). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -199,14 +199,14 @@ const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 // 1. Generate character portrait
 const character = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "friendly female tech host, professional studio background, warm smile, looking at camera",
   aspectRatio: "9:16"
 })
 
 // 2. Generate voiceover
 const voice = await Speech({
-  model: varg.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v4"),
   voice: "rachel",
   children: "Hey everyone! Welcome back to the channel. Today we're going to talk about something really exciting."
 })
@@ -226,7 +226,7 @@ export default (
 )
 ```
 
-**Cost**: ~180 credits ($1.80) -- 5 (image) + 25 (speech) + 100 (veed lipsync) + 50 (captions/transcription)
+**Cost**: ~260 credits ($2.60) -- 8 (image) + 84 (speech) + ~160 (veed lipsync) + 6 (captions/transcription)
 
 ---
 
@@ -247,57 +247,57 @@ const BRAND = "AuraSound"
 
 // -- Character reference (for consistency) --
 const model_ref = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "young woman, casual streetwear, confident expression, neutral background",
   aspectRatio: "9:16"
 })
 
 // -- Scene 1: Hero product shot --
 const heroImg = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: `${PRODUCT}, floating against dark gradient, dramatic studio lighting`,
   aspectRatio: "9:16"
 })
 const heroVid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "slow 360 rotation, light rays catching surface, camera orbits", images: [heroImg] },
   duration: 5
 })
 
 // -- Scene 2: Lifestyle (character using product) --
 const lifestyleImg = Image({
-  model: varg.imageModel("nano_banana_pro/edit"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: { text: "same woman wearing wireless earbuds, walking through city street, golden hour", images: [model_ref] },
   aspectRatio: "9:16"
 })
 const lifestyleVid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "woman walks confidently, bobbing head to music, city blurs behind", images: [lifestyleImg] },
   duration: 5
 })
 
 // -- Scene 3: Close-up detail --
 const detailImg = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: `extreme close-up of ${PRODUCT}, touch controls glowing blue, soft bokeh`,
   aspectRatio: "9:16"
 })
 const detailVid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "finger taps earbud, blue pulse radiates outward, satisfying click", images: [detailImg] },
   duration: 5
 })
 
 // -- Voiceover --
 const voice = Speech({
-  model: varg.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v4"),
   voice: "adam",
   children: `Introducing ${BRAND}. Premium sound. Zero compromise. Experience music the way it was meant to be heard.`
 })
 
 export default (
   <Render width={1080} height={1920} fps={30}>
-    <Music model={varg.musicModel("music_v1")} prompt="modern electronic, premium feel, building energy" duration={20} volume={0.25} ducking />
+    <Music model={varg.musicModel("mureka_9_5")} prompt="modern electronic, premium feel, building energy" duration={20} volume={0.25} ducking />
     <Clip duration={5}>{heroVid}<Title position="bottom">{BRAND}</Title></Clip>
     <Clip duration={5} transition={{ name: "fade", duration: 0.5 }}>{lifestyleVid}</Clip>
     <Clip duration={5} transition={{ name: "wipeleft", duration: 0.3 }}>{detailVid}</Clip>
@@ -314,7 +314,7 @@ export default (
 )
 ```
 
-**Cost**: ~510 credits ($5.10) -- 20 (4 images) + 450 (3 videos) + 25 (speech) + 30 (music)
+**Cost**: ~770 credits ($7.70) -- 32 (4 images) + 630 (3 videos) + 84 (speech) + 25 (music). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -338,14 +338,14 @@ const slides = [
 ]
 
 const images = slides.map(prompt =>
-  Image({ model: varg.imageModel("nano_banana_pro"), prompt, aspectRatio: "16:9" })
+  Image({ model: varg.imageModel("nano_banana_2_1"), prompt, aspectRatio: "16:9" })
 )
 
 const totalDuration = slides.length * 3
 
 export default (
   <Render width={1920} height={1080}>
-    <Music model={varg.musicModel("music_v1")} prompt="peaceful ambient, gentle piano, nature sounds" duration={totalDuration} volume={0.4} />
+    <Music model={varg.musicModel("mureka_9_5")} prompt="peaceful ambient, gentle piano, nature sounds" duration={totalDuration} volume={0.4} />
     {images.map((img, i) => (
       <Clip key={i} duration={3} transition={i > 0 ? { name: "dissolve", duration: 0.8 } : undefined}>
         {img}
@@ -355,7 +355,7 @@ export default (
 )
 ```
 
-**Cost**: ~55 credits ($0.55) -- 25 (5 images) + 30 (music)
+**Cost**: ~65 credits ($0.65) -- 40 (5 images) + 25 (music)
 
 ---
 
@@ -371,23 +371,23 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const beforeImg = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "messy cluttered desk, papers everywhere, dim lighting",
   aspectRatio: "9:16"
 })
 const beforeVid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "camera slowly reveals the chaos, papers flutter", images: [beforeImg] },
   duration: 5
 })
 
 const afterImg = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "perfectly organized minimalist desk, clean lines, bright natural light",
   aspectRatio: "9:16"
 })
 const afterVid = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "camera glides across clean surface, light catches polished wood", images: [afterImg] },
   duration: 5
 })
@@ -405,7 +405,7 @@ export default (
 )
 ```
 
-**Cost**: ~310 credits ($3.10) -- 10 (2 images) + 300 (2 videos)
+**Cost**: ~435 credits ($4.35) -- 16 (2 images) + 420 (2 videos). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -422,7 +422,7 @@ const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 // 1. Character reference
 const ref = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a woman in her 30s, dark hair in a ponytail, wearing a leather jacket, determined expression",
   aspectRatio: "9:16"
 })
@@ -436,7 +436,7 @@ const scenes = [
 
 const sceneImages = scenes.map(s =>
   Image({
-    model: varg.imageModel("nano_banana_pro/edit"),
+    model: varg.imageModel("nano_banana_2_1"),
     prompt: { text: `same woman ${s.env}`, images: [ref] },
     aspectRatio: "9:16"
   })
@@ -444,7 +444,7 @@ const sceneImages = scenes.map(s =>
 
 const sceneVideos = scenes.map((s, i) =>
   Video({
-    model: varg.videoModel("kling_v3"),
+    model: varg.videoModel("seedance_2_5"),
     prompt: { text: s.motion, images: [sceneImages[i]] },
     duration: 5
   })
@@ -452,7 +452,7 @@ const sceneVideos = scenes.map((s, i) =>
 
 export default (
   <Render width={1080} height={1920}>
-    <Music model={varg.musicModel("music_v1")} prompt="dark atmospheric, deep bass, tension building" duration={15} volume={0.3} />
+    <Music model={varg.musicModel("mureka_9_5")} prompt="dark atmospheric, deep bass, tension building" duration={15} volume={0.3} />
     {sceneVideos.map((vid, i) => (
       <Clip key={i} duration={5} transition={i > 0 ? { name: "fade", duration: 0.3 } : undefined}>
         {vid}
@@ -462,7 +462,7 @@ export default (
 )
 ```
 
-**Cost**: ~500 credits ($5.00) -- 20 (4 images) + 450 (3 videos) + 30 (music)
+**Cost**: ~690 credits ($6.90) -- 32 (4 images) + 630 (3 videos) + 25 (music). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -470,12 +470,12 @@ export default (
 
 ```bash
 # Full render (costs credits)
-bunx vargai render template.tsx --verbose
+bunx vargai@alpha render template.tsx --verbose
 
 # Preview with placeholders (free)
-bunx vargai render template.tsx --preview
+bunx vargai@alpha render template.tsx --preview
 
 # Render in background (recommended for long jobs)
-nohup bunx vargai render template.tsx --verbose > output/render.log 2>&1 &
+nohup bunx vargai@alpha render template.tsx --verbose > output/render.log 2>&1 &
 echo "PID: $!"
 ```

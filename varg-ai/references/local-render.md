@@ -11,6 +11,7 @@ Run through this before your first render in any project:
 1. **Check runtime**: `bun --version` (>= 1.0) and `ffmpeg -version` (>= 6.0)
 2. **Check API key**: `grep VARG_API_KEY .env` -- must be set. Get one at https://varg.ai
 3. **Create directories**: `mkdir -p output .cache/ai`
+   **SDK version**: if the project has a `package.json`, pin a current SDK with `bun add vargai@alpha` (≥ 0.4.0-alpha124). The npm `latest` tag still points to an older build that talks to the legacy v1 API and has no `audio: "native"`. Always run the CLI as `bunx vargai@alpha`.
 4. **JSX pragma**: First line of every `.tsx` file must be `/** @jsxImportSource vargai */`
 5. **Correct imports**:
    ```tsx
@@ -18,8 +19,8 @@ Run through this before your first render in any project:
    import { createVarg } from "vargai/ai";
    const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
    ```
-6. **Test structure first**: `bunx vargai render video.tsx --preview` validates composition for $0
-7. **Then full render**: `bunx vargai render video.tsx -o output/video.mp4`
+6. **Test structure first**: `bunx vargai@alpha render video.tsx --preview` validates composition for $0
+7. **Then full render**: `bunx vargai@alpha render video.tsx -o output/video.mp4`
 
 ## TSX Format
 
@@ -45,7 +46,7 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a cozy cabin in mountains at sunset, warm golden light",
   aspectRatio: "16:9"
 })
@@ -67,26 +68,26 @@ import { createVarg } from "vargai/ai"
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 
 const hero = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "cinematic portrait of a warrior princess, golden hour lighting",
   aspectRatio: "9:16"
 })
 
 const scene = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
   duration: 5
 })
 
 const voice = Speech({
-  model: varg.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v4"),
   voice: "rachel",
   children: "In a world beyond imagination..."
 })
 
 export default (
   <Render width={1080} height={1920} fps={30}>
-    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
+    <Music model={varg.musicModel("mureka_9_5")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
     <Clip duration={5}>
       {scene}
       <Title position="bottom">The Last Guardian</Title>
@@ -100,13 +101,13 @@ export default (
 
 ```bash
 # Preview with free placeholders (validate structure before paying)
-bunx vargai render video.tsx --preview
+bunx vargai@alpha render video.tsx --preview
 
 # Full render (costs credits)
-bunx vargai render video.tsx --verbose
+bunx vargai@alpha render video.tsx --verbose
 
 # Force regeneration (bypass cache -- use sparingly, costs $$$)
-bunx vargai render video.tsx --no-cache
+bunx vargai@alpha render video.tsx --no-cache
 
 # Open the result
 open output/video.mp4
@@ -117,7 +118,7 @@ open output/video.mp4
 Renders take 3-15+ minutes. Run in the background to avoid blocking:
 
 ```bash
-nohup bunx vargai render video.tsx --verbose > output/render.log 2>&1 &
+nohup bunx vargai@alpha render video.tsx --verbose > output/render.log 2>&1 &
 echo "PID: $!"
 
 # Check progress
@@ -144,5 +145,5 @@ bun scripts/setup.ts
 echo "VARG_API_KEY=varg_xxx" >> .env
 
 # 2. Quick smoke test
-bunx vargai hello
+bunx vargai@alpha hello
 ```
