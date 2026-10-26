@@ -8,10 +8,8 @@ metadata:
   version: "1.0.0"
   openclaw:
     requires:
-      anyBins:
+      bins:
         - python3
-        - bun
-        - ffmpeg
     homepage: https://varg.ai
 compatibility: >-
   The previz app needs python3 (local server) and a browser; three.js is vendored, no npm.

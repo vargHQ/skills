@@ -100,7 +100,7 @@ def check():
         if f:
             wh = image_size(f)
             if wh and min(wh) < MIN_REF_PX: errs.append(f"ref {k}: {wh[0]}x{wh[1]} px, pad it to at least {MIN_REF_PX} px on the short side")
-        if not v.get("role"): warn.append(f"ref {k}: no 'role' line (what this image locks)")
+        if not v.get("role"): errs.append(f"ref {k}: no 'role' line (what this image locks); the prompt needs it")
     return errs, warn
 
 

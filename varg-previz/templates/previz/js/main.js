@@ -6,6 +6,8 @@ import { autoCam, subjectOf, SIZE_ORDER } from './autocam.js';
 
 const $ = s => document.querySelector(s);
 const qs = new URLSearchParams(location.search);
+// storyboards are often model-written: escape every value that goes into innerHTML
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 // ------------------------------------------------------------------ config + storyboard
 // config.json lives next to index.html; its paths are relative to this folder (the server serves the project root).
@@ -242,7 +244,7 @@ for (const sh of shots) {
   const el = document.createElement('div');
   el.className = 'tl-shot'; el.style.left = pct(sh.start); el.style.width = `calc(${pct(sh.dur)} - 1px)`;
   el.style.setProperty('--c', SCENES[sh.scene].color);
-  el.innerHTML = `<b>${sh.id}</b><span class="dot"></span>`;
+  el.innerHTML = `<b>${esc(sh.id)}</b><span class="dot"></span>`;
   el.title = `${sh.id}${sh.line ? ' · ' + sh.line : ''}\n${sh.picture || ''}`;
   tl.appendChild(el); sh.tlEl = el;
 }
@@ -270,11 +272,11 @@ function renderPanel() {
   $('#p-lyric').textContent = has(sh.line) ? `“${sh.line}”` : 'no line';
   $('#p-picture').textContent = sh.picture || '';
   $('#p-meta').innerHTML = [
-    has(sh.act) || has(sh.campbell) || has(sh.beat) ? [sh.act && `act ${sh.act}`, sh.campbell, sh.beat].filter(has).join(' · ') : '',
-    [sh.kind, sh.source].filter(has).join(' · '), has(sh.film_ref) ? `ref: ${sh.film_ref}` : '',
-    has(sh.camera) ? `camera note: ${typeof sh.camera === 'string' ? sh.camera : JSON.stringify(sh.camera)}` : '',
-    has(sh.overlay) ? `add in edit: ${sh.overlay}` : '', `set: ${sets[sh.set].title}`,
-    sh.warn ? `<span class="warn">⚠ ${sh.warn}</span>` : '',
+    has(sh.act) || has(sh.campbell) || has(sh.beat) ? esc([sh.act && `act ${sh.act}`, sh.campbell, sh.beat].filter(has).join(' · ')) : '',
+    esc([sh.kind, sh.source].filter(has).join(' · ')), has(sh.film_ref) ? `ref: ${esc(sh.film_ref)}` : '',
+    has(sh.camera) ? `camera note: ${esc(typeof sh.camera === 'string' ? sh.camera : JSON.stringify(sh.camera))}` : '',
+    has(sh.overlay) ? `add in edit: ${esc(sh.overlay)}` : '', `set: ${esc(sets[sh.set].title)}`,
+    sh.warn ? `<span class="warn">⚠ ${esc(sh.warn)}</span>` : '',
   ].filter(Boolean).map(x => `<div>${x}</div>`).join('');
   const still = stillOf(sh);
   $('#p-still').hidden = !still; $('#onion').src = still || '';

@@ -28,7 +28,10 @@ const SIZE_WORDS = [
 ];
 
 export function parseCamera(c) {
-  if (c && typeof c === 'object') return { ...c, text: '' };
+  if (c && typeof c === 'object') { // { size, angle, height, move, subject, fov }: normalise through the word parser
+    const p = parseCamera([c.size, c.angle, c.height, c.move].flat().filter(Boolean).join(', '));
+    return { ...p, ...(c.fov && { fov: c.fov }), ...(c.subject && { subject: c.subject }) };
+  }
   const t = String(c || '').toLowerCase();
   const out = { text: t };
   for (const [k, re] of SIZE_WORDS) if (re.test(t)) { out.size = k; break; }
@@ -37,14 +40,14 @@ export function parseCamera(c) {
   else if (/\bpov\b|point of view/.test(t)) out.angle = 'pov';
   else if (/3\/4|three[- ]quarter/.test(t)) out.angle = side(t.match(/(3\/4|three[- ]quarter)[^,;.]*/)[0]) < 0 ? '3/4 left' : '3/4 right';
   else if (/profile|side on|side view/.test(t)) out.angle = side(t.match(/(profile|side)[^,;.]*/)[0]) < 0 ? 'profile left' : 'profile right';
-  else if (/\bback\b|from behind|behind/.test(t)) out.angle = 'back';
+  else if (/(?<!(pull|track|dolly|move)[- ])\bback\b|from behind|\bbehind\b/.test(t)) out.angle = 'back';
   out.height = /\btop\b|top[- ]down|overhead|bird/.test(t) ? 'top' : /\blow\b|worm/.test(t) ? 'low' : /\bhigh\b/.test(t) ? 'high' : 'eye';
   out.dutch = /dutch|canted/.test(t);
   const m = [];
   if (/push[- ]?in|dolly in|move in|track in/.test(t)) m.push('push');
-  if (/pull[- ]?(out|back)|dolly out|track out/.test(t)) m.push('pull');
-  if (/orbit|arc/.test(t)) m.push('orbit ' + (side(t.match(/(orbit|arc)[^,;.]*/)[0]) < 0 ? 'left' : 'right'));
-  if (/crane up|boom up|rise|pedestal up/.test(t)) m.push('crane up');
+  if (/pull[- ]?(out|back)|dolly (out|back)|track (out|back)|move back/.test(t)) m.push('pull');
+  if (/\borbit|\barc\b/.test(t)) m.push('orbit ' + (side(t.match(/(\borbit|\barc\b)[^,;.]*/)[0]) < 0 ? 'left' : 'right'));
+  if (/crane up|boom up|\brises?\b|pedestal up/.test(t)) m.push('crane up');
   if (/crane down|boom down|descend|pedestal down/.test(t)) m.push('crane down');
   if (/truck|track(ing)? (left|right)|slide/.test(t)) m.push('truck ' + (side(t.match(/(truck|track|slide)[^,;.]*/)[0]) < 0 ? 'left' : 'right'));
   if (/\bpan\b/.test(t)) m.push('pan ' + (side(t.match(/\bpan[^,;.]*/)[0]) < 0 ? 'left' : 'right'));

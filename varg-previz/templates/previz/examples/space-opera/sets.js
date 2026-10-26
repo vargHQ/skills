@@ -508,6 +508,7 @@ function buildBeast() {
       pose(o.pilot, [['stand', 1], ['sax', 1]]);
       o.sax.visible = true;
       o.scroll.position.z = 0;
+      o.drones.visible = true;
       o.drones.children.forEach(d => { d.visible = true; d.position.copy(d.userData.base); d.scale.setScalar(1); });
       o.rings.forEach(r => (r.visible = false)); o.bursts.forEach(b => (b.visible = false));
       o.laser.visible = false; o.cracks.visible = false; o.flash.material.opacity = 0; o.flash.visible = false;

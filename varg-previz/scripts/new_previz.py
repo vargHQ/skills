@@ -58,11 +58,18 @@ def group_runs(shots):
             cur.append(s); t += d
         if cur:
             runs.append((k, cur))
-    out, count = [], {}
+    out, count, used = [], {}, set(order)  # scene names are reserved, so "A" split in two never collides with a scene "A1"
     for k, ss in runs:
-        count[k] = count.get(k, 0) + 1
-        out.append({"key": f"{k}{count[k]}" if sum(1 for x, _ in runs if x == k) > 1 else k,
-                    "title": k.replace("_", " "), "shots": [s["id"] for s in ss], "refs": [], "notes": []})
+        if sum(1 for x, _ in runs if x == k) == 1:
+            key = k
+        else:
+            while True:
+                count[k] = count.get(k, 0) + 1
+                key = f"{k}{count[k]}"
+                if key not in used:
+                    break
+        used.add(key)
+        out.append({"key": key, "title": k.replace("_", " "), "shots": [s["id"] for s in ss], "refs": [], "notes": []})
     return out
 
 

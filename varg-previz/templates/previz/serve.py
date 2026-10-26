@@ -33,7 +33,16 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _local(self):
+        """Writes only from this app: Host must be localhost, and a browser Origin (if sent) must be this server.
+        Stops any other website the user visits from POSTing to the local server."""
+        ok = {f"localhost:{PORT}", f"127.0.0.1:{PORT}"}
+        origin = self.headers.get("Origin")
+        return self.headers.get("Host") in ok and (origin is None or origin.split("://", 1)[-1] in ok)
+
     def do_POST(self):
+        if not self._local():
+            return self._reply(403, {"error": "only same-origin requests from localhost"})
         raw = self.rfile.read(int(self.headers.get("Content-Length", 0)))
         try:
             payload = json.loads(raw)
