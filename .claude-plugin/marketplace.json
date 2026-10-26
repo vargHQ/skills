@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "varg",
-      "description": "Generate AI videos, images, speech, and music with varg — one API key for Kling, Seedance, Veo, Sora, Flux, ElevenLabs and more.",
+      "description": "Generate AI videos, images, speech, and music with varg — one API key for Seedance 2.5, Kling 4, Wan 3, Veo 3.1, Nano Banana, GPT Image, ElevenLabs and more.",
       "source": "./",
       "category": "media"
     }

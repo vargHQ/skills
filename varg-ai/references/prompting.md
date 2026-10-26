@@ -24,7 +24,7 @@ Be specific about appearance, clothing, expression:
 - "A golden retriever puppy with floppy ears"
 - "A weathered lighthouse on a rocky cliff"
 
-For characters appearing in multiple scenes, generate a reference image first and use `nano_banana_pro/edit` to maintain consistency (see SKILL.md character consistency section).
+For characters appearing in multiple scenes, generate a reference image first and pass it as a reference to `nano_banana_2_1` (`{ text, images: [ref] }`) to keep the character consistent (see SKILL.md character consistency section).
 
 ---
 
@@ -112,9 +112,11 @@ Describe what happens in the scene. Be specific about movement direction and spe
 
 ## Native Audio / Dialogue Prompts
 
-Some video models support native audio generation (speech, sound effects, ambient audio baked into the video). Enable with `providerOptions: { varg: { generate_audio: true } }`.
+Some video models generate audio natively: speech, sound effects and ambience baked into the video. Turn it on with `audio: "native"` on `Video()` (REST: `"audio": true`).
 
-**Supported models**: `kling_v2_6`, `ltx_2_19b_distilled`, `grok_imagine`
+**Supported via `audio: "native"`**: `seedance_2_5`, `kling_v4`, `kling_v3`, `flux_3`, `flux_3_max`, `veo_3_1`. Models such as `wan_3`, `heygen_video_1`, `omni_flash_1_1` and `grok_imagine_1_5` produce audio through their own options. See their spec pages.
+
+Do NOT write `providerOptions: { varg: { generate_audio: true } }`. That flat bag is dropped by the API, and you get a silent clip.
 
 ### Dialogue Formatting
 
@@ -136,18 +138,18 @@ Character says: "Your line here."
 ```tsx
 // Character with dialogue
 Video({
-  model: varg.videoModel("kling_v2_6"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: "woman at a cafe table, she picks up her coffee and says: \"This is perfect.\" Warm smile, gentle ambient cafe sounds.",
   duration: 5,
-  providerOptions: { varg: { generate_audio: true } }
+  audio: "native"
 })
 
 // Atmospheric scene (no dialogue)
 Video({
-  model: varg.videoModel("kling_v2_6"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: "aerial shot of ocean waves crashing on rocky shore, no dialogue, ambient ocean sounds, wind, seagulls in distance",
   duration: 8,
-  providerOptions: { varg: { generate_audio: true } }
+  audio: "native"
 })
 ```
 
@@ -171,9 +173,21 @@ When animating a reference image, your prompt should describe **the motion**, no
 
 ---
 
+## Multi-Reference and Multi-Shot Prompts (Seedance 2.5, Wan 3, Kling 4)
+
+The 2026 flagship video models take several references and can cut between shots inside one clip.
+
+- **Name each reference by its role**: "the woman from the first image walks into the bakery from the second image". Order matters: images are numbered in the order you pass them.
+- **One identity per reference image.** Use a clean, front-facing character sheet, not a busy scene.
+- **Multi-shot in one prompt** (`kling_v4`, `seedance_2_5`): number the shots with their timing, e.g. `Shot 1 (0-4s): wide establishing shot of ... Shot 2 (4-8s): close-up of her face as she ...`. Keep each shot to one action.
+- **Long clips (15-30s)** drift more than 5-10s clips. For hero moments, prefer two 8s clips joined in `<Clip>`s over one 16s clip, so you can regenerate one half without paying for the other.
+- **Draft cheap, then upgrade**: lock the motion with `minimax_h3_max_turbo` or 480p/720p, then re-run the same prompt at 1080p on the final model.
+
+---
+
 ## Music Prompt Tips
 
-Music prompts describe a vibe, not lyrics:
+For background beds (`mureka_9_5`, instrumental only) describe a vibe, not lyrics:
 
 - "upbeat electronic, rising energy, synth arpeggios"
 - "gentle ambient piano, warm and reflective, slow tempo"
@@ -181,7 +195,9 @@ Music prompts describe a vibe, not lyrics:
 - "lo-fi hip hop, chill beats, vinyl crackle, jazzy chords"
 - "dark atmospheric, deep bass, industrial textures"
 
-Keep music prompts under 30 words. Focus on: genre, mood, instruments, tempo, energy level.
+Keep bed prompts under 30 words. Focus on: genre, mood, instruments, tempo, energy level.
+
+For songs with vocals (`lyria_3_5`), put structure and lyrics in the prompt: `"indie pop, female vocal, 110 bpm. [Verse] ... [Chorus] ..."`. For a bed on Lyria, add "instrumental, no vocals".
 
 ---
 

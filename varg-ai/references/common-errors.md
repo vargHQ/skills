@@ -1,57 +1,75 @@
 # Common Errors & Debugging
 
+## Unknown Model / Model Removed
+
+**Error**: `unknown model`, 404 or 422 naming the model.
+
+**Cause**: The model was renamed or retired. `sora_2`, `sora_2_pro` and `sora_2_remix` are discontinued (OpenAI closed the Sora API on 2026-09-24). `minimax` and `kling_v2_1` are no longer in the catalog. Dotted ids (`seedance_2.5`) are wrong; ids use underscores (`seedance_2_5`).
+
+**Fix**: Pick a current model from [models.md](models.md), or look it up in `https://varg.ai/models/llms.txt`. For Sora-style prompts use `seedance_2_5` or `wan_3`.
+
+---
+
 ## Duration Constraint Violations
 
-### kling_v2_5: "422 Unprocessable Entity"
+**Error**: `422 Unprocessable Entity` on a video call.
 
-**Cause**: kling_v2_5 only accepts duration `5` or `10`. Any other value (3, 7, 12, etc.) fails.
+| Model | Allowed `duration` |
+|---|---|
+| `seedance_2_5` | integer 4-30 |
+| `seedance_2` / `seedance_2_mini` | integer 4-15 |
+| `seedance_2_preview` / `seedance_2_fast_preview` | integer 5-15 |
+| `wan_3` | integer 2-30 |
+| `kling_v4` | integer 3-30 (`kling_v4_flash` up to 20) |
+| `kling_v3` / `kling_v2_6` | integer 3-15 |
+| `veo_3_1` (+ fast/lite) | **4, 6 or 8 only** |
+| `omni_flash_1_1` | integer 3-10 |
+| `minimax_h3_max` | 1-15 |
+| `kling_v2_5` / `kling_v2` | **5 or 10 only** |
 
-**Fix**: Use exactly `duration: 5` or `duration: 10`. Or switch to kling_v3 which accepts any integer 3-15.
-
-### kling_v3: duration must be integer 3-15
-
-**Cause**: Non-integer or out-of-range duration.
-
-**Fix**: Use integers only: `3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15`.
+**Fix**: Use an integer in the model's range. For a longer scene, chain several clips (see recipes.md) or use a 30s-capable model (`seedance_2_5`, `wan_3`, `kling_v4`).
 
 ---
 
 ## Multiple Images in Video Prompt
 
-**Error**: Generation fails or produces unexpected results.
+**Error**: Generation fails, or the extra images are ignored.
 
-**Cause**: `Video({ prompt: { images: [img1, img2] } })` -- passing more than one image.
+**Cause**: `Video({ prompt: { images: [img1, img2] } })` on a model that only does image-to-video from one first frame.
 
-**Fix**: Pass exactly ONE image:
+**Fix**: One image = first frame, which every image-to-video model accepts. Several images = references, which only `seedance_2_5` (≤9), `wan_3` (≤10), `kling_v4` (≤7), `omni_flash_1_1`, `grok_imagine_1_5` and `minimax_h3_max` accept. With these, name what each image is in the prompt ("the woman from the first image, in the room from the second image").
 ```tsx
-// CORRECT
+// Image-to-video, any model
 Video({ prompt: { text: "...", images: [singleImage] }, ... })
 
-// WRONG
-Video({ prompt: { text: "...", images: [img1, img2] }, ... })
+// Multi-reference, reference-capable models only
+Video({ model: varg.videoModel("seedance_2_5"), prompt: { text: "...", images: [character, location] }, ... })
 ```
 
 ---
 
-## Wrong Provider Options Namespace
+## Silent Video / Provider Options Ignored
 
-**Error**: Provider options are silently ignored.
+**Error**: You asked for native audio (or a resolution or other option) and the output ignores it. The SDK may warn: `providerOptions.varg contains no provider namespace`.
 
-**Cause**: Using `providerOptions: { fal: {...} }` when generating through the varg gateway.
+**Cause**: Options passed as a flat bag. The varg API only forwards options nested under the **underlying provider** key (`fal`, `piapi`, `byteplus`, `elevenlabs`, ...), and drops everything else.
 
-**Fix**: Use the `varg` namespace when using `createVarg()`:
+**Fix**:
 ```tsx
-// CORRECT (gateway)
+// CORRECT: native audio uses the unified field
+Video({ model: varg.videoModel("seedance_2_5"), prompt: "...", audio: "native" })
+
+// CORRECT: provider-specific option, namespaced under the provider
+providerOptions: { varg: { fal: { resolution: "720p" } } }
+
+// WRONG: flat bag, silently dropped
 providerOptions: { varg: { generate_audio: true } }
 
-// WRONG (gateway)
-providerOptions: { fal: { generate_audio: true } }
-
-// CORRECT (direct fal provider)
+// CORRECT only with the direct fal provider (BYOK local render, not createVarg)
 providerOptions: { fal: { generate_audio: true } }
 ```
 
-Rule: match the namespace to the provider you're using. Gateway = `varg`. Direct fal = `fal`.
+Each model's spec page (`https://varg.ai/models/<id>.md`) lists its options per provider route. `audio: "native"` needs vargai ≥ 0.4.0-alpha124 (`bunx vargai@alpha`).
 
 ---
 
@@ -64,53 +82,40 @@ Rule: match the namespace to the provider you're using. Gateway = `varg`. Direct
 **Fix**: Media generation must use function calls:
 ```tsx
 // CORRECT
-const img = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "..." })
+const img = Image({ model: varg.imageModel("nano_banana_2_1"), prompt: "..." })
 
 // WRONG
-const img = <Image model={varg.imageModel("nano_banana_pro")} prompt="..." />
+const img = <Image model={varg.imageModel("nano_banana_2_1")} prompt="..." />
 ```
 
 JSX is only for composition components: `<Render>`, `<Clip>`, `<Music>`, `<Captions>`, `<Title>`, `<Overlay>`, `<Split>`, `<Grid>`, `<Packshot>`.
 
 ---
 
-## nano_banana_pro/edit: Missing Images
+## Image Edit: Missing Images
 
-**Error**: "images is required" or generation produces generic image ignoring reference.
+**Error**: "images is required", or the result ignores the reference.
 
-**Cause**: Using `nano_banana_pro/edit` with a plain string prompt instead of `{ text, images }`.
+**Cause**: An `/edit` model (`nano_banana_pro/edit`, `nano_banana_2/edit`, `grok_imagine_image/edit`) called with a plain string prompt, or a reference you meant to keep was never passed.
 
-**Fix**:
+**Fix**: Pass references as `{ text, images }`. `nano_banana_2_1`, `gpt_image_2_5` and the other current models take both forms. With `images` they edit, without them they generate.
 ```tsx
-// CORRECT
+// CORRECT: editing / character consistency
 Image({
-  model: varg.imageModel("nano_banana_pro/edit"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: { text: "same person on a beach", images: [referenceImage] }
 })
 
-// WRONG
+// WRONG: the reference is never sent, so the face changes
 Image({
-  model: varg.imageModel("nano_banana_pro/edit"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "same person on a beach"
 })
 ```
 
----
+## Legacy nano_banana_pro: Wrong Prompt Format
 
-## nano_banana_pro (non-edit): Wrong Prompt Format
-
-**Error**: Unexpected results or errors.
-
-**Cause**: Passing `{ text, images }` object to `nano_banana_pro` (non-edit variant).
-
-**Fix**: `nano_banana_pro` (without `/edit`) takes a plain string:
-```tsx
-// CORRECT
-Image({ model: varg.imageModel("nano_banana_pro"), prompt: "a sunset over the ocean" })
-
-// WRONG
-Image({ model: varg.imageModel("nano_banana_pro"), prompt: { text: "a sunset", images: [] } })
-```
+`nano_banana_pro` (no `/edit`) only takes a plain string. Pass references to `nano_banana_pro/edit` instead, or switch to `nano_banana_2_1`, which takes both.
 
 ---
 
@@ -118,11 +123,11 @@ Image({ model: varg.imageModel("nano_banana_pro"), prompt: { text: "a sunset", i
 
 **Error**: Video output is unexpectedly long (30-60+ seconds).
 
-**Cause**: `<Music>` without `duration` prop. ElevenLabs generates ~60s of audio by default, which extends the entire video.
+**Cause**: `<Music>` without `duration` prop. the music model picks its own length (often 60s+), which extends the entire video.
 
 **Fix**: Always set `duration` to match total video length:
 ```tsx
-<Music model={varg.musicModel("music_v1")} prompt="upbeat" duration={15} />
+<Music model={varg.musicModel("mureka_9_5")} prompt="upbeat" duration={15} />
 ```
 
 ---
@@ -179,7 +184,7 @@ const vid = Video({ ..., duration: 5 })
 **Fix for render service**: Don't import anything. All components and providers are auto-provided as globals:
 ```tsx
 // In render service (no imports needed)
-const img = Image({ model: varg.imageModel("nano_banana_pro"), prompt: "..." })
+const img = Image({ model: varg.imageModel("nano_banana_2_1"), prompt: "..." })
 export default <Render>...</Render>
 ```
 
@@ -196,7 +201,7 @@ import { createVarg } from "vargai/ai"
 
 **Error**: Render job stays in "processing" or times out after 10-15 minutes.
 
-**Cause**: Complex renders with many AI generation calls can take 15+ minutes. Video models like kling_v3 take 2-5 minutes per clip.
+**Cause**: Complex renders with many AI generation calls can take 15+ minutes. Video models like seedance_2_5 take 3-5 minutes per clip (omni_flash_1_1 and minimax_h3_max_turbo are faster).
 
 **Fix**:
 - Use `--preview` first to validate structure
