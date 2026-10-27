@@ -87,7 +87,7 @@ Rules that separate a strong card from a generic one:
 | Quick drafts | `krea_3` (4 credits), `flux_3_image` (7) | Both rendered the full layout; Krea kept the signature detail |
 | From photos of a real, consenting person | `nano_banana_2_1` or `gpt_image_2_5` with 2–3 photos in `files` | Edit models; `seedream_5_pro` also takes refs |
 
-All six models we tried produced a correct 4-view + expressions + palette layout from the same prompt. They differ in the **details**: only Nano Banana 2.1, Seedream 5 Pro and Krea 3 kept the gold tooth. Put the signature detail in the prompt twice (face line and close-ups) when it matters.
+All six models we tried produced a correct 4-view + expressions + palette layout from the same prompt. They differ in the **details**: Nano Banana 2.1, Seedream 5 Pro and Krea 3 kept the single gold tooth; Grok Image 2 made every tooth gold and lost the cat-eye glasses; GPT Image 2.5 and FLUX 3 dropped the tooth. Put the signature detail in the prompt twice (face line and close-ups) when it matters, and check it in QA.
 
 ### 2.2 The model sheet (feed this to other models)
 
