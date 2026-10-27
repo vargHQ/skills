@@ -22,7 +22,7 @@ The user's `VARG_API_KEY` (from the `Authorization` header) is automatically use
 
 ```tsx
 const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a cozy cabin in mountains at sunset, warm golden light",
   aspectRatio: "16:9"
 });
@@ -38,26 +38,26 @@ export default (
 
 ```tsx
 const hero = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "cinematic portrait of a warrior princess, golden hour lighting",
   aspectRatio: "9:16"
 });
 
 const scene = Video({
-  model: varg.videoModel("kling_v3"),
+  model: varg.videoModel("seedance_2_5"),
   prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
   duration: 5
 });
 
 const voice = Speech({
-  model: varg.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v4"),
   voice: "rachel",
   children: "In a world beyond imagination..."
 });
 
 export default (
   <Render width={1080} height={1920} fps={30}>
-    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
+    <Music model={varg.musicModel("mureka_9_5")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
     <Clip duration={5}>
       {scene}
       <Title position="bottom">The Last Guardian</Title>
@@ -86,7 +86,7 @@ Write the TSX code to a local `.tsx` file for reference and iteration:
 ```bash
 cat > video.tsx << 'EOF'
 const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a sunset over mountains",
   aspectRatio: "16:9"
 });
