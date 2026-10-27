@@ -80,6 +80,9 @@ jobs:
           github.event.inputs.dry_run != 'true' &&
           steps.publish.outputs.done == 'true'
         run: |
+          # Annotated tags need a committer identity; the runner has none.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           TAG="publish-${GITHUB_SHA::8}"
 
           if git rev-parse "$TAG" >/dev/null 2>&1; then
