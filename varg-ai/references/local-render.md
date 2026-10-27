@@ -19,7 +19,7 @@ Run through this before your first render in any project:
    import { createVarg } from "vargai/ai";
    const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
    ```
-6. **Test structure first**: `bunx vargai@alpha render video.tsx --preview` validates composition for $0
+6. **Test structure first**: `bunx vargai@alpha render video.tsx --preview` validates composition for 0 credits
 7. **Then full render**: `bunx vargai@alpha render video.tsx -o output/video.mp4`
 
 ## TSX Format
@@ -129,7 +129,7 @@ tail -f output/render.log
 
 1. **Preview first**: Run with `--preview` to validate structure with free placeholders.
 2. **Keep prompts stable**: When modifying a multi-clip render, keep unchanged prompt strings EXACTLY the same (character-for-character) to avoid cache misses and re-generation.
-3. **Iterate on one clip**: Change only the prompts you need to update. Cached clips render instantly at $0.
+3. **Iterate on one clip**: Change only the prompts you need to update. Cached clips render instantly for 0 credits.
 4. **Full render**: Once preview looks correct, run without `--preview` for the final output.
 
 ## Setup

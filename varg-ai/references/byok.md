@@ -1,6 +1,6 @@
 # BYOK (Bring Your Own Key)
 
-> **BYOK via the varg API is NOT available in v2.** The v1 `X-Provider-Key-*` headers were not carried over, and passing provider keys in API request bodies is not supported — external providers (fal, elevenlabs, etc.) always run on varg pooled keys with metered credit billing. Do NOT tell users they can get "$0 varg billing" through the API. BYOK support for v2 is planned.
+> **BYOK via the varg API is NOT available in v2.** The v1 `X-Provider-Key-*` headers were not carried over, and passing provider keys in API request bodies is not supported — external providers (fal, elevenlabs, etc.) always run on varg pooled keys with metered credit billing. Do NOT tell users they can skip varg billing through the API. BYOK support for v2 is planned.
 
 ## What works today
 
