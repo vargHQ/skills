@@ -54,7 +54,7 @@ export default (
 )
 ```
 
-**Cost**: ~445 credits ($4.45) -- 24 (3 images) + 420 (2 × 5s seedance_2_5 at 720p). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
+**Cost**: ~445 credits -- 24 (3 images) + 420 (2 × 5s seedance_2_5 at 720p). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -191,7 +191,7 @@ export default (
 )
 ```
 
-**Cost**: ~260 credits ($2.60) -- 8 (image) + 84 (speech) + ~160 (veed lipsync) + 6 (captions/transcription)
+**Cost**: ~260 credits -- 8 (image) + 84 (speech) + ~160 (veed lipsync) + 6 (captions/transcription)
 
 ---
 
@@ -235,7 +235,7 @@ export default (
 
 **Tip**: Add `zoom: "in"` or `zoom: "out"` to `Image()` for a Ken Burns effect (slow pan/zoom over still images). Combine with `dissolve` transitions for a classic documentary feel.
 
-**Cost**: ~50 credits ($0.50) -- 24 (3 images) + 25 (music)
+**Cost**: ~50 credits -- 24 (3 images) + 25 (music)
 
 ---
 

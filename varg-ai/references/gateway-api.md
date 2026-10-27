@@ -299,7 +299,7 @@ Identical requests (same model + prompt + parameters) return a completed job ins
 
 ## Pricing & Billing
 
-1 credit = 1 cent = $0.01. Flow: **reserve** estimated cost at creation (402 if insufficient) → **commit** on completion → **release** on failure.
+The `*_cost_cents` fields count credits (1 = 1 credit). Flow: **reserve** estimated cost at creation (402 if insufficient) → **commit** on completion → **release** on failure.
 
 ```bash
 GET  /v2/pricing              # public model catalog with prices (no auth)

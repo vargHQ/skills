@@ -182,7 +182,7 @@ export default (
 )
 ```
 
-**Cost**: ~220 credits ($2.20) -- 8 (image) + 210 (5s seedance_2_5 at 720p). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
+**Cost**: ~220 credits -- 8 (image) + 210 (5s seedance_2_5 at 720p). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -226,7 +226,7 @@ export default (
 )
 ```
 
-**Cost**: ~260 credits ($2.60) -- 8 (image) + 84 (speech) + ~160 (veed lipsync) + 6 (captions/transcription)
+**Cost**: ~260 credits -- 8 (image) + 84 (speech) + ~160 (veed lipsync) + 6 (captions/transcription)
 
 ---
 
@@ -314,7 +314,7 @@ export default (
 )
 ```
 
-**Cost**: ~770 credits ($7.70) -- 32 (4 images) + 630 (3 videos) + 84 (speech) + 25 (music). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
+**Cost**: ~770 credits -- 32 (4 images) + 630 (3 videos) + 84 (speech) + 25 (music). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -355,7 +355,7 @@ export default (
 )
 ```
 
-**Cost**: ~65 credits ($0.65) -- 40 (5 images) + 25 (music)
+**Cost**: ~65 credits -- 40 (5 images) + 25 (music)
 
 ---
 
@@ -405,7 +405,7 @@ export default (
 )
 ```
 
-**Cost**: ~435 credits ($4.35) -- 16 (2 images) + 420 (2 videos). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
+**Cost**: ~435 credits -- 16 (2 images) + 420 (2 videos). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 
@@ -462,7 +462,7 @@ export default (
 )
 ```
 
-**Cost**: ~690 credits ($6.90) -- 32 (4 images) + 630 (3 videos) + 25 (music). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
+**Cost**: ~690 credits -- 32 (4 images) + 630 (3 videos) + 25 (music). Swap `seedance_2_5` for `wan_3` to cut the video cost about 4x.
 
 ---
 

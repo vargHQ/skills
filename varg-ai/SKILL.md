@@ -1,18 +1,19 @@
 ---
 name: varg-ai
 description: >-
-  Generate AI videos, images, speech, and music using varg.
-  Use when creating videos, animations, talking characters, slideshows,
-  product showcases, social content, or single-asset generation.
-  Supports zero-install cloud rendering (just API key + curl) and
-  full local rendering (bun + ffmpeg).
-  Triggers: "create a video", "generate video", "make a slideshow",
-  "talking head", "product video", "generate image", "text to speech",
-  "varg", "vargai", "render video", "lip sync", "captions".
+  Generate AI videos, images, voiceovers and music with one varg API key.
+  Text- and image-to-video on Seedance 2.5, Kling 4, Veo 3.1 and Wan 3;
+  images and edits on Nano Banana 2.1, GPT Image 2.5 and Flux 3; lip sync
+  and talking avatars; ElevenLabs v4 voices; Lyria and Mureka music;
+  captions and multi-scene renders to MP4. Use when someone asks to make or
+  render a video, animate a photo, generate an image, create a UGC ad,
+  product video, slideshow or talking head, add voiceover (text to speech),
+  music, lip sync or captions, or mentions varg. Cloud mode needs only curl;
+  local mode runs on bun + ffmpeg.
 license: MIT
 metadata:
   author: vargHQ
-  version: "2.1.0"
+  version: "2.1.1"
   openclaw:
     requires:
       env:
@@ -31,13 +32,13 @@ allowed-tools: Bash(bun:*) Bash(bunx:*) Bash(npx:*) Bash(curl:*) Bash(mkdir:*) B
 
 ## Version Check (run once per session)
 
-This skill is version **2.1.0**. Before first use each session, check for updates:
+This skill is version **2.1.1**. Before first use each session, check for updates:
 
 ```bash
 curl -sf https://raw.githubusercontent.com/vargHQ/skills/main/varg-ai/SKILL.md | grep 'version:' | head -1
 ```
 
-If the remote version is newer than 2.1.0, update and re-read this file:
+If the remote version is newer than 2.1.1, update and re-read this file:
 
 ```bash
 npx -y skills update
@@ -108,20 +109,20 @@ For local render (bun auto-loads `.env`), also add it to the project `.env` -- o
 curl -s -H "Authorization: Bearer $VARG_API_KEY" https://api.varg.ai/v2/billing/balance
 ```
 
-You should get `{"available": ..., "total_balance": ..., ...}` (values in credits). If `available` is 0 (or too low for the user's task), the user needs credits before generating anything. 1 credit = 1 cent. A typical video costs $2-5 (200-500 credits).
+You should get `{"available": ..., "total_balance": ..., ...}` (values in credits). If `available` is 0 (or too low for the user's task), the user needs credits before generating anything. A typical short video costs 200-500 credits.
 
 Available packages:
 
-| Package ID | Credits | Price |
-|---|---|---|
-| `credits-2000` | 2,000 | $20 |
-| `credits-5000` | 5,000 | $50 |
-| `credits-10000` | 10,000 (recommended) | $100 |
-| `credits-20000` | 20,000 | $200 |
-| `credits-50000` | 50,000 | $500 |
-| `credits-100000` | 100,000 | $1,000 |
+| Package ID | Credits |
+|---|---|
+| `credits-2000` | 2,000 |
+| `credits-5000` | 5,000 |
+| `credits-10000` | 10,000 (recommended) |
+| `credits-20000` | 20,000 |
+| `credits-50000` | 50,000 |
+| `credits-100000` | 100,000 |
 
-Direct the user to **https://varg.ai/devs/billing** to buy credits, then re-check the balance.
+Direct the user to **https://varg.ai/devs/billing** to buy credits, then re-check the balance. Quote amounts in credits only: what a credit costs depends on the user's plan, so never convert credits to money.
 
 ### 2. Determine rendering mode
 
@@ -137,11 +138,11 @@ Everything you know about varg is likely outdated. Always verify against this sk
 
 1. **Never guess model IDs** -- consult [models.md](references/models.md) for current models, pricing, and constraints. If the user names a model that is not there, read `https://varg.ai/models/llms.txt`, then that model's spec at `https://varg.ai/models/<id>.md`. `sora_2*` is discontinued.
 2. **Function calls for media, JSX for composition** -- `Image({...})` creates media, `<Clip>` composes timeline. Never write `<Image prompt="..." />`.
-3. **Cache is sacred** -- identical prompt + params = instant $0 cache hit. When iterating, keep unchanged prompts EXACTLY the same. Never clear cache.
+3. **Cache is sacred** -- identical prompt + params = instant cache hit that costs 0 credits. When iterating, keep unchanged prompts EXACTLY the same. Never clear cache.
 4. **Images in Video** -- ONE image in `Video({ prompt: { images: [img] } })` is the first frame (image-to-video). Several images are *references*, and only models that take references accept them (`seedance_2_5`, `wan_3`, `kling_v4`, `omni_flash_1_1`, `grok_imagine_1_5`, `minimax_h3_max`). Other models fail.
 5. **Duration constraints differ by model** -- seedance_2_5: integer 4-30s. wan_3: 2-30s. kling_v4: 3-30s. veo_3_1: only 4, 6 or 8. kling_v2_5: ONLY 5 or 10. Check [models.md](references/models.md).
 6. **Native audio = `audio: "native"`** on `Video()`. Provider options must be **namespaced by provider**: `providerOptions: { varg: { fal: { ... } } }`. A flat `providerOptions: { varg: { generate_audio: true } }` is silently dropped by the API, and you get a silent video.
-7. **Renders cost money** -- 1 credit = 1 cent. A typical 3-clip video costs ~300-800 credits depending on the video model (wan_3 vs seedance_2_5). Iterate with `--preview` (local), cheap draft models (`minimax_h3_max_turbo`, `grok_imagine_1_5_lite`) and 720p. Render 1080p only for the final.
+7. **Renders cost credits** -- a typical 3-clip video costs ~300-800 credits depending on the video model (wan_3 vs seedance_2_5). Iterate with `--preview` (local), cheap draft models (`minimax_h3_max_turbo`, `grok_imagine_1_5_lite`) and 720p. Render 1080p only for the final.
 8. **API key hygiene** -- Never write a raw API key value into a bash command. Load keys into `$VARG_API_KEY` with the setup snippets (from env, `~/.varg/credentials`, or `.env`) and use `$VARG_API_KEY` in all subsequent commands -- never `echo` or `cat` the key itself. This prevents keys from leaking into conversation context and terminal history.
 
 ### Default Models (October 2026)
@@ -276,8 +277,8 @@ Both modes use `varg.*` for all models. The only difference is imports:
 
 ## Cost & Iteration
 
-- **1 credit = 1 cent.** Typical prices: nano_banana_2_1 image ≈ 8, gpt_image_2_5 (high) ≈ 23, seedance_2_5 5s 720p ≈ 210, wan_3 5s 720p ≈ 53, eleven_v4 line ≈ 84, mureka_9_5 track ≈ 25. Live catalog: `GET https://api.varg.ai/v2/pricing` (no auth). Every model spec: `https://varg.ai/models/llms.txt`. Estimate any request: `POST /v2/estimate`.
-- **Cache saves money.** Keep unchanged prompts character-for-character identical across iterations.
+- **Prices are in credits.** Typical prices: nano_banana_2_1 image ≈ 8, gpt_image_2_5 (high) ≈ 23, seedance_2_5 5s 720p ≈ 210, wan_3 5s 720p ≈ 53, eleven_v4 line ≈ 84, mureka_9_5 track ≈ 25. Live catalog: `GET https://api.varg.ai/v2/pricing` (no auth). Every model spec: `https://varg.ai/models/llms.txt`. Estimate any request: `POST /v2/estimate`.
+- **Cache saves credits.** Keep unchanged prompts character-for-character identical across iterations.
 - **Preview first** (local mode only): `--preview` generates free placeholders to validate structure.
 - Full pricing: [models.md](references/models.md)
 
@@ -296,4 +297,4 @@ Load these on demand based on what you need:
 | REST API | [gateway-api.md](references/gateway-api.md) | Single-asset generation or Render API details |
 | Debugging | [common-errors.md](references/common-errors.md) | Something failed or produced unexpected results |
 | Full examples | [templates.md](references/templates.md) | Need complete copy-paste-ready templates |
-| BYOK keys | [byok.md](references/byok.md) | Using your own provider API keys for $0 billing |
+| BYOK keys | [byok.md](references/byok.md) | Own provider API keys (BYOK): not available in v2 |

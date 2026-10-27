@@ -1,6 +1,6 @@
 # Model Catalog
 
-1 credit = 1 cent. $1 = 100 credits.
+All prices are in credits. Never convert them to money: what a credit costs depends on the user's plan.
 
 > **Catalog snapshot: 2026-10-26.** Models change monthly. Before using a model that is not in the tables below, or if a call fails with "unknown model", check the live index: `https://varg.ai/models/llms.txt` (every model, one line each) and `https://varg.ai/models/<model>.md` (full spec: inputs, durations, resolutions, routes). Prices: `GET https://api.varg.ai/v2/pricing` (public) or price the exact request with `POST /v2/estimate` (same body as the generation call, no job created).
 >

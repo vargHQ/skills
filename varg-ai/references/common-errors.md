@@ -292,4 +292,4 @@ This triggers the CLI's "relative import" code path, which imports your file dir
 
 **Fix**: When iterating on visuals, keep the `Speech()` call and all its parameters EXACTLY the same. Don't add/remove/reorder speech lines, don't change the voice or model. If you need to change speech content, expect all lipsync videos to regenerate.
 
-**Cost impact**: Each VEED lipsync video costs 50-80 credits ($0.50-0.80). A 4-clip narrator video wastes $2-3 on unnecessary regeneration.
+**Cost impact**: Each VEED lipsync video costs 50-80 credits. A 4-clip narrator video wastes 200-300 credits on unnecessary regeneration.
