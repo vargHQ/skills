@@ -66,6 +66,7 @@ jobs:
           bunx clawhub@latest sync \
             --root . \
             --all \
+            --owner vargai \
             --no-input \
             --bump "$BUMP" \
             --changelog "$CHANGELOG" \
@@ -101,6 +102,7 @@ jobs:
           bunx clawhub@latest sync \
             --root . \
             --all \
+            --owner vargai \
             --no-input \
             --dry-run \
             --bump "$BUMP" 2>&1 | tee /tmp/publish-output.txt
