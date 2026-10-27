@@ -47,7 +47,7 @@ These read the logo's alpha, so the logo needs a transparent background. Preproc
 |---|---|---|---|
 | LiquidMetal | `liquid-metal` | tint + back | The logo turns to liquid chrome. Without an image it fills `shape` (`none`, `circle`, `daisy`, `diamond`, `metaballs`). A white `colorTint` reads as chrome; a brand tint burns into it. |
 | GemSmoke | `gem-smoke` | up to 6 + inner + back | Smoke swirling inside a gem-cut logo or shape. |
-| Heatmap | `heatmap` | up to 10 | A heat-map glow traced from the logo. |
+| Heatmap | `heatmap` | up to 10 | A heat-map glow traced from the logo. Its preprocessor treats light pixels as background: pass a dark logo on transparent, or the frame stays black. |
 
 ## Image filters for stills
 
@@ -67,7 +67,11 @@ They take an image (`HTMLImageElement` or URL), never a `<video>`. Use them on p
 
 Paper's image filters cannot sample video. For real footage in HyperFrames, grade it and add film grain with HyperFrames media treatments (`npx hyperframes media-treatment --capabilities`); for warps of an existing layer use HyperFrames `data-vfx-chain`. Paper shaders belong to the designed layers: backgrounds, stings, textures over graphics and stills.
 
-## The nine presets
+## Paper's own presets
+
+`assets/presets/paper/` holds all 124 presets Paper ships in `@paper-design/shaders-react` 0.0.82, converted to this skill's format with `origin: "paper"`: 4–6 per shader, named `paper-<slug>-<preset>` (Default, then Paper's names such as Beach, Ink, Passion, Noir, Newspaper). `motion.timeScale` is Paper's `speed`, so motion matches the site. They carry no `roles`; to brand one, copy it and add roles. Image presets expect a still (filters) or a logo (Heatmap); LiquidMetal and GemSmoke fall back to their built-in shapes.
+
+## The nine varg presets
 
 | Preset | Shader | timeScale | Image | Job |
 |---|---|---|---|---|

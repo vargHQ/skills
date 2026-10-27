@@ -88,7 +88,7 @@ The host is a timed clip with its own composition id and no GSAP timeline. Hyper
 ```
 
 - Register at the top level of a module script, before any `await`; HyperFrames boots on `DOMContentLoaded`.
-- Each shader scene needs its own host. Keep a composition under about 12 shader hosts; Chrome drops WebGL contexts past 16.
+- Each shader scene needs its own host. Keep a composition under about 12 shader hosts; Chrome drops WebGL contexts past 16. For more looks in a row, use `paperSequenceSource`: one host, one context, any number of presets (see `examples/paper-gallery`).
 - Text, logos and other DOM elements go on higher tracks and animate with the GSAP timeline as usual.
 - `templates/hyperframes/shader-background.html` is a complete composition to start from.
 
@@ -110,9 +110,9 @@ Render with `npx remotion render <id> out.mp4 --gl=angle`. Do not use Paper's Re
 
 ## Presets
 
-All nine are in `assets/presets/`, in varg colors, validated against Paper's documented ranges.
+Two sets ship. Nine varg presets in `assets/presets/`, in varg colors with brand roles. And all 124 of Paper's own presets in `assets/presets/paper/` (`paper-<shader>-<name>`, for example `paper-mesh-gradient-beach`, `paper-warp-passion`), with the colors and speeds shown on shaders.paper.design. When the user wants "the look from Paper's site", start from those. All are validated against Paper's documented ranges; five of Paper's own go past the editor's slider ranges and stay as Paper ships them.
 
-| Preset | Shader | Use |
+| Varg preset | Shader | Use |
 |---|---|---|
 | `brand-mesh` | MeshGradient | Background behind titles, product cards and lower thirds |
 | `grain-blob` | GrainGradient | Soft grainy blob behind a quote, a product or a speaker |
@@ -141,7 +141,7 @@ All run with `node` or `bun`, make no network calls of their own, and touch only
 
 | Script | Does |
 |---|---|
-| `new-project.mjs <dir> [--example preset-reel] [--add]` | Scaffolds a HyperFrames project, or adds `paper-preset.js` and `presets/` to one |
+| `new-project.mjs <dir> [--example preset-reel\|paper-gallery] [--add]` | Scaffolds a HyperFrames project, or adds `paper-preset.js` and `presets/` to one |
 | `validate-presets.mjs [files]` | Checks presets against the documented params, ranges, enums and color limits |
 | `apply-brand.mjs <preset> <palette>` | Maps a palette onto a preset through its `roles` |
 | `check-determinism.mjs <project> [--at …] [--software]` | Snapshots forwards and backwards in two runs and compares pixels (uses `npx hyperframes`) |
@@ -155,9 +155,11 @@ All run with `node` or `bun`, make no network calls of their own, and touch only
 - **Video:** `renders/<name>.mp4` or the `--output` path; 1920×1080 at 30 fps unless asked otherwise.
 - **Report:** the video path, duration and size; which presets ran with which changed params; and the `check-determinism.mjs` result.
 
-## Example
+## Examples
 
-`examples/preset-reel/` shows all nine presets, 2.5 s each, at 1920×1080 and 30 fps, with a frame counter that is itself a frame source. Posters and the logo are drawn in code, so it needs no outside media. A contact sheet is in `assets/previews/preset-reel.webp`.
+`examples/paper-gallery/` plays all 124 of Paper's presets, 2 s each, full frame, through one host (`--example paper-gallery`, about 4 minutes of video).
+
+`examples/preset-reel/` shows all nine varg presets, 2.5 s each, at 1920×1080 and 30 fps, with a frame counter that is itself a frame source. Posters and the logo are drawn in code, so it needs no outside media. A contact sheet is in `assets/previews/preset-reel.webp`.
 
 ```bash
 node scripts/new-project.mjs ./preset-reel --example preset-reel

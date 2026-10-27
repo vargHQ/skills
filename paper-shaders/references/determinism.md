@@ -35,6 +35,7 @@ from the timeline. `seconds` counts from the start of the clip or sequence, `mot
 - **`ready`** loads every image (noise textures included), preprocesses logos, creates the mount and waits for the canvas to get its real size. Capture does not start until it resolves.
 - **`render(seconds)`** sets params from `paramsAt`, then calls `setFrame`. HyperFrames calls it in any order and from parallel workers.
 - **One source per host.** Each scene that shows a shader needs its own host and source. Each host owns a WebGL context, and Chrome drops the oldest contexts once a page holds about 16, so keep a composition well under that (the preset reel uses 9).
+- **Many looks, one context.** `paperSequenceSource(PS, host, presets, { each })` shows preset i during seconds [i × each, (i + 1) × each), disposing the previous mount and creating the next inside `render` (which then returns a promise HyperFrames waits for). Checked with out-of-order snapshots across preset boundaries in the 124-preset gallery: identical pixels.
 - **Library loading.** The templates import the static ES module build from jsDelivr with an exact version; it loads before the first frame. For offline or hermetic renders, copy the package's `dist/` folder with its `LICENSE` and `NOTICE` into `vendor/paper-shaders@0.0.82/` in the project and import `./vendor/paper-shaders@0.0.82/dist/index.js`.
 
 ### What was measured

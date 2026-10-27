@@ -17,17 +17,25 @@ const COLOR = /^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$|^(?:rgb|rgba|hsl|hsl
 const files = process.argv.slice(2);
 if (files.length === 0) {
   const dir = join(root, "assets", "presets");
-  for (const f of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) files.push(join(dir, f));
+  for (const f of readdirSync(dir, { recursive: true }).filter((f) => f.endsWith(".json")).sort()) files.push(join(dir, f));
 }
 
 let errors = 0;
+let warnings = 0;
 for (const file of files) {
-  const problems = check(JSON.parse(readFileSync(file, "utf8")));
-  errors += problems.length;
-  console.log(`${problems.length ? "✗" : "✓"} ${file.replace(`${root}/`, "")}`);
-  for (const p of problems) console.log(`    ${p}`);
+  const preset = JSON.parse(readFileSync(file, "utf8"));
+  const problems = check(preset);
+  // Paper's own presets sometimes go past the editor's slider ranges; keep them as Paper ships them.
+  const isRange = (p) => / is (below|above) /.test(p);
+  const errs = preset.origin === "paper" ? problems.filter((p) => !isRange(p)) : problems;
+  const warns = problems.filter((p) => !errs.includes(p));
+  errors += errs.length;
+  warnings += warns.length;
+  if (errs.length || warns.length || files.length <= 20) console.log(`${errs.length ? "✗" : warns.length ? "!" : "✓"} ${file.replace(`${root}/`, "")}`);
+  for (const p of errs) console.log(`    ${p}`);
+  for (const p of warns) console.log(`    warning: ${p} (as Paper ships it)`);
 }
-console.log(errors ? `${errors} problem(s)` : "all presets valid");
+console.log(errors ? `${errors} problem(s)` : `${files.length} presets valid${warnings ? `, ${warnings} warning(s)` : ""}`);
 process.exit(errors ? 1 : 0);
 
 function check(preset) {
@@ -57,7 +65,7 @@ function check(preset) {
     if (typeof value === "number") {
       if (s.min !== undefined && value < s.min) out.push(`${name}: ${value} is below ${s.min}`);
       if (s.max !== undefined && value > s.max) out.push(`${name}: ${value} is above ${s.max}`);
-      if (s.step !== undefined && !Number.isInteger(value / s.step)) out.push(`${name}: ${value} is not a multiple of ${s.step}`);
+      if (s.step !== undefined && Math.abs(value / s.step - Math.round(value / s.step)) > 1e-6) out.push(`${name}: ${value} is not a multiple of ${s.step}`);
     }
     if (s.type === "string[]") {
       if (!Array.isArray(value) || value.length === 0) out.push(`${name}: expected a non-empty array`);
@@ -66,7 +74,7 @@ function check(preset) {
         for (const c of value) if (!COLOR.test(c)) out.push(`${name}: "${c}" is not a color`);
       }
     }
-    if (/^color[A-Z]/.test(name) && !COLOR.test(value)) out.push(`${name}: "${value}" is not a color`);
+    if (/^color[A-Z]/.test(name) && typeof value === "string" && !COLOR.test(value)) out.push(`${name}: "${value}" is not a color`);
   }
 
   for (const [name, role] of Object.entries(preset.roles ?? {})) {

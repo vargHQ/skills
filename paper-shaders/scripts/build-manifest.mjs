@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const presetsDir = join(root, "assets", "presets");
 
-const presets = readdirSync(presetsDir)
+const presets = readdirSync(presetsDir, { recursive: true })
   .filter((f) => f.endsWith(".json"))
   .sort()
   .map((file) => {

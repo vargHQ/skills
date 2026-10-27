@@ -78,7 +78,7 @@ export function paramsToUniforms(PS, shader, params) {
     } else if (ENUMS[shader]?.[key]) {
       uniforms[`u_${key}`] = lookup(PS, ENUMS[shader][key], value);
     } else {
-      uniforms[RENAMES[shader]?.[key] ?? `u_${key}`] = /^color[A-Z]/.test(key) ? PS.getShaderColorFromString(value) : value;
+      uniforms[RENAMES[shader]?.[key] ?? `u_${key}`] = typeof value === "string" && /^color[A-Z]/.test(key) ? PS.getShaderColorFromString(value) : value;
     }
   }
   return uniforms;
@@ -158,6 +158,40 @@ export function paperFrameSource(PS, element, preset, options = {}) {
   };
 }
 
+/**
+ * One host showing several presets in a row: preset i covers seconds [i × each, (i + 1) × each).
+ * It holds a single WebGL context, so a film can show any number of looks without
+ * hitting Chrome's limit of about 16 contexts per page. `presets` may be a promise.
+ * `imageFor(preset)` returns an image URL or undefined; `onPreset(preset, index, local)`
+ * runs on every frame, e.g. to update a caption.
+ */
+export function paperSequenceSource(PS, element, presets, { each, imageFor, onPreset, ...options }) {
+  let list = [];
+  let current = { index: -1, mount: null };
+  return {
+    element,
+    ready: Promise.resolve(presets).then((loaded) => {
+      list = loaded;
+    }),
+    render: async (seconds) => {
+      const index = Math.min(Math.floor(seconds / each), list.length - 1);
+      const preset = list[index];
+      const local = seconds - index * each;
+      if (current.index !== index) {
+        current.mount?.dispose();
+        current = { index, mount: null };
+        current.mount = await mountPreset(PS, element, preset, { ...options, image: imageFor?.(preset) });
+      }
+      onPreset?.(preset, index, local);
+      current.mount.setFrame(shaderFrame(preset, local, options));
+    },
+    dispose: () => {
+      current.mount?.dispose();
+      current = { index: -1, mount: null };
+    },
+  };
+}
+
 function lookup(PS, enumName, value) {
   const table = PS[enumName];
   if (!table || !(value in table)) throw new Error(`paper-shaders: "${value}" is not one of ${enumName}: ${Object.keys(table ?? {}).join(", ")}`);
@@ -167,8 +201,9 @@ function lookup(PS, enumName, value) {
 async function loadImage(PS, shader, src) {
   let url = src || PS.emptyPixel;
   if (src && PREPROCESS[shader]) {
-    const { pngBlob } = await PS[PREPROCESS[shader]](src);
-    url = URL.createObjectURL(pngBlob);
+    // LiquidMetal and GemSmoke return { pngBlob }, Heatmap returns { blob }.
+    const processed = await PS[PREPROCESS[shader]](src);
+    url = URL.createObjectURL(processed.pngBlob ?? processed.blob);
   }
   const img = new Image();
   if (/^https?:/.test(url) && new URL(url).origin !== location.origin) img.crossOrigin = "anonymous";

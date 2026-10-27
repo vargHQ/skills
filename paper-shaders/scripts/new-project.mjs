@@ -5,6 +5,7 @@
 //
 //   node scripts/new-project.mjs ./my-video                          # shader-background template
 //   node scripts/new-project.mjs ./reel --example preset-reel        # the nine-preset reel
+//   node scripts/new-project.mjs ./gallery --example paper-gallery   # Paper's 124 built-in presets
 //   node scripts/new-project.mjs ./existing-project --add            # paper-preset.js + presets/ only
 import { cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
@@ -15,6 +16,7 @@ const skill = join(dirname(fileURLToPath(import.meta.url)), "..");
 const COMPOSITIONS = {
   "shader-background": join(skill, "templates", "hyperframes", "shader-background.html"),
   "preset-reel": join(skill, "examples", "preset-reel", "index.html"),
+  "paper-gallery": join(skill, "examples", "paper-gallery", "index.html"),
 };
 
 const args = process.argv.slice(2);
@@ -33,17 +35,18 @@ if (add) {
 } else if (existsSync(target) && readdirSync(target).length > 0) {
   fail(`${target} is not empty; use --add to add the runtime files to an existing project`);
 }
-mkdirSync(join(target, "presets"), { recursive: true });
+mkdirSync(join(target, "presets", "paper"), { recursive: true });
 
 const copy = (from, to) => {
   if (existsSync(to) && !force) fail(`${to} exists; pass --force to overwrite`);
   cpSync(from, to);
-  console.log(`  ${to.replace(`${target}/`, "")}`);
+  if (!to.includes("/presets/paper/")) console.log(`  ${to.replace(`${target}/`, "")}`);
 };
 
-console.log(`${add ? "Adding to" : "Creating"} ${target}`);
+console.log(`${add ? "Adding to" : "Creating"} ${target} (plus Paper's built-in presets in presets/paper/)`);
 copy(join(skill, "templates", "paper-preset.js"), join(target, "paper-preset.js"));
-for (const f of readdirSync(join(skill, "assets", "presets")).filter((f) => f.endsWith(".json"))) {
+// presets/*.json are the varg presets; presets/paper/*.json are Paper's own, as on shaders.paper.design.
+for (const f of readdirSync(join(skill, "assets", "presets"), { recursive: true }).filter((f) => f.endsWith(".json"))) {
   copy(join(skill, "assets", "presets", f), join(target, "presets", f));
 }
 
