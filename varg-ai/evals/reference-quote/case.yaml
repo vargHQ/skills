@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: reference-quote
+expected_outcome: |
+  Use the existing OAuth connection and current account. Resolve the local
+  reference through the supported upload UI, discover the fixture model and
+  schema, and preserve input wrappers. Inspect estimate validity and warnings,
+  never promise a free preview, and submit no media generation before approval.
+  Use only the simulated context; do not perform real operations.
+context:
+  scaffold_script: place-files.sh

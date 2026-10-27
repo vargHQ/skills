@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: template-estimate
+expected_outcome: |
+  Discover a template and retrieve/edit its source. Read the render schema and
+  include the returned render model alongside code inside estimate_cost.input.
+  Explain that a flat-fee-only estimate with child-pricing warnings is not a
+  complete quote, and do not render or use the template before approval.
+  Simulate only; no live service actions or generation.
+context:
+  scaffold_script: place-files.sh

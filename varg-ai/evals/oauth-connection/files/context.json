@@ -1,0 +1,6 @@
+{
+  "simulation_only": true,
+  "available_varg_tools": [],
+  "connection": "No varg MCP server is configured. The client supports adding remote Streamable HTTP with OAuth. No credential information is available.",
+  "constraints": "Simulate behavior only. Never connect, inspect real credentials, change an account, upload bytes, or generate media."
+}

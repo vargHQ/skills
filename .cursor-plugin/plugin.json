@@ -1,0 +1,14 @@
+{
+  "name": "varg",
+  "description": "Create videos, images, speech, and music with varg through its hosted MCP server. Connect with OAuth, discover models, estimate costs, and compose finished videos.",
+  "author": {
+    "name": "varg",
+    "url": "https://varg.ai"
+  },
+  "homepage": "https://varg.ai/mcp",
+  "repository": "https://github.com/vargHQ/skills",
+  "license": "MIT",
+  "keywords": ["varg", "varg mcp", "varg video"],
+  "skills": ["./varg-ai"],
+  "mcpServers": "./.mcp.json"
+}

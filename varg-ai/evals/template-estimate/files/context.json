@@ -1,0 +1,22 @@
+{
+  "simulation_only": true,
+  "connection": "OAuth is connected in the current Marketing account. The user has authorized estimates only.",
+  "available_varg_tools": ["get_current_team", "check_balance", "find_templates", "get_template", "get_tool", "estimate_cost", "use_template", "render_video", "get_job"],
+  "responses": {
+    "get_current_team": { "team": { "id": "team_marketing_fixture", "name": "Marketing" }, "status": "active" },
+    "check_balance": { "available_credits": 500 },
+    "find_templates": { "templates": [{ "id": "11111111-1111-4111-8111-111111111111", "title": "Coffee morning", "tags": ["product", "vertical"] }] },
+    "get_template": {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "document": { "content": "export default <Render width={1080} height={1920}><Clip duration={5}><Video prompt=\"Steam rises from a coffee cup in morning light\" model=\"video_fixture_1\" /><Title>Start your morning</Title></Clip></Render>;" }
+    },
+    "get_tool_render": {
+      "tool_key": "render",
+      "input_schema": { "type": "object", "required": ["code"], "properties": { "model": { "type": "string", "default": "render" }, "code": { "type": "string" }, "mode": { "enum": ["strict", "preview"] } } },
+      "example": { "model": "render", "code": "export default <Render width={1080} height={1920}><Clip duration={5}><Title>Example</Title></Clip></Render>;" }
+    },
+    "estimate_cost_without_model": { "http_status": 422, "error": "model is required" },
+    "estimate_cost_with_model": { "valid": true, "pricing": { "user_price_credits": 20 }, "warnings": ["Child generation pricing could not be estimated; only the flat render fee is included."] }
+  },
+  "notes": "The estimator validates input.model before applying render defaults. The dedicated render_video tool does not accept a model argument. The template contains a new generated video, so 20 credits is not its full price. All data is synthetic."
+}

@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: oauth-connection
+expected_outcome: |
+  With no connected varg tools, explain how to add the hosted MCP URL and
+  authorize OAuth, then pause. Do not plan credential lookup, direct requests,
+  local setup, or an imaginary generation. Treat context.json as an offline
+  simulation; no real account access, uploads, or generation is permitted.
+context:
+  scaffold_script: place-files.sh

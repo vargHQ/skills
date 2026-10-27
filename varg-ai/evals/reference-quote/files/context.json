@@ -1,0 +1,30 @@
+{
+  "simulation_only": true,
+  "connection": "Already authorized through OAuth. MCP Apps upload UI is available. No user approval to spend has been given.",
+  "available_varg_tools": ["get_current_team", "list_teams", "set_team", "list_tools", "list_models", "get_tool", "upload_file_widget", "upload_file", "estimate_cost", "check_balance", "call_tool", "render_video", "get_job"],
+  "responses": {
+    "get_current_team": { "team": { "id": "team_marketing_fixture", "name": "Marketing" }, "status": "active" },
+    "list_tools": { "tools": ["image", "video", "render"] },
+    "list_models_video": { "models": [{ "id": "video_fixture_1", "description": "Image-to-video with portrait framing" }] },
+    "get_tool_video_fixture_1": {
+      "tool_key": "video",
+      "input_schema": {
+        "type": "object",
+        "required": ["model", "prompt", "files", "duration", "aspect_ratio"],
+        "properties": {
+          "model": { "const": "video_fixture_1" },
+          "prompt": { "type": "string" },
+          "files": { "type": "array", "minItems": 1, "maxItems": 1, "items": { "type": "object", "required": ["url"], "properties": { "url": { "type": "string", "format": "uri" } } } },
+          "duration": { "enum": [5, 10] },
+          "aspect_ratio": { "enum": ["16:9", "9:16"] }
+        }
+      }
+    },
+    "upload_file_widget": { "follow_up": "The requested reference was uploaded.", "url": "https://media.example.test/hero.png", "file_id": "file_fixture_hero" },
+    "check_balance": { "available_credits": 500, "reserved_credits": 0 },
+    "estimate_cost_first": { "valid": false, "errors": ["This route cannot currently be priced. Refresh discovery or choose another available route."], "pricing": null },
+    "estimate_cost_after_refresh": { "valid": true, "pricing": { "user_price_credits": 120 } },
+    "estimate_cost_render_if_attempted": { "valid": true, "pricing": { "user_price_credits": 10 }, "warnings": ["Child generation prices unavailable; only the flat render fee is included."] }
+  },
+  "notes": "All IDs and URLs are synthetic. Do not invent another model ID. If pricing stays unresolved, report that and wait. A plain clip needs no separate render unless composition is required. Simulate the trace without real tools or media operations."
+}

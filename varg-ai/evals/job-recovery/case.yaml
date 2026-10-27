@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: job-recovery
+expected_outcome: |
+  Continue the existing job with get_job in its original account. When the
+  simulated response is awaiting_confirmation, inspect the intermediate output
+  and ask for a decision instead of resubmitting, blindly approving, or polling
+  forever. Do not claim a completed video exists. Perform no real operations.
+context:
+  scaffold_script: place-files.sh

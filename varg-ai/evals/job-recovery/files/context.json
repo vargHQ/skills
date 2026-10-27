@@ -1,0 +1,15 @@
+{
+  "simulation_only": true,
+  "connection": "Already authorized. The current Marketing account created job_existing_42. No user decision about the next pipeline step has been given.",
+  "available_varg_tools": ["get_current_team", "get_job", "list_jobs", "confirm_job", "cancel_job", "call_tool", "render_video", "get_job_cost"],
+  "responses": {
+    "get_current_team": { "team": { "id": "team_marketing_fixture", "name": "Marketing" }, "status": "active" },
+    "get_job": {
+      "job_id": "job_existing_42",
+      "status": "awaiting_confirmation",
+      "step_output_url": "https://media.example.test/scene-preview.png",
+      "steps": [{ "name": "scene image", "status": "completed" }, { "name": "animate approved scene", "status": "awaiting_confirmation" }]
+    }
+  },
+  "notes": "The preview image is not the final video. No new submission is needed to recover a timeout, and polling cannot approve a paused pipeline. Simulate only; no real service calls or generations."
+}
