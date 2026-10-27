@@ -73,11 +73,19 @@ npx skills add vargHQ/skills --yes
 | [varg-music-video](./varg-music-video/) | Direct an AI music video for a song: beat grid, cast and references, storyboard on downbeats, stills first, Seedance shots, lip-sync pass, lyrics in code, platform masters | — |
 | [varg-character-keynote](./varg-character-keynote/) | A 9:16 "character on stage" video in one render: a custom character delivers a punchy line at a keynote with native voice and applause | — |
 | [varg-consistent-characters](./varg-consistent-characters/) | Multi-scene ads where the same actors, outfits and location stay consistent: profile cards, location card, stills for approval, native-audio clips, captions and QA | — |
+| [varg-character-design](./varg-character-design/) | How to make characters people remember: definition, details, clothing, character card, a sheet that stays consistent, reuse in Nano Banana, Kling 4 and Seedance 2.5; moderation-safe wording and famous looks without IP names | — |
+| [varg-character-grandma](./varg-character-grandma/) | Grandma and grandpa characters: age vs behaviour, real wrinkles, a loud signature outfit | — |
+| [varg-character-big-guy](./varg-character-big-guy/) | Big guy characters: size shown with visible cues, a small delicate job, played straight | — |
+| [varg-character-cringe](./varg-character-cringe/) | Cringe deadpan characters: bizarre but believable, one outfit, one repeated action (the Jean Phil format) | — |
+| [varg-character-beautiful-woman](./varg-character-beautiful-woman/) | Very beautiful women who look like real models: casting details, real skin, fashion and swimwear styling, wording that passes filters | — |
+| [varg-character-fitness](./varg-character-fitness/) | Fitness characters: real muscle, a signature colour, catalog wording that gets sports bras past false blocks | — |
+| [varg-character-absurd](./varg-character-absurd/) | Absurd characters and mascots: food or object + animal + one human detail, in 3D, clay or photoreal looks | — |
+| [varg-character-cartoon](./varg-character-cartoon/) | Original characters in famous cartoon looks (yellow sitcom, 3D family film, anime, paper cut-out, clay, puppet), described without IP names | — |
 | [varg-podcast-video](./varg-podcast-video/) | Podcast and two-character dialogue videos: studio set, wide master shot, close-ups and cutaways from it, 5 s scenes with native dialogue audio, stitched episode | — |
 
 ## Requirements
 
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-podcast-video); media-download, paper-shaders and video-skills need no key
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video); media-download, paper-shaders and video-skills need no key
 - **Cloud mode**: curl only (zero dependencies)
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project

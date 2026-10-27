@@ -47,6 +47,8 @@ prompt   ──gen───> gymLoc ─┘
 
 Upload the actor photos first (`POST /v2/files`, or the MCP upload tools) and use the returned URLs.
 
+No actor photos? Design the cast with `varg-character-design` (archetypes, a model sheet per character on flat grey) and use each character's full-body crop as the profile card below.
+
 ## 1. Consistency
 
 ### 1.1 Character profile cards
@@ -116,6 +118,8 @@ Identical prompt + params = free cache hit, both locally and **server-side on ap
 ### 1.5 Content-moderation gotcha
 
 Body-part wording such as "rear" or "booty" in an **image** prompt can silently stall generation for ~10 min (provider moderation). Rephrase to neutral anatomy: "hips and thighs". The same words inside spoken dialogue in **video** prompts passed fine.
+
+Fitness and swimwear scenes trip filters on words, not pictures: "girl" instead of "woman, 28", "tight", "bikini" and short prompts without a garment description get blocked on GPT Image 2.5, FLUX 3 and Grok, while a catalog-style prompt (adult age as a number, each garment named, an activity, "activewear brand catalog photo") passed on all six image models we tried. A block can be random: retry once, then rephrase, then route. Test log, safe-phrasing table and routing: `varg-character-design` → `references/moderation.md`.
 
 ## 2. Photos-for-approval pass (images first)
 
