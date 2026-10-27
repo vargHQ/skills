@@ -2,9 +2,7 @@
 
 ## What "AI-looking" people are, in 2026
 
-The waxy skin of 2023 is mostly gone from the top models: on 2026-10-27, `nano_banana_2_1` answered "Portrait of a beautiful woman, perfect flawless skin, 8k, masterpiece" with a believable photo ([result](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_43304ea81b0f.png)). The problem now is the **average face**: pleasant, symmetrical, camera-aware and forgettable, the same woman every time. The specific prompt below produced a person ([result](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b6c07ac22592.png)).
-
-The glossy plastic look still appears when the prompt is about sex appeal: "hot sexy girl … big booty, seductive look" gave the same tanned, poreless "AI girl" on Seedream 5 Pro, Soul and Grok Image 2. Suggestive wording costs realism as well as moderation.
+Two failures. A generic prompt ("beautiful woman, 8k") gets the model's **average face**: pleasant, symmetrical, camera-aware and forgettable, the same woman every time. A suggestive prompt ("hot sexy girl … big booty, seductive look") gets the glossy, poreless, same-face "AI girl": tested on Seedream 5 Pro, Soul and Grok Image 2, and blocked on GPT Image 2.5 and FLUX 3. Suggestive wording costs realism as well as moderation.
 
 Other tells: doll eyes and unrequested eyeliner; flat front light that hides pores; HDR and face-enhance upscaling; a generic beauty prompt drifting toward a celebrity's face (which some filters then block as likeness).
 
@@ -20,17 +18,10 @@ Other tells: doll eyes and unrequested eyeliner; flat front light that hides por
 | Face | one or two irregular features: a small bump on the nose bridge, one brow higher, a gap between the front teeth, a beauty mark, a faint scar |
 | Drop | "flawless", "perfect", "beautiful" as a quality word, "8K masterpiece", "HDR", "professional photo" |
 
-Before → after (tested, `nano_banana_2_1`):
-
-- Before: `Portrait of a beautiful woman, perfect flawless skin, 8k, masterpiece, ultra detailed, professional photo`
-- After: `Candid unretouched photo of Inès, a 29-year-old French-Moroccan woman laughing at something off camera at a café window table: strong straight nose with a small bump on the bridge, slightly asymmetric smile, a small gap between her front teeth, freckles across her nose and cheeks, thick natural eyebrows, dark wavy hair with flyaways, minimal makeup with skin visible under it, oversized cream cable-knit sweater. Visible pores, fine peach fuzz, faint under-eye texture, uneven tone. Overcast side window light, shot on a 35mm film camera, slight grain, slightly off-centre framing. No smoothing, no beauty retouch.`
-
 ## Very beautiful, and still real
 
-- Beauty that reads as real is **specific**: strong features, one irregularity, mixed or precise ancestry, an age in the 30s or 40s as often as the 20s.
-- Natural makeup with skin visible under it; real teeth, not veneer-white; baby hairs at the hairline.
-- Real proportions: give a height and a clothing size, not "perfect body".
-- A candid moment with a reason to exist beats a centred stare.
+Cast her like a model agency (age as a number, 4–6 striking features: cheekbones, jaw, eyes, lips, hair with a styling verb), keep the skin real (pores, freckles, no plastic smoothing), style her (makeup, one jewellery piece, an exactly named outfit) and light it like a shoot (golden-hour backlight at 85mm, direct flash, red-carpet flash). Tested prompts and results: `varg-character-beautiful-woman`.
+
 - Men: patchy stubble, pores, forehead shine, weathered hands, slight under-eye shadows; "an ordinary real adult man, photographed naturally rather than posed" works for UGC.
 - Hair colour, eye colour and freckles alone still give near-identical faces; change the face shape, nose and age too.
 

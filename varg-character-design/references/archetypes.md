@@ -46,8 +46,8 @@ An "AI cute girl" fashion-test reel: 4.5M views (*claim* of revenue). Raw-selfie
 
 - **Why:** a reusable actor for try-ons, unboxings and reviews; parasocial attachment.
 - **Counter-evidence:** a pet-costume brand's generic AI influencers got 212–785 views while its AI cat in a costume got 1.44M ([@Skylar_](https://x.com/Skylar_/status/2115101756765982741)). Generic beauty is the weakest archetype; specific beauty works.
-- **Craft:** see [realism.md](realism.md). Specific irregular features (a bump on the nose, a gap tooth, freckles), mixed ancestry, natural makeup, a candid moment, real proportions with a height and size.
-- **Seed:** Inès: "29, French-Moroccan, strong nose with a small bump, asymmetric smile, gap between front teeth, freckles, thick brows, dark wavy hair with flyaways, cream cable-knit sweater."
+- **Craft:** `varg-character-beautiful-woman`. Cast her like a model agency (striking features one by one), keep real skin, style her (makeup, outfit named exactly) and light it like a shoot.
+- **Seed:** "strikingly beautiful 26-year-old woman with model looks: high cheekbones, full lips, almond-shaped green eyes, sharp jawline, long dark glossy hair in soft waves, sun-kissed olive skin with visible pores; fitted black satin slip dress, golden hour, 85mm."
 
 ## 5. Fitness creators and athletes
 

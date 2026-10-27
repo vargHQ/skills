@@ -24,7 +24,7 @@ Be specific about appearance, clothing, expression:
 - "A golden retriever puppy with floppy ears"
 - "A weathered lighthouse on a rocky cliff"
 
-For characters appearing in multiple scenes, generate a reference image first and pass it as a reference to `nano_banana_2_1` (`{ text, images: [ref] }`) to keep the character consistent (see SKILL.md character consistency section). To design a character people remember and lock it in a character sheet (archetypes, sheet prompts, which model, how to pass the sheet to each video model, moderation-safe wording), use the `varg-character-sheets` skill.
+For characters appearing in multiple scenes, generate a reference image first and pass it as a reference to `nano_banana_2_1` (`{ text, images: [ref] }`) to keep the character consistent (see SKILL.md character consistency section). To design a character people remember and lock it in a character sheet (archetypes, sheet prompts, which model, how to pass the sheet to each video model, moderation-safe wording), use the `varg-character-design` skill.
 
 ---
 
@@ -178,7 +178,7 @@ When animating a reference image, your prompt should describe **the motion**, no
 The 2026 flagship video models take several references and can cut between shots inside one clip.
 
 - **Name each reference by its role**: "the woman from the first image walks into the bakery from the second image". Order matters: images are numbered in the order you pass them.
-- **One identity per reference image.** Use a clean, front-facing character sheet, not a busy scene. Flat grey background, no labels, large faces; add "do not copy the sheet layout, labels or backdrop; no grid, no picture-in-picture" to the video prompt so the sheet does not leak into the shot (`varg-character-sheets`).
+- **One identity per reference image.** Use a clean, front-facing character sheet, not a busy scene. Flat grey background, no labels, large faces; add "do not copy the sheet layout, labels or backdrop; no grid, no picture-in-picture" to the video prompt so the sheet does not leak into the shot (`varg-character-design`).
 - **Multi-shot in one prompt** (`kling_v4`, `seedance_2_5`): number the shots with their timing, e.g. `Shot 1 (0-4s): wide establishing shot of ... Shot 2 (4-8s): close-up of her face as she ...`. Keep each shot to one action.
 - **Long clips (15-30s)** drift more than 5-10s clips. For hero moments, prefer two 8s clips joined in `<Clip>`s over one 16s clip, so you can regenerate one half without paying for the other.
 - **Draft cheap, then upgrade**: lock the motion with `minimax_h3_max_turbo` or 480p/720p, then re-run the same prompt at 1080p on the final model.

@@ -11,7 +11,7 @@ description: >-
   music for a video, and no installed skill already covers that format; use it before writing a
   pipeline from scratch or searching registries. Not for running a generation itself (use
   varg-ai), not for formats with their own varg skill (varg-music-video, varg-character-keynote,
-  varg-consistent-characters, varg-character-sheets, varg-podcast-video, varg-previz), and not for
+  varg-consistent-characters, varg-character-design, varg-podcast-video, varg-previz), and not for
   non-media coding tasks.
 license: MIT
 metadata:
@@ -59,8 +59,9 @@ Start from these, by request:
 | Request | Start with | Add |
 |---|---|---|
 | UGC / creator ad, ad variants | `fal-ugc`, `marketingskills-video` | `varg-ai` for generation, `iart-caption-animation` |
-| Design a character, character sheet / turnaround, AI influencer or persona, mascot, the same character in new scenes | `varg-character-sheets` | `varg-ai` |
-| Multi-scene ad with the same actors, a recurring character or mascot | `varg-consistent-characters`, `fal-character-design` | `varg-character-sheets`, `varg-ai` |
+| Design a character, character sheet / turnaround, AI influencer or persona, mascot, the same character in new scenes | `varg-character-design` | `varg-ai` |
+| A specific character type: granny or grandpa, big guy, cringe deadpan guy, very beautiful woman, fitness character, absurd creature or mascot, Simpsons/Pixar-style cartoon | `varg-character-grandma`, `varg-character-big-guy`, `varg-character-cringe`, `varg-character-beautiful-woman`, `varg-character-fitness`, `varg-character-absurd`, `varg-character-cartoon` | `varg-character-design` |
+| Multi-scene ad with the same actors, a recurring character or mascot | `varg-consistent-characters`, `fal-character-design` | `varg-character-design`, `varg-ai` |
 | Product video from a photo | `krea-motion`, `fal-commercial` | `varg-ai` |
 | Shorts from a long video / podcast recording | `clipify`, `herk-edit-kit` | `media-download` |
 | Podcast-style or two-character dialogue video (generated) | `varg-podcast-video` | `varg-ai` |
