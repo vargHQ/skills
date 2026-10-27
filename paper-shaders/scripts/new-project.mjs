@@ -82,7 +82,7 @@ if (!add) {
   console.log("  package.json\n  hyperframes.json");
 }
 
-console.log(`\nNext: cd ${dir} && npx hyperframes lint && npx hyperframes snapshot --at 1,2 && npx hyperframes render --output out.mp4`);
+console.log(`\nNext (pinned to hyperframes@${HYPERFRAMES_VERSION}): cd ${dir} && npm run check && npx --yes hyperframes@${HYPERFRAMES_VERSION} snapshot --at 1,2 && npm run render -- --output out.mp4`);
 
 function fail(message) {
   console.error(message);

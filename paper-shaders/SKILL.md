@@ -42,27 +42,25 @@ Paper Shaders draws designer-tuned WebGL shaders into a canvas. Left alone it an
 
 ## Workflow
 
-A person approves at each checkpoint (looks, stills, motion) before the next step.
+A person approves at each checkpoint (looks, stills, motion) before the next step. Commands run from the skill folder; `HF` stands for the pinned CLI, `npx --yes hyperframes@0.8.206`.
 
 1. **Pick the look.** Match the request to a preset below or to a shader in `references/shaders.md`. Say which one and why in one line; that is checkpoint 1.
-2. **Brand it.** Get the palette from the user or their brand kit. Never invent colors.
-   ```bash
-   node scripts/apply-brand.mjs assets/presets/brand-mesh.json palette.json --out presets/brand-mesh.json
-   node scripts/validate-presets.mjs presets/brand-mesh.json
-   ```
-3. **Scaffold, or add to a project.**
+2. **Scaffold, or add to a project.**
    ```bash
    node scripts/new-project.mjs ./video                 # new HyperFrames project from the template
    node scripts/new-project.mjs ./existing --add        # paper-preset.js and presets/ only
    ```
-   Then import the preset in `index.html`. Image presets take `{ image: "assets/logo.png" }`; serve images from the project.
-4. **Stills (checkpoint 2).** `npx hyperframes snapshot --at 0.5,2,4` writes PNGs and a contact sheet. Show them; change one param at a time until approved.
-5. **Motion (checkpoint 3).** `npx hyperframes render --quality draft --output draft.mp4`. Tune `motion.timeScale` for pace.
+3. **Brand it.** Get the palette from the user or their brand kit. Never invent colors. Write the branded preset into the project, then import it in `index.html`. Image presets take `{ image: "assets/logo.png" }`; serve images from the project.
+   ```bash
+   node scripts/apply-brand.mjs assets/presets/brand-mesh.json palette.json --out ./video/presets/brand-mesh.json
+   node scripts/validate-presets.mjs ./video/presets/brand-mesh.json
+   ```
+4. **Stills (checkpoint 2).** `$HF snapshot ./video --at 0.5,2,4` writes PNGs and a contact sheet. Show them; change one param at a time until approved.
+5. **Motion (checkpoint 3).** `(cd ./video && $HF render --quality draft --output draft.mp4)`. Tune `motion.timeScale` for pace.
 6. **Final.**
    ```bash
-   node scripts/check-determinism.mjs ./video   # must print "deterministic"
-   npx hyperframes check                         # runtime, layout, contrast
-   npx hyperframes render --output final.mp4
+   node scripts/check-determinism.mjs ./video                        # must print "deterministic"
+   (cd ./video && $HF check && $HF render --output final.mp4)        # or: npm run check, npm run render
    ```
 
 ## A shader layer in HyperFrames
@@ -163,7 +161,7 @@ All run with `node` or `bun`, make no network calls of their own, and touch only
 
 ```bash
 node scripts/new-project.mjs ./preset-reel --example preset-reel
-cd preset-reel && npx hyperframes render --output preset-reel.mp4   # about 22 s on an M1 Pro
+cd preset-reel && npm run render -- --output preset-reel.mp4   # pinned HyperFrames; about 22 s on an M1 Pro
 ```
 
 `hyperframes check` passes; lint's structure warnings come from keeping the reel in one file to read.
