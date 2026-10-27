@@ -1,7 +1,7 @@
 {
   "name": "varg",
   "displayName": "varg",
-  "description": "Generate AI videos, images, speech, and music with varg — Seedance 2.5, Kling 4, Wan 3, Veo 3.1, Nano Banana, GPT Image, ElevenLabs and more through one API key. Includes the varg-ai skill and the hosted varg MCP server.",
+  "description": "Generate AI videos, images, speech, and music with varg — Seedance 2.5, Kling 4, Wan 3, Veo 3.1, Nano Banana, GPT Image, ElevenLabs and more through one API key. Includes the varg-ai and varg-previz skills and the hosted varg MCP server.",
   "author": {
     "name": "varg",
     "url": "https://varg.ai"
@@ -9,6 +9,6 @@
   "homepage": "https://varg.ai",
   "repository": "https://github.com/vargHQ/skills",
   "license": "MIT",
-  "keywords": ["video", "image", "ai-video", "text-to-speech", "music", "generation", "kling", "seedance", "wan", "veo", "nano-banana", "elevenlabs", "varg"],
-  "skills": ["./varg-ai"]
+  "keywords": ["video", "image", "ai-video", "text-to-speech", "music", "generation", "kling", "seedance", "wan", "veo", "nano-banana", "elevenlabs", "varg", "previz", "storyboard"],
+  "skills": ["./varg-ai", "./varg-previz"]
 }
