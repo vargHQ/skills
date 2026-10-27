@@ -64,14 +64,16 @@ npx skills add vargHQ/skills --yes
 | Skill | Description | ClawHub Slug |
 |-------|-------------|--------------|
 | [varg-ai](./varg-ai/) | AI video, image, speech, and music generation | `vargai` |
+| [varg-previz](./varg-previz/) | Plan multi-shot AI videos: story, anchors, a three.js grey-box previz with auto cameras, Seedance video-to-video packs | — |
+| [media-download](./media-download/) | Save videos/audio by link from X, YouTube, Instagram, Facebook, TikTok and 1800+ sites (yt-dlp), and Pinterest images by pin, board or search (gallery-dl). Local, no API key | — |
 | [paper-shaders](./paper-shaders/) | Frame-exact Paper Shaders backgrounds, textures and logo stings for HyperFrames and Remotion videos | `paper-shaders` |
 
 ## Requirements
 
-- **varg-ai**: `VARG_API_KEY` (get at [varg.ai](https://varg.ai))
-  - **Cloud mode**: curl only (zero dependencies)
-  - **Local mode**: bun runtime + ffmpeg
-- **paper-shaders**: no API key; Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) -- required for varg-ai and varg-previz; media-download and paper-shaders need no key
+- **Cloud mode**: curl only (zero dependencies)
+- **Local mode**: bun runtime + ffmpeg
+- **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
 
 ## Skill Structure
 
