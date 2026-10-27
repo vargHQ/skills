@@ -181,19 +181,22 @@ if (!hasExample) {
     : `import { fal } from "vargai/ai"`
 
   const modelPrefix = vargKey ? "varg" : "fal"
+  // The direct fal provider has its own model ids; keep its known-good ones.
+  const imageModelId = vargKey ? "nano_banana_2_1" : "nano_banana_pro"
+  const videoModelId = vargKey ? "seedance_2_5" : "kling_v3"
 
   const example = `/** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react"
 ${importLine}
 
 const img = Image({
-  model: ${modelPrefix}.imageModel("nano_banana_pro"),
+  model: ${modelPrefix}.imageModel("${imageModelId}"),
   prompt: "a cozy cabin in the mountains at sunset, warm golden light",
   aspectRatio: "16:9"
 })
 
 const vid = Video({
-  model: ${modelPrefix}.videoModel("kling_v3"),
+  model: ${modelPrefix}.videoModel("${videoModelId}"),
   prompt: { text: "gentle push-in, smoke rising from chimney", images: [img] },
   duration: 5
 })
@@ -223,11 +226,11 @@ console.log(`Available: ${features.join(", ")}`)
 
 if (!hasExample) {
   console.log(`\nRender your first video:`)
-  console.log(dim(`  bunx vargai render ${examplePath} --preview   ${dim("(free preview)")}`))
-  console.log(dim(`  bunx vargai render ${examplePath} --verbose   ${dim("(full render, costs credits)")}`))
+  console.log(dim(`  bunx vargai@alpha render ${examplePath} --preview   ${dim("(free preview)")}`))
+  console.log(dim(`  bunx vargai@alpha render ${examplePath} --verbose   ${dim("(full render, costs credits)")}`))
 } else {
   console.log(`\nRender:`)
-  console.log(dim(`  bunx vargai render <file.tsx> --verbose`))
+  console.log(dim(`  bunx vargai@alpha render <file.tsx> --verbose`))
 }
 
 console.log()

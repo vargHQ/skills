@@ -23,10 +23,10 @@ https://api.varg.ai/v2
 | Concept | Example | What it is |
 |---------|---------|------------|
 | **Tool** | `image`, `video`, `speech` | A capability with its own endpoint (`POST /v2/image`) |
-| **Model** | `flux_schnell`, `kling_v3` | The `model` field. One model can be served by multiple providers |
+| **Model** | `seedance_2_5`, `nano_banana_2_1` | The `model` field. One model can be served by multiple providers |
 | **Provider** | `fal`, `elevenlabs` | Who runs the generation. varg picks automatically, or pin with `fal:flux_schnell` |
 
-Model ids use underscores (`kling_v3`, `nano_banana_pro`). Dashed spellings (`kling-v3`) are accepted and normalized.
+Model ids use underscores (`seedance_2_5`, `nano_banana_2_1`). Dashed spellings (`seedance-2-5`) are accepted and normalized. Full list: `https://varg.ai/models/llms.txt`.
 
 ---
 
@@ -42,13 +42,13 @@ POST /v2/image
 
 ```json
 {
-  "model": "nano_banana_pro",
+  "model": "nano_banana_2_1",
   "prompt": "a sunset over mountains, cinematic, golden hour",
   "aspect_ratio": "16:9"
 }
 ```
 
-Image editing: send a source image in `files` with an edit model (`nano_banana_pro/edit`). Upscaling: `clarity_upscaler`, `aura_sr`, `topaz`.
+Image editing: send a source image in `files` with `nano_banana_2_1` or `gpt_image_2_5` (both edit when `files` are present). Upscaling: `clarity_upscaler`, `aura_sr`, `topaz`.
 
 ### Generate Video
 
@@ -58,7 +58,7 @@ POST /v2/video
 
 ```json
 {
-  "model": "kling_v3",
+  "model": "seedance_2_5",
   "prompt": "a bird soaring over mountains, aerial shot",
   "duration": 5,
   "aspect_ratio": "16:9"
@@ -68,14 +68,14 @@ POST /v2/video
 Image-to-video (start frame in `files` — varg routes to the model's i2v variant automatically):
 ```json
 {
-  "model": "kling_v3",
+  "model": "seedance_2_5",
   "prompt": "person starts walking forward",
   "files": [{ "url": "https://s3.varg.ai/files/acc_x/character.png" }],
   "duration": 5
 }
 ```
 
-Lipsync (video + audio in `files`): `sync_v2`, `veed_fabric_1_0`, `omnihuman_v1_5`. Video upscale: `topaz_video`, `seedvr_video`.
+Lipsync (image or video + audio in `files`): `veed_fabric_1_0`, `minimax_h3_max_lipsync`, `sync_v3`, `omnihuman_v2`. Video upscale: `topaz_video`, `seedvr_video`.
 
 ### Generate Speech
 
@@ -85,7 +85,7 @@ POST /v2/speech
 
 ```json
 {
-  "model": "eleven_v3",
+  "model": "eleven_v4",
   "text": "Welcome to our product showcase.",
   "voice": "rachel"
 }
@@ -99,7 +99,7 @@ POST /v2/music
 
 ```json
 {
-  "model": "music_v1",
+  "model": "mureka_9_5",
   "prompt": "upbeat electronic, rising energy",
   "duration": 15
 }
@@ -203,7 +203,7 @@ All generation endpoints return `202 Accepted` with a job:
   "id": "job_a1b2c3d4e5f6",
   "status": "queued",
   "tool": "video",
-  "input": { "model": "kling_v3", "prompt": "..." },
+  "input": { "model": "seedance_2_5", "prompt": "..." },
   "estimated_cost_cents": 221,
   "pricing": { "estimated": 221, "billing": "metered" },
   "urls": {
@@ -256,7 +256,7 @@ Add `options.webhook_url` to any generation request. When the job reaches a term
 
 ```json
 {
-  "model": "kling_v3",
+  "model": "seedance_2_5",
   "prompt": "...",
   "options": { "webhook_url": "https://example.com/varg-hook" }
 }
@@ -345,7 +345,7 @@ const varg = createVarg({ apiKey: process.env.VARG_API_KEY! })
 import { generateImage } from "ai"
 
 const result = await generateImage({
-  model: varg.imageModel("nano_banana_pro"),
+  model: varg.imageModel("nano_banana_2_1"),
   prompt: "a sunset over mountains"
 })
 ```
