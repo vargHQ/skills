@@ -1,25 +1,53 @@
 # Contributing to varg Skills
 
-Thanks for your interest in contributing! Here's how to get started.
+## Editing the media skill
 
-## Adding a New Skill
+`varg-ai` executes through the hosted MCP server and client-managed OAuth.
+Keep the skill focused on choosing tools, preparing media, estimating costs,
+following jobs, and delivering the result.
 
-1. Create a directory at the repo root (lowercase, hyphens only)
-2. Add a `SKILL.md` with the required frontmatter (see README)
-3. Add reference docs in `references/` if needed
-4. Test locally with your preferred AI coding tool
-5. Open a PR — CI will auto-publish to ClawHub on merge
+- Preserve the skill name and keep `SKILL.md` under 500 lines.
+- Put detailed workflows in `references/` and link to them from `SKILL.md`.
+- Discover current model IDs, input schemas, constraints, and prices through MCP.
+- Use the actual server tool names; client-specific prefixes vary.
+- Keep generation inputs inside `call_tool.input` and `estimate_cost.input`.
+- Recover a timed-out generation with its existing job ID instead of submitting again.
+- Keep authentication in the MCP client. Avoid credential discovery, token handling,
+  shell-based generation, and direct-provider fallback instructions.
+- Preserve existing assets and caches while iterating.
+- Document changes to connection scope, billable work, and destructive file actions accurately.
 
-## Improving Existing Skills
+Before naming a tool, inspect the current hosted contract or its released
+implementation at [vargHQ/mcp](https://github.com/vargHQ/mcp). A feature on an
+unreleased branch is not sufficient evidence that a user's connector offers it.
 
-- Fix instructions, add examples, update model references
-- Keep `SKILL.md` under 500 lines — use `references/` for details
+## Validation
 
-## Reporting Issues
+Run:
 
-- Use the issue templates for bugs or feature requests
-- Include which AI tool you're using (Claude Code, Cursor, etc.)
+```bash
+bun run scripts/check-skills.ts
+```
 
-## Code of Conduct
+Then review the case folders in `varg-ai/evals/` with the skill loaded.
+The default evaluation is a simulated tool trace: no credentials are read,
+accounts changed, or media generated. Record whether the agent chose the
+right connection flow, payload shape, estimate handling, and job recovery.
 
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
+A real media run needs a connected test account, an agreed credit budget, and
+approval for the generation. Report simulated checks separately from live runs.
+
+## Adding another skill
+
+1. Create a lowercase, hyphenated directory at the repository root.
+2. Add `SKILL.md` with `name` and `description` frontmatter.
+3. Explain its MCP connection requirements and workflow-specific guidance.
+4. Add focused reference material and realistic review prompts.
+5. Open a PR describing what changed and how it was checked.
+
+The ClawHub workflow publishes skill changes when they reach `main`.
+
+## Reporting issues
+
+Use the issue templates and include the MCP client, the failing tool name, and
+a sanitized error or job ID. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

@@ -1,172 +1,105 @@
-# varg — AI Agent Skills for Video, Image, Speech & Music Generation
+# varg — media generation skills over MCP
 
-A collection of [Agent Skills](https://agentskills.io) for AI video, image, speech, and music generation using the varg platform. One skill to access Kling, Flux, ElevenLabs, Sora, and more — zero code, just prompt.
+Create videos, images, speech, and music, then compose finished videos with the
+hosted [varg MCP server](https://varg.ai/mcp). The skill teaches the workflow;
+the connected MCP server supplies the tools, live models, prices, and jobs.
 
-<p align="center">
-  <a href="https://github.com/vargHQ/skills/stargazers"><img src="https://img.shields.io/github/stars/vargHQ/skills" alt="GitHub stars"></a>
-  <a href="https://github.com/vargHQ/skills/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
-</p>
+- **Server:** `https://mcp.varg.ai/mcp`
+- **Transport:** remote Streamable HTTP
+- **Authentication:** OAuth, managed by your MCP client
 
-Works with **Claude Code**, **Cursor**, **Windsurf**, **OpenCode**, **ClawHub**, and any tool that supports the [Agent Skills](https://agentskills.io) standard.
+You need a varg account and a client that supports remote MCP with OAuth.
+Generation uses the connected account's credits. Model discovery, estimates,
+and job lookups let the agent plan and track the work before spending more.
 
-## Installation
-
-### ClawHub (recommended)
-
-```bash
-# Install a specific skill
-npx clawhub@latest install vargai
-
-# Or install all skills from this repo
-npx clawhub@latest install vargai
-```
+## Install
 
 ### Claude Code plugin
 
-Installs the `varg-ai` skill and the hosted varg MCP server (`https://mcp.varg.ai/mcp`, sign in with OAuth on first use):
+```text
+/plugin marketplace add vargHQ/skills
+/plugin install varg@varg
+```
+
+The plugin bundles the `varg-ai` skill and the hosted MCP configuration.
+Complete the client's browser-based OAuth connection when prompted. The
+`.claude-plugin/plugin.json` manifest is also usable by Grok Build.
+
+### Cursor plugin
+
+The repository includes `.cursor-plugin/plugin.json`. It loads the same skill
+and explicitly references `.mcp.json`. Use Cursor's plugin installation flow
+and authorize the varg MCP connection.
+
+### Standalone skill
+
+Install `varg-ai/` using your client's Agent Skills installer, or copy that
+directory into its supported skills directory. It is also published as
+`vargai` on [ClawHub](https://clawhub.ai).
+
+**Installing a standalone skill does not connect an MCP server.** Add the
+remote URL in the client's MCP settings and finish OAuth separately. A client
+with Agent Skills support alone cannot execute these workflows.
+
+For clients using Claude Code's configuration shape:
+
+```json
+{
+  "mcpServers": {
+    "varg": {
+      "type": "http",
+      "url": "https://mcp.varg.ai/mcp"
+    }
+  }
+}
+```
+
+Other clients may use different configuration keys. Let the client discover
+the authorization server and manage the connection. See
+[connection instructions](varg-ai/references/connection.md).
+
+## Try it
+
+> Using varg, estimate a five-second vertical video of ocean waves at sunset.
+> Show the model, cost in credits, and the account that would pay. Wait for my
+> approval before generating it.
+
+The agent should discover a suitable model, read its schema, estimate the
+exact input, and wait. After approval it submits once, follows the job, and
+returns the actual media URL.
+
+## Included skill
+
+| Skill | Capabilities |
+|---|---|
+| [varg-ai](varg-ai/SKILL.md) | Model discovery, images, video, speech, music, transcription, media operations, remote TSX composition, templates, files, and job recovery |
+
+The skill uses live schemas instead of a frozen catalog of model IDs and prices.
+Reference uploads use the client's upload UI or reachable URLs. The hosted
+server cannot read files on the agent's computer.
+
+## Upgrading from 2.x
+
+Version 3 uses hosted MCP and OAuth for execution. Reconnect the MCP server in
+your client, then replace the old skill with this version. The former shell
+setup, direct generation requests, provider credentials, and local-render
+instructions have been removed from this package.
+
+Remote video composition is still available through `render_video`; it does
+not require a local SDK or video runtime. SDK development documentation lives
+separately at [docs.varg.ai](https://docs.varg.ai).
+
+## Development
 
 ```bash
-claude plugin marketplace add vargHQ/skills
-claude plugin install varg@varg
+bun run scripts/check-skills.ts
 ```
 
-Or inside Claude Code: `/plugin marketplace add vargHQ/skills`, then `/plugin install varg@varg`.
-
-### Claude Code (manual)
-
-```bash
-# Clone into personal skills directory (available in all projects)
-git clone https://github.com/vargHQ/skills.git ~/.claude/skills/varg
-
-# Or symlink individual skills
-ln -s /path/to/skills/varg-ai ~/.claude/skills/varg-ai
-```
-
-### OpenCode
-
-```bash
-# Clone into any supported skills directory
-git clone https://github.com/vargHQ/skills.git ~/.opencode/skills/varg
-
-# Also works with:
-#   ~/.agents/skills/
-#   .opencode/skills/ (project-level)
-```
-
-### Agent Skills CLI
-
-```bash
-npx skills add vargHQ/skills --yes
-```
-
-## Available Skills
-
-| Skill | Description | ClawHub Slug |
-|-------|-------------|--------------|
-| [varg-ai](./varg-ai/) | AI video, image, speech, and music generation | `vargai` |
-
-## Requirements
-
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) -- required for all skills
-- **Cloud mode**: curl only (zero dependencies)
-- **Local mode**: bun runtime + ffmpeg
-
-## Skill Structure
-
-Each skill follows the [Agent Skills specification](https://agentskills.io/specification):
-
-```
-skill-name/
-├── SKILL.md            # Core instructions (required)
-├── references/         # On-demand reference docs
-│   ├── models.md       # Model catalog, pricing
-│   ├── components.md   # Component reference
-│   └── ...
-├── scripts/            # Executable setup/helper scripts
-│   └── setup.sh
-└── assets/             # Static resources (optional)
-```
-
-## Adding a New Skill
-
-1. Create a directory at the repo root with your skill name (lowercase, hyphens only):
-
-```bash
-mkdir my-new-skill
-```
-
-2. Create `my-new-skill/SKILL.md` with cross-compatible frontmatter:
-
-```yaml
----
-name: my-new-skill
-description: >-
-  What this skill does and when to use it.
-  Include trigger keywords for auto-discovery.
-license: MIT
-metadata:
-  author: vargHQ
-  version: "1.0.0"
-  openclaw:
-    requires:
-      env:
-        - VARG_API_KEY
-      anyBins:
-        - curl
-        - bun
-    primaryEnv: VARG_API_KEY
-    homepage: https://varg.ai
-compatibility: >-
-  Describe environment requirements here.
-allowed-tools: Bash(bun:*) Bash(curl:*) Read Write Edit
----
-
-Your skill instructions here...
-```
-
-3. Add reference docs in `my-new-skill/references/` (keep `SKILL.md` under 500 lines).
-
-4. Push to `main` -- the GitHub Actions workflow auto-publishes all changed skills to ClawHub via `clawhub sync`.
-
-### Frontmatter Field Reference
-
-| Field | Standard | Purpose |
-|-------|----------|---------|
-| `name` | Agent Skills | Skill identifier (must match directory name) |
-| `description` | Agent Skills | What + when (used for discovery in all tools) |
-| `license` | Agent Skills | License (MIT for ClawHub) |
-| `metadata.author` | Agent Skills | Author identifier |
-| `metadata.version` | Agent Skills | Semver version string |
-| `metadata.openclaw` | ClawHub | Runtime requirements, env vars, binaries |
-| `compatibility` | Agent Skills | Human-readable requirements description |
-| `allowed-tools` | Claude Code / OpenCode | Pre-approved tools (experimental in OpenCode) |
-
-All fields are cross-compatible -- tools ignore fields they don't recognize.
-
-## Quick Start
-
-```bash
-# 1. Install the skill
-npx clawhub@latest install vargai
-
-# 2. Set your API key
-export VARG_API_KEY=varg_xxx
-
-# 3. Run setup to verify environment
-bash varg-ai/scripts/setup.sh
-
-# 4. Render your first video
-bunx vargai render hello.tsx --preview    # Free preview
-bunx vargai render hello.tsx --verbose    # Full render
-```
-
-## Documentation
-
-- [vargHQ/sdk](https://github.com/vargHQ/sdk) -- Full SDK documentation
-- [vargHQ/templates](https://github.com/vargHQ/templates) -- Video template examples
-- [Agent Skills Spec](https://agentskills.io/specification) -- Agent Skills format
-- [ClawHub](https://clawhub.ai) -- Skill registry
+This checks skill metadata, relative links, plugin manifests, and legacy
+execution instructions without authenticating or generating media.
+Behavioral review cases are in `varg-ai/evals/`.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the editing workflow.
 
 ## License
 
-MIT
+[MIT](LICENSE)

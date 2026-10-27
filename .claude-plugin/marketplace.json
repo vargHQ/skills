@@ -5,12 +5,12 @@
     "url": "https://varg.ai"
   },
   "metadata": {
-    "description": "Official varg plugins for AI video, image, speech, and music generation."
+    "description": "Official varg plugins for media generation and video composition through MCP and OAuth."
   },
   "plugins": [
     {
       "name": "varg",
-      "description": "Generate AI videos, images, speech, and music with varg — one API key for Kling, Seedance, Veo, Sora, Flux, ElevenLabs and more.",
+      "description": "Create videos, images, speech, and music with varg through MCP. Sign in with OAuth and estimate costs before generating.",
       "source": "./",
       "category": "media"
     }

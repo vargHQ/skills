@@ -1,178 +1,91 @@
-# Cloud Render Mode
+# Remote video composition through MCP
 
-Send TSX code to `POST https://api.varg.ai/v2/render`. No local dependencies needed -- just a `VARG_API_KEY` and `curl`.
+Use `render_video` to assemble a finished cut on varg's render service. The
+agent authors TSX as a tool input; the server executes the composition remotely.
+No local SDK, video runtime, or package installation is required.
 
-The render service handles all asset generation (images, video, speech, music) and video composition (ffmpeg) in the cloud. Rendering is a regular varg job: submit, poll `GET /v2/jobs/{id}`, get the final `.mp4` URL from `output.outputs[0].url`.
+## Prefer an assets-first plan
 
-## TSX Format
+1. Establish canvas ratio, duration, shot order, audio ownership, and captions.
+2. Find existing library media or create the required assets with MCP tools.
+3. Keep each returned URL and job ID. Inspect the actual media before composing.
+4. Author the composition using those real URLs.
+5. Estimate the exact render, then submit once within the approved plan.
+6. Follow the returned job with `get_job` and deliver its output.
 
-In cloud mode, **no imports are needed**. All components and providers are auto-injected as globals.
+Generating assets separately makes their cost and progress visible and lets
+the agent reuse an approved take instead of regenerating it after every edit.
+Composition itself can still have a charge.
 
-**Available globals:**
+## TSX contract
 
-| Category | Names |
-|----------|-------|
-| Components | `Render`, `Clip`, `Image`, `Video`, `Speech`, `Music`, `Captions`, `Title`, `Subtitle`, `Overlay`, `Split`, `Grid`, `Slot`, `Slider`, `Swipe`, `Packshot`, `TalkingHead` |
-| Providers | `varg` (recommended), `fal`, `elevenlabs`, `higgsfield`, `openai`, `replicate`, `google`, `together` |
-| Data | `VOICES` (voice name to ElevenLabs ID mapping) |
+Read the connected `render_video` description and `get_tool({ tool: "render" })`.
+For detailed component syntax, consult the current
+[component documentation](https://docs.varg.ai/sdk/components), a retrieved
+template, or an existing render's lineage. A schema containing `code: string`
+does not describe the entire composition language.
 
-The user's `VARG_API_KEY` (from the `Authorization` header) is automatically used for all AI generation calls. No `createVarg()` needed. Use `varg.*` for all models -- same syntax as local render mode.
+The service expects an **`export default` varg composition**. It provides varg's
+components and model helpers. It is not arbitrary browser React, HTML, or another
+framework's timeline format. Arbitrary external imports and runtime package
+loading are not part of this contract.
 
-### Minimal Example
-
-```tsx
-const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
-  prompt: "a cozy cabin in mountains at sunset, warm golden light",
-  aspectRatio: "16:9"
-});
-
-export default (
-  <Render width={1920} height={1080}>
-    <Clip duration={3}>{img}</Clip>
-  </Render>
-);
-```
-
-### Full Example (video + speech + music + captions)
+The following shows the composition structure. Replace `RETURNED_VIDEO_URL`
+with an actual completed file URL and choose a duration supported by that asset
+before estimating or submitting it:
 
 ```tsx
-const hero = Image({
-  model: varg.imageModel("nano_banana_pro"),
-  prompt: "cinematic portrait of a warrior princess, golden hour lighting",
-  aspectRatio: "9:16"
-});
-
-const scene = Video({
-  model: varg.videoModel("kling_v3"),
-  prompt: { text: "warrior walks forward through misty forest, camera follows", images: [hero] },
-  duration: 5
-});
-
-const voice = Speech({
-  model: varg.speechModel("eleven_v3"),
-  voice: "rachel",
-  children: "In a world beyond imagination..."
-});
-
 export default (
-  <Render width={1080} height={1920} fps={30}>
-    <Music model={varg.musicModel("music_v1")} prompt="epic orchestral, rising tension" duration={10} volume={0.3} />
+  <Render width={1080} height={1920}>
     <Clip duration={5}>
-      {scene}
-      <Title position="bottom">The Last Guardian</Title>
+      <Video src="RETURNED_VIDEO_URL" />
     </Clip>
-    <Captions src={voice} style="tiktok" withAudio />
   </Render>
 );
 ```
 
-## Restrictions
+See [components.md](components.md) for composition decisions and
+[recipes.md](recipes.md) for multi-step workflows.
 
-- Must have `export default` returning a `<Render>` element
-- No named exports (`export const x = ...` is forbidden)
-- No external imports (`vargai/*` imports are allowed but stripped -- globals replace them)
-- No `require()` calls
-- Image `src` values must be `http://` or `https://` URLs
-- Max 5 concurrent jobs, 10 requests/minute per user
-- 15-minute job timeout
+## Estimate and submit
 
-## Workflow
-
-### Step 1: Write TSX code to a file
-
-Write the TSX code to a local `.tsx` file for reference and iteration:
-
-```bash
-cat > video.tsx << 'EOF'
-const img = Image({
-  model: varg.imageModel("nano_banana_pro"),
-  prompt: "a sunset over mountains",
-  aspectRatio: "16:9"
+```js
+estimate_cost({
+  tool: "render",
+  input: { model: "render", code: compositionCode, mode: "strict" }
 });
 
-export default (
-  <Render width={1920} height={1080}>
-    <Clip duration={3}>{img}</Clip>
-  </Render>
-);
-EOF
+// After validating the quote and authorizing the intended work:
+render_video({ code: compositionCode, mode: "strict", wait: false });
 ```
 
-### Step 2: Submit to render service
+Estimation requires `input.model` even for a render; the current render schema
+uses `"render"`. Verify that identifier with `get_tool({ tool: "render" })`.
+The dedicated `render_video` submission instead takes top-level `code`, `mode`,
+and `wait`, with no model argument. Prefer it over the generic render capability
+for OAuth execution.
 
-```bash
-curl -s -X POST https://api.varg.ai/v2/render \
-  -H "Authorization: Bearer $VARG_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "{\"code\": $(cat video.tsx | jq -Rs .)}"
-```
+Read the estimate's `valid` flag, `breakdown`, warnings, and
+`pricing.total_user_price_credits` when present. A composition that contains
+generation expressions can create additional billable child jobs. If the
+estimate warns that only a flat fee is available, disclose the missing child
+prices before seeking approval; do not present the fee as the full run cost.
 
-Response (`202 Accepted`) is a standard varg job:
+`mode: "preview"` is a rendering behavior, not a free dry run. It can use
+placeholders for failed media while still doing billable work. Use strict mode
+for the requested final result unless the user intentionally wants another mode.
 
-```json
-{
-  "id": "job_a1b2c3d4e5f6",
-  "status": "queued",
-  "tool": "render",
-  "estimated_duration_ms": 35000,
-  "urls": {
-    "self": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6",
-    "status": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6/status",
-    "cancel": "https://api.varg.ai/v2/jobs/job_a1b2c3d4e5f6/cancel"
-  }
-}
-```
+## Observe and iterate
 
-> **Note**: The submit and poll examples use [`jq`](https://jqlang.github.io/jq/) for JSON parsing. If `jq` is not available, extract fields with `grep -o '"id":"job_[^"]*"' | cut -d'"' -f4`.
+`render_video` is asynchronous by default. Preserve its `job_id`, poll with
+`get_job`, and distinguish a waiting timeout from a failed generation. Never
+submit the same composition again simply to continue waiting.
 
-### Step 3: Poll for result
+For an edit, recover the previous TSX with `get_lineage`, keep unchanged asset
+URLs and inputs, and change the smallest necessary part. Re-estimate material
+changes. If a source failed, diagnose that source instead of blindly rerunning
+every completed generation.
 
-Poll every 10-15 seconds until `status` is `"completed"`, `"failed"`, or `"cancelled"`:
-
-```bash
-curl -s https://api.varg.ai/v2/jobs/JOB_ID \
-  -H "Authorization: Bearer $VARG_API_KEY"
-```
-
-While running, `GET /v2/jobs/JOB_ID/status` gives lightweight progress (`progress` 0..1, `progress_message` like `"stitching 3/8 (40%)"`).
-
-Completed response:
-
-```json
-{
-  "id": "job_a1b2c3d4e5f6",
-  "status": "completed",
-  "output": {
-    "version": "v1",
-    "outputs": [
-      {
-        "url": "https://s3.varg.ai/files/acc_x/render_abc.mp4",
-        "file_id": "file_render_abc",
-        "media_type": "video/mp4",
-        "thumbnail_url": "https://s3.varg.ai/thumbs/file_render_abc.jpg"
-      }
-    ]
-  },
-  "actual_cost_cents": 5
-}
-```
-
-On success, present `output.outputs[0].url` to the user. AI sub-generation assets are linked to the render job and available via `GET /v2/files` — if the render fails partway, completed assets are still recoverable there.
-
-On failure, the `error` field describes what went wrong:
-
-```json
-{
-  "status": "failed",
-  "error": { "code": "insufficient_balance", "message": "Insufficient balance" }
-}
-```
-
-Retry a failed render with `POST /v2/jobs/JOB_ID/retry` — cached sub-generations are reused for free.
-
-### Alternative: webhook instead of polling
-
-Add `"options": {"webhook_url": "https://your-server/hook"}` to the request body — varg POSTs the job snapshot when the render finishes (signed `X-Varg-Signature`, 8 retries). There is no SSE stream in v2.
-
-For the full API reference (rate limits, error codes, all endpoints), see [gateway-api.md](gateway-api.md).
+For total billed spend, use `get_job_cost` on the run. A render job's own
+charge may not include the child assets. Cancellation cannot guarantee that
+every remote renderer or provider stopped; see [jobs.md](jobs.md).
