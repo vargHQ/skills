@@ -61,16 +61,23 @@ npx skills add vargHQ/skills --yes
 
 ## Available Skills
 
+**Find the right skill:** not sure which skill fits a video request? Start with [video-skills](./video-skills/). It searches the varg Skills catalog ([skills.varg.ai](https://skills.varg.ai)) for the format and lists the options to offer before anything is generated.
+
 | Skill | Description | ClawHub Slug |
 |-------|-------------|--------------|
 | [varg-ai](./varg-ai/) | AI video, image, speech, and music generation | `vargai` |
 | [varg-previz](./varg-previz/) | Plan multi-shot AI videos: story, anchors, a three.js grey-box previz with auto cameras, Seedance video-to-video packs | — |
 | [media-download](./media-download/) | Save videos/audio by link from X, YouTube, Instagram, Facebook, TikTok and 1800+ sites (yt-dlp), and Pinterest images by pin, board or search (gallery-dl). Local, no API key | — |
 | [paper-shaders](./paper-shaders/) | Frame-exact Paper Shaders backgrounds, textures and logo stings for HyperFrames and Remotion videos | `paper-shaders` |
+| [video-skills](./video-skills/) | Finds the right skill for any AI video, image, voice or music job in the varg Skills catalog and shows the options before anything is generated | — |
+| [varg-music-video](./varg-music-video/) | Direct an AI music video for a song: beat grid, cast and references, storyboard on downbeats, stills first, Seedance shots, lip-sync pass, lyrics in code, platform masters | — |
+| [varg-character-keynote](./varg-character-keynote/) | A 9:16 "character on stage" video in one render: a custom character delivers a punchy line at a keynote with native voice and applause | — |
+| [varg-consistent-characters](./varg-consistent-characters/) | Multi-scene ads where the same actors, outfits and location stay consistent: profile cards, location card, stills for approval, native-audio clips, captions and QA | — |
+| [varg-podcast-video](./varg-podcast-video/) | Podcast and two-character dialogue videos: studio set, wide master shot, close-ups and cutaways from it, 5 s scenes with native dialogue audio, stitched episode | — |
 
 ## Requirements
 
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) -- required for varg-ai and varg-previz; media-download and paper-shaders need no key
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-podcast-video); media-download, paper-shaders and video-skills need no key
 - **Cloud mode**: curl only (zero dependencies)
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
