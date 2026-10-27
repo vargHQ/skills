@@ -31,7 +31,7 @@ Generation runs on varg: the varg MCP server (`https://mcp.varg.ai/mcp`, tool `r
 ## To create or swap a character, edit ONLY three things
 
 1. `LINE`: one or two short spoken sentences, emotional hook + payoff (fits 8 s).
-2. `character` prompt: "Candid photo of ..." + body/face/clothing details + "Vivid saturated colors, realistic skin detail."
+2. `character` prompt: "Candid photo of ..." + body/face/clothing details + "Vivid saturated colors, realistic skin detail." Contrast sells the line: an exact age, an unusual build or a loud outfit played straight beats a generic presenter. The `varg-character-sheets` skill has archetypes, realism wording and moderation-safe phrasing; if the speaker must reappear in other videos, make a sheet there and pass its face crop instead of generating with Soul.
 3. `scene` prompt: stage description, always "empty, no people", with a themed screen behind the speaker.
 
 ## Template (cloud render: no imports)

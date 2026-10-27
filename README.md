@@ -73,11 +73,12 @@ npx skills add vargHQ/skills --yes
 | [varg-music-video](./varg-music-video/) | Direct an AI music video for a song: beat grid, cast and references, storyboard on downbeats, stills first, Seedance shots, lip-sync pass, lyrics in code, platform masters | — |
 | [varg-character-keynote](./varg-character-keynote/) | A 9:16 "character on stage" video in one render: a custom character delivers a punchy line at a keynote with native voice and applause | — |
 | [varg-consistent-characters](./varg-consistent-characters/) | Multi-scene ads where the same actors, outfits and location stay consistent: profile cards, location card, stills for approval, native-audio clips, captions and QA | — |
+| [varg-character-sheets](./varg-character-sheets/) | Design characters people remember and lock them in character sheets: archetypes that perform, sheet prompts per model, how to pass a sheet to Nano Banana, Seedream, Kling 4, Seedance 2.5 and Wan 3, realistic skin, moderation-safe wording for fitness and swimwear, famous cartoon looks without IP names | — |
 | [varg-podcast-video](./varg-podcast-video/) | Podcast and two-character dialogue videos: studio set, wide master shot, close-ups and cutaways from it, 5 s scenes with native dialogue audio, stitched episode | — |
 
 ## Requirements
 
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-podcast-video); media-download, paper-shaders and video-skills need no key
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-sheets, varg-podcast-video); media-download, paper-shaders and video-skills need no key
 - **Cloud mode**: curl only (zero dependencies)
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
