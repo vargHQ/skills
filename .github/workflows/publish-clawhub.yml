@@ -8,6 +8,7 @@ on:
       - "*/references/**"
       - "*/scripts/**"
       - "*/assets/**"
+      - ".github/workflows/publish-clawhub.yml"
 
   # Allow manual trigger for re-publish or version bumps
   workflow_dispatch:
@@ -62,6 +63,7 @@ jobs:
           BUMP="${{ github.event.inputs.bump || 'patch' }}"
           CHANGELOG="Auto-published from ${{ github.repository }}@${GITHUB_SHA::8}"
 
+          set -o pipefail
           echo "Publishing all skills (bump: $BUMP)..."
           bunx clawhub@latest sync \
             --root . \
@@ -69,8 +71,39 @@ jobs:
             --no-input \
             --bump "$BUMP" \
             --changelog "$CHANGELOG" \
-            --tags latest 2>&1 | tee /tmp/publish-output.txt
+            --tags latest 2>&1 | tee /tmp/publish-output.txt || true
 
+          # A version can exist on ClawHub without being public (held in moderation, or uploaded by hand). sync only
+          # knows the latest public version, so it keeps proposing the taken number. Retry those skills explicitly:
+          # first the version declared in SKILL.md (metadata.version), then the next free patch numbers.
+          FAILED=$(grep -oE -- '- [a-z0-9-]+: Version [0-9]+\.[0-9]+\.[0-9]+ already exists' /tmp/publish-output.txt \
+            | sed -E 's/^- ([a-z0-9-]+): Version ([0-9.]+) .*/\1 \2/' | sort -u || true)
+          while read -r SKILL TAKEN; do
+            [ -z "$SKILL" ] && continue
+            DECLARED=$(grep -m1 -E '^\s+version:' "$SKILL/SKILL.md" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || true)
+            CANDIDATES=$(python3 - "$TAKEN" "$DECLARED" <<'PY'
+          import sys
+          v = lambda s: tuple(int(x) for x in s.split("."))
+          taken, declared = v(sys.argv[1]), sys.argv[2]
+          out = [declared] if declared and v(declared) > taken else []
+          out += [f"{taken[0]}.{taken[1]}.{taken[2] + i}" for i in range(1, 6)]
+          print(" ".join(dict.fromkeys(out)))
+          PY
+            )
+            OK=""
+            for VER in $CANDIDATES; do
+              echo "Retrying $SKILL as $VER ($TAKEN is taken)..."
+              if bunx clawhub@latest publish "$SKILL" --version "$VER" --changelog "$CHANGELOG" --tags latest \
+                   --source-repo "${{ github.repository }}" --source-commit "$GITHUB_SHA" 2>&1 | tee -a /tmp/publish-output.txt; then
+                OK=1; break
+              fi
+            done
+            [ -n "$OK" ] || { echo "::error::$SKILL could not be published"; exit 1; }
+          done <<< "$FAILED"
+
+          if grep -qE 'Failed to publish' /tmp/publish-output.txt && [ -z "$FAILED" ]; then
+            echo "::error::clawhub sync reported failures"; exit 1
+          fi
           echo "done=true" >> "$GITHUB_OUTPUT"
         env:
           CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
@@ -81,6 +114,8 @@ jobs:
           steps.publish.outputs.done == 'true'
         run: |
           TAG="publish-${GITHUB_SHA::8}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           if git rev-parse "$TAG" >/dev/null 2>&1; then
             echo "Tag $TAG already exists, skipping"
