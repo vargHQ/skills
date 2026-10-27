@@ -45,7 +45,7 @@ It returns, as markdown: the best-matching use case, the options to offer, and t
 
 ## 3. Let the person choose before spending anything
 
-Send one message with the 2–4 decisions that change the result (look, format, voice, length), each with 2–4 options and the example links from the page, plus your recommended default. Do not generate until they pick, unless they said to just go.
+Send one message with the 2–4 decisions that change the result (look, format, voice, length), each with 2–4 options, plus your recommended default. Put the example link from the catalog next to every option that has one (`- Selfie creator — example: https://…/previews/….mp4`): people choose a look by seeing it, not by reading its name. Do not generate until they pick, unless they said to just go.
 
 ## 4. Install the chosen skill and run it
 
