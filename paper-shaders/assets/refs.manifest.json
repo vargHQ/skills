@@ -1,0 +1,122 @@
+[
+  {
+    "id": "brand-mesh",
+    "role": "shader",
+    "path": "assets/presets/brand-mesh.json",
+    "url": "https://shaders.paper.design/mesh-gradient",
+    "sha256": "581d5e85dfb4a47b1a6f104925e3b4cb637d524e71f2ac5c489e908c4e0ddc58",
+    "bytes": 787,
+    "license": "Apache-2.0",
+    "controls": "Full-frame background behind titles, product cards and lower thirds.",
+    "must_not_touch": "text and logos layered over it"
+  },
+  {
+    "id": "god-rays-reveal",
+    "role": "shader",
+    "path": "assets/presets/god-rays-reveal.json",
+    "url": "https://shaders.paper.design/god-rays",
+    "sha256": "1822a3a4ae9db37fb21bf4549c8060595c5485f9463d92472377e737ed7f969a",
+    "bytes": 997,
+    "license": "Apache-2.0",
+    "controls": "Light rays behind a logo or a product as it appears; ramp intensity and midIntensity up from 0 over the first second.",
+    "must_not_touch": "text and logos layered over it"
+  },
+  {
+    "id": "grain-blob",
+    "role": "shader",
+    "path": "assets/presets/grain-blob.json",
+    "url": "https://shaders.paper.design/grain-gradient",
+    "sha256": "b596ccfeb85c5648c25999d512a5121af0d800a7af35a98d078452f08dea9964",
+    "bytes": 809,
+    "license": "Apache-2.0",
+    "controls": "Soft grainy backdrop behind a quote, a product shot or a speaker cut-out.",
+    "must_not_touch": "text and logos layered over it"
+  },
+  {
+    "id": "halftone-overlay",
+    "role": "shader",
+    "path": "assets/presets/halftone-overlay.json",
+    "url": "https://shaders.paper.design/halftone-dots",
+    "sha256": "5f459d10b3f771f54403367bd354327b5d920aea72bdfd4cb1df4220ade341bb",
+    "bytes": 1078,
+    "license": "Apache-2.0",
+    "controls": "Print-style halftone of a still: a poster, a product shot or an approved photo. Static; animate scale or opacity on the timeline.",
+    "must_not_touch": "the shape of the logo or still it is given"
+  },
+  {
+    "id": "liquid-metal-sting",
+    "role": "shader",
+    "path": "assets/presets/liquid-metal-sting.json",
+    "url": "https://shaders.paper.design/liquid-metal",
+    "sha256": "661308d4c0d863aa91a114e81be30edff6746d45bde30ef78fb492e085845ff9",
+    "bytes": 1015,
+    "license": "Apache-2.0",
+    "controls": "A 1–2 s logo sting: the logo itself turns to liquid metal. Without an image the shader fills `shape`.",
+    "must_not_touch": "the shape of the logo or still it is given"
+  },
+  {
+    "id": "paper-finish",
+    "role": "shader",
+    "path": "assets/presets/paper-finish.json",
+    "url": "https://shaders.paper.design/paper-texture",
+    "sha256": "56df18745f6117aace013183a8a052615eb7fabf43124ba1709b42cca5b86e85",
+    "bytes": 1304,
+    "license": "Apache-2.0",
+    "controls": "Paper grain, fiber and soft folds over a still or a title card. Static; without an image it renders the paper alone.",
+    "must_not_touch": "the shape of the logo or still it is given"
+  },
+  {
+    "id": "retro-dither",
+    "role": "shader",
+    "path": "assets/presets/retro-dither.json",
+    "url": "https://shaders.paper.design/dithering",
+    "sha256": "7d8edf491a1c26f806b4f47755dc9f78ab1442bfefa066bbe748658c28d48841",
+    "bytes": 720,
+    "license": "Apache-2.0",
+    "controls": "Two-ink retro texture for interstitials, end cards and section breaks.",
+    "must_not_touch": "text and logos layered over it"
+  },
+  {
+    "id": "smoke-ring-loader",
+    "role": "shader",
+    "path": "assets/presets/smoke-ring-loader.json",
+    "url": "https://shaders.paper.design/smoke-ring",
+    "sha256": "a2607ee1b5196925eead5e1ad7f027347194caef8a3c1d71b707f13410d4b4d3",
+    "bytes": 835,
+    "license": "Apache-2.0",
+    "controls": "A smoky ring around a countdown, a loading state or a small logo.",
+    "must_not_touch": "text and logos layered over it"
+  },
+  {
+    "id": "warp-transition",
+    "role": "shader",
+    "path": "assets/presets/warp-transition.json",
+    "url": "https://shaders.paper.design/warp",
+    "sha256": "e3530b485f14decc341ebcd58cb8c2d38cc13460b3c43d21fec07f677d510f3e",
+    "bytes": 859,
+    "license": "Apache-2.0",
+    "controls": "A 0.5–1 s full-frame interstitial between two scenes; fade it in and out on the timeline.",
+    "must_not_touch": "text and logos layered over it"
+  },
+  {
+    "id": "paper-shaders-llms",
+    "role": "link",
+    "url": "https://shaders.paper.design/llms.txt",
+    "license": "link-only",
+    "controls": "every documented shader prop and its range, for writing new presets"
+  },
+  {
+    "id": "paper-shaders-license",
+    "role": "link",
+    "url": "https://github.com/paper-design/shaders/blob/main/LICENSE",
+    "license": "link-only",
+    "controls": "the Apache-2.0 terms the presets and templates rely on"
+  },
+  {
+    "id": "hyperframes-frame-sources",
+    "role": "link",
+    "url": "https://hyperframes.heygen.com/guides/frame-sources.md",
+    "license": "link-only",
+    "controls": "how HyperFrames drives scene code from its timeline"
+  }
+]
