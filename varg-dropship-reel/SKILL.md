@@ -55,7 +55,7 @@ Then offer these choices in one message, each with a default:
 3. **Ending:** AI night skyline (default, make once and reuse) / your own phone clip / stock.
 4. **Voice:** ElevenLabs `eleven_v4`, voice "Brian" (default) / another voice / your own recording.
 
-Quote the price before generating (`POST /v2/estimate` or MCP `estimate_cost` per clip). What our test paid (Oct 2026): 6 s `seedance_2_5` hook 231 credits, 5 s laptop shot 193 + its frame 23, voice 3, word timings 3. A full AI reel with 3 hook clips, 8 laptop shots and the skyline comes to about 2,500-2,700 credits; with real laptop footage, about 1,000. Reusing the skyline and filming the laptop brings the next reels down to about 700 credits each (hook + voice).
+Quote the price before generating (`POST /v2/estimate` or MCP `estimate_cost` per clip). What our test paid (Oct 2026): 6 s `seedance_2_5` hook 231 credits, 5 s laptop shot 79 on `kling_v4` or 193 on `seedance_2_5` + its frame 23, voice 3, word timings 3. A full AI reel with 3 hook clips, 8 laptop shots and the skyline comes to about 1,700 credits with Kling laptop shots (about 2,500 with Seedance); with real laptop footage, about 1,000. Reusing the skyline and filming the laptop brings the next reels down to about 700 credits each (hook + voice).
 
 ## 2. Write the script
 
@@ -69,7 +69,7 @@ Fill the template in `references/script.md` (140-160 words for 55-60 s). Put the
 1. Screenshot every screen the script names (research page with the cost, store page with the price, demand chart, each tool's home page, the AI ad tool, Instagram, the order page, a flow graphic).
 2. First frame: `gpt_image_2_5` puts the first screenshot on a MacBook on a zigzag tablecloth with a hand holding a marker.
 3. Every later screen: edit that first frame and change only the screen, so the desk, light and hand stay identical.
-4. Animate each frame on `seedance_2_5` for 5 s with a locked camera, a static screen and a pen path through the items in script order.
+4. Animate each frame for 5 s with a locked camera, a static screen and a pen path through the items in script order: `kling_v4` (79 credits, the sharpest screen in our test) or `seedance_2_5` (193).
 
 **Skyline ending (53-60 s):** `references/cta-and-funnel.md` has the iPhone-look prompt. Text-to-video on `wan_3` (60 credits for 6 s) did it well in our test. Make 2 variants once and reuse the better one in every reel.
 
@@ -129,7 +129,7 @@ Caption `Best time to start is here 🤝 #entrepreneur #onlinebusiness #ecommerc
 
 ## Tested
 
-2026-10-27, LED pet nail clipper, everything on varg: product packshot and two screens on `gpt_image_2_5`; hook and two laptop shots on `seedance_2_5`, the skyline on `seedance_2_5` and `wan_3` (9:16, 720p); voice on `eleven_v4` "Brian"; words on `groq_whisper_large_v3_turbo`; then `captions.mjs` + `assemble.mjs`. The hook read as phone footage with the product intact. In the laptop shots every price stayed correct for the full 5 s; only small grey body text went soft. The second screen, made as an edit of the first frame, matched the desk and hand exactly. The 23 s test cut (hook → research page → store page → skyline, Bangers captions): https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2faa92a85cb7.mp4
+2026-10-27, LED pet nail clipper, everything on varg: product packshot and two screens on `gpt_image_2_5`; hook and two laptop shots on `seedance_2_5`, the skyline on `seedance_2_5` and `wan_3` (9:16, 720p); voice on `eleven_v4` "Brian"; words on `groq_whisper_large_v3_turbo`; then `captions.mjs` + `assemble.mjs`. The hook read as phone footage with the product intact. In the laptop shots (`seedance_2_5` and `kling_v4`, same frame) every price stayed correct for the full 5 s; only small grey body text went soft. The second screen, made as an edit of the first frame, matched the desk and hand exactly. The 23 s test cut (hook → research page → store page → skyline, Bangers captions): https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2faa92a85cb7.mp4
 
 ## Rules
 
