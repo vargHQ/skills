@@ -61,7 +61,7 @@ npx skills add vargHQ/skills --yes
 
 ## Available Skills
 
-**Find the right skill:** not sure which skill fits a video request? Start with [video-skills](./video-skills/). It searches varg how to ([varg.ai/how-to](https://varg.ai/how-to), formerly skills.varg.ai) for the format and lists the options to offer before anything is generated.
+**How to make any AI video:** not sure which skill fits a video request? Start with [how-to-make-ai-video](./how-to-make-ai-video/). It searches varg how to ([varg.ai/how-to](https://varg.ai/how-to)), 2,000+ checked video skills and step-by-step tutorials, and lists the options to offer before anything is generated. No key needed. The same search is available as a public MCP server: `claude mcp add --transport http varg-how-to https://api.varg.ai/v2/skills/mcp`.
 
 **Publish your own skill:** connect the varg MCP (`claude mcp add --transport http varg https://mcp.varg.ai/mcp`) and ask your agent to "publish this skill to varg how to". It reads the skill, shows you the card and sends it with `publish_skill`; the varg team reviews it and it becomes searchable at [varg.ai/how-to](https://varg.ai/how-to). No agent: the form at [varg.ai/how-to/publish](https://varg.ai/how-to/publish). Skills that join this repo go through a pull request (see the README of each skill and [vargHQ/skills-marketplace](https://github.com/vargHQ/skills-marketplace) → *Adding a skill*).
 
@@ -74,7 +74,8 @@ npx skills add vargHQ/skills --yes
 | [media-download](./media-download/) | Save videos/audio by link from X, YouTube, Instagram, Facebook, TikTok and 1800+ sites (yt-dlp), and Pinterest images by pin, board or search (gallery-dl). Local, no API key | — |
 | [short-form-ffmpeg-cookbook](./short-form-ffmpeg-cookbook/) | Short-form FFmpeg cookbook: copyable commands for Reels. Crop to 9:16, burn captions (SRT/ASS), trim and join, music with ducking; every command tested. Local, no API key | — |
 | [paper-shaders](./paper-shaders/) | Frame-exact Paper Shaders backgrounds, textures and logo stings for HyperFrames and Remotion videos | `paper-shaders` |
-| [video-skills](./video-skills/) | Finds the right skill for any AI video, image, voice or music job in the varg Skills catalog and shows the options before anything is generated | — |
+| [how-to-make-ai-video](./how-to-make-ai-video/) | How to make AI video skills for Claude Code and AI agents: one search over varg how to gives the best skill with its install command, the options to show (with example videos) and the steps; also lists a skill you built on varg how to | — |
+| [video-skills](./video-skills/) | Finds the right skill for any AI video, image, voice or music job on varg how to and shows the options before anything is generated | — |
 | [varg-music-video](./varg-music-video/) | Direct an AI music video for a song: beat grid, cast and references, storyboard on downbeats, stills first, Seedance shots, lip-sync pass, lyrics in code, platform masters | — |
 | [varg-character-keynote](./varg-character-keynote/) | A 9:16 "character on stage" video in one render: a custom character delivers a punchy line at a keynote with native voice and applause | — |
 | [varg-consistent-characters](./varg-consistent-characters/) | Multi-scene ads where the same actors, outfits and location stay consistent: profile cards, location card, stills for approval, native-audio clips, captions and QA | — |
@@ -99,7 +100,7 @@ npx skills add vargHQ/skills --yes
 
 ## Requirements
 
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video, varg-product-hook, varg-dropship-reel, ecommerce-video-ads, ai-ugc-ad-video, product-photo-to-video); media-download, short-form-ffmpeg-cookbook, paper-shaders, video-skills, varg-video-edit-library, varg-video-editing, ecommerce-video-edit, ad-creative-testing, product-video-hooks (written hooks) and tiktok-shop-video (scripts) need no key (varg-video-editing uses varg only for the paid edits it recommends)
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video, varg-product-hook, varg-dropship-reel, ecommerce-video-ads, ai-ugc-ad-video, product-photo-to-video); media-download, short-form-ffmpeg-cookbook, paper-shaders, how-to-make-ai-video, video-skills, varg-video-edit-library, varg-video-editing, ecommerce-video-edit, ad-creative-testing, product-video-hooks (written hooks) and tiktok-shop-video (scripts) need no key (varg-video-editing uses varg only for the paid edits it recommends)
 - **Cloud mode**: curl only (zero dependencies)
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
