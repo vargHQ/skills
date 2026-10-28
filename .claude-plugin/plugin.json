@@ -54,7 +54,8 @@
     "faceless",
     "tiktok-shop",
     "ad-creative",
-    "hooks"
+    "hooks",
+    "unboxing"
   ],
   "skills": [
     "./varg-ai",
@@ -85,6 +86,14 @@
     "./ai-ugc-ad-video",
     "./product-photo-to-video",
     "./ad-creative-testing",
-    "./ecommerce-video-edit"
+    "./ecommerce-video-edit",
+    "./varg-unboxing-video",
+    "./varg-product-lock",
+    "./ai-ad-compliance-check",
+    "./varg-ad-library-remix",
+    "./varg-ad-variants",
+    "./varg-mascot-jingle-ad",
+    "./varg-ad-localize",
+    "./varg-tryon-video"
   ]
 }

@@ -103,7 +103,7 @@ node scripts/guide-edl.mjs words.json clips > edit.json   # cuts every screen in
 node scripts/assemble.mjs edit.json
 ```
 
-`guide-edl.mjs` finds the script's anchor words ("purchased", "sold", "Even after", "Here is how", "First", "Offer", "Then go", "It will", "Start posting", "when a customer", "Comment") and writes one cut per phrase. To cut by hand, `edit.json` is one entry per cut:
+For a voiceover in another language add `--lang es` (built in: en, es) or `--anchors anchors.json` with the same 11 keys; see `varg-ad-localize`. `guide-edl.mjs` finds the script's anchor words ("purchased", "sold", "Even after", "Here is how", "First", "Offer", "Then go", "It will", "Start posting", "when a customer", "Comment") and writes one cut per phrase. To cut by hand, `edit.json` is one entry per cut:
 
 ```json
 {

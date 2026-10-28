@@ -3,6 +3,8 @@
 // in on the word that names it, so the picture changes exactly when the voice moves on.
 //
 //   node guide-edl.mjs words.json clips/ > edit.json
+//   node guide-edl.mjs words.json clips/ --lang es > edit.json          # a localized voiceover (en, es built in)
+//   node guide-edl.mjs words.json clips/ --anchors anchors.json > edit.json   # any language: your own anchor phrases
 //
 // clips/ holds (5 s image-to-video clips unless noted):
 //   hook1.mp4 hook2.mp4          the hook, two clips (any length)
@@ -22,16 +24,30 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const [wordsPath, clipsDir = "clips"] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+const flag = (name) => { const i = argv.indexOf(`--${name}`); return i >= 0 ? argv.splice(i, 2)[1] : undefined; };
+const lang = flag("lang") ?? "en";
+const anchorsFile = flag("anchors");
+const [wordsPath, clipsDir = "clips"] = argv;
 if (!wordsPath) {
   console.error("usage: node guide-edl.mjs words.json clips/ > edit.json");
   process.exit(1);
 }
 const raw = JSON.parse(readFileSync(wordsPath, "utf8"));
-const W = (raw.words ?? raw.data?.words).map((w) => ({ t: w.word.toLowerCase().replace(/[^a-z0-9$.]/g, ""), start: w.start, end: w.end }));
+const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9$.]/g, "");
+const W = (raw.words ?? raw.data?.words).map((w) => ({ t: norm(w.word), start: w.start, end: w.end }));
+
+// The phrase that starts each beat of the script, per language (accents are ignored). "buy" starts one
+// word earlier ("It/They/Se can be purchased"). Another language: pass --anchors with the same keys.
+const ANCHORS = {
+  en: { buy: "can be purchased", sold: "sold", even: "even after", here: "here is how", first: "first", offer: "offer", then: "then go", itWill: "it will", start: "start posting", when: "when a customer", comment: "comment" },
+  es: { buy: "pueden comprar", sold: "vender", even: "incluso despues", here: "asi es como", first: "primero", offer: "ofrece", then: "luego entra", itWill: "generara", start: "empieza a publicar", when: "cuando un cliente", comment: "comenta" },
+};
+const A = anchorsFile ? JSON.parse(readFileSync(anchorsFile, "utf8")) : ANCHORS[lang];
+if (!A) throw new Error(`no built-in anchors for "${lang}": pass --anchors anchors.json`);
 
 const find = (phrase, after = 0) => {
-  const seq = phrase.split(" ");
+  const seq = phrase.split(" ").map(norm);
   for (let i = 0; i + seq.length <= W.length; i++) {
     if (W[i].start >= after && seq.every((s, k) => W[i + k].t.startsWith(s))) return i;
   }
@@ -40,17 +56,17 @@ const find = (phrase, after = 0) => {
 const at = (phrase, after = 0, back = 0) => W[find(phrase, after) - back].start;
 const len = (f) => Number(spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", join(clipsDir, f)]).stdout.toString());
 
-const buy = at("can be purchased", 0, 1); // starts at "It"/"They"
-const sold = at("sold", buy);
-const even = at("even after", sold);
-const here = at("here is how", even);
-const first = at("first", here);
-const offer = at("offer", first);
-const then = at("then go", offer);
-const itWill = at("it will", then);
-const start = at("start posting", itWill);
-const when = at("when a customer", start);
-const comment = at("comment", when);
+const buy = at(A.buy, 0, 1); // starts one word earlier: "It"/"They"/"Se"
+const sold = at(A.sold, buy);
+const even = at(A.even, sold);
+const here = at(A.here, even);
+const first = at(A.first, here);
+const offer = at(A.offer, first);
+const then = at(A.then, offer);
+const itWill = at(A.itWill, then);
+const start = at(A.start, itWill);
+const when = at(A.when, start);
+const comment = at(A.comment, when);
 const end = W[W.length - 1].end + 0.5;
 
 const shots = [];
