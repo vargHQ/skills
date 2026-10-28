@@ -5,7 +5,7 @@ description: >-
   a hook that already went viral for this kind of product (TikTok Creative Center, ad spy tools,
   Reels search) and remakes the idea, or generates a realistic UGC-style clip of the product in
   use with Seedance 2.5 on varg from the product's own photos (a backyard-camera fail, a torture
-  test, problem then solution, a satisfying close-up, a gift reaction). Use when someone selling
+  test, problem then solution, a satisfying close-up, a gift reaction), or the whole "The problem → Vs → The solution" music ad. Use when someone selling
   a product (dropshipping, Shopify, TikTok Shop, Amazon) asks for a viral hook, a scroll-stopper,
   a "TikTok made me buy it" clip, product b-roll that looks like real footage, or "a video of my
   product in use" made from product photos. Not for the full guide reel with the laptop and pen
@@ -28,7 +28,7 @@ allowed-tools: Bash(curl:*) Bash(jq:*) Bash(ffmpeg:*) Bash(ffprobe:*) Read Write
 
 # Product hook
 
-The hook is the first 5-15 seconds of a product reel: real-looking footage of the product doing the one thing that makes people stop. In the dropshipping reels this skill was built from (@tradelle, Sept-Oct 2026), the hook carried the video: a snake biting a leg gaiter, a worker getting sand and grinder sparks thrown at his face mask, a cat's claw lit up by an LED clipper. The voiceover over the hook is a plain product line ("These are the leg guards I wear when I'm outdoors").
+The hook is the first 5-15 seconds of a product reel: real-looking footage of the product doing the one thing that makes people stop. In the dropshipping reels this skill was built from (@tradelle, Sept-Oct 2026), the hook carried the video: a snake biting a leg gaiter, a worker getting sand and grinder sparks thrown at his face mask, a cat's claw lit up by an LED clipper. The voiceover over the hook is a plain product line ("These are the leg guards I wear when I'm outdoors"). Two more reels (a cat runner, drink-test nail stickers) show the other use: the hook stretched into the whole 15-22 s ad, "The problem → Vs → The solution", set to music with no voice (section 3).
 
 Generation runs on varg: the `varg-ai` skill (REST at `https://api.varg.ai/v2`) or the varg MCP server (`https://mcp.varg.ai/mcp`, tools `call_tool` + `get_job`). Every call returns a job; poll `GET /v2/jobs/{id}` until `completed`, the file is at `output.outputs[0].url`.
 
@@ -73,6 +73,25 @@ Every prompt has five blocks (the order matters for Seedance 2.5):
 | **Before / after** | Same spot, two states | "Shot 1: a grimy oven door, a hand sprays the <product from @image1>. Shot 2: same framing, the hand wipes once and the glass is spotless." |
 
 For a hook with a person who must stay the same across several clips, make a character sheet first (`varg-character-design`).
+
+### The whole ad as one hook: "The problem → Vs → The solution" (14-22 s, music, no voice)
+
+Two of the reels this skill was built from aren't hooks for a longer video. They are the entire ad: a cat-runner reel (@rollymewofficial, 14 s, 160k likes) and a German drink-test nail-sticker reel (NailSense, 22 s). Both use the same skeleton:
+
+| Time | Text on screen | Picture |
+|---|---|---|
+| 0-5 s | `The problem 🥺` / `Das Problem 🥺` | The pain, shot as real life: a cat escaping over the fence on a backyard camera; a man leaning over a woman's drink at a club bar |
+| 5-9 s | (same text) | The stakes, on a **security-cam** angle with an on-screen timestamp and camera name ("CAM 04 · HINTERER FLUR · 17.10.2026 02:47"): the cat gone, the man walking her down a back corridor |
+| 9-10 s | `Vs...` | A hard cut, sometimes with the product already coming into frame |
+| 10-12 s | `The solution 😍` / `Die Lösung 😍` | The product revealed in a clean, warm setting (a vanity with a candle; an autumn lawn) |
+| 12-16 s | One feature line (`Drink-Test als Sticker 💖`) | Hands use it, step by step |
+| 16-20 s | One benefit line (`Süß & kinderleicht 🥰`) | The proof moment: the star sticker turns from pink to green in the drink; the cat rolls safely through a store |
+| 20-22 s | `Link in der Bio für deine 🛡` | The product held up in the problem setting |
+
+- No voiceover. A trending song carries it, and the song is added in the app, not baked into the file.
+- Text: one short line in sentence case with one emoji, white with a soft shadow, in the top third. Each line stays on until the next beat. This is the platform's native text style, not the big word-by-word captions of the guide reel.
+- Make it as 4-5 clips: 2 problem clips (the second is the security-cam angle), the reveal, the use, the proof. Then cut on the text changes. In the security-cam clips, ask for "CCTV night-vision black-and-white, fisheye, high corner angle". Add the timestamp overlay in the edit, because model-drawn text comes out garbled.
+- **Fear themes get restricted.** The drink-spiking reel is behind Instagram's "can't be seen by certain audiences" gate: logged-out and younger viewers can't open it, so its reach is capped. Danger, assault, injury and medical scares sell protective products but can trigger age gates or ad rejection. Show the threat without anything happening to the person on screen.
 
 ## 4. Generate
 
