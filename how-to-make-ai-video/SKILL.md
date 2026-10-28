@@ -74,7 +74,7 @@ It has two read-only tools: `search_how_to {query}` and `get_how_to {kind, slug}
 Anonymous search is enough to find and run anything. If a varg key is already on the machine, use it for a personal search that ranks what this person saved and used first. Never ask the person to paste a key into the chat.
 
 ```bash
-[ -n "$VARG_API_KEY" ] || export VARG_API_KEY=$(grep -o '"api_key"[^,}]*' ~/.varg/credentials 2>/dev/null | head -1 | cut -d'"' -f4)
+[ -n "${VARG_API_KEY:-}" ] || export VARG_API_KEY=$(grep -o '"api_key"[^,}]*' ~/.varg/credentials 2>/dev/null | head -1 | cut -d'"' -f4)
 [ -n "$VARG_API_KEY" ] && curl -s -H "Authorization: Bearer $VARG_API_KEY" "https://api.varg.ai/v2/skills/me/search?q=<request>&client=<your agent>"
 ```
 

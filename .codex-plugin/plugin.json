@@ -25,7 +25,7 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "varg",
-    "shortDescription": "How to make any AI video, then make it with varg",
+    "shortDescription": "How to make any AI video",
     "longDescription": "varg how to answers \"how do I make this video\" for an AI agent. One call to search_how_to with the person's request, in their words and in any language, returns ranked cards from 2,000+ checked AI video agent skills, how-to tutorials, FFmpeg recipes, video formats, prompts and styles. get_how_to returns the full tutorial as Markdown: the best skill, the 2-4 choices to show the person with example videos, and the steps. No account or key. To generate, connect the varg MCP (mcp.varg.ai), which puts 200+ image, video, voice and music models behind one key.",
     "developerName": "varg",
     "category": "Creativity",
@@ -39,6 +39,7 @@
       "Turn my song into a lyric video."
     ],
     "websiteURL": "https://varg.ai/how-to",
+    "supportURL": "https://github.com/vargHQ/skills/issues",
     "privacyPolicyURL": "https://varg.ai/privacy",
     "termsOfServiceURL": "https://varg.ai/terms",
     "composerIcon": "./assets/varg-512.png",
