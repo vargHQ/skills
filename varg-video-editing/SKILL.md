@@ -73,4 +73,4 @@ The first service in each row is the default pick. Switch only for the reason gi
 
 One key covers the deterministic and the generative steps: `ffmpeg`, `trim`, `slice`, `resize` and `render` for the cut, `transcription` for word timestamps, `video-analyze` for QA, and the video edit, lip-sync and upscale models above. Each model's inputs are in its spec at `https://varg.ai/models/<model>.md`. Prices are in credits from `estimate_cost`; never quote them in money. For generating new footage, use the varg-ai skill.
 
-The live version of this guide, with every service card: https://skills.varg.ai/browse/skills/edit-services/
+The full table, with access, pricing, gotchas and links: [references/services.md](references/services.md). Online: https://skills.varg.ai/browse/skills/edit-services.md
