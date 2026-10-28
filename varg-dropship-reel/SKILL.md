@@ -164,6 +164,8 @@ reel/
   edit.json  reel.mp4
 ```
 
+Tutorial with all five example videos and the tools compared: https://github.com/vargHQ/how-to-make-ai-videos-for-dropshipping
+
 ## Related skills
 
 `varg-product-hook` (the hook), `varg-ai` (models, uploads, prices, cloud render), `media-download` (save reference reels), `short-form-ffmpeg-cookbook` (more edits: zoom punches, speed ramps, loudness), `video-skills` (other ad formats).

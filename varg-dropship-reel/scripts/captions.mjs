@@ -43,7 +43,8 @@ for (const w of words) {
     const prev = tokens[tokens.length - 1];
     const gluePrice = /^[.,]\d/.test(p) && /\d$/.test(prev?.text ?? "");
     const glueDomain = /^\.[a-z]{2,6}\b/i.test(p) && /[a-z0-9]$/i.test(prev?.text ?? ""); // "varg" ".ai"
-    if (i === 0 && prev && (gluePrice || glueDomain)) {
+    const glueHyphen = /^-[a-z]/i.test(p) && /[a-z]$/i.test(prev?.text ?? ""); // "step" "-by" "-step"
+    if (i === 0 && prev && (gluePrice || glueDomain || glueHyphen)) {
       prev.text += p;
       prev.end = w.end;
       return;
