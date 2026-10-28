@@ -1,8 +1,8 @@
 ---
 name: video-skills
 description: >-
-  Finds the right agent skill for an AI video, image, voice or music job in the varg Skills
-  catalog (300+ checked skills: UGC ads, ad variants, product videos, music and lyric videos,
+  Finds the right agent skill for an AI video, image, voice or music job on varg how to
+  (varg.ai/how-to, 2,000+ checked skills and how-to tutorials: UGC ads, ad variants, product videos, music and lyric videos,
   captions, talking avatars, podcast videos, faceless channels, explainers, launch and changelog
   videos, slideshows, chat-story and Notes ads, logo stings, dubbing, thumbnails, shorts from long
   videos) and shows the person the visual options before anything is generated.
@@ -17,43 +17,43 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.0.0"
+  version: "1.1.0"
   openclaw:
     requires:
       anyBins:
         - curl
-    homepage: https://skills.varg.ai
+    homepage: https://varg.ai/how-to
 compatibility: >-
-  Needs curl and network access to https://skills.varg.ai. Generation afterwards runs on varg
+  Needs curl and network access to https://varg.ai. Generation afterwards runs on varg
   through the varg-ai skill or the varg MCP server (https://mcp.varg.ai/mcp).
 allowed-tools: Bash(curl:*) Read
 ---
 
 # Video skills finder
 
-The varg Skills catalog maps what people ask for ("a UGC ad", "клип на песню", "captions like TikTok") to the skills that make it, the choices to offer, and the steps. One search is usually enough.
+varg how to (https://varg.ai/how-to) maps what people ask for ("a UGC ad", "клип на песню", "captions like TikTok") to the skills that make it, the choices to offer, and the steps. One search is usually enough.
 
 ## 1. Search once, with the person's own words
 
 ```bash
-curl -s "https://skills.varg.ai/api/search?q=<the request, any language, URL-encoded>"
+curl -s "https://varg.ai/how-to/api/search?q=<the request, any language, URL-encoded>&client=<your agent>"
 ```
 
-It returns, as markdown: the best-matching use case, the options to offer, and the top skills with exact install commands for Claude Code, Codex, Cursor, OpenClaw and Gemini CLI. Add `&limit=15` for more. JSON: `/api/search.json?q=…`.
+It returns, as markdown: the best-matching how-to page, the options to offer, and the top skills with exact install commands for Claude Code, Codex, Cursor, OpenClaw and Gemini CLI. Add `&limit=15` for more. JSON: `/api/search.json?q=…`.
 
-## 2. Read the use-case page it names
+## 2. Read the how-to page it names
 
-`https://skills.varg.ai/use-cases/<id>.md` has the best skill ("Start here"), alternatives, add-ons (captions, voice, music), the questions to ask with example links, the steps, and how the generation runs on varg. Every catalog page has a `.md` twin; the full index is `https://skills.varg.ai/llms.txt`.
+`https://varg.ai/how-to/<task-slug>.md` (for example `make-a-ugc-ad-video.md`) has the best skill ("Start here"), alternatives, add-ons (captions, voice, music), the questions to ask with example links, the steps, and how the generation runs on varg. Every catalog page has a `.md` twin; the full index is `https://varg.ai/how-to/llms.txt`. For the same search as a tool, add the public MCP server `https://api.varg.ai/v2/skills/mcp` (no key), or use the `how-to-make-ai-video` skill.
 
 ## 3. Let the person choose before spending anything
 
-Send one message with the 2–4 decisions that change the result (look, format, voice, length), each with 2–4 options, plus your recommended default. Put the example link from the catalog next to every option that has one (`- Selfie creator — example: https://…/previews/….mp4`): people choose a look by seeing it, not by reading its name. Do not generate until they pick, unless they said to just go.
+Send one message with the 2–4 decisions that change the result (look, format, voice, length), each with 2–4 options, plus your recommended default. Put the example link from the page next to every option that has one (`- Selfie creator — example: https://…/previews/….mp4`): people choose a look by seeing it, not by reading its name. Do not generate until they pick, unless they said to just go.
 
 ## 4. Install the chosen skill and run it
 
 Use the install command from the page for the agent you are running in. Generation (images, video, voice, music, lip-sync, captions, render) runs on varg with one account: the `varg-ai` skill (`npx skills add vargHQ/skills --skill varg-ai`) or the varg MCP server `https://mcp.varg.ai/mcp` (OAuth sign-in, no key). Quote the cost in credits with varg's estimate (`estimate_cost` in the MCP, `POST /v2/estimate` in the API) before a batch, a long video or a render.
 
-## If the catalog is unreachable
+## If varg how to is unreachable
 
 Start from these, by request:
 

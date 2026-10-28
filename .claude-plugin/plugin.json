@@ -1,7 +1,7 @@
 {
   "name": "varg",
   "displayName": "varg",
-  "description": "Generate AI videos, images, speech, and music with varg — Seedance 2.5, Kling 4, Wan 3, Veo 3.1, Nano Banana, GPT Image, ElevenLabs and more through one API key. Includes the varg-ai, varg-previz, media-download (save videos from X, YouTube, Instagram, TikTok and Pinterest images, no key needed) and paper-shaders (frame-exact shader backgrounds and logo stings) skills, video-skills (find the right skill for any video job), varg-video-editing (which service to edit existing footage with, job by job), the format skills varg-music-video, varg-character-keynote, varg-consistent-characters and varg-podcast-video, varg-character-design (how to make characters people remember, with sheets that stay consistent in later images and video) and its category recipes (grandmas, big guys, cringe deadpan, beautiful women, fitness, absurd and mascots, cartoon looks), the ecommerce video set (ecommerce-video-ads, product-video-hooks, tiktok-shop-video, ai-ugc-ad-video, product-photo-to-video, ad-creative-testing, ecommerce-video-edit: viral product videos for TikTok, TikTok Shop, Reels and Meta ads), and the hosted varg MCP server.",
+  "description": "Generate AI videos, images, speech, and music with varg — Seedance 2.5, Kling 4, Wan 3, Veo 3.1, Nano Banana, GPT Image, ElevenLabs and more through one API key. Includes the varg-ai, varg-previz, media-download (save videos from X, YouTube, Instagram, TikTok and Pinterest images, no key needed) and paper-shaders (frame-exact shader backgrounds and logo stings) skills, how-to-make-ai-video and video-skills (how to make any AI video: search varg how to for the right skill, options and steps), varg-video-editing (which service to edit existing footage with, job by job), the format skills varg-music-video, varg-character-keynote, varg-consistent-characters and varg-podcast-video, varg-character-design (how to make characters people remember, with sheets that stay consistent in later images and video) and its category recipes (grandmas, big guys, cringe deadpan, beautiful women, fitness, absurd and mascots, cartoon looks), the ecommerce video set (ecommerce-video-ads, product-video-hooks, tiktok-shop-video, ai-ugc-ad-video, product-photo-to-video, ad-creative-testing, ecommerce-video-edit: viral product videos for TikTok, TikTok Shop, Reels and Meta ads), and the hosted varg MCP server.",
   "author": {
     "name": "varg",
     "url": "https://varg.ai"
@@ -62,6 +62,7 @@
     "./varg-video-editing",
     "./media-download",
     "./paper-shaders",
+    "./how-to-make-ai-video",
     "./video-skills",
     "./varg-music-video",
     "./varg-character-keynote",
