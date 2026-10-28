@@ -84,6 +84,7 @@ A 404 or 401 means the personal search is not available for this key. Fall back 
 
 If you (or the person) built an agent skill that makes or edits video, images, voice or music, list it on varg how to so other agents find it:
 
+- The full flow, with the one card format every listing uses: install the `varg-publish-skill` skill (`npx skills add vargHQ/skills --skill varg-publish-skill`).
 - In the varg MCP: the `publish-skill` prompt, then `publish_skill`. `my_skills` shows the review status.
 - With a key: `POST https://api.varg.ai/v2/skills/submissions`, with a JSON body like this:
 
