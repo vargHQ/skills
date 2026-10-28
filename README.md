@@ -32,6 +32,10 @@ claude plugin install varg@varg
 
 Or inside Claude Code: `/plugin marketplace add vargHQ/skills`, then `/plugin install varg@varg`.
 
+### Kiro power
+
+[`powers/varg-how-to`](powers/varg-how-to) connects the keyless varg how to MCP (`https://api.varg.ai/v2/skills/mcp`) in Kiro: Powers panel → **Add Custom Power** → **Import power from GitHub** → `https://github.com/vargHQ/skills/tree/main/powers/varg-how-to`.
+
 ### Claude Code (manual)
 
 ```bash
