@@ -136,7 +136,7 @@ Caption `Best time to start is here 🤝 #entrepreneur #onlinebusiness #ecommerc
 | Reel | Hook | Link |
 |---|---|---|
 | LED pet nail clipper | satisfying close-up (cat, then dog) | https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_782920d92e94.mp4 |
-| Solar security light | backyard security camera + "Backyard camera caught this ❌" overlay | https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f6dc05463eca.mp4 |
+| Solar security light | backyard security camera + "Backyard camera caught this ❌" overlay; the AI video step on varg.ai | https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d45406f8d0db.mp4 |
 | Cut-resistant gloves | torture test (knife, mandoline) | https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_631fb721a315.mp4 |
 | Heated neck massager | gift reaction (Father's Day) | https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3c77d15fbf7e.mp4 |
 
