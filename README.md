@@ -61,7 +61,9 @@ npx skills add vargHQ/skills --yes
 
 ## Available Skills
 
-**Find the right skill:** not sure which skill fits a video request? Start with [video-skills](./video-skills/). It searches the varg Skills catalog ([skills.varg.ai](https://skills.varg.ai)) for the format and lists the options to offer before anything is generated.
+**Find the right skill:** not sure which skill fits a video request? Start with [video-skills](./video-skills/). It searches varg how to ([varg.ai/how-to](https://varg.ai/how-to), formerly skills.varg.ai) for the format and lists the options to offer before anything is generated.
+
+**Publish your own skill:** connect the varg MCP (`claude mcp add --transport http varg https://mcp.varg.ai/mcp`) and ask your agent to "publish this skill to varg how to". It reads the skill, shows you the card and sends it with `publish_skill`; the varg team reviews it and it becomes searchable at [varg.ai/how-to](https://varg.ai/how-to). No agent: the form at [varg.ai/how-to/publish](https://varg.ai/how-to/publish). Skills that join this repo go through a pull request (see the README of each skill and [vargHQ/skills-marketplace](https://github.com/vargHQ/skills-marketplace) → *Adding a skill*).
 
 | Skill | Description | ClawHub Slug |
 |-------|-------------|--------------|
