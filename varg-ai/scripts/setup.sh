@@ -83,7 +83,7 @@ elif check_saved_credentials; then
   if [ -n "$SAVED_EMAIL" ]; then
     echo "  $(dim "    Account: $SAVED_EMAIL")"
   fi
-  export VARG_API_KEY="$SAVED_KEY"
+  export VARG_API_KEY=$SAVED_KEY
   HAS_KEY=1
 
   # Test gateway connectivity

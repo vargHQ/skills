@@ -71,7 +71,7 @@ fi
 Some agent shells don't keep variables between commands. If `$VARG_API_KEY` is empty in a later command, start that command with:
 
 ```bash
-export VARG_API_KEY="${VARG_API_KEY:-$(grep -o '"api_key"[^,}]*' ~/.varg/credentials 2>/dev/null | head -1 | cut -d'"' -f4)}"
+[ -n "$VARG_API_KEY" ] || export VARG_API_KEY=$(grep -o '"api_key"[^,}]*' ~/.varg/credentials 2>/dev/null | head -1 | cut -d'"' -f4)
 ```
 
 ### 1a. No key: one message to the user
