@@ -33,15 +33,17 @@ if (!Array.isArray(words)) {
   process.exit(1);
 }
 
-// Whisper sometimes glues "for $4.47" into one token (Groq) and sometimes splits "$4" ".47" (local
-// whisper): split on spaces, then glue a ".47" back onto the number before it, so a price is one beat.
+// Whisper sometimes glues "for $4.47" into one token (Groq) and sometimes splits "$4" ".47" or "varg"
+// ".ai" (local whisper): split on spaces, then glue ".47" / ".ai" back on, so a price or a domain is one beat.
 const tokens = [];
 for (const w of words) {
   const parts = String(w.word).trim().split(/\s+/).filter(Boolean);
   const span = (w.end - w.start) / parts.length;
   parts.forEach((p, i) => {
     const prev = tokens[tokens.length - 1];
-    if (i === 0 && prev && /^[.,]\d/.test(p) && /\d$/.test(prev.text)) {
+    const gluePrice = /^[.,]\d/.test(p) && /\d$/.test(prev?.text ?? "");
+    const glueDomain = /^\.[a-z]{2,6}\b/i.test(p) && /[a-z0-9]$/i.test(prev?.text ?? ""); // "varg" ".ai"
+    if (i === 0 && prev && (gluePrice || glueDomain)) {
       prev.text += p;
       prev.end = w.end;
       return;
