@@ -85,10 +85,12 @@ npx skills add vargHQ/skills --yes
 | [varg-character-absurd](./varg-character-absurd/) | Absurd characters and mascots: food or object + animal + one human detail, in 3D, clay or photoreal looks | — |
 | [varg-character-cartoon](./varg-character-cartoon/) | Original characters in famous cartoon looks (yellow sitcom, 3D family film, anime, paper cut-out, clay, puppet), described without IP names | — |
 | [varg-podcast-video](./varg-podcast-video/) | Podcast and two-character dialogue videos: studio set, wide master shot, close-ups and cutaways from it, 5 s scenes with native dialogue audio, stitched episode | — |
+| [varg-product-hook](./varg-product-hook/) | The first 5-15 s of a product video: find a hook that already sells this kind of product, then remake the idea as realistic phone or security-cam footage with Seedance 2.5 from your product photos (backyard camera, torture test, problem → solution, satisfying close-up, gift reaction) | — |
+| [varg-dropship-reel](./varg-dropship-reel/) | The 60-second faceless dropshipping guide reel end to end: product hook, laptop on a zigzag tablecloth with a hand pointing a marker at cost, price and demand, the steps, a night-skyline iPhone ending with "Comment GUIDE", word-by-word lime captions and the comment-to-DM funnel; scripts cut and caption the reel | — |
 
 ## Requirements
 
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video); media-download, short-form-ffmpeg-cookbook, paper-shaders, video-skills, varg-video-edit-library and varg-video-editing need no key (varg-video-editing uses varg only for the paid edits it recommends)
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video, varg-product-hook, varg-dropship-reel); media-download, short-form-ffmpeg-cookbook, paper-shaders, video-skills, varg-video-edit-library and varg-video-editing need no key (varg-video-editing uses varg only for the paid edits it recommends)
 - **Cloud mode**: curl only (zero dependencies)
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project

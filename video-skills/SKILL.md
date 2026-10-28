@@ -11,7 +11,8 @@ description: >-
   music for a video, and no installed skill already covers that format; use it before writing a
   pipeline from scratch or searching registries. Not for running a generation itself (use
   varg-ai), not for formats with their own varg skill (varg-music-video, varg-character-keynote,
-  varg-consistent-characters, varg-character-design, varg-podcast-video, varg-previz), and not for
+  varg-consistent-characters, varg-character-design, varg-podcast-video, varg-product-hook,
+  varg-dropship-reel, varg-previz), and not for
   non-media coding tasks.
 license: MIT
 metadata:
@@ -63,6 +64,8 @@ Start from these, by request:
 | A specific character type: granny or grandpa, big guy, cringe deadpan guy, very beautiful woman, fitness character, absurd creature or mascot, Simpsons/Pixar-style cartoon | `varg-character-grandma`, `varg-character-big-guy`, `varg-character-cringe`, `varg-character-beautiful-woman`, `varg-character-fitness`, `varg-character-absurd`, `varg-character-cartoon` | `varg-character-design` |
 | Multi-scene ad with the same actors, a recurring character or mascot | `varg-consistent-characters`, `fal-character-design` | `varg-character-design`, `varg-ai` |
 | Product video from a photo | `krea-motion`, `fal-commercial` | `varg-ai` |
+| Viral product hook, "TikTok made me buy it" clip, product in use from photos | `varg-product-hook` | `media-download`, `varg-ai` |
+| Dropshipping guide reel: product, price in China vs Shopify, laptop and pen, "Comment GUIDE" | `varg-dropship-reel` | `varg-product-hook`, `varg-ai` |
 | Shorts from a long video / podcast recording | `clipify`, `herk-edit-kit` | `media-download` |
 | Podcast-style or two-character dialogue video (generated) | `varg-podcast-video` | `varg-ai` |
 | Captions on a video | `remotion-captions`, `iart-caption-animation` | |
