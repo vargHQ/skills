@@ -8,6 +8,8 @@ One number per beat, big, with a short label, counting in 0.8–1.5 s with an ea
 
 <a id="big-stat-count-up"></a>One huge number counts from zero to its value and lands, with a short label under it.
 
+Built on [Count Up](https://github.com/heygen-com/hyperframes/tree/main/registry/components/count-up) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 The number fills ~40% of frame width in tabular figures; a label ("teams", "faster") in a smaller weight beneath.
 
 - **When:** One proof stat per scene: users, speed, money saved.
@@ -53,6 +55,8 @@ Sources: [Piktochart: Apple keynote tips, one stat per slide](https://piktochart
 
 <a id="odometer-digit-roll"></a>Each digit rolls on its own wheel to the target, places settling right to left like an odometer.
 
+Built on [Number Wheel](https://github.com/heygen-com/hyperframes/tree/main/registry/components/number-wheel) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Digits slide vertically in masked slots, with slight motion blur; new places rise into view as the number grows.
 
 - **When:** Prices, live counters, plan comparisons — numbers that change rather than appear.
@@ -89,6 +93,8 @@ Sources: [Animation principles for data visualization](https://skills.cat/skills
 ## Bars Grow with Value Labels
 
 <a id="bars-grow-with-labels"></a>Bars rise from the baseline in a staggered cascade with values riding their tops.
+
+Built on [Animated Bar Chart](https://github.com/heygen-com/hyperframes/tree/main/registry/components/animated-bar-chart) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Few bars (3–6), thick, rounded tops; the hero bar in accent color, others muted; labels count up with the bars.
 
@@ -127,6 +133,8 @@ Sources: [Animation principles for data visualization](https://skills.cat/skills
 ## Line Draws with Riding Label
 
 <a id="line-draws-riding-label"></a>A line draws itself left to right while the current value rides the pen tip, ending on a dot and big label.
+
+Built on [Minimal Line Graph](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/mk-line-graph) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 One or two series on a quiet grid; the draw front has a glowing dot; value labels pop at key points.
 
@@ -167,6 +175,8 @@ Sources: [Animation principles for data visualization](https://skills.cat/skills
 
 <a id="ranked-bar-race"></a>Ranked bars grow and overtake each other over time while the axis rescales and a year/date ticks.
 
+Built on [Bar Chart Race](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/bar-chart-race) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Horizontal bars with logos at their ends, sorted live, a big date counter in the corner; your product climbs to #1.
 
 - **When:** Market share, popularity over time, "fastest growing" stories.
@@ -204,6 +214,8 @@ Sources: [Flourish: how to make bar chart race visualizations](https://flourish.
 ## Progress Ring Fills
 
 <a id="progress-ring-fills"></a>A thin ring draws on to a percentage while the number in its center counts up in sync.
+
+Built on [Conic Progress Ring](https://github.com/heygen-com/hyperframes/tree/main/registry/components/conic-progress-ring) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Thin stroke on a faint track, rounded cap, the percent in the center; optional color shift as it passes thresholds.
 
@@ -244,6 +256,8 @@ Sources: [Animation principles for data visualization](https://skills.cat/skills
 
 <a id="before-after-metric"></a>The old number shows, gets crossed or rolls, and the new better number takes its place.
 
+Built on [Value Swap](https://remocn.dev/r/value-swap.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 "12 months" in grey slides up and out; "2 weeks" rolls in bold accent; an arrow or delta chip ("−83%") pops beside it.
 
 - **When:** Outcome claims: time saved, cost cut, conversion lifted.
@@ -281,6 +295,8 @@ Sources: [Bohdan Motion: Secureframe launch video, one pain per scene](https://x
 ## Money Counter Payoff
 
 <a id="money-counter-payoff"></a>A currency figure counts up fast, flashes green on landing, and a small burst celebrates it.
+
+Built on [Apple Money Count](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/apple-money-count) by Stronkter (hyperframes), Apache-2.0. The write-up and recipes are varg's.
 
 Big $ value in finance-style type; digits blur while climbing, settle, flash green; confetti or coins burst once.
 
@@ -322,6 +338,8 @@ Sources: [Jamie on X: SFX breakdown of a launch video](https://x.com/jamiesmotio
 
 <a id="axis-free-comparison"></a>Two or three bars with no axis numbers, just labels and a big multiplier like "2.4× faster".
 
+Built on [Chart Story](https://github.com/heygen-com/hyperframes/tree/main/registry/components/chart-story) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Clean bars in the product gradient vs grey competitors, "Higher is better" note, the multiplier counts up as the hero bar grows.
 
 - **When:** Performance claims in keynote style where the relative gap is the message.
@@ -361,6 +379,8 @@ Sources: [Piktochart: Apple keynote tips, one stat per slide](https://piktochart
 
 <a id="dense-specs-wall"></a>A grid of short spec tiles fills the frame in a fast stagger — numbers and two-word labels.
 
+Built on [Grid Card Assemble](https://github.com/heygen-com/hyperframes/tree/main/registry/components/grid-card-assemble) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Tight grid of tiles ("4K · 60fps", "20 GB", "9:16") assembling in a wave, then the camera holds for one beat.
 
 - **When:** Near the end of a film, to signal depth after the story has been told.
@@ -399,6 +419,8 @@ Sources: [Bohdan Motion: Apple Mac Studio launch film, 10-step playbook](https:/
 
 <a id="pain-metric-falls"></a>A painful metric (hours, cost, errors) draws a falling line while the number counts down and the mood lifts.
 
+Built on [Decline Chart](https://github.com/heygen-com/hyperframes/tree/main/registry/components/decline-chart) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Line drops steeply as the value counts down; the background goes from dark/red-tinted to clean once the product arrives.
 
 - **When:** The problem → solution turn in the first third of a film.
@@ -435,6 +457,8 @@ Sources: [Bohdan Motion: Secureframe launch video, one pain per scene](https://x
 ## Ticking Time-Saved Clock
 
 <a id="ticking-time-saved"></a>Clock-style digits slide as seconds tick, timing the task live on screen.
+
+Built on [Sliding Number](https://github.com/ibelick/motion-primitives/blob/main/components/core/sliding-number.tsx) by motion-primitives, MIT. The write-up and recipes are varg's.
 
 A small mono timer in a corner (00:00 → 00:38) with digits sliding vertically; it stops and pops when the task finishes.
 

@@ -8,6 +8,8 @@ The cursor is the viewer's guide, so it must be smooth, large enough to see on a
 
 <a id="auto-zoom-on-click"></a>The camera eases in toward each upcoming click, trails the cursor on a spring, and eases out after.
 
+Built on [Zoom Follow Cursor](https://github.com/heygen-com/hyperframes/tree/main/registry/components/cursor-zoom-follow) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Zoom begins slightly before the click, the frame follows the cursor smoothly, each click gets a ring; between actions the camera returns to full view.
 
 - **When:** Any cursor-driven screen recording; it is the default polish for SaaS demos.
@@ -54,6 +56,8 @@ Sources: [Screen Studio: auto zoom, cursor smoothing, click effects](https://scr
 
 <a id="oversized-look-here-cursor"></a>A macOS arrow at ~3–4× normal size glides in and lands its tip on what matters.
 
+Built on [Oversized Cursor](https://github.com/heygen-com/hyperframes/tree/main/registry/components/oversized-cursor) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A crisp, oversized pointer with a soft shadow enters from off-frame in one arc, presses with a small squash, and leaves.
 
 - **When:** Launch films where the cursor is a character guiding the eye, especially on mocked UI.
@@ -96,6 +100,8 @@ Sources: [HyperFrames skill: oversized cursor motion conventions](https://tessl.
 
 <a id="click-ripple-press"></a>Every click shows a quiet expanding ring while the clicked button presses in and responds.
 
+Built on [Press Ripple](https://github.com/heygen-com/hyperframes/tree/main/registry/components/press-ripple) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A thin ring grows from the cursor tip and fades; the button dips to 0.94 scale in sync and returns, then shows its new state.
 
 - **When:** Make clicks legible in recordings with no sound or when cursor moves are fast.
@@ -135,6 +141,8 @@ Sources: [Screen Studio: auto zoom, cursor smoothing, click effects](https://scr
 
 <a id="shortcut-keycaps-overlay"></a>Physical-looking keycaps rise at the bottom of the frame and press in the real order when a shortcut is used.
 
+Built on [Keystroke](https://remocn.dev/r/keystroke.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Rounded keycaps (⌘, ⇧, K) appear bottom-center, modifiers stay held while the letter taps, then the row fades.
 
 - **When:** Keyboard-driven tools and tutorials where the shortcut is the lesson.
@@ -171,6 +179,8 @@ Sources: [KeyCastr: open-source keystroke visualizer](https://github.com/keycast
 ## Named Agent Cursor
 
 <a id="named-agent-cursor"></a>A cursor with an accent name tag ("Claude", "Agent") moves and clicks on its own, typing each step.
+
+Built on [Agent Cursor](https://github.com/heygen-com/hyperframes/tree/main/registry/components/agent-cursor) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A colored arrow with a pill label like a multiplayer cursor; the label shows the current step ("Opening settings…").
 
@@ -210,6 +220,8 @@ Sources: [Cursor 3 Design Mode and its launch video](https://pasqualepillitteri.
 
 <a id="multiplayer-cursors-drift"></a>Several labeled cursors in different colors drift in from the edges and gather on the canvas.
 
+Built on [Multiplayer Cursors](https://github.com/heygen-com/hyperframes/tree/main/registry/components/multiplayer-cursors) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Three to five colored cursors with name tags and soft glows arrive, idle-wobble, and one makes the edit.
 
 - **When:** Collaboration features (Figma-style presence, shared docs) and "for teams" beats.
@@ -247,6 +259,8 @@ Sources: [UX Design Bootcamp: the rise of Linear style design](https://bootcamp.
 ## Drag a Card Across Columns
 
 <a id="drag-card-across"></a>The cursor grabs a card, lifts and tilts it while carrying, and drops it into a new column with a settle.
+
+Built on [Drag and Drop Cursor](https://github.com/heygen-com/hyperframes/tree/main/registry/components/cursor-drag-drop) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Card scales to 1.04, tilts ~3° in the direction of travel and gains shadow; on drop it straightens and neighbors shuffle.
 
@@ -286,6 +300,8 @@ Sources: [Consensus: 5 tips to record the best product video](https://goconsensu
 
 <a id="select-text-then-act"></a>The arrow becomes an I-beam, drags a selection across a phrase, and a menu or AI action appears on it.
 
+Built on [Text Select Cursor](https://github.com/heygen-com/hyperframes/tree/main/registry/components/cursor-text-select) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Selection grows character by character in the accent color; a small popover ("Rewrite", "Explain") blooms at the selection end.
 
 - **When:** Writing tools, AI editors, docs and code review features.
@@ -323,6 +339,8 @@ Sources: [Screen Studio: auto zoom, cursor smoothing, click effects](https://scr
 ## Touch Taps on Phone UI
 
 <a id="touch-taps-on-phone"></a>A translucent touch circle taps, swipes and pulls to refresh on a phone screen instead of an arrow.
+
+Built on [Touch Indicator](https://github.com/heygen-com/hyperframes/tree/main/registry/components/touch-indicator) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A soft grey dot (~44 pt) appears on touch, compresses on press, drags with momentum on swipes, and fades on release.
 

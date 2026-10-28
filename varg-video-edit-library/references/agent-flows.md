@@ -8,6 +8,8 @@ Make an agent's work legible without raw logs: a typed task as the hook, then pl
 
 <a id="prompt-typed-then-generate"></a>A real task types into the prompt box, the Generate button is pressed, and the result starts to build.
 
+Built on [UI AI Prompt Flow](https://remocn.dev/r/ai-prompt-flow.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Composer field with attachments, human-cadence typing, the button goes hover → press → loading, and the canvas begins to fill.
 
 - **When:** Open of almost every AI product launch: it shows what the product does in the first 3–5 s.
@@ -46,6 +48,8 @@ Sources: [Bohdan Motion: breakdown of the Claude Design launch video](https://x.
 ## Answer Streams In
 
 <a id="answer-streams-in"></a>The assistant's reply arrives in uneven token bursts, the way a real model streams.
+
+Built on [Streaming Text](https://github.com/heygen-com/hyperframes/tree/main/registry/components/streaming-text) by Miao Yang (hyperframes), Apache-2.0. The write-up and recipes are varg's.
 
 Words appear in short irregular bursts with a soft caret; markdown headings and lists form as they stream.
 
@@ -86,6 +90,8 @@ Sources: [Glama: designing tool-enabled chat interfaces](https://glama.ai/blog/2
 
 <a id="tool-calls-status-rows"></a>Each tool call appears as a row with an icon and label that goes spinner → check, building a visible plan.
 
+Built on [Agent Run](https://remocn.dev/r/agent-run.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Rows like "Searching docs…", "Reading 3 files", "Running tests" with a shimmer while running and a green check when done; planned steps greyed.
 
 - **When:** Explain what an agent does without raw logs; make autonomy legible.
@@ -123,6 +129,8 @@ Sources: [Trace visualization: showing users what your AI agent is doing](https:
 ## Nodes Wire Up on a Canvas
 
 <a id="nodes-wire-up-canvas"></a>Nodes pop onto a canvas and connectors draw between them as the camera pulls back to show the whole pipeline.
+
+Built on [Flowchart](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/flowchart) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Rounded nodes with icons and labels; bezier connectors draw from output to input; a pulse travels the finished path.
 
@@ -163,6 +171,8 @@ Sources: [Bohdan Motion: breakdown of the ElevenLabs Flows launch video](https:/
 
 <a id="beams-into-agent-hub"></a>Light pulses run along curved lines from tool icons into a central agent and back out to a result.
 
+Built on [Animated Beam](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/animated-beam.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
+
 App icons on the left, the agent mark in the center, outputs on the right; gradient beams travel along curved paths.
 
 - **When:** Show that an agent connects tools and data (MCP, integrations, sources).
@@ -200,6 +210,8 @@ Sources: [Magic UI: Animated Beam](https://v3.magicui.design/docs/components/ani
 ## Thinking… Shimmer Label
 
 <a id="thinking-shimmer-label"></a>A muted "Thinking…" label with a moving shine shows the model working between prompt and answer.
+
+Built on [Shimmering Text](https://github.com/imskyleen/animate-ui/blob/main/packages/react/src/primitives/texts/shimmering/index.tsx) by animate-ui, MIT + Commons Clause. The write-up and recipes are varg's.
 
 Small grey text with a light band sweeping through it, or three bouncing dots, placed exactly where the answer will appear.
 
@@ -240,6 +252,8 @@ Sources: [Trace visualization: showing users what your AI agent is doing](https:
 
 <a id="parallel-agents-lanes"></a>Several agent cards work at once in lanes or an orbit, each with its own status, then merge into one result.
 
+Built on [Three Orbiting Cards](https://github.com/heygen-com/hyperframes/tree/main/registry/components/three-orbiting-cards) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Three to five cards with names (Researcher, Writer, Reviewer) and live status chips; lines converge into a final output card.
 
 - **When:** Multi-agent systems, subagents, parallel cloud agents.
@@ -276,6 +290,8 @@ Sources: [Vox on X: a 4-agent HyperFrames motion team for product videos](https:
 ## Plan Checklist Ticks Off
 
 <a id="plan-checklist-ticks"></a>The agent's plan appears as a checklist and each item ticks and dims as it is done.
+
+Built on [Specs Checklist](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/mk-specs-list) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Left-aligned rows with empty circles; a check draws in each, the row text dims or strikes, the next row brightens.
 
@@ -315,6 +331,8 @@ Sources: [Trace visualization: showing users what your AI agent is doing](https:
 
 <a id="vertical-chat-exchange"></a>A portrait chat plays out: the prompt types and sends, the answer streams and assembles a card or image.
 
+Built on [ChatGPT Exchange](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/chatgpt-exchange) by Jake Moran (hyperframes), Apache-2.0. The write-up and recipes are varg's.
+
 Phone-sized chat UI, bubbles pop with a tiny scale from the sender's corner, typing dots before replies.
 
 - **When:** Vertical cuts for TikTok, Reels and Shorts about AI features.
@@ -352,6 +370,8 @@ Sources: [CapCut: turn testimonials into quote graphics for short-form](https://
 ## Tracing Beam Through Steps
 
 <a id="tracing-beam-through-steps"></a>A glowing dash travels one path through numbered steps, lighting each as it passes.
+
+Built on [Tracing Beam](https://github.com/heygen-com/hyperframes/tree/main/registry/components/tracing-beam) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A thin rail connects 3–5 step cards; a bright head with a short tail moves along it and each card lifts and brightens on contact.
 

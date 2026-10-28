@@ -8,6 +8,8 @@ Show the real product UI, one action at a time, and let the camera do the work. 
 
 <a id="zoom-to-the-action"></a>The full app establishes, then the camera pushes 1.5–2× into the part being used and eases back out.
 
+Built on [UI Focus Zoom](https://github.com/heygen-com/hyperframes/tree/main/registry/components/ui-focus-zoom) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 One settle on the full screen, a smooth decelerating push to the button or field, a short hold, and a pull back before the next action.
 
 - **When:** Every screen recording where text would be unreadable at full frame — which is almost all of them at 1080p.
@@ -58,6 +60,8 @@ Sources: [Screen Studio: auto zoom, cursor smoothing, click effects](https://scr
 
 <a id="tilted-dashboard-reveal"></a>The dashboard rises from a steep 3D tilt to flat, like a screen lifting toward the viewer.
 
+Built on [3D UI Reveal](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/ui-3d-reveal) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Screenshot on a plane tilted ~25–40° back, with a soft shadow and glow; it rotates to 0° while scaling up and the shadow tightens.
 
 - **When:** The hero reveal of a web app or dashboard, right after the title.
@@ -98,6 +102,8 @@ Sources: [UX Design Bootcamp: the rise of Linear style design](https://bootcamp.
 
 <a id="floating-ui-panels"></a>The interface splits into its panels, which float apart in depth with parallax, then snap back.
 
+Built on [Camera Rig Depth Stack](https://github.com/heygen-com/hyperframes/tree/main/registry/components/camera-rig-depth-stack) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Sidebar, main view and modal separate on the z-axis at different depths; the camera drifts so near panels move faster.
 
 - **When:** Explain how a product is built (layers, modules) or make a static screen feel alive.
@@ -135,6 +141,8 @@ Sources: [Steve Lemuel: Raycast kinetic product motion (Figma + Jitter)](https:/
 ## UI Builds Itself Piece by Piece
 
 <a id="ui-builds-itself"></a>Grey skeleton blocks pulse once, then real cards, charts and text fill in with a stagger.
+
+Built on [Skeleton Reveal](https://github.com/heygen-com/hyperframes/tree/main/registry/components/skeleton-reveal) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Layout appears as soft placeholders, then each block cross-fades to real content top-left to bottom-right.
 
@@ -174,6 +182,8 @@ Sources: [Trace visualization: showing users what your AI agent is doing](https:
 ## Before/After UI Wipe
 
 <a id="before-after-ui-wipe"></a>A divider sweeps across one screen, turning the old version into the new one underneath.
+
+Built on [Before After Wipe](https://github.com/heygen-com/hyperframes/tree/main/registry/components/before-after-wipe) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Two aligned screenshots stacked; a thin vertical line with a handle travels left to right; labels "Before" and "After" in the corners.
 
@@ -219,6 +229,8 @@ Sources: [FFmpeg filters documentation (timeline enable, drawtext, zoompan, over
 
 <a id="card-expands-to-detail"></a>A small card grows into a full detail panel in one continuous shape change.
 
+Built on [Card Resize](https://github.com/heygen-com/hyperframes/tree/main/registry/components/card-resize) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A list item's corners stretch to fill the frame while its content cross-fades to the detail layout; no cut, no fade to black.
 
 - **When:** Move from overview to detail inside the product without losing the viewer.
@@ -257,6 +269,8 @@ Sources: [zero on X: Apple-keynote launch film prompt (Screen Studio zoom, no cr
 
 <a id="filmed-off-a-monitor"></a>The UI looks filmed on a real display: slight perspective, focus falloff and glare.
 
+Built on [Filmed Screen](https://github.com/heygen-com/hyperframes/tree/main/registry/components/filmed-screen) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A screen plane at a gentle angle; depth of field keeps one element sharp while edges blur; soft highlight and a hint of pixel texture.
 
 - **When:** Give a flat screen recording a cinematic, physical feel between crisp UI shots.
@@ -293,6 +307,8 @@ Sources: [Lago: we killed our motion design job (Linear-style films, Remotion)](
 ## Form Fills Itself
 
 <a id="form-fills-itself"></a>A cursor tabs through a short form; fields type, validate and the submit button resolves to success.
+
+Built on [Signup Flow](https://github.com/heygen-com/hyperframes/tree/main/registry/components/signup-flow) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Clean card with labeled inputs; each field focuses with a ring, types at human cadence, gets a check; button goes loading → success.
 
@@ -332,6 +348,8 @@ Sources: [Jitter: UI element templates](https://jitter.video/templates/ui-elemen
 
 <a id="toggle-turns-feature-on"></a>A cursor flips a settings switch and the result appears at once elsewhere in the UI.
 
+Built on [Settings Toggle Flow](https://github.com/heygen-com/hyperframes/tree/main/registry/components/settings-toggle-flow) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Settings row with a switch; the thumb slides with a small overshoot, the track fills with accent, and a preview updates beside it.
 
 - **When:** Features that are one click away: dark mode, AI assist, auto-sync.
@@ -369,6 +387,8 @@ Sources: [Bohdan Motion: breakdown of the Claude Design launch video](https://x.
 ## Command Palette Pop
 
 <a id="command-palette-pop"></a>⌘K opens a palette, a few letters filter the list, the highlight moves and Enter fires the action.
+
+Built on [UI Command Menu](https://remocn.dev/r/command-menu.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 Backdrop dims, a centered palette scales from 96%, results filter as letters type, a highlight bar slides to the pick.
 
@@ -409,6 +429,8 @@ Sources: [Steve Lemuel: Raycast kinetic product motion (Figma + Jitter)](https:/
 
 <a id="pinned-mock-changing-states"></a>One product frame stays put while tabs or captions switch it through several feature states.
 
+Built on [Sticky Mock Swap](https://github.com/heygen-com/hyperframes/tree/main/registry/components/sticky-mock-swap) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 The mock holds center; a tab indicator slides between labels and the screen cross-fades to the matching state.
 
 - **When:** Walk through 3–5 features quickly without re-establishing the UI each time.
@@ -447,6 +469,8 @@ Sources: [Bohdan Motion: X launch video, 40% of runtime on real UI](https://x.co
 ## Liquid Glass UI Layer
 
 <a id="liquid-glass-ui-layer"></a>Frosted, refractive glass cards and toolbars float over a colorful scene or photo.
+
+Built on [Liquid Glass Notification](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/liquid-glass-notification) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Rounded panels with background blur, a thin bright rim and slight edge refraction; content stays sharp on top.
 

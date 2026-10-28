@@ -8,6 +8,8 @@ A device frame tells the viewer where the product runs; it should never hide the
 
 <a id="browser-window-frame"></a>The web app plays inside a clean browser window with traffic lights and a URL bar on a soft backdrop.
 
+Built on [Safari](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/safari.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
+
 Rounded window, minimal chrome, real domain in the bar, big soft shadow, 6–10% padding around it on a gradient.
 
 - **When:** Every web product demo; it tells the viewer "this runs in your browser".
@@ -52,6 +54,8 @@ Sources: [Magic UI: Safari](https://magicui.design/docs/components/safari) · [S
 
 <a id="phone-frame-live-screen"></a>A screen recording plays edge to edge inside a realistic phone frame with Dynamic Island.
 
+Built on [iPhone](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/iphone.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
+
 Dark or titanium frame, accurate corner radius, the recording fills the screen; the phone sits slightly off-center with a shadow.
 
 - **When:** Mobile app demos and vertical recordings shown in a 16:9 film.
@@ -89,6 +93,8 @@ Sources: [Rotato: how to make an animated mockup](https://rotato.app/blog/animat
 
 <a id="laptop-lid-opens"></a>A laptop lid tilts open and the screen content lifts toward the viewer, then becomes the full frame.
 
+Built on [Macbook Scroll](https://ui.aceternity.com/components/macbook-scroll) by aceternity, Aceternity License (free components). The write-up and recipes are varg's.
+
 Low-angle MacBook; the lid swings up, the screen lights, and the camera pushes into the display until the UI fills the frame.
 
 - **When:** Desktop app or web app hero reveal; a premium transition from title to product.
@@ -125,6 +131,8 @@ Sources: [Rotato: 14 video mockup ideas and examples](https://rotato.app/blog/mo
 ## 3D Phone Turn
 
 <a id="3d-phone-turn"></a>A real 3D phone model turns in space with the app playing on its screen, then faces the camera.
+
+Built on [iPhone & MacBook 3D Showcase](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/vfx-iphone-device) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Studio-lit phone rotates 30–60° on Y with reflections sliding over the glass, landing front-on as the screen content changes.
 
@@ -164,6 +172,8 @@ Sources: [Rotato: how to make an animated mockup](https://rotato.app/blog/animat
 
 <a id="multi-device-splay"></a>Phone, tablet and laptop fan out from one stack into a proud row, each showing the same product.
 
+Built on [Multi Device Splay](https://github.com/heygen-com/hyperframes/tree/main/registry/components/multi-device-splay) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Devices start overlapped center, then slide and rotate into a splayed arrangement with depth and shadow.
 
 - **When:** Cross-platform claims ("everywhere you work") and launch finales.
@@ -198,6 +208,8 @@ Sources: [Bohdan Motion: breakdown of the Replit Design launch video](https://x.
 ## Push Through the Screen
 
 <a id="push-through-the-screen"></a>A phone rises into view, then the camera pushes through its screen into the full-frame UI.
+
+Built on [Parallax Device Dive](https://github.com/heygen-com/hyperframes/tree/main/registry/components/parallax-device-dive) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 The phone grows until its screen fills the frame; bezel slides off-frame and the UI layers separate slightly as you pass through.
 
@@ -267,6 +279,8 @@ Sources: [Rotato: 14 video mockup ideas and examples](https://rotato.app/blog/mo
 
 <a id="phone-in-hand-insert"></a>A portrait phone held in frame shows a lock screen or app moment, as if filmed by a person.
 
+Built on [Slack Notification Ad](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/slack-notification-ad) by HeyGen (hyperframes), Apache-2.0. The write-up and recipes are varg's.
+
 Portrait phone, slight handheld drift, notifications or the app opening; a snappy Apple-style cut-in and out.
 
 - **When:** Consumer apps, notification-driven products, and YouTube/TikTok sponsor inserts.
@@ -306,6 +320,8 @@ Sources: [Rotato: 14 video mockup ideas and examples](https://rotato.app/blog/mo
 
 <a id="floating-device-bob"></a>The device hangs in space and bobs and tilts very slightly so a still shot never feels frozen.
 
+Built on [Float](https://github.com/danielpetho/fancy/blob/main/src/fancy/components/blocks/float.tsx) by fancy, MIT. The write-up and recipes are varg's.
+
 A slow 6–10 px vertical bob with a 1–2° tilt and a shadow that breathes with it.
 
 - **When:** Holding on a screenshot while the voiceover explains, or behind a title.
@@ -342,6 +358,8 @@ Sources: [Rotato: how to make an animated mockup](https://rotato.app/blog/animat
 ## macOS Desktop Stage
 
 <a id="macos-desktop-stage"></a>A full Mac desktop with menu bar, dock and app windows sets the stage for a desktop app demo.
+
+Built on [macOS Tahoe Liquid Glass Desktop](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/macos-tahoe-liquid-glass) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Clean wallpaper, glass menu bar, one focused app window, and native notifications sliding in from the top right.
 

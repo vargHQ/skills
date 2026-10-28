@@ -8,6 +8,8 @@ A backdrop should make the product look better and never compete with it. Keep m
 
 <a id="slow-mesh-gradient"></a>Soft brand-colored fields blend and drift slowly behind titles and UI.
 
+Built on [Mesh Gradient Background](https://github.com/heygen-com/hyperframes/tree/main/registry/components/mesh-gradient-bg) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Three or four large blurred color fields from the brand palette, moving a few percent per second, never sharp.
 
 - **When:** Default backdrop for product shots, titles and end cards when there is no footage.
@@ -52,6 +54,8 @@ Sources: [DEV: how to make animated gradients like Stripe](https://dev.to/jordie
 
 <a id="aurora-behind-title"></a>Blurred light streaks drift sideways across a dark frame behind a centered title.
 
+Built on [Aurora Background](https://ui.aceternity.com/components/aurora-background) by aceternity, Aceternity License (free components). The write-up and recipes are varg's.
+
 Dark base with blue/violet/amber light bands moving slowly; the title sits in the calmest area.
 
 - **When:** Open titles and end cards for AI and dev tools — the Linear-era dark aesthetic.
@@ -89,6 +93,8 @@ Sources: [UX Design Bootcamp: the rise of Linear style design](https://bootcamp.
 ## Faint Grid or Dot Field
 
 <a id="faint-grid-field"></a>A very faint line grid or dot field gives structure behind UI and code, with a soft radial fade.
+
+Built on [Flickering Grid](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/flickering-grid.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
 
 1 px lines at 4–8% opacity on a ~40 px module, or twinkling dots; fades out toward the edges or behind the hero.
 
@@ -133,6 +139,8 @@ Sources: [Setproduct: the Vercel aesthetic, blueprint grid design](https://www.s
 
 <a id="spotlight-from-above"></a>Soft light cones fall from the top of a dark frame onto the product or title.
 
+Built on [Spotlight New](https://ui.aceternity.com/components/spotlight-new) by aceternity, Aceternity License (free components). The write-up and recipes are varg's.
+
 One or two wide, blurred white cones from the top corners, swaying a few degrees; the subject sits in the pool of light.
 
 - **When:** Hero reveals, premium product moments, keynote-style titles.
@@ -170,6 +178,8 @@ Sources: [UX Design Bootcamp: the rise of Linear style design](https://bootcamp.
 ## Film Grain Over Gradient
 
 <a id="film-grain-over-gradient"></a>A fine animated grain sits over the gradient so it feels printed, removes banding and looks less digital.
+
+Built on [Grain Overlay](https://github.com/heygen-com/hyperframes/tree/main/registry/components/grain-overlay) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Subtle monochrome noise at 4–8% opacity, crawling each frame; colors underneath stay unchanged.
 
@@ -212,6 +222,8 @@ Sources: [Bram.us: grainy gradients](https://www.bram.us/2021/09/16/grainy-gradi
 ## Blurred Product Behind Text
 
 <a id="blurred-product-behind"></a>The product UI itself, heavily blurred and dimmed, becomes the backdrop for a title or quote.
+
+Built on [Backdrop](https://remocn.dev/r/backdrop.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 A screenshot at 20–40 px blur and 50–60% brightness with a vignette; title sharp on top; the UI shape is still recognizable.
 
@@ -258,6 +270,8 @@ Sources: [UX Design Bootcamp: the rise of Linear style design](https://bootcamp.
 
 <a id="perspective-grid-tunnel"></a>A card or title floats in a perspective tunnel or floor grid while light streaks race along the lines.
 
+Built on [Warp Background](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/warp-background.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
+
 Grid walls/floor converging to a vanishing point; thin colored streaks travel toward the camera; content centered.
 
 - **When:** Energy and speed beats: launches, "faster" claims, transitions between sections.
@@ -295,6 +309,8 @@ Sources: [Setproduct: the Vercel aesthetic, blueprint grid design](https://www.s
 
 <a id="brand-silk-waves"></a>Smooth silk-like folds or wave bands in brand colors flow slowly behind the content.
 
+Built on [Silk](https://github.com/DavidHDev/react-bits/blob/main/src/content/Backgrounds/Silk/Silk.jsx) by react-bits, MIT + Commons Clause. The write-up and recipes are varg's.
+
 Soft satin folds or broad blurred waves; one hue family, subtle highlights, slow motion.
 
 - **When:** Consumer and creative brands; music, audio and design tools.
@@ -331,6 +347,8 @@ Sources: [DEV: how to make animated gradients like Stripe](https://dev.to/jordie
 ## Quiet Particle Field
 
 <a id="quiet-particle-field"></a>Out-of-focus dots drift slowly in depth behind the content, adding life without motion noise.
+
+Built on [Ambient](https://github.com/tsparticles/presets/blob/main/presets/ambient/src/options.ts) by tsparticles, MIT. The write-up and recipes are varg's.
 
 Sparse soft circles of two or three sizes, low opacity, drifting upward or sideways; a faint glow line optional.
 
