@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.1.0"
+  version: "1.2.0"
   openclaw:
     requires:
       anyBins:
@@ -51,7 +51,7 @@ Also collect: 1-3 product photos (a clean packshot plus one in-use photo if ther
 | Instagram / TikTok search | `tiktok made me buy it`, `amazon finds`, `backyard camera caught this`, `<product> test`, "where can I buy this" in comments. |
 | Product research tools (Tradelle, Sell The Trend, AutoDS) | The product page often embeds the video ads that sell it. |
 
-Save the 2-3 best references with the `media-download` skill (`vdl <url>`) to study the shots. Write down the idea in one line ("snake strikes the gaiter in a swamp, the gaiter holds"); you remake the idea, not the clip.
+Save the 2-3 best references with the `media-download` skill (`vdl <url>`) and break each one down: every shot with its time, the text on screen, the voiceover word for word, the structure. The fastest way is one `video_analyze` call on varg (~5 credits, MCP `analyze_video`); for exact frames, a 1-frame-per-second contact sheet with FFmpeg plus Whisper word timings. Commands, the table to fill and what to look for: [references/breakdown.md](references/breakdown.md). End with the idea in one line ("snake strikes the gaiter in a swamp, the gaiter holds"); you remake the idea, not the clip.
 
 ## 3. Pick the archetype and fill the prompt
 
