@@ -11,7 +11,9 @@
 //   "voiceover": "vo.mp3",
 //   "captions": "captions.ass",          // optional, from captions.mjs
 //   "fontsdir": "fonts",                 // folder with the caption font (Bangers-Regular.ttf)
-//   "music": { "file": "bed.mp3", "volume": 0.08 },   // optional
+//   "music": { "file": "bed.mp3", "volume": 0.08 },   // optional; without "voiceover" the music is the soundtrack
+//   "overlays": [ { "file": "banner.png", "start": 0, "end": 4.5 } ],   // optional full-frame PNGs with alpha
+//                                       // (on-screen text with emoji, a CCTV timestamp), shown under the captions
 //   "shots": [
 //     { "file": "hook.mp4",   "in": 0,   "dur": 5.6 },
 //     { "file": "screen1.mp4","in": 0.2, "dur": 2.4 },
@@ -36,13 +38,23 @@ const W = edit.width ?? 1080, H = edit.height ?? 1920, FPS = edit.fps ?? 30;
 
 const args = ["-y", "-hide_banner", "-loglevel", "error"];
 edit.shots.forEach((s) => args.push("-i", p(s.file)));
-args.push("-i", p(edit.voiceover));
-const voIdx = edit.shots.length;
+let next = edit.shots.length;
+const voIdx = edit.voiceover ? next++ : -1;
+if (edit.voiceover) args.push("-i", p(edit.voiceover));
 let musicIdx = -1;
 if (edit.music) {
   args.push("-stream_loop", "-1", "-i", p(edit.music.file));
-  musicIdx = voIdx + 1;
+  musicIdx = next++;
 }
+if (voIdx < 0 && musicIdx < 0) {
+  console.error("edit.json needs a voiceover, music, or both");
+  process.exit(1);
+}
+const overlays = edit.overlays ?? [];
+const ovIdx = overlays.map((o) => {
+  args.push("-loop", "1", "-i", p(o.file));
+  return next++;
+});
 
 const parts = [];
 edit.shots.forEach((s, i) => {
@@ -62,14 +74,23 @@ parts.push(`${edit.shots.map((_, i) => `[v${i}]`).join("")}concat=n=${edit.shots
 // ffmpeg runs inside the edit list's folder, so captions and fonts are plain relative paths
 // (absolute paths would need filtergraph escaping).
 const rel = (f) => f.replace(/\\/g, "/").replace(/([:,;'\[\]])/g, "\\$1");
+// Overlays sit on the cut, under the captions; each is visible from start to end (seconds).
+let video = "cut";
+overlays.forEach((o, i) => {
+  parts.push(`[${ovIdx[i]}:v]scale=${W}:${H},format=rgba[ov${i}]`);
+  parts.push(`[${video}][ov${i}]overlay=0:0:enable='between(t,${o.start},${o.end})'[o${i}]`);
+  video = `o${i}`;
+});
 if (edit.captions) {
   const fonts = edit.fontsdir ? `:fontsdir=${rel(edit.fontsdir)}` : "";
-  parts.push(`[cut]subtitles=filename=${rel(edit.captions)}${fonts}[vout]`);
+  parts.push(`[${video}]subtitles=filename=${rel(edit.captions)}${fonts}[vout]`);
 } else {
-  parts.push(`[cut]null[vout]`);
+  parts.push(`[${video}]null[vout]`);
 }
 
-if (musicIdx >= 0) {
+if (voIdx < 0) {
+  parts.push(`[${musicIdx}:a]volume=${edit.music.volume ?? 1},afade=t=out:st=${Math.max(0, total - 1).toFixed(2)}:d=1,atrim=duration=${total}[aout]`);
+} else if (musicIdx >= 0) {
   parts.push(`[${voIdx}:a]apad[vo]`);
   parts.push(`[${musicIdx}:a]volume=${edit.music.volume ?? 0.08}[bed]`);
   parts.push(`[vo][bed]amix=inputs=2:duration=first:normalize=0,atrim=duration=${total}[aout]`);

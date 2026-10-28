@@ -33,12 +33,21 @@ if (!Array.isArray(words)) {
   process.exit(1);
 }
 
-// Whisper sometimes glues "for $4.47" into one token: split it so the price gets its own beat.
+// Whisper sometimes glues "for $4.47" into one token (Groq) and sometimes splits "$4" ".47" (local
+// whisper): split on spaces, then glue a ".47" back onto the number before it, so a price is one beat.
 const tokens = [];
 for (const w of words) {
   const parts = String(w.word).trim().split(/\s+/).filter(Boolean);
   const span = (w.end - w.start) / parts.length;
-  parts.forEach((p, i) => tokens.push({ text: p, start: w.start + i * span, end: w.start + (i + 1) * span }));
+  parts.forEach((p, i) => {
+    const prev = tokens[tokens.length - 1];
+    if (i === 0 && prev && /^[.,]\d/.test(p) && /\d$/.test(prev.text)) {
+      prev.text += p;
+      prev.end = w.end;
+      return;
+    }
+    tokens.push({ text: p, start: w.start + i * span, end: w.start + (i + 1) * span });
+  });
 }
 
 const isHot = (t) => /[$€£\d]/.test(t) || keywords.has(t.toLowerCase().replace(/[^a-z0-9]/g, ""));
