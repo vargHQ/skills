@@ -27,14 +27,14 @@ Even after shipping, the profit is decent and the demand for it is exceptionally
 Here is how to profit from it without even touching the product.
 First, go to [RESEARCH TOOL], pick the product and generate a free Shopify store in minutes.
 Offer free shipping, configure your payment processor and launch the store.
-Then go to [AI AD TOOL] and paste your store link there. It will generate viral AI videos for the product.
+Then go to [AI AD TOOL, e.g. varg dot A I] and paste your store link there. It will generate viral AI videos for the product.
 Start posting them on [PLATFORM] with your store link in bio,
 and when a customer purchases the product in your store, [SUPPLIER] ships the products out automatically,
 and you pay for it after the customer has already paid you.
 Comment "[KEYWORD]" and I will send you a free step-by-step guide on how it's done.
 ```
 
-Write numbers the way the voice should say them ("$4.47" reads as "four forty-seven" in ElevenLabs v4; check one take). Pick prices the viewer can verify on screen: the same figures must be visible on the screenshots in beat 2.
+Write "varg.ai" as "varg dot A I" so the voice says it right; local Whisper then writes "varg .ai" and `captions.mjs` glues it back into one beat. Write numbers the way the voice should say them ("$4.47" reads as "four forty-seven" in ElevenLabs v4; check one take). Pick prices the viewer can verify on screen: the same figures must be visible on the screenshots in beat 2.
 
 ## Who uses this format, and how to adapt it
 
