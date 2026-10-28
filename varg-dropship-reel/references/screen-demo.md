@@ -27,8 +27,8 @@ How: browser at 125-150 % zoom so the key numbers are big, light mode, hide book
 | Looks | 100 % real; this is how the originals are made | Close to real at phone resolution (tested, below) |
 | Needs | Laptop, phone, tripod or a steady hand, a patterned tablecloth, a marker | Only the screenshots |
 | Time | ~30 min for all screens | ~5 min of work per shot + 3-5 min render |
-| Cost | Free | ~215 credits per 5 s shot (`gpt_image_2_5` frame ~23 + `seedance_2_5` 5 s 720p ~193); about 8 shots → ~1,700 credits |
-| Breaks when | Moiré and glare on the screen | Small text smears; the camera can drift a little; a hand can go wrong |
+| Cost | Free | One desk photo ~22 credits, then ~79 credits per 5 s shot on `kling_v4`; 9 shots per reel → ~730 credits, and the shared screens (landing, settings, ad tool, flow) are reused across reels |
+| Breaks when | Moiré and glare on the screen | The pen can briefly blur text it passes over; a hand can go wrong |
 
 Mixed is common: film the laptop shots for real (cheap, real), AI only for the hook and the ending.
 
@@ -39,49 +39,68 @@ Mixed is common: film the laptop shots for real (cheap, real), AI only for the h
 - One take per screen: point at each item for 1-2 s in the order the script names them. Cut on the words in the edit.
 - A patterned tablecloth (the zigzag in all the originals) and a real marker make it look like a desk, not a studio.
 
-### Full AI (tested 2026-10-27)
+### Full AI: same desk, same app, pixel for pixel (tested 2026-10-28)
 
-**Step A: first frame.** Put the screenshot on a laptop with `gpt_image_2_5` (best at keeping dense text). Pass the screenshot as the reference and ask for the exact screen:
+**Rule: never let an image model draw the app's screen.** In the first version of this skill each laptop frame came out of `gpt_image_2_5` from a screenshot. The model redrew the UI every time: the logo, sidebar, fonts and layout changed from shot to shot, and viewers notice. The fix is to put the real screenshot on the screen yourself, and only let the video model add the hand.
+
+**Step A: one desk photo with a green screen (once, reused for every shot and every reel).**
+
+```
+Vertical 9:16 iPhone photo looking down at an angle at an open silver MacBook Pro on a table covered
+with a black-and-white zigzag patterned tablecloth. The laptop screen is lit and shows a perfectly flat,
+uniform, pure chroma-key green (#00FF00) full-screen image, edge to edge inside the display bezel, no
+reflections, no glare, no text. The whole screen is visible, upper two-thirds of the frame; the
+keyboard and trackpad are visible at the bottom. No hands, no people, no pen. Indoor evening light,
+realistic phone photo, slight lens vignette.
+```
+`gpt_image_2_5`, 9:16, quality high → `plate.png`.
+
+**Step B: real screenshots, one size.** Your real store and tool pages, or the bundled demo app (`assets/demo-app.html`: a research tool, store page, orders, settings, an AI ad tool and the flow graphic in one consistent design; product data from the URL). Same viewport and zoom for all of them:
 
 ```bash
-curl -s -X POST https://api.varg.ai/v2/image \
-  -H "Authorization: Bearer $VARG_API_KEY" -H "Content-Type: application/json" \
-  -d '{
-    "model": "gpt_image_2_5",
-    "prompt": "Vertical 9:16 iPhone photo looking down at an angle at an open silver MacBook on a table covered with a black-and-white zigzag patterned tablecloth. The laptop screen fills the upper two-thirds of the frame and shows EXACTLY the screenshot from the reference image, unchanged: same layout, same text, same numbers, same product photo, slightly in perspective, with a faint natural screen glow. The keyboard is visible at the bottom. A right hand enters from the bottom right holding a thick black marker pen with a green cap end, its tip pointing at the <ITEM> on the screen without touching it. Indoor evening light, realistic phone photo, slight lens vignette, no extra text.",
-    "files": [{ "url": "SCREENSHOT_URL" }],
-    "aspect_ratio": "9:16",
-    "quality": "high"
-  }'
+node scripts/screenshot.mjs screens/ \
+  "product|file://$PWD/assets/demo-app.html?screen=product&name=Heated%20Neck%20Massager&img=https://…/massager.png&cost=9.80&ship=3.90&price=49.99" \
+  "store|file://$PWD/assets/demo-app.html?screen=store&name=Heated%20Neck%20Massager&img=…&price=49.99&store=KNEADLY" \
+  "home|file://$PWD/assets/demo-app.html?screen=home" …
 ```
+Make the key numbers big: 40+ px at a 1440 px wide page, or they won't read at 720p.
 
-**Step B: the next screens, same desk.** For every later screen, edit the first frame instead of starting over, so the laptop, table, light and hand stay identical:
+**Step C: put each screenshot on the green screen.**
 
+```bash
+node scripts/screen-on-laptop.mjs plate.png frames/ screens/*.png
 ```
-Edit the first image. Keep EXACTLY the same photo: same laptop, same angle, same zigzag tablecloth,
-same lighting, same hand and marker pen. Change ONLY what is on the laptop screen: it now shows the
-screenshot from the second image. The pen tip now points at <ITEM>. Sharp readable screen text.
-```
-with `files: [{first frame}, {next screenshot}]`.
+It finds the four corners of the green screen, warps each screenshot onto it in perspective with ffmpeg, keys the green out of the desk photo, and writes `frames/<name>.jpg` at 2x. Every frame has the same desk, the same laptop and the exact same UI.
 
-**Step C: animate.** Image-to-video on `seedance_2_5`, 5 s, 9:16, 720p, the frame as the only file. Lock the camera and the screen in words, and give the pen a path through the items in script order:
+**Step D: animate. The model only adds the hand.** Image-to-video on `kling_v4`, 5 s, 9:16, 720p, one frame per call:
 
 ```
-Phone on a tripod, camera completely locked, no zoom, no camera movement, no reframing. The laptop
-screen content stays exactly the same and perfectly static the whole time, every number and word
-unchanged. Only the right hand moves: the marker pen tip glides from the '<ITEM 1>' to the
-'<ITEM 2>', pauses, then moves to '<ITEM 3>' and taps the air in front of it twice. Natural relaxed
-hand motion, realistic, no text appears, no subtitles.
+Phone on a tripod above a laptop, camera completely locked, no zoom, no camera movement. The laptop
+screen content stays exactly the same and perfectly static the whole time, every word and number
+unchanged. A right hand holding a thick black marker pen with a green cap enters from the bottom right
+and the pen tip points at <ITEM 1>, pauses, then moves to <ITEM 2>, then <ITEM 3>. Natural relaxed
+hand motion, the pen never touches the screen. No text appears, no subtitles.
 ```
 
-What we saw in the test (LED pet nail clipper, research page with $4.47 / $24.99 / $20.52 and a store page with $24.99):
-- `seedance_2_5` kept every big number, the title and the chart correct for the full 5 s; one line of small grey description text went soft. The camera eased back slightly despite "locked"; at phone size nobody notices.
-- Editing frame 1 for the second screen kept the same laptop, tablecloth, hand and marker. The two shots cut together like one take.
-- The hand looked natural; fingers stayed at five.
-- **Verbs matter.** "The pen circles the price" made the model *draw* a red ink circle around the price on the screen and keep it there. Use "points at", "hovers over", "moves to", "taps the air in front of". (If you want the drawn-circle look on purpose, ask for it: it works.)
-- Text the pen passes over can scramble for a few frames ("ADD TO CART" became "ADF ADD TO CART" under the pen). Cut away before the pen crosses text the viewer must read, or keep the pen path below the key numbers.
+The shots one reel needs (9 clips, 4 of them shared across products):
 
-If a number changes or smears in the video: make the key item bigger in the screenshot (zoom the browser), shorten the clip to 4 s, and cut the shot just before the pen covers the number. For text that must stay perfect for a long time (a long list, a dense table), film it for real or put the screenshot back on top in the edit for those frames.
+| Clip | Screen | Pen path |
+|---|---|---|
+| `productA` | research product page | photo → product cost → sell price |
+| `productB` | same page | profit → demand chart → "Generate my store" |
+| `store` | store product page | price → Add to cart |
+| `orders` | orders | down the "Customer paid" column → Shipped |
+| `ads` | AI ad tool results (thumbnails = frames of your hook clips) | thumbnails left to right → headline |
+| `home` (shared) | tool landing page | headline → Start for free |
+| `settings` (shared) | store launch checklist | free shipping → payments → Launch |
+| `adpaste` (shared) | AI ad tool, paste link | input → Generate |
+| `flow` (shared) | TikTok · Reels · Shorts → your store | each platform → the arrow → store |
+
+Tested 2026-10-28: 24 such clips on `kling_v4` for four products. In every one the hand entered naturally and the screen stayed pixel-identical; the cuts between screens read as one continuous take on one desk.
+
+**Older notes (frames drawn by `gpt_image_2_5`, 2026-10-27), still true for any image-to-video shot of a screen:**
+- **Verbs matter.** "The pen circles the price" made Seedance *draw* a red ink circle on the screen. Use "points at", "hovers over", "moves to", "taps the air in front of".
+- Text the pen passes over can blur for a few frames. Keep the pen path next to the key numbers, not across them.
 
 **Seedance 2.5 or Kling 4?** We ran the same first frame and prompt on both (5 s, 720p, 2026-10-27):
 
@@ -97,4 +116,4 @@ Both are usable. Start with `kling_v4` (less than half the price) and switch to 
 
 ## 3. Cut it to the voice
 
-One shot per voiceover phrase; cut when the next number or tool name is spoken, not on a fixed beat. A 5 s generated shot usually gives two usable cuts (pen on item 1, pen on item 2). Slight zoom-ins (105-110 %) on alternate cuts hide that two cuts came from one clip.
+One shot per voiceover phrase; cut when the next number or tool name is spoken, not on a fixed beat. `scripts/guide-edl.mjs` does this from the word timings. A 5 s generated shot usually gives two usable cuts (pen on item 1, pen on item 2). Slight zoom-ins (105-110 %) on alternate cuts hide that two cuts came from one clip.

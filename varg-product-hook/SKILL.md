@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.0.0"
+  version: "1.1.0"
   openclaw:
     requires:
       anyBins:
@@ -90,7 +90,8 @@ Two of the reels this skill was built from aren't hooks for a longer video. They
 
 - No voiceover. A trending song carries it, and the song is added in the app, not baked into the file.
 - Text: one short line in sentence case with one emoji, white with a soft shadow, in the top third. Each line stays on until the next beat. This is the platform's native text style, not the big word-by-word captions of the guide reel.
-- Make it as 4-5 clips: 2 problem clips (the second is the security-cam angle), the reveal, the use, the proof. Then cut on the text changes. In the security-cam clips, ask for "CCTV night-vision black-and-white, fisheye, high corner angle". Add the timestamp overlay in the edit, because model-drawn text comes out garbled.
+- Make it as 4-5 clips: 2 problem clips (the second is the security-cam angle), the reveal, the use, the proof. Then cut on the text changes. In the security-cam clips, ask for "CCTV night-vision black-and-white, fisheye, high corner angle". Add the timestamp overlay in the edit, because model-drawn text comes out garbled. Render the text lines and the timestamp as transparent PNGs (any headless browser; libass can't draw colour emoji) and lay them on with `varg-dropship-reel`'s `assemble.mjs` (`overlays`), with the music as the only soundtrack.
+- **Same person in both problem clips:** make the second clip image-to-video from the **last frame of the first** ("same fixed camera, same woman, same car, continuous footage"). Two separate text-to-video clips gave two different women.
 - **Fear themes get restricted.** The drink-spiking reel is behind Instagram's "can't be seen by certain audiences" gate: logged-out and younger viewers can't open it, so its reach is capped. Danger, assault, injury and medical scares sell protective products but can trigger age gates or ad rejection. Show the threat without anything happening to the person on screen.
 
 ## 4. Generate
@@ -122,6 +123,8 @@ curl -s -X POST https://api.varg.ai/v2/video \
 - **Hands and animals:** count fingers, check paws. Regenerate the clip instead of fixing it in the edit.
 - **Product scale:** Seedance sometimes makes the product too big or small; say its real size ("palm-sized").
 - Re-running with a byte-identical body is a free cache hit; change one word to get a new take.
+
+Tested 2026-10-28, four more hooks from one packshot each, all on `seedance_2_5`: a backyard security camera with a solar flood light (night IR, the light flares on), a torture test with cut-resistant gloves (knife across the glove, grabbing the blade, a mandoline), a dog version of the nail clipper, and a Father's Day gift reaction with a neck massager. All read as phone or CCTV footage on the first take; the full reels are in `varg-dropship-reel`. A 21 s "The problem → Vs → The solution" ad for car seat gap fillers (2 `kling_v4` dashcam clips + 2 `seedance_2_5` product clips, PNG text overlays, a `mureka_9_5` music bed): https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a2aa0853b683.mp4. Its reveal clip drifted from long foam wedges to boxier blocks; pass a second product angle as `@image2` for products with an unusual shape.
 
 Tested 2026-10-27: an LED pet nail clipper packshot (`gpt_image_2_5`) + the prompt above on `seedance_2_5` at 6 s 720p gave a usable handheld close-up on the first try: the product stayed recognizable, the LED lit up, and it looked like phone footage.
 
