@@ -66,6 +66,14 @@ Start from these, by request:
 | Product video from a photo | `krea-motion`, `fal-commercial` | `varg-ai` |
 | Viral product hook, "TikTok made me buy it" clip, product in use from photos | `varg-product-hook` | `media-download`, `varg-ai` |
 | Dropshipping guide reel: product, price in China vs Shopify, laptop and pen, "Comment GUIDE" | `varg-dropship-reel` | `varg-product-hook`, `varg-ai` |
+| Unboxing, ASMR or satisfying product video from photos | `varg-unboxing-video` | `varg-product-lock` |
+| Product changes shape, logo or label between AI shots | `varg-product-lock` | `varg-ai` |
+| Is this AI ad allowed on TikTok Shop / Meta, AI labels, FTC | `ai-ad-compliance-check` | |
+| Clone winning competitor ads, Meta Ad Library, new angles | `varg-ad-library-remix` | `ai-ad-compliance-check` |
+| 20 variants or new hooks for a winning ad | `varg-ad-variants` | `ad-creative-testing` |
+| Singing mascot, jingle or cartoon product ad | `varg-mascot-jingle-ad` | `varg-character-absurd` |
+| Translate or dub a video ad for other markets | `varg-ad-localize` | `varg-ad-variants` |
+| Clothing try-on video from a flat-lay | `varg-tryon-video` | `varg-character-design` |
 | Shorts from a long video / podcast recording | `clipify`, `herk-edit-kit` | `media-download` |
 | Podcast-style or two-character dialogue video (generated) | `varg-podcast-video` | `varg-ai` |
 | Captions on a video | `remotion-captions`, `iart-caption-animation` | |
