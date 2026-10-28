@@ -83,7 +83,17 @@ What we saw in the test (LED pet nail clipper, research page with $4.47 / $24.99
 
 If a number changes or smears in the video: make the key item bigger in the screenshot (zoom the browser), shorten the clip to 4 s, and cut the shot just before the pen covers the number. For text that must stay perfect for a long time (a long list, a dense table), film it for real or put the screenshot back on top in the edit for those frames.
 
-Drafts: `wan_3` costs about a quarter as much and is worth a try for motion tests, then the keeper on `seedance_2_5`. We only tested `seedance_2_5` for this shot (a `kling_v4` comparison job didn't finish within an hour that day).
+**Seedance 2.5 or Kling 4?** We ran the same first frame and prompt on both (5 s, 720p, 2026-10-27):
+
+| | `seedance_2_5` | `kling_v4` |
+|---|---|---|
+| Price | 193 credits | 79 credits |
+| Screen text | Big numbers sharp, small grey text slightly soft | All text sharp and static |
+| Pen path | Followed it | Followed it more exactly: $4.47 → $24.99 → $20.52 → down the chart |
+| Camera | Eased back a little | Steadier |
+| Problem | Took a verb like "circles" literally (drew on the screen) | Invented a small extra button in a corner of the screen for 2 s |
+
+Both are usable. Start with `kling_v4` (less than half the price) and switch to `seedance_2_5` for a shot Kling gets wrong. Check the corners of the screen for invented UI.
 
 ## 3. Cut it to the voice
 
