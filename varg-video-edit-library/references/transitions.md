@@ -6,6 +6,8 @@ Every way to join two shots: CapCut-style zooms, whips, glitches and masks, FFmp
 
 <a id="mix-dissolve"></a>The two shots blend through each other. The quietest transition: "time passes" or "this continues".
 
+Built on [Fade Through](https://github.com/heygen-com/hyperframes/tree/main/registry/components/fade-through) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A fades out while B fades in over the same frames; halfway both are at 50%.
 
 - **When:** Time passing, calm brand and wellness pieces, slideshow photos, soft scene changes.
@@ -73,6 +75,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="black-fade"></a>A fades to black, then B fades up. Marks the end of a section or a bigger jump in time.
 
+Built on [Fade Through](https://github.com/heygen-com/hyperframes/tree/main/registry/components/fade-through) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Picture darkens fully for a few frames, then the next shot rises out of black.
 
 - **When:** Chapter breaks, endings, before a title card, emotional pauses.
@@ -125,6 +129,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## White Flash
 
 <a id="white-flash"></a>The frame blows out to white for a moment and opens on the next shot. Energy, memory or a camera snap.
+
+Built on [Flash Through White](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/flash-through-white) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Overexposed white flash peaking on the cut, then B fades back from white.
 
@@ -192,6 +198,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="pull-in-zoom"></a>The camera rushes into shot A and lands, still moving forward, in shot B. The signature short-form transition.
 
+Built on [Zoom Through Transition](https://github.com/heygen-com/hyperframes/tree/main/registry/components/zoom-through-transition) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A scales up fast with motion blur; B starts enlarged and settles to 100%, so the zoom feels continuous.
 
 - **When:** Hooks, travel and fashion reels, going "into" a detail, on a beat.
@@ -257,6 +265,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="pull-out-zoom"></a>The camera jerks backwards out of shot A and keeps pulling back as shot B settles in.
 
+Built on [Parallax Unzoom](https://github.com/heygen-com/hyperframes/tree/main/registry/components/parallax-unzoom) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A shrinks away (over a blurred copy or black), B starts slightly enlarged and eases out to full frame.
 
 - **When:** Reveals, "zoom out to see the bigger picture", endings of a sequence.
@@ -304,6 +314,8 @@ Sources: [FFmpeg filters: overlay](https://ffmpeg.org/ffmpeg-filters.html#overla
 ## Zoom Blur
 
 <a id="zoom-blur"></a>Both shots smear into a radial zoom blur that bursts open on the next shot.
+
+Built on [CrossZoom](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/CrossZoom.glsl) by rectalogic (gl-transitions), MIT. The write-up and recipes are varg's.
 
 Streaks radiate from the centre, peak at the cut, then resolve sharply on B.
 
@@ -370,6 +382,8 @@ Sources: [Remotion: crossZoom (HTML-in-canvas)](https://www.remotion.dev/docs/tr
 
 <a id="whip-swipe"></a>A fast synthetic pan with heavy motion blur pushes A off and B in. Fakes a whip pan between any two shots.
 
+Built on [Whip Pan](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/whip-pan) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Both images streak sideways at high speed and the next shot snaps into place.
 
 - **When:** Travel, lifestyle, energetic product edits, on a whoosh SFX; matches footage that already moves sideways.
@@ -430,6 +444,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="spin-rotate"></a>The frame rotates fast around its centre (with blur) and comes out of the spin on the next shot.
 
+Built on [Revolve](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Revolve.glsl) by bread (gl-transitions), MIT. The write-up and recipes are varg's.
+
 A spins 90‚Äì360¬∞ and blurs; B spins in from the same direction and stops upright.
 
 - **When:** Party, music, playful and transformation edits; matches footage with rotating motion.
@@ -476,6 +492,8 @@ Sources: [FFmpeg filters: rotate](https://ffmpeg.org/ffmpeg-filters.html#rotate)
 
 <a id="camera-shake"></a>A short violent shake (often with a zoom) hits on the cut, like an impact or a bass hit.
 
+Built on [Camera Shake](https://github.com/heygen-com/hyperframes/tree/main/registry/components/camera-shake) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 The image jolts in x/y and slightly in scale for a few frames around the cut, then calms.
 
 - **When:** Drops, punches, slams, gaming and hype edits.
@@ -516,6 +534,8 @@ Sources: [FFmpeg filters: crop](https://ffmpeg.org/ffmpeg-filters.html#crop) ¬∑ 
 ## Glitch
 
 <a id="glitch-transition"></a>The frame tears into displaced slices, colour channels split and noise flickers as A breaks into B.
+
+Built on [Glitch](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/glitch) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Horizontal slice offsets, RGB fringes, block noise and a flicker for a few frames around the cut.
 
@@ -581,6 +601,8 @@ Sources: [FFmpeg filters: rgbashift](https://ffmpeg.org/ffmpeg-filters.html#rgba
 
 <a id="blur-transition"></a>A blurs out of focus, the shots swap at peak blur, and B pulls back into focus.
 
+Built on [Blur Transitions](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/transitions-blur) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Soft defocus (or a directional smear) hides the swap; like a lens racking between two scenes.
 
 - **When:** Calm, premium and lifestyle pieces; when two shots have very different colours.
@@ -639,6 +661,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Light Leak
 
 <a id="light-leak"></a>A warm wash of orange/red light drifts across and blows out the frame at the cut, then fades on B.
+
+Built on [Light Leak](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/light-leak) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Soft, organic colour flares (like film exposed to light) cover the cut and recede.
 
@@ -703,6 +727,8 @@ Sources: [Remotion: lightLeak() effect](https://www.remotion.dev/docs/effects/li
 
 <a id="film-burn"></a>Hot glowing holes or a flare burn across A like overheated film and reveal B.
 
+Built on [FilmBurn](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/FilmBurn.glsl) by anastasia-dunbar (gl-transitions), MIT. The write-up and recipes are varg's.
+
 Bright orange-white burn edges eat the frame; the next shot shows through the burnt areas.
 
 - **When:** Vintage, music video, documentary archive, dramatic chapter changes.
@@ -762,6 +788,8 @@ Sources: [Remotion: presentations](https://www.remotion.dev/docs/transitions/pre
 
 <a id="light-sweep"></a>A bright band or lens flare sweeps across the frame and the shot changes behind it.
 
+Built on [Light Transitions](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/transitions-light) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A diagonal streak of light crosses the image; at its brightest point A becomes B.
 
 - **When:** Product shots, luxury, beauty and logo reveals.
@@ -803,6 +831,8 @@ Sources: [Remotion: <TransitionSeries>](https://www.remotion.dev/docs/transition
 ## Chromatic Split
 
 <a id="chromatic-split"></a>Red, green and blue channels pull apart around the cut, then snap back together on the new shot.
+
+Built on [Chromatic Aberration Wipe](https://github.com/heygen-com/hyperframes/tree/main/registry/components/chromatic-aberration-wipe) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Colour ghosts offset horizontally or radially for a few frames, with a slight zoom.
 
@@ -856,6 +886,8 @@ Sources: [FFmpeg filters: rgbashift](https://ffmpeg.org/ffmpeg-filters.html#rgba
 ## Slide / Push
 
 <a id="slide-push"></a>B pushes A out of frame (push), slides over it (cover) or A slides away to reveal B (reveal).
+
+Built on [Directional Wipe](https://github.com/heygen-com/hyperframes/tree/main/registry/components/directional-wipe) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Hard-edged panels move in one direction; reads like swiping between cards or pages.
 
@@ -917,6 +949,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Wipe
 
 <a id="wipe"></a>A moving edge replaces A with B across the frame while both images stay still.
+
+Built on [Directional Wipe](https://github.com/heygen-com/hyperframes/tree/main/registry/components/directional-wipe) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A straight (or soft) line travels across; on one side A, on the other B.
 
@@ -980,6 +1014,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Circle Iris
 
 <a id="circle-iris"></a>B opens from (or A closes into) a growing circle, like an old-cartoon iris or a lens opening.
+
+Built on [SDF Iris](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/sdf-iris) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A circular window expands from the subject or the centre until B fills the frame.
 
@@ -1084,6 +1120,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="ink-brush"></a>An organic ink blot, brush stroke or smoke plume spreads over A and B shows through the painted area.
 
+Built on [Scribble Transition](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/hw-scribble-transition) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Irregular, hand-made edges bloom across the frame, unlike geometric wipes.
 
 - **When:** Art, travel, food, Asian-inspired themes, creative portfolios.
@@ -1127,6 +1165,8 @@ Sources: [@gl-transitions/remotion (README)](https://github.com/gl-transitions/g
 ## Gradient (Luma) Wipe
 
 <a id="luma-gradient-wipe"></a>B appears in the order of a grayscale map (gradient, noise or the image's own brightness).
+
+Built on [Domain Warp Dissolve](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/domain-warp-dissolve) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Dark-to-light areas switch first, giving soft, organic or shaped reveals instead of one straight edge.
 
@@ -1195,6 +1235,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="cube-3d"></a>Both shots sit on faces of a cube that turns, carrying A away and B into view.
 
+Built on [Cube](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Cube.glsl) by gre (gl-transitions), MIT. The write-up and recipes are varg's.
+
 Perspective rotation around a vertical (or horizontal) edge with the two shots as adjacent faces.
 
 - **When:** Slideshows, social carousels, playful product feature runs.
@@ -1241,6 +1283,8 @@ Sources: [@gl-transitions/remotion (README)](https://github.com/gl-transitions/g
 ## 3D Flip
 
 <a id="flip-3d"></a>The frame flips over like a card; its back side is the next shot.
+
+Built on [3D Transitions](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/transitions-3d) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A rotates 180¬∞ in perspective around the centre axis and B is revealed on the reverse.
 
@@ -1295,6 +1339,8 @@ Sources: [Remotion: presentations](https://www.remotion.dev/docs/transitions/pre
 
 <a id="page-turn"></a>Shot A peels or turns like a page and the next shot lies underneath.
 
+Built on [InvertedPageCurl](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/InvertedPageCurl.glsl) by hewlett-packard (gl-transitions), MIT. The write-up and recipes are varg's.
+
 A corner curls up (or the page swings around its spine), casting a light shadow on B.
 
 - **When:** Storytelling, scrapbooks, recipes, children's content, magazine looks.
@@ -1344,6 +1390,8 @@ Sources: [Remotion: presentations](https://www.remotion.dev/docs/transitions/pre
 
 <a id="split-slices"></a>The frame breaks into bars that slide apart or open like doors, revealing the next shot.
 
+Built on [Doorway](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Doorway.glsl) by gre (gl-transitions), MIT. The write-up and recipes are varg's.
+
 Two or more panels (horizontal, vertical or diagonal) move away from each other with B behind.
 
 - **When:** Tech, sport and editorial pieces; section openers.
@@ -1389,6 +1437,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="shutter-blinds"></a>Stripes close over A like blinds or a shutter, then open on B.
 
+Built on [Venetian Blinds](https://remocn.dev/r/venetian-blinds.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Repeated horizontal or vertical bars rotate or slide closed, then reopen on the new image.
 
 - **When:** Mechanical, clinical or retro tech looks; photo slideshows.
@@ -1429,6 +1479,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Pixelate
 
 <a id="pixelate-mosaic"></a>A breaks into ever larger pixels, swaps at the coarsest point, and B sharpens back.
+
+Built on [Pixelize](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Pixelize.glsl) by gre (gl-transitions), MIT. The write-up and recipes are varg's.
 
 Blocky mosaic grows then shrinks; reads as digital or retro gaming.
 
@@ -1474,6 +1526,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Clock Wipe
 
 <a id="clock-wipe"></a>A hand sweeps around the centre like a clock, replacing A with B.
+
+Built on [Radial Transitions](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/transitions-radial) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A radial edge rotates 360¬∞ from 12 o'clock; Windmill uses several blades.
 
@@ -1527,6 +1581,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="swirl-vortex"></a>A twists into a spiral at the centre and unwinds as B.
 
+Built on [Swirl](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Swirl.glsl) by sergey-kosarevsky (gl-transitions), MIT. The write-up and recipes are varg's.
+
 Pixels spin around the centre with increasing strength, then release onto the new shot.
 
 - **When:** Dream sequences, flashbacks, magic, playful kids' content.
@@ -1575,6 +1631,8 @@ Sources: [@gl-transitions/remotion (README)](https://github.com/gl-transitions/g
 
 <a id="squeeze-stretch"></a>A is squashed or stretched toward an edge or the centre and B springs out the same way.
 
+Built on [Rubber Band Bumper](https://github.com/heygen-com/hyperframes/tree/main/registry/components/rubber-band-bumper) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Rubbery scaling along one axis, like the image being sucked in or pulled like elastic.
 
 - **When:** Playful, cartoonish and meme edits; app UI demos.
@@ -1617,6 +1675,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Ripple and Wave
 
 <a id="ripple-wave"></a>Rings or waves distort the frame like water while the shots crossfade.
+
+Built on [WaterDrop](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/WaterDrop.glsl) by pawel-plociennik (gl-transitions), MIT. The write-up and recipes are varg's.
 
 Concentric ripples or sideways waves bend the image; the swap happens inside the distortion.
 
@@ -1678,6 +1738,8 @@ Sources: [Remotion: presentations](https://www.remotion.dev/docs/transitions/pre
 
 <a id="freeze-transition"></a>Trend: freeze on a frame with a flash, cut out or zoom the subject, add a label, then cut to the next shot.
 
+Built on [Beat Freeze Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/beat-freeze-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Motion stops with a white flash, the subject pops (outline, cut-out, zoom or paper texture), a beat later the edit moves on.
 
 - **When:** Friend-group intros, sports highlights, outfit reveals, "that's me" memes, on a beat hit.
@@ -1721,6 +1783,8 @@ Sources: [FFmpeg filters: tpad](https://ffmpeg.org/ffmpeg-filters.html#tpad) ¬∑ 
 ## Velocity Edit
 
 <a id="velocity-edit"></a>Trend: speed curves on every clip (fast-slow-fast) synced to the beat, often with shake and flash on hits.
+
+Built on [Beat Freeze Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/beat-freeze-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Each clip rushes in, drops into slow motion on the beat and rushes out; transitions are hidden in the fast parts.
 
@@ -1870,6 +1934,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="gl-transitions-ffmpeg-editly"></a>Run any of the ~125 GLSL gl-transitions between clips: editly (no custom build) or a patched FFmpeg.
 
+Built on [Cube](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Cube.glsl) by gre (gl-transitions), MIT. The write-up and recipes are varg's.
+
 Cube, page curl, doorway, morph, burn, glitch and other shader transitions xfade cannot do.
 
 - **When:** Server-side batch renders that need 3D or organic transitions without a browser.
@@ -2013,6 +2079,8 @@ Sources: [Remotion: custom presentations](https://www.remotion.dev/docs/transiti
 
 <a id="remotion-gl-transitions"></a>glTransition({name}) turns any gl-transitions shader into a TransitionSeries presentation.
 
+Built on [Cube](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Cube.glsl) by gre (gl-transitions), MIT. The write-up and recipes are varg's.
+
 Cube, page curl, doorway, morph, burn, kaleidoscope‚Ä¶ between any React scenes.
 
 - **When:** Remotion projects needing transitions beyond @remotion/transitions.
@@ -2058,6 +2126,8 @@ Sources: [@gl-transitions/remotion (README)](https://github.com/gl-transitions/g
 ## HyperFrames Shader Transition
 
 <a id="hyperframes-shader-transition"></a>Place a WebGL shader between two HyperFrames scenes with HyperShader.init({scenes, transitions}).
+
+Built on [Domain Warp Dissolve](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/domain-warp-dissolve) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 14 shaders: domain-warp, ridged-burn, whip-pan, sdf-iris, ripple-waves, gravitational-lens, cinematic-zoom, chromatic-split, glitch, swirl-vortex, thermal-distortion, flash-through-white, cross-warp-morph, light-leak.
 
@@ -2113,6 +2183,8 @@ Sources: [HyperFrames: @hyperframes/shader-transitions](https://hyperframes.heyg
 
 <a id="hyperframes-scene-transition"></a>Overlap two clips or sub-compositions on separate tracks and tween both wrappers at the same time T.
 
+Built on [Fade Through](https://github.com/heygen-com/hyperframes/tree/main/registry/components/fade-through) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Crossfade, push, zoom-through, blur, iris or any CSS move between scenes or videos.
 
 - **When:** Every multi-scene HyperFrames video; video clips need opacity plus matching volume envelopes.
@@ -2153,6 +2225,8 @@ Sources: [HyperFrames: data attributes](https://hyperframes.heygen.com/concepts/
 ## HyperFrames Whip with Motion Blur
 
 <a id="hyperframes-whip-motion-blur"></a>Fly scene A out and scene B in at matched velocity with directional blur peaking at the swap.
+
+Built on [Whip Pan Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/components/whip-pan-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A camera-like whip: both scenes travel the same way, blur peaks mid-move, B lands sharp.
 
@@ -2279,6 +2353,8 @@ Sources: [DaVinci Resolve scripting API 21.1 README mirror](https://github.com/W
 
 <a id="xfade-cover-reveal"></a>B slides in over a still A (cover), or A slides away to uncover B (reveal). Variants: cover*/reveal* in four directions.
 
+Built on [Cover Transitions](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/transitions-cover) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 One shot stays put while the other moves over or off it, like a card sliding over a card.
 
 - **When:** Stacking scenes in a product walkthrough, deck-style explainers, card-based layouts.
@@ -2316,6 +2392,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="xfade-smooth-wipe"></a>A wipe with a wide, feathered edge so the two shots blend along a gradient. Variants: smoothleft/right/up/down.
 
+Built on [Colorama Wipe](https://github.com/heygen-com/hyperframes/tree/main/registry/components/colorama-wipe) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A blurred band moves across the frame, mixing A and B inside it.
 
 - **When:** When a hard wipe is too graphic but a dissolve is too slow: travel, landscapes, lifestyle b-roll.
@@ -2352,6 +2430,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Circle Crop Through Black
 
 <a id="xfade-circle-crop"></a>A closes to a circle on black, then B opens from it ‚Äî the cartoon ‚Äúthat‚Äôs all folks‚Äù beat.
+
+Built on [Iris Wipe](https://remocn.dev/r/iris-wipe.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 The frame shrinks to a circle, the screen goes black, and a circle grows into the next shot.
 
@@ -2423,6 +2503,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="xfade-distance"></a>A blend that swaps pixels by how different their colours are, so similar areas change first.
 
+Built on [Cross Warp Morph](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/cross-warp-morph) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Shapes of B emerge where A and B already share colours, then the rest follows: a soft, organic morph.
 
 - **When:** Two shots with matching palettes or composition: sky to sky, face to face.
@@ -2457,6 +2539,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="xfade-pixel-dissolve"></a>A dithered dissolve: B appears pixel by pixel in random noise instead of a smooth fade.
 
+Built on [Dither Dissolve](https://remocn.dev/r/dither-dissolve.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Speckles of the new shot spread over the old one like digital noise until it is gone.
 
 - **When:** Retro, glitchy or game-styled edits; a lo-fi alternative to a cross dissolve.
@@ -2490,6 +2574,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Diagonal Wipe
 
 <a id="xfade-diagonal-wipe"></a>A wipe that enters from a corner on a diagonal. Variants: diagtl, diagtr, diagbl, diagbr.
+
+Built on [DirectionalWarp](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/DirectionalWarp.glsl) by pschroen (gl-transitions), MIT. The write-up and recipes are varg's.
 
 A slanted edge sweeps from one corner to the opposite one.
 
@@ -2592,6 +2678,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 
 <a id="xfade-zoom-in"></a>A scales up toward the viewer and fades, revealing B ‚Äî the simple FFmpeg version of a zoom transition.
 
+Built on [Zoom Through Transition](https://github.com/heygen-com/hyperframes/tree/main/registry/components/zoom-through-transition) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 The first shot grows past the frame while the second shows through.
 
 - **When:** A quick push forward between scenes when you can‚Äôt add motion blur.
@@ -2629,6 +2717,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) ¬
 ## Wind Wipe
 
 <a id="xfade-wind"></a>A ragged, streaky wipe that blows A off the screen. Variants: hlwind, hrwind, vuwind, vdwind.
+
+Built on [Wind](https://github.com/gl-transitions/gl-transitions/blob/master/transitions/Wind.glsl) by gre (gl-transitions), MIT. The write-up and recipes are varg's.
 
 The edge of the wipe is torn into horizontal streaks as if the wind took the frame.
 

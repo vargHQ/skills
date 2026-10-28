@@ -33,6 +33,8 @@ allowed-tools: Bash(ffmpeg:*) Bash(ffprobe:*) Bash(npx:*) Read
 
 Named edits for footage you already have. Every take in `references/` gives the look, when to reach for it, the mistake people make with it, timings, and a recipe per engine: FFmpeg for flat files, HyperFrames (HTML + GSAP) or Remotion (React) when the edit is a composition, and the CapCut path when a person will finish the edit in the app. The cards with previews live at https://skills.varg.ai/browse/edit-video/.
 
+Most takes are built on open components from other people's libraries: HyperFrames by HeyGen, remocn, GL Transitions, Magic UI, Aceternity UI, Fancy, Codrops and others. Each take names its component, author and license; keep that credit when you use it.
+
 ## How to use it
 
 1. **Name the take before you build it.** Read the person's ask ("make the logo pop at the end", "zoom into the button when I click") and find the take in the index below. Open only that reference file.

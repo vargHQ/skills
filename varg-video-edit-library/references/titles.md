@@ -8,6 +8,8 @@ On-screen words carry the story when sound is off, so every title must be readab
 
 <a id="kicker-headline-rise"></a>A small mono kicker fades in, then the headline rises word by word from a soft blur.
 
+Built on [Titlecard Calm](https://github.com/heygen-com/hyperframes/tree/main/registry/components/titlecard-calm) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A tiny uppercase label ("NEW · AGENTS") sits above a large grotesque headline. Words lift 20–40 px and clear from blur in a short stagger.
 
 - **When:** Open a chapter or name a feature before its demo. It works over a plain backdrop or over darkened footage.
@@ -58,6 +60,8 @@ Sources: [Text animation for readability: kinetic type without overcomplication]
 
 <a id="rotating-benefit-word"></a>A fixed phrase holds while one word in it cycles through benefits, uses or audiences.
 
+Built on [Flip Words](https://ui.aceternity.com/components/flip-words) by aceternity, Aceternity License (free components). The write-up and recipes are varg's.
+
 "Built for [designers]" with the bracketed word flipping to developers, marketers, founders. The slot resizes so the line stays centered.
 
 - **When:** Show that one product serves many people or jobs without cutting to new title cards.
@@ -97,6 +101,8 @@ Sources: [Kinetic typography without After Effects (plan ~2 words per second)](h
 ## Masked Line Reveal
 
 <a id="masked-line-reveal"></a>Each line slides up out of an invisible slot, so the type looks cut from the frame.
+
+Built on [Vertical Cut Reveal](https://github.com/danielpetho/fancy/blob/main/src/fancy/components/text/vertical-cut-reveal.tsx) by fancy, MIT. The write-up and recipes are varg's.
 
 Lines rise from behind a hard mask edge with no blur or fade, one after another, then exit upward the same way.
 
@@ -138,6 +144,8 @@ Sources: [GSAP docs: SplitText](https://gsap.com/docs/v3/Plugins/SplitText) · [
 ## Marker on the Key Phrase
 
 <a id="marker-highlight-phrase"></a>A marker band draws behind the one phrase that matters while the rest of the line stays calm.
+
+Built on [Inline Highlight](https://github.com/heygen-com/hyperframes/tree/main/registry/components/inline-highlight) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A sentence holds still; a flat or hand-drawn colored band sweeps left to right behind two or three words, and their color shifts to match.
 
@@ -181,6 +189,8 @@ Sources: [Text animation for readability: kinetic type without overcomplication]
 
 <a id="strike-and-replace"></a>A line strikes through the old way, then the new word takes its place.
 
+Built on [Strikethrough Replace](https://github.com/heygen-com/hyperframes/tree/main/registry/components/strikethrough-replace) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 "12 months" gets a red line drawn across it and drops away; "2 weeks" lifts into the same spot in the accent color.
 
 - **When:** Frame the before/after promise: old cost vs new cost, old workflow vs new.
@@ -218,6 +228,8 @@ Sources: [Bohdan Motion: Secureframe launch video, one pain per scene](https://x
 ## Clean Lower Third
 
 <a id="clean-lower-third"></a>Name and role slide in at the lower left on a quiet bar, hold 3–5 s, then wipe out.
+
+Built on [Lower Third — Clean Bar](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/lt-clean-bar) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A white or charcoal card with an accent tab; name in bold, role in a lighter weight at 60–80% size. Enters with a clip wipe, not a bounce.
 
@@ -270,6 +282,8 @@ Sources: [TechSmith: the complete guide to lower thirds](https://www.techsmith.c
 
 <a id="hand-drawn-callout-arrow"></a>A wobbly arrow draws itself from a short label to the exact button or number on screen.
 
+Built on [Hand-Drawn Arrow](https://github.com/heygen-com/hyperframes/tree/main/registry/components/hw-arrow) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A marker-style stroke with a slight boil travels from a two-word note in the margin to the UI target; the head lands last.
 
 - **When:** Point at a small detail in a UI shot that the viewer would otherwise miss.
@@ -311,6 +325,8 @@ Sources: [Text animation for readability: kinetic type without overcomplication]
 ## Dim Everything But the Target
 
 <a id="dim-around-spotlight"></a>The frame darkens except a soft ellipse around the element being talked about.
+
+Built on [Feathered Spotlight](https://github.com/heygen-com/hyperframes/tree/main/registry/components/yt-feather-highlight) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A feathered hole in a 50–70% black layer opens over one card, field or chart bar; optional thin ring and label beside it.
 
@@ -356,6 +372,8 @@ Sources: [Trainn: how to add zoom effects to product demo videos](https://trainn
 
 <a id="impact-headline-slam"></a>A heavy headline scales down hard into frame and lands with a 2–3 frame shake.
 
+Built on [Headline Slam](https://github.com/heygen-com/hyperframes/tree/main/registry/components/headline-slam) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Condensed black type arrives from 140% scale with motion blur, stops dead, the frame jolts once, then everything is still.
 
 - **When:** The single loudest claim in a hype cut, or the product name on the music drop.
@@ -395,6 +413,8 @@ Sources: [Jamie on X: SFX breakdown of a launch video](https://x.com/jamiesmotio
 
 <a id="center-build-phrase"></a>Words arrive one at a time and push the growing phrase so it always sits centered.
 
+Built on [Kinetic Center Build](https://github.com/heygen-com/hyperframes/tree/main/registry/components/kinetic-center-build) by Remocn (hyperframes), Apache-2.0. The write-up and recipes are varg's.
+
 First word lands center; each next word drives in from the right and shoves the line left until the full phrase locks center.
 
 - **When:** Say the tagline in sync with the voiceover, word for word.
@@ -432,6 +452,8 @@ Sources: [Kinetic typography without After Effects (plan ~2 words per second)](h
 ## Specular Sweep Title
 
 <a id="specular-sweep-title"></a>A static title receives one clean light sweep through its glyphs, then rests.
+
+Built on [Text Shimmer](https://github.com/heygen-com/hyperframes/tree/main/registry/components/text-shimmer) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A narrow white gradient band passes diagonally through the letters once, like light catching a metal logo.
 
@@ -475,6 +497,8 @@ Sources: [NewscastStudio: Apple brings its aesthetic to a sports graphics packag
 
 <a id="decode-in-tech-title"></a>Random glyphs churn and lock into the real word from left to right.
 
+Built on [Matrix Decode](https://github.com/heygen-com/hyperframes/tree/main/registry/components/matrix-decode) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Monospace characters flicker through symbols and settle one by one into the product or feature name.
 
 - **When:** Developer tools, security, AI or infra products; feature names that are code-like.
@@ -514,6 +538,8 @@ Sources: [SVGator: kinetic typography, a guide to text in motion](https://www.sv
 
 <a id="footage-inside-letters"></a>Huge block letters act as windows onto playing product footage or a demo clip.
 
+Built on [Video Text](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/video-text.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
+
 Full-bleed heavy type on black or white; the product video plays only through the letterforms.
 
 - **When:** Open a launch film with the product name, or bridge into a demo by expanding the letters.
@@ -550,6 +576,8 @@ Sources: [Lago: we killed our motion design job (Linear-style films, Remotion)](
 ## Tracking-In Feature Label
 
 <a id="tracking-in-label"></a>Wide-spaced letters draw together into a tight, crisp label as the blur clears.
+
+Built on [Tracking In](https://github.com/heygen-com/hyperframes/tree/main/registry/components/tracking-in) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A short label starts with very wide tracking and soft blur, then closes to normal spacing with a tiny spring.
 

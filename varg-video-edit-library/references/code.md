@@ -8,6 +8,8 @@ Code on screen should be short, large and focused: 8–12 visible lines, a real 
 
 <a id="editor-types-the-code"></a>Syntax-highlighted code types into an editor window with a caret riding the frontier.
 
+Built on [Code Typing](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/code-typing) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A real editor theme (VS Code dark), line numbers, the caret moving with human chunks rather than one char per frame.
 
 - **When:** Show how little code it takes: SDK usage, API calls, config.
@@ -47,6 +49,8 @@ Sources: [Remotion template: Code Hike](https://remotion.dev/templates/code-hike
 
 <a id="red-green-diff"></a>Removed lines flash red and collapse away while added lines expand in green.
 
+Built on [Code Diff](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/code-diff) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Unified diff in an editor frame: red lines shrink in height to zero, green lines grow from zero with a left gutter bar.
 
 - **When:** Show an AI fix, a migration or a one-line config change.
@@ -85,6 +89,8 @@ Sources: [Remotion template: Code Hike](https://remotion.dev/templates/code-hike
 
 <a id="spotlight-one-line"></a>A highlight band sweeps onto the one line that matters while the rest of the file dims.
 
+Built on [Code Highlight Sweep](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/code-highlight) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Other lines drop to ~35% opacity, the target line gets a soft accent band and full brightness; optional callout label at the right.
 
 - **When:** Explain the key line of an SDK example or the fix inside a long function.
@@ -121,6 +127,8 @@ Sources: [Slidev: Shiki Magic Move (800 ms default)](https://sli.dev/features/sh
 
 <a id="code-morphs-versions"></a>One snippet transforms into the next: shared tokens glide to new positions, removed ones fade, new ones fade in.
 
+Built on [Code Morph](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/code-morph) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Like Keynote Magic Move for code: the editor never cuts, tokens slide on smooth paths.
 
 - **When:** Step-by-step tutorials and "before → after" refactors; showing an API getting simpler.
@@ -156,6 +164,8 @@ Sources: [Anthony Fu: Shiki Magic Move](https://antfu.me/posts/shiki-magic-move)
 ## Terminal Session Run
 
 <a id="terminal-session-run"></a>A terminal types a command, then streams real-looking log output with green checks.
+
+Built on [Terminal Simulator](https://github.com/heygen-com/hyperframes/tree/main/registry/components/terminal-simulator) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Dark terminal with traffic lights, prompt types at human speed, output lines roll in faster, old lines scroll off the top.
 
@@ -203,6 +213,8 @@ Sources: [charmbracelet/vhs: terminal recordings as code (TypingSpeed, Sleep)](h
 
 <a id="one-line-install-card"></a>A single install command types into a small terminal card, prints a success check, and holds.
 
+Built on [Terminal](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/terminal.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
+
 Compact terminal (or pill) with `npx … add` typing, a green ✓ line, and a copy icon; centered with lots of air.
 
 - **When:** End of a developer video, right before or as the CTA.
@@ -247,6 +259,8 @@ Sources: [charmbracelet/vhs: terminal recordings as code (TypingSpeed, Sleep)](h
 
 <a id="camera-scrolls-long-file"></a>The view scrolls through a long file and stops with the target line centered and lit.
 
+Built on [Code Scroll To Line](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/code-scroll) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Smooth decelerating scroll with slight motion blur, then a spotlight on the destination line.
 
 - **When:** Walk through a real codebase file or show scale ("this is all generated").
@@ -290,6 +304,8 @@ Sources: [Remotion template: Code Hike](https://remotion.dev/templates/code-hike
 
 <a id="code-left-ui-right"></a>Code types on the left and the UI on the right snaps to match after each change.
 
+Built on [Live Code Compilation](https://remocn.dev/r/live-code-compilation.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Two panes: editor and preview. Each typed edit triggers a quick flash/update on the preview side.
 
 - **When:** Frameworks, UI libraries, design-to-code and AI coding tools.
@@ -328,6 +344,8 @@ Sources: [Cursor 3 Design Mode and its launch video](https://pasqualepillitteri.
 
 <a id="code-on-3d-slab"></a>Highlighted code sits on a beveled slab that turns through space under studio light, then faces the camera.
 
+Built on [Code 3D Extrude](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/code-3d-extrude) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Thick glassy or dark slab, specular light sliding across, code crisp on the face; optional particles assembling into the glyphs.
 
 - **When:** Hero shot of an SDK or API in a launch film; title beat for developer products.
@@ -365,6 +383,8 @@ Sources: [Remotion template: Code Hike](https://remotion.dev/templates/code-hike
 ## Agent CLI Welcome Screen
 
 <a id="agent-cli-welcome"></a>A coding agent's terminal welcome screen appears, a prompt types, and the agent starts working.
+
+Built on [Claude Code](https://remocn.dev/r/claude-code.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 Dashed welcome box with the tool name, a prompt line typing the task, then status lines and file edits streaming.
 

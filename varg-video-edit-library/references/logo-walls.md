@@ -8,6 +8,8 @@ Logos signal trust only when they look like one calm group: monochrome, equal op
 
 <a id="trusted-by-marquee"></a>A row of monochrome customer logos glides sideways in a seamless loop under a short line.
 
+Built on [Infinite Slider](https://github.com/ibelick/motion-primitives/blob/main/components/core/infinite-slider.tsx) by motion-primitives, MIT. The write-up and recipes are varg's.
+
 Logos in one color (white on dark, grey on light) at equal optical height, even gaps, faded edges, slow constant speed.
 
 - **When:** After the hook or before the CTA, as quiet credibility.
@@ -54,6 +56,8 @@ Sources: [Genesys Growth: designing customer logo walls](https://genesysgrowth.c
 
 <a id="logo-grid-settles"></a>Logos fade and scale into a tidy grid with a soft stagger, then hold for a beat.
 
+Built on [Logo Wall](https://github.com/heygen-com/hyperframes/tree/main/registry/components/logo-wall) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 3×3 or 4×2 grid, equal cell sizes, monochrome marks, thin dividers or none; one row at a time.
 
 - **When:** A static "used by" moment where you want logos recognized, not just sensed.
@@ -90,6 +94,8 @@ Sources: [Genesys Growth: designing customer logo walls](https://genesysgrowth.c
 ## Integrations Orbit the Logo
 
 <a id="integrations-orbit"></a>App icons circle your logo on one or two thin rings turning in opposite directions.
+
+Built on [Orbiting Circles](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/orbiting-circles.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
 
 Your mark centered; partner icons in small round chips on faint rings; inner ring clockwise, outer counter-clockwise, slow.
 
@@ -128,6 +134,8 @@ Sources: [Bohdan Motion: breakdown of the Replit Design launch video](https://x.
 ## Partner × Partner Lockup
 
 <a id="partner-lockup"></a>Two logos slide together from opposite sides and lock around a thin × or + mark.
+
+Built on [Logo Brand Close](https://github.com/heygen-com/hyperframes/tree/main/registry/components/logo-brand-close) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Equal optical size, a hairline separator or ×; both marks resolve from blur to sharp at the same moment.
 
@@ -171,6 +179,8 @@ Sources: [Huemor: logo bar](https://huemor.rocks/glossary/logo-bar/)
 
 <a id="brand-chips-spring-in"></a>Round brand chips pop in one by one with a spring and overlap into a tidy stack.
 
+Built on [Logo Enter](https://remocn.dev/r/logo-enter.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
+
 Circular chips with white borders, each overlapping the last by ~25%, springing from 0 to 1 scale.
 
 - **When:** "Supports GPT, Claude, Gemini…" or "Used at" beats when space is tight (lower third, corner).
@@ -209,6 +219,8 @@ Sources: [Bohdan Motion: breakdown of the Replit Design launch video](https://x.
 
 <a id="model-logos-float-past"></a>Partner or model logos drift past on a tilted plane, sharp near the camera and blurred toward the horizon.
 
+Built on [Perspective Marquee](https://github.com/heygen-com/hyperframes/tree/main/registry/components/perspective-marquee) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A 3D-tilted marquee of logos receding into depth with depth-of-field blur; slow, cinematic.
 
 - **When:** Outros that say "not locked into one vendor" or show a broad ecosystem.
@@ -244,6 +256,8 @@ Sources: [Bohdan Motion: breakdown of the Replit Design launch video](https://x.
 ## Integration Logos Light Up
 
 <a id="integration-logos-light-up"></a>A grid of integration tiles sits dim; each lights with a traveling border glow as the narration names it.
+
+Built on [Constellation Hub](https://github.com/heygen-com/hyperframes/tree/main/registry/components/constellation-hub) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Muted tiles with a thin bright segment racing around the active tile's border; the logo brightens to full color.
 

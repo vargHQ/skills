@@ -8,6 +8,8 @@ The ending does one job: tell the viewer the single next step. A good end card r
 
 <a id="logo-lockup-outro"></a>The mark assembles, the wordmark settles beside it, then tagline and URL fade in under it.
 
+Built on [Logo Outro](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/logo-outro) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Centered lockup on the film's backdrop; one soft glow bloom, tagline one size down, URL smallest and last.
 
 - **When:** The last 3–5 s of any launch or product film.
@@ -56,6 +58,8 @@ Sources: [Bohdan Motion: breakdown of the Grok Build Mode launch video](https://
 
 <a id="action-line-cta-button"></a>One short action line lands, then a real-looking button pops in under it with a soft glow.
 
+Built on [CTA Lockup](https://github.com/heygen-com/hyperframes/tree/main/registry/components/cta-lockup) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 "Start building today" in display type; a pill button with the exact CTA ("Try free") pops with a glow and an optional cursor click.
 
 - **When:** Any film whose goal is a sign-up, demo booking or download.
@@ -94,6 +98,8 @@ Sources: [Bohdan Motion: Secureframe launch video, one pain per scene](https://x
 ## URL Typed Into the Address Bar
 
 <a id="url-typed-in-bar"></a>A browser bar appears and the product URL types itself in, then the page loads into the hero.
+
+Built on [Safari](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/safari.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
 
 A clean Safari/Chrome bar centered on the backdrop; characters type with a caret; Enter press; the landing page fills the window.
 
@@ -135,6 +141,8 @@ Sources: [Bohdan Motion: breakdown of the Replit Design launch video](https://x.
 ## YouTube End Screen Layout
 
 <a id="youtube-end-screen"></a>A 5–20 s outro with clean empty slots for YouTube's clickable video and subscribe elements.
+
+Built on [Rounded Media Grid](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/mk-placeholder-grid) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Simple, calm backdrop; two 16:9 boxes and one circle reserved where YouTube places elements; a short spoken or written ask.
 
@@ -184,6 +192,8 @@ Sources: [YouTube Help: Add end screens to videos](https://support.google.com/yo
 
 <a id="scan-to-try-qr"></a>A high-contrast QR code with a one-line reason to scan, held long enough to grab a phone.
 
+Built on [Camera Scan Gate](https://github.com/heygen-com/hyperframes/tree/main/registry/components/camera-scan-gate) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Black-on-white QR (≥300 px on 1080p) on a card with a light border beam; "Scan to try free" beside it; logo small above.
 
 - **When:** Event screens, keynotes, TV/CTV spots and any video shown on a big screen.
@@ -227,6 +237,8 @@ Sources: [QRStuff: best practices for QR codes on TV commercials](https://www.qr
 
 <a id="store-badges-close"></a>A short headline settles above equal-size App Store and Google Play badges, often beside a phone.
 
+Built on [Store Badge Lockup](https://github.com/heygen-com/hyperframes/tree/main/registry/components/store-badge-lockup) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Two official badges at identical height, centered under the line; a phone with the app's home screen to one side.
 
 - **When:** Mobile app launches and app ads.
@@ -263,6 +275,8 @@ Sources: [Bohdan Motion: breakdown of the Grok Build Mode launch video](https://
 ## Pull Back to the Whole Canvas
 
 <a id="pull-back-to-canvas"></a>The camera pulls out from the last detail to the whole product workspace, then lands on the logo.
+
+Built on [Parallax Unzoom](https://github.com/heygen-com/hyperframes/tree/main/registry/components/parallax-unzoom) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 One long decelerating zoom-out: the last screen shrinks into a grid of everything shown, then the grid dims behind the logo.
 
@@ -309,6 +323,8 @@ Sources: [Bohdan Motion: breakdown of the Claude Design launch video](https://x.
 
 <a id="follow-card-sign-off"></a>A profile card with avatar, handle and a Follow button that a cursor or tap presses.
 
+Built on [Instagram Follow](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/instagram-follow) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Platform-faithful card (X, TikTok, Instagram) springs in; the Follow button flips to Following with a tick.
 
 - **When:** Founder-led launches and build-in-public clips where the account is the CTA.
@@ -347,6 +363,8 @@ Sources: [Y Combinator: Farza's launch video playbook (first 10 seconds, hooks)]
 ## Last Frame Equals First Frame
 
 <a id="loop-to-first-frame"></a>The ending morphs back into the opening frame so autoplaying feeds loop without a visible seam.
+
+Built on [Logo Sting](https://github.com/heygen-com/hyperframes/tree/main/registry/components/logo-sting) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 The final logo or shape contracts into exactly the pose the film opened on; one flash or chrome glint hides the joint.
 

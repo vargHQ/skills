@@ -8,6 +8,8 @@ Grids and carousels show breadth fast; they work when one element leads and the 
 
 <a id="bento-feature-grid"></a>Features land in a grid of differently sized rounded tiles — one hero tile, smaller supporting ones.
 
+Built on [Rounded Media Grid](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/mk-placeholder-grid) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Apple-style bento: 1 large + 3–5 small tiles, generous gaps, each tile one idea (icon, number or mini UI); tiles assemble in a stagger.
 
 - **When:** Recap of features near the end, or the "everything you get" beat.
@@ -46,6 +48,8 @@ Sources: [SaaSFrame: understanding the bento layout trend](https://www.saasframe
 ## Camera Drifts Across a Bento
 
 <a id="camera-drifts-bento"></a>An oversized grid of screenshots fills the frame and the camera drifts diagonally across it.
+
+Built on [Infinite Bento Pan](https://remocn.dev/r/infinite-bento-pan.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 Grid larger than the frame, slight tilt, vignette on edges; tiles may lift as the camera passes.
 
@@ -86,6 +90,8 @@ Sources: [SaaSFrame: understanding the bento layout trend](https://www.saasframe
 
 <a id="tilted-screenshot-wall"></a>A wall of screenshots seen at an isometric angle, columns scrolling up and down at different speeds.
 
+Built on [3D Marquee](https://ui.aceternity.com/components/3d-marquee) by aceternity, Aceternity License (free components). The write-up and recipes are varg's.
+
 Dozens of product screenshots in rotated columns; alternating scroll directions; a dark gradient fades the wall at the top and bottom.
 
 - **When:** Show breadth — many templates, pages or outputs — behind a title or CTA.
@@ -123,6 +129,8 @@ Sources: [Bohdan Motion: breakdown of the Replit Design launch video](https://x.
 
 <a id="stacked-cards-fan"></a>A pile of cards or photos shuffles, then fans or settles one forward into focus.
 
+Built on [Image Stack Intro Animation](https://github.com/codrops/ImageStackGrid) by codrops, MIT (per demo repo). The write-up and recipes are varg's.
+
 Slightly rotated stacked cards with shadows; the top card lifts, others fan behind it, then one lands framed.
 
 - **When:** Show several examples or customers, then pick one to explore.
@@ -159,6 +167,8 @@ Sources: [Jitter template: The Edit, product launch](https://jitter.video/templa
 ## App Screens on a Rail
 
 <a id="app-screens-on-rail"></a>Two to five app screens ride a horizontal rail: one centered and sharp, neighbors smaller and receded.
+
+Built on [Screen Flow Carousel](https://github.com/heygen-com/hyperframes/tree/main/registry/components/screen-flow-carousel) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Phone-sized screens in a row; the rail slides with momentum and snaps the next screen to center with a small overshoot.
 
@@ -198,6 +208,8 @@ Sources: [Rotato: 14 video mockup ideas and examples](https://rotato.app/blog/mo
 
 <a id="cards-orbit-ring"></a>Image cards ride a circle, larger in front and smaller behind, sweeping fast-slow-fast.
 
+Built on [Circling Elements](https://github.com/danielpetho/fancy/blob/main/src/fancy/components/blocks/circling-elements.tsx) by fancy, MIT. The write-up and recipes are varg's.
+
 Cards upright on an elliptical path with depth scaling and fade; the front card pauses briefly at center.
 
 - **When:** Showcase outputs, templates or styles in a playful but tidy way.
@@ -234,6 +246,8 @@ Sources: [Rotato: 14 video mockup ideas and examples](https://rotato.app/blog/mo
 ## Rapid Screenshot Burst
 
 <a id="rapid-screenshot-burst"></a>Full-screen images slam in one on top of another on the beat, landing on the final hero shot.
+
+Built on [Rapid Image Layers Animation](https://github.com/codrops/RapidLayersAnimation) by codrops, MIT (per demo repo). The write-up and recipes are varg's.
 
 6–12 images, each held 2–4 frames, slight scale punch per layer, then the last one holds and settles.
 
@@ -279,6 +293,8 @@ Sources: [Jamie on X: SFX breakdown of a launch video](https://x.com/jamiesmotio
 
 <a id="opposing-marquee-rows"></a>Rows of tiles scroll sideways at different speeds and directions under a title.
 
+Built on [Simple Marquee](https://github.com/danielpetho/fancy/blob/main/src/fancy/components/blocks/simple-marquee.tsx) by fancy, MIT. The write-up and recipes are varg's.
+
 Three rows of rounded tiles (templates, outputs) moving left, right, left at 1×, 0.7×, 1.2×; edges fade.
 
 - **When:** Background for a title or end card that needs life without stealing focus.
@@ -315,6 +331,8 @@ Sources: [Magic UI: Marquee](https://magicui.design/docs/components/marquee)
 ## Filmstrip on a Curve
 
 <a id="filmstrip-on-curve"></a>A ribbon of thumbnails snakes along a curved path across the frame.
+
+Built on [Marquee Along SVG Path](https://github.com/danielpetho/fancy/blob/main/src/fancy/components/blocks/marquee-along-svg-path.tsx) by fancy, MIT. The write-up and recipes are varg's.
 
 Tiles follow an S or arc path, rotating to its tangent, with depth scaling where the curve comes forward.
 

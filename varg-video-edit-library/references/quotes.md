@@ -8,6 +8,8 @@ Proof works when it is real and short: one strong sentence, a name and role or h
 
 <a id="tweet-proof-card"></a>A real post from a user animates in as a card: avatar, name, text, then counts tick up.
 
+Built on [X Post Card](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/x-post) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A clean X-style card floats over a blurred UI or gradient; text reveals at reading pace, likes and reposts count up last.
 
 - **When:** Right after a feature demo, as proof that real people already use it.
@@ -51,6 +53,8 @@ Sources: [Vercel: introducing react-tweet](https://vercel.com/blog/introducing-r
 
 <a id="quote-at-reading-pace"></a>One strong customer sentence reveals word by word, then the name, role and avatar settle under it.
 
+Built on [Testimonial Card](https://github.com/heygen-com/hyperframes/tree/main/registry/components/testimonial-card) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Large serif or grotesque quote on a quiet card; quote marks in the accent color; author line smaller and lighter.
 
 - **When:** Between demo beats, to let a customer say the claim instead of the brand.
@@ -89,6 +93,8 @@ Sources: [Morphic: how to make a customer testimonial video](https://morphic.com
 
 <a id="star-rating-sweep"></a>Five stars fill left to right to the real score while the number counts up beside them.
 
+Built on [Star Rating Fill](https://github.com/heygen-com/hyperframes/tree/main/registry/components/star-rating-fill) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A row of outline stars; the fill layer sweeps to 4.8 and keeps the partial last star; "4.8 · 2,300 reviews" beside it.
 
 - **When:** App and marketplace products; end of a testimonial run; pricing scenes.
@@ -126,6 +132,8 @@ Sources: [PowerReviews / Spiegel Research Center: from reviews to revenue](https
 ## Wall of Love Marquee
 
 <a id="wall-of-love-marquee"></a>Two or three rows of review cards drift in opposite directions, fading at the edges.
+
+Built on [Marquee](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/marquee.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
 
 Small cards with avatar, name and one line each, in rows moving at slightly different speeds under a short headline.
 
@@ -166,6 +174,8 @@ Sources: [Magic UI: Marquee](https://magicui.design/docs/components/marquee) · 
 
 <a id="community-post-proof"></a>A real community post or comment card pops over the footage with its upvotes counting up.
 
+Built on [Reddit Post Card](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/reddit-post) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Reddit-style or YouTube-comment-style card, platform-faithful; the text types on, then the vote count rises.
 
 - **When:** Developer and consumer products where community chatter is more believable than a logo.
@@ -202,6 +212,8 @@ Sources: [CapCut: turn testimonials into quote graphics for short-form](https://
 ## Reviews Arrive as Notifications
 
 <a id="reviews-as-notifications"></a>Short reviews land as system notifications that stack and push each other down.
+
+Built on [Animated List](https://github.com/magicuidesign/magicui/blob/main/apps/www/registry/magicui/animated-list.tsx) by magic-ui, MIT. The write-up and recipes are varg's.
 
 iOS/macOS-style banners with app icon, name and one line each; new ones spring in at the top, older ones slide down and dim.
 
@@ -240,6 +252,8 @@ Sources: [Bohdan Motion: X launch video, 40% of runtime on real UI](https://x.co
 ## Pull Quote Beside the Speaker
 
 <a id="pull-quote-beside-speaker"></a>While a customer talks on camera, their key sentence appears as large type in the empty side of the frame.
+
+Built on [Lower Third — Dark Card](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/lt-dark-card) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Speaker framed left or right third; the strongest line fades up per word on the open side, high contrast, no card needed.
 
@@ -285,6 +299,8 @@ Sources: [Morphic: how to make a customer testimonial video](https://morphic.com
 
 <a id="split-flap-quote"></a>A short quote or result spells itself out on a split-flap board, tiles flipping until they land.
 
+Built on [Text Flipping Board](https://ui.aceternity.com/components/text-flipping-board) by aceternity, Aceternity License (free components). The write-up and recipes are varg's.
+
 Dark tiles with a center seam, each walking through letters and settling left to right with mechanical clicks.
 
 - **When:** A memorable short line: a result ("SHIPPED IN 2 DAYS") or a three-word review.
@@ -321,6 +337,8 @@ Sources: [Jamie on X: SFX breakdown of a launch video](https://x.com/jamiesmotio
 ## GitHub Stars as Proof
 
 <a id="star-count-proof"></a>Stargazer avatars fly past while a star counter odometers up to the repo's real total.
+
+Built on [GitHub Stars](https://remocn.dev/r/github-stars.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 A ★ icon with a rolling count; avatars blur-stagger in a cloud behind it, then the count locks with a small pop.
 

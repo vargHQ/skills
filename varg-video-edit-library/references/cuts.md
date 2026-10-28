@@ -112,6 +112,8 @@ Sources: [Wikipedia: jump cut](https://en.wikipedia.org/wiki/Jump_cut) · [FFmpe
 
 <a id="jump-zoom-punch-in"></a>Hide a jump cut by scaling the next segment 110–130%. Reads as a second camera angle in talking heads.
 
+Built on [Camera Punch-In](https://github.com/heygen-com/hyperframes/tree/main/registry/components/yt-camera-move) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 After the cut the same shot is suddenly tighter (or wider), so the jump feels like a deliberate camera change.
 
 - **When:** Every 2–3 jump cuts in a talking head, on emphasis words, punchlines or a change of point.
@@ -262,6 +264,8 @@ Sources: [Wikipedia: J cut / L cut](https://en.wikipedia.org/wiki/J_cut) · [FFm
 
 <a id="graphic-match-cut"></a>Cut between two shots that share a shape, colour or position on screen, so the eye slides from one to the other.
 
+Built on [Match Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/components/match-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 A round clock face becomes a round moon; a spinning wheel becomes a spinning record. The shape stays put, the world changes.
 
 - **When:** Time jumps, before/after, product reveals, and linking two ideas without words.
@@ -304,6 +308,8 @@ Sources: [Wikipedia: match cut](https://en.wikipedia.org/wiki/Match_cut) · [Cap
 ## Action Match Cut
 
 <a id="action-match-cut"></a>A movement started in shot A finishes in shot B: a jump, a throw, a door swing carried across two angles.
+
+Built on [Cut the Curve](https://github.com/heygen-com/hyperframes/tree/main/registry/components/cut-the-curve) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 The motion is continuous even though the angle or location changes, so the cut disappears into the action.
 
@@ -380,6 +386,8 @@ Sources: [Wikipedia: match cut](https://en.wikipedia.org/wiki/Match_cut) · [FFm
 ## Cut on Action
 
 <a id="cut-on-action"></a>Change angle while the subject moves. The movement hides the cut and keeps continuity.
+
+Built on [Cut the Curve](https://github.com/heygen-com/hyperframes/tree/main/registry/components/cut-the-curve) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Wide to close-up as a hand reaches, a person sits or a head turns; viewers watch the motion, not the edit.
 
@@ -528,6 +536,8 @@ Sources: [Wikipedia: cross-cutting](https://en.wikipedia.org/wiki/Cross-cutting)
 
 <a id="invisible-cut"></a>Hide a cut inside a frame that is fully covered (a passing object, a dark wall, a blur) to fake one continuous shot.
 
+Built on [Whip Pan Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/components/whip-pan-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 The camera passes behind a pillar or into darkness; when it comes out we are somewhere else, with no visible edit.
 
 - **When:** One-take illusions, travel and transformation reels, product reveals through an object.
@@ -571,6 +581,8 @@ Sources: [FFmpeg filters: xfade](https://ffmpeg.org/ffmpeg-filters.html#xfade) �
 
 <a id="in-camera-whip-cut"></a>End shot A and start shot B with real fast pans in the same direction, and cut inside the motion blur.
 
+Built on [Whip Pan Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/components/whip-pan-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 The image streaks sideways into a blur and comes out of the same blur in a new place.
 
 - **When:** Travel, energy reels, time jumps, "meanwhile" moments; shoot both whips at the same speed and direction.
@@ -611,6 +623,8 @@ Sources: [Wikipedia: whip pan](https://en.wikipedia.org/wiki/Whip_pan) · [FFmpe
 ## Speed Ramp
 
 <a id="speed-ramp"></a>Change playback speed within a shot (fast into a moment, slow on it, fast out) to stress the beat.
+
+Built on [Beat Freeze Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/beat-freeze-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 Motion races, suddenly drops into slow motion on the key moment, then snaps back to speed.
 
@@ -659,6 +673,8 @@ Sources: [Wikipedia: speed ramping](https://en.wikipedia.org/wiki/Speed_ramping)
 
 <a id="freeze-frame"></a>Stop on a single frame for a beat, to introduce a character, land a joke or add a caption.
 
+Built on [Beat Freeze Cut](https://github.com/heygen-com/hyperframes/tree/main/registry/blocks/beat-freeze-cut) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Motion halts on one frame (often with a flash, a zoom or a name card), then resumes or cuts away.
 
 - **When:** Character intros, "record scratch" moments, highlights in sport, the end of a short.
@@ -706,6 +722,8 @@ Sources: [Wikipedia: freeze frame shot](https://en.wikipedia.org/wiki/Freeze_fra
 
 <a id="beat-synced-cut"></a>Place cuts on the beats of the music so the edit feels driven by the track.
 
+Built on [Beat Timeline](https://github.com/heygen-com/hyperframes/tree/main/registry/components/beat-timeline) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Every cut lands on a kick, snare or downbeat; bigger changes on the bar or the drop.
 
 - **When:** Montages, music videos, reels, ads with a music bed.
@@ -750,6 +768,8 @@ Sources: [FFmpeg filters: concat](https://ffmpeg.org/ffmpeg-filters.html#concat-
 ## Split Screen
 
 <a id="split-screen"></a>Show two or more shots at once in separate panels: comparison, reaction or simultaneous action.
+
+Built on [Comparison Split](https://github.com/heygen-com/hyperframes/tree/main/registry/components/comparison-split) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 The frame divides into halves, thirds or a grid, each panel playing its own clip.
 
@@ -841,6 +861,8 @@ Sources: [Wikipedia: montage (filmmaking)](https://en.wikipedia.org/wiki/Montage
 
 <a id="rhythmic-cutting-3-2-1"></a>Shorten shot lengths step by step (3 s, 2 s, 1 s, half a second) to build momentum into a payoff.
 
+Built on [Beat Timeline](https://github.com/heygen-com/hyperframes/tree/main/registry/components/beat-timeline) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
+
 Each shot is shorter than the last until the edit lands on a longer hero shot or a drop.
 
 - **When:** Before a reveal, a drop in the music, a punchline or the product hero shot.
@@ -883,6 +905,8 @@ Sources: [Walter Murch, In the Blink of an Eye (rule of six)](https://en.wikiped
 ## Pattern Interrupt
 
 <a id="pattern-interrupt"></a>Every few seconds of a short, break the visual pattern: angle, zoom, graphic, sound hit, so attention resets.
+
+Built on [Beat Accent](https://github.com/heygen-com/hyperframes/tree/main/registry/components/beat-accent) by HeyGen (HyperFrames), Apache-2.0. The write-up and recipes are varg's.
 
 A sudden zoom, a cut to B-roll, an on-screen graphic, a flash or a sound effect at regular intervals.
 
@@ -1049,6 +1073,8 @@ Sources: [FFmpeg filters: acrossfade](https://ffmpeg.org/ffmpeg-filters.html#acr
 ## Remotion Overlay on a Cut
 
 <a id="remotion-overlay-cut"></a>Keep a hard cut but draw something over it (flash, light leak, SFX graphic) without shortening the video.
+
+Built on [Light Leak](https://remocn.dev/r/light-leak.json) by Kapish Dima (remocn), MIT. The write-up and recipes are varg's.
 
 A hard cut hidden under a short overlay centred on the cut point.
 
