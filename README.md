@@ -68,6 +68,7 @@ npx skills add vargHQ/skills --yes
 | [varg-ai](./varg-ai/) | AI video, image, speech, and music generation | `vargai` |
 | [varg-previz](./varg-previz/) | Plan multi-shot AI videos: story, anchors, a three.js grey-box previz with auto cameras, Seedance video-to-video packs | — |
 | [varg-video-editing](./varg-video-editing/) | Which service to edit existing footage with, job by job (cuts, talking-head cleanup, Shorts, captions, AI restyle and swaps, dubbing, upscaling, QA, handing off to Resolve/Premiere/Final Cut), plus the rules that keep cuts frame-accurate and in sync | — |
+| [varg-video-edit-library](./varg-video-edit-library/) | 206 named edits for footage you already have, each with the look, when to use it, the common mistake, timings and a recipe for FFmpeg, HyperFrames, Remotion and CapCut: cuts and pacing (J/L cuts, match cuts, speed ramps), transitions (CapCut-style, every FFmpeg xfade, Remotion TransitionSeries, HyperFrames and GL shaders), headlines, quotes, end cards, UI walkthroughs, cursors, device mockups, code and terminal, AI agent flows, numbers and charts, logo walls, grids and backdrops | — |
 | [media-download](./media-download/) | Save videos/audio by link from X, YouTube, Instagram, Facebook, TikTok and 1800+ sites (yt-dlp), and Pinterest images by pin, board or search (gallery-dl). Local, no API key | — |
 | [paper-shaders](./paper-shaders/) | Frame-exact Paper Shaders backgrounds, textures and logo stings for HyperFrames and Remotion videos | `paper-shaders` |
 | [video-skills](./video-skills/) | Finds the right skill for any AI video, image, voice or music job in the varg Skills catalog and shows the options before anything is generated | — |
@@ -86,7 +87,7 @@ npx skills add vargHQ/skills --yes
 
 ## Requirements
 
-- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video); media-download, paper-shaders, video-skills and varg-video-editing need no key (varg-video-editing uses varg only for the paid edits it recommends)
+- `VARG_API_KEY` (get at [varg.ai](https://varg.ai)) or the hosted varg MCP (`https://mcp.varg.ai/mcp`) -- required for varg-ai, varg-previz and the format skills (varg-music-video, varg-character-keynote, varg-consistent-characters, varg-character-design and its category recipes, varg-podcast-video); media-download, paper-shaders, video-skills, varg-video-edit-library and varg-video-editing need no key (varg-video-editing uses varg only for the paid edits it recommends)
 - **Cloud mode**: curl only (zero dependencies)
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
