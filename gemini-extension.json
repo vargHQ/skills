@@ -1,0 +1,14 @@
+{
+  "name": "varg",
+  "version": "1.0.0",
+  "description": "AI video for Gemini CLI: varg how to finds the skill and steps for any video task; varg generates video, images, voice and music with 200+ models on one key.",
+  "mcpServers": {
+    "varg-how-to": {
+      "httpUrl": "https://api.varg.ai/v2/skills/mcp"
+    },
+    "varg": {
+      "httpUrl": "https://mcp.varg.ai/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
