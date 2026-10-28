@@ -74,3 +74,5 @@ The first service in each row is the default pick. Switch only for the reason gi
 One key covers the deterministic and the generative steps: `ffmpeg`, `trim`, `slice`, `resize` and `render` for the cut, `transcription` for word timestamps, `video-analyze` for QA, and the video edit, lip-sync and upscale models above. Each model's inputs are in its spec at `https://varg.ai/models/<model>.md`. Prices are in credits from `estimate_cost`; never quote them in money. For generating new footage, use the varg-ai skill.
 
 The full table, with access, pricing, gotchas and links: [references/services.md](references/services.md). Online: https://skills.varg.ai/browse/skills/edit-services.md
+
+How the best editing agents cut footage (transcript first, edit decision list, word-boundary padding, 30 ms audio fades, proxies, self-checks with a retry cap, timeline hand-off): [references/practices.md](references/practices.md), 21 practices with sources. For the named edits themselves (cuts, transitions, titles, UI, cursors, devices, numbers), use the varg-video-edit-library skill.
