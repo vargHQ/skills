@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "varg-how-to",
+  "version": "1.0.0",
+  "description": "Video how-to search for AI agents: 2,000+ video skills, tutorials and FFmpeg recipes. No key.",
+  "author": {
+    "name": "varg",
+    "email": "hello@varg.ai",
+    "url": "https://varg.ai"
+  },
+  "homepage": "https://varg.ai/how-to",
+  "repository": "https://github.com/vargHQ/skills",
+  "license": "MIT",
+  "keywords": [
+    "how to make a video",
+    "ai video",
+    "ugc ad",
+    "video captions",
+    "lyric video",
+    "talking avatar",
+    "product video",
+    "video editing",
+    "ffmpeg",
+    "video skills"
+  ]
+}
