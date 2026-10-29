@@ -118,6 +118,19 @@ npx skills add vargHQ/skills --yes
 - **Local mode**: bun runtime + ffmpeg
 - **paper-shaders**: Node 22 and ffmpeg for HyperFrames (`npx hyperframes`), or a Remotion 4 project
 
+## What this plugin connects to
+
+Everything the plugin runs, sends or fetches:
+
+- **varg how to MCP** (`https://api.varg.ai/v2/skills/mcp`): no key. Sends the search text you or the agent type (`search_how_to`) and returns how-to cards. Searches are logged without IP or key (query, MCP client name, top results).
+- **varg MCP** (`https://mcp.varg.ai/mcp`): OAuth sign-in to your varg account. Sends generation requests (prompts, uploaded or linked media) and spends your varg credits; results are stored in your varg account and served from `s3.varg.ai`.
+- **varg API** (`https://api.varg.ai`): the skills' `curl` examples send `VARG_API_KEY` from your environment as a Bearer token to api.varg.ai only, never to any other host. Skills that need no key are listed under Requirements.
+- **media-download**: runs `yt-dlp` on your machine against the video link you give it (X, YouTube, Instagram, TikTok, Pinterest and other sites yt-dlp supports) and saves the file locally.
+- **paper-shaders** and **varg-previz**: render locally; varg-previz bundles three.js (MIT) in `varg-previz/templates/previz/vendor/` so the previz page works offline.
+- The plugin has no hooks and changes no Claude settings or permissions.
+
+Privacy: https://varg.ai/privacy · Terms: https://varg.ai/terms · Security: [SECURITY.md](./SECURITY.md)
+
 ## Skill Structure
 
 Each skill follows the [Agent Skills specification](https://agentskills.io/specification):
