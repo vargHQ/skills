@@ -224,9 +224,9 @@ export VARG_API_KEY=varg_xxx
 # 3. Run setup to verify environment
 bash varg-ai/scripts/setup.sh
 
-# 4. Render your first video
-bunx vargai@alpha render hello.tsx --preview    # Free preview
-bunx vargai@alpha render hello.tsx --verbose    # Full render
+# 4. Make your first clip (TSX/JSX videos are deprecated; edit clips with the ffmpeg tool)
+curl -fsSL https://varg.ai/install | sh && vargai login
+vargai generate_video --prompt "waves at dusk" --duration 5
 ```
 
 ## Documentation
