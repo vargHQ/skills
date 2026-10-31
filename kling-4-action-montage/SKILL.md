@@ -105,7 +105,9 @@ ffmpeg -ss 4.2 -to 8.0 -i take.mp4 -c:v libx264 -crf 16 -c:a aac keep_01.mp4
 
 ## Tested
 
-2026-10-30, our own scene: a skateboarder bombing a Lisbon hill, three `gpt_image_2_5` stills (push toward the camera, ollie over the tram rails, the stop at a viewpoint), a three-shot `multi_prompt` on the pinned reference route, 15 s, 720p, audio: 236 credits for the take, 68 for the stills. Order, look and character held; she says "Again?" at the end; the ollie floats and the board vanishes from her hand in the last shot. https://s3.varg.ai/files/72c55813-c0fa-4cf2-9f64-ec4f7ed0e7ae/file_9483ac202e90.mp4 (details in `kling-4-prompting/references/test-run.md`).
+2026-10-30, our own scene: a skateboarder bombing a Lisbon hill. The example is one continuous 8 s shot from one `gpt_image_2_5` still: push toward the lens, a snappy ollie over the tram rails, the landing, a close-up and "Again?". Plain `kling_v4` with the still as the start frame, 720p, audio, "One continuous shot, no cuts", "lands in under a second", "no slow motion": 126 credits ($1.26), no cuts, about half a second in the air. https://s3.varg.ai/files/72c55813-c0fa-4cf2-9f64-ec4f7ed0e7ae/file_0665c41e46ff.mp4
+
+The first try (three stills, a three-shot `multi_prompt` that moved her to a viewpoint, 15 s, 236 credits) failed: a camera fly-through between shots, a two-second floating ollie and a cut that looked like a broken splice. For one trick, one place, one take. Details: `kling-4-prompting/references/test-run.md`.
 
 ## Related skills
 
