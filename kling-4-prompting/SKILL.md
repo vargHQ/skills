@@ -5,7 +5,7 @@ description: >-
   slop: let a strong image model compose every shot, then give Kling 4 two to four key frames and a
   short director's prompt. Covers reference-to-video inputs (@Image, @Element, @Video, @Voice),
   multi-shot prompts with seconds, 30-second takes, dialogue in quotes, "no slow motion", lens and
-  film-look lines, elements that need two photos, the failure fixes (slow motion by default, six
+  film-look lines, prompts that fail and their rewrites, elements that need two photos, the failure fixes (slow motion by default, six
   fingers, AI-smooth framing, face drift in close-ups) and the exact varg call with the reference
   route pinned. Use when someone asks how to prompt Kling 4, why Kling 4 looks worse than Seedance
   2.5, how to use Kling 4 reference-to-video, elements, multi_prompt or keyframes, or wants a
@@ -107,6 +107,71 @@ normal man. the blond girl helps him up. she says "Sick run, want to go again?" 
 - Give a start and an end state (the crash frame, the closing smile). Kling 4 is good at "temporally making sense" between frames you set.
 - **One take = one place and one continuous action.** A `multi_prompt` cut to a new location inside one take (street → viewpoint in our test) plays like a broken splice, not an edit. Change places between takes and cut them together in the edit; inside a take, cut only between angles of the same moment.
 - **Kling cuts on its own.** The video's first dialogue take came back as a multi-cut nobody asked for ("this is clearly a multi-cut … we didn't ask for that either"). When you need one unbroken shot (a 30 s Steadicam-style one-er, which the author says makes editing easier), say "one continuous shot, no cuts" and give one still; we have not measured how reliably Kling obeys it.
+
+## 3a. Prompts that fail, and the rewrite
+
+Each pair says where the lesson comes from: the video (fal's guide) or our own test on varg.
+
+**1. Prompting Kling 4 like Seedance** (video, 6:40: "capital S slop"). A character sheet, one location image and a long scene description, so Kling has to invent every shot:
+```
+Don't: The character in @Image1 (white pumpkin head, black cap, round glasses, skeleton hoodie…)
+goes trick-or-treating at night. First-person POV of the resident in the doorway. A quick sequence
+of hard cuts at three different apartment doors… Cinematic handheld POV camera, warm doorway light.
+Files: character sheet + one Midjourney location.
+```
+```
+Do: Make the three doorway shots as stills first (section 4), then:
+The pumpkin boy runs up to the doors in @Image1, @Image2 and @Image3, out of breath, holds out
+his bag, gets a graphics card at each and dances off. Handheld 16mm, warm doorway light. 20 seconds.
+Files: the three stills.
+```
+The prompt text was not the problem; the missing pre-made shots were. Full original: `references/prompts-from-the-video.md` §6.
+
+**2. A new place inside one take** (our test: read as "a meme").
+```
+Don't: multi_prompt shot 3: "hard cut to @Image3 at the tiled viewpoint: she stops, kicks the
+tail so the board pops into her hand…"
+```
+```
+Do: take A = the hill (push + ollie, @Image1-@Image2). Take B = the viewpoint (@Image3 only,
+"one continuous shot, no cuts"). Cut A → B in the edit; trim the first second of each.
+```
+
+**3. Action with no speed line** (video: Kling 4 "will kind of default slow motion"; our ollie floated for two seconds even with the line).
+```
+Don't: The rider does a tailwhip over the rail and lands.
+Do:    The rider does a tailwhip over the rail and lands. No slow motion, everything moves at real
+       speed, motion blur.  (+ the peak and the landing as two stills when the timing matters)
+```
+
+**4. Describing the move instead of naming it** (video: the BMX prompt only names "tail whip. bar spin", and Kling "knows what a double tail whip looks like").
+```
+Don't: He kicks the bike frame so it spins a full circle under him while he holds the bars.
+Do:    Montage of the pumpkin boy doing BMX tricks on the Brooklyn Banks. Tail whip. Bar spin.
+```
+
+**5. Dialogue as reported speech** (video: lines in quotes came out spoken, with a natural voice and laugh).
+```
+Don't: She tells him it was a great run and asks if he wants to go again.
+Do:    She walks up to him and says "Sick run. Want to go again?"
+```
+
+**6. A camera angle instead of a camera event** (video: "the camera falls to the ground" gave a rare rolled camera that nobody asked for by name).
+```
+Don't: Dutch angle, camera tilted 30 degrees.
+Do:    He jumps at the camera, the camera shakes and falls to the ground and fades to black.
+```
+
+**7. No lens on a shot Kling invents** (video: it picked a telephoto close-up in an all-wide film).
+```
+Don't: Close-up of her face as she laughs.
+Do:    Close-up of her face as she laughs, ultra-wide fisheye lens, 16mm grain, same grade as @Image1.
+```
+
+**8. Inputs that sink a good prompt** (video):
+- A sloppy middle still (a BMX with no seat) → the sloppiest trick in the take. Fix the still, not the prompt.
+- One photo as an element → the job fails. Give a front image plus 1–3 more angles.
+- A close-up of a character with no close reference → the face changes. Add that person's photo.
 
 ## 4. The key frames (where the quality comes from)
 
