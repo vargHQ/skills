@@ -89,7 +89,7 @@ head with both hands. The camera shakes and falls to the ground and fades to bla
 shaky 16mm documentary style footage. 15 seconds.
 ```
 
-- Order matters when you need it: use `provider_options.fal.multi_prompt` with seconds per shot (see `kling-4-prompting`).
+- Order matters when you need it: use `provider_options.fal.multi_prompt` with seconds per shot (see `kling-4-prompting`). Keep each take in one place; a location change is a new take, cut in the edit.
 - Dialogue: Kling 4 makes the voice itself. For the same voice in every take, make an element with a `voice_id` (front photo + 1–3 more angles) and write `@Element1 says "…"`.
 - Action: add "No slow motion, everything moves at real speed, motion blur."
 - Draft at 720p; rerun the chosen take at 1080p with the same stills and prompt.

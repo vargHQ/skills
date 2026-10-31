@@ -73,7 +73,8 @@ the trick mid air and crashes to the ground. <the other character> helps him up.
 - **Always say "No slow motion"** for speed. Kling 4 defaulted to slow motion in many first tests, and in our test a "no slow motion" ollie still floated for two seconds: give the peak and the landing as separate stills when timing matters.
 - Name the moves; don't describe them. Kling knows the tricks.
 - Put the spoken button line in quotes, last.
-- For a fixed order (moves → crash → line), use `multi_prompt` with seconds per shot (see `kling-4-prompting`).
+- For a fixed order (moves → crash → line), use `multi_prompt` with seconds per shot (see `kling-4-prompting`), all in one place. A cut to a new location inside one take looks like a broken splice: give the new place its own take.
+- Trim the first second of every take (the head can twitch while Kling settles in) and cut the montage from 2–5 s pieces; never post a raw take.
 - To get a specific real move right, add a 3–30 s clip of it as `@Video1` ("the rider performs the trick from @Video1").
 
 ## 4. Run it
@@ -87,7 +88,7 @@ curl -s -X POST https://api.varg.ai/v2/tools/video/call -H "Authorization: Beare
   "aspect_ratio": "21:9", "resolution": "1080p", "duration": 30, "audio": true}'
 ```
 
-Pin the reference route as above: with plain `kling_v4`, files go to image-to-video and only the first two are used (start and end frame). Price with `estimate_cost` / `POST /v2/estimate` on `"model": "kling_v4"` with the same duration and resolution. Draft at 720p first.
+Pin the reference route as above: with plain `kling_v4`, one or two stills go to image-to-video as start and end frame (and, before api#239 is live, a third one was dropped). Price with `estimate_cost` / `POST /v2/estimate` on `"model": "kling_v4"` with the same duration and resolution. Draft at 720p first.
 
 ## 5. Pick the seconds
 
