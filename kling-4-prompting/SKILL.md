@@ -245,7 +245,9 @@ Treat a 30-second generation like a live-action take: you get several cuts, repe
 
 ## Tested
 
-2026-10-30 on varg, our own scene (not from the video): three 16:9 stills of a skateboarder on a Lisbon hill made with `gpt_image_2_5` in the section 4 format (the first from text, the other two with the first as reference; 68 credits for all three), then the pinned reference route with a three-shot `multi_prompt`, 15 s, 720p, audio on: 236 credits, about 4 minutes. The three shots came back in order at the set durations, with the same face, outfit, fisheye and grade, and she says "Again?" at the end. Weak spots: the ollie floats for about two seconds despite "no slow motion", and the board vanishes from her hand in the last shot. https://s3.varg.ai/files/72c55813-c0fa-4cf2-9f64-ec4f7ed0e7ae/file_9483ac202e90.mp4. Prompts and notes: `references/test-run.md`.
+2026-10-30 on varg, our own scene (not from the video): a skateboarder on a Lisbon hill. The example is **one continuous 8 s shot** from one `gpt_image_2_5` still (section 4 format, 23 credits): plain `kling_v4` with that still as the start frame, 720p, audio, the prompt "One continuous shot, no cuts… pops a quick, snappy ollie over the tram rails, lands in under a second… grins into the lens and says \"Again?\" Real speed, no slow motion": 126 credits ($1.26). No cuts, the ollie at real speed (about half a second in the air), the line spoken, face and look held. https://s3.varg.ai/files/72c55813-c0fa-4cf2-9f64-ec4f7ed0e7ae/file_0665c41e46ff.mp4
+
+The first try failed: three stills and a three-shot `multi_prompt` with a change of place in one 15 s generation (236 credits). Kling flew the camera through her between shots 1 and 2, the ollie hung in the air for two seconds, and the cut to the viewpoint read as a broken splice ("a meme" to its first viewer). Both takes, prompts and notes: `references/test-run.md`.
 
 ## Related skills
 
