@@ -106,6 +106,7 @@ normal man. the blond girl helps him up. she says "Sick run, want to go again?" 
 - Ask for motion blur in the stills and the prompt: it hides AI smoothness.
 - Give a start and an end state (the crash frame, the closing smile). Kling 4 is good at "temporally making sense" between frames you set.
 - **One take = one place and one continuous action.** A `multi_prompt` cut to a new location inside one take (street → viewpoint in our test) plays like a broken splice, not an edit. Change places between takes and cut them together in the edit; inside a take, cut only between angles of the same moment.
+- **Kling cuts on its own.** The video's first dialogue take came back as a multi-cut nobody asked for ("this is clearly a multi-cut … we didn't ask for that either"). When you need one unbroken shot (a 30 s Steadicam-style one-er, which the author says makes editing easier), say "one continuous shot, no cuts" and give one still; we have not measured how reliably Kling obeys it.
 
 ## 4. The key frames (where the quality comes from)
 
