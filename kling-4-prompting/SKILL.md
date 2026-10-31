@@ -105,6 +105,7 @@ normal man. the blond girl helps him up. she says "Sick run, want to go again?" 
 - Put spoken lines in double quotes after "says". One or two short lines per take.
 - Ask for motion blur in the stills and the prompt: it hides AI smoothness.
 - Give a start and an end state (the crash frame, the closing smile). Kling 4 is good at "temporally making sense" between frames you set.
+- **One take = one place and one continuous action.** A `multi_prompt` cut to a new location inside one take (street → viewpoint in our test) plays like a broken splice, not an edit. Change places between takes and cut them together in the edit; inside a take, cut only between angles of the same moment.
 
 ## 4. The key frames (where the quality comes from)
 
@@ -135,7 +136,7 @@ Fix broken anatomy in the still before animating. In the film, a warped BMX (no 
 
 ## 5. Run it on varg
 
-`kling_v4` routes by input: text only → text-to-video; files → **image-to-video, where image 1 is the start frame and image 2 the end frame** (a third image is not used). For key frames as references, pin the reference route by its key:
+`kling_v4` routes by input: text only → text-to-video; one or two images → **image-to-video, where image 1 is the start frame and image 2 the end frame**. (Before api#239 reached production, a third image was silently dropped there too; now three or more go to reference-to-video.) For key frames as references, always pin the reference route by its key:
 
 ```bash
 curl -s -X POST https://api.varg.ai/v2/tools/video/call \
@@ -154,7 +155,7 @@ curl -s -X POST https://api.varg.ai/v2/tools/video/call \
 - `files` become `@Image1…` in order. Send `prompt` instead of `multi_prompt` for a one-paragraph take.
 - Elements and voices: `provider_options.fal.elements` = `[{"frontal_image_url": "…", "reference_image_urls": ["…"], "voice_id": "…"}]`, then write `@Element1` in the prompt.
 - Exact frames at exact times: pin `fal:fal-ai/kling-video/v4/keyframes-to-video` with `provider_options.fal.keyframes` = `[{"image_url": "…", "time": 0}, …]` (2–10 frames, prompt ≤ 2,500 characters).
-- In the MCP: `call_tool({tool: "video", input: <the body above>})`. `estimate_cost` does not know route keys: price with `"model": "kling_v4"` and the same duration and resolution (same per-second price). 15 s at 720p ≈ $2.36 (236 credits); 30 s at 1080p ≈ $7.05 (705 credits).
+- In the MCP: `call_tool({tool: "video", input: <the body above>})`. `estimate_cost` takes the same body. If it answers `model_not_found` on the route key (an API older than api#239), price `"model": "kling_v4"` with the same duration and resolution: the per-second price is the same. 15 s at 720p ≈ $2.36 (236 credits); 30 s at 1080p ≈ $7.05 (705 credits).
 - Draft at 720p or on `kling_v4_flash`, then rerun the winning take at 1080p.
 
 ## 6. Failure → fix
@@ -169,10 +170,12 @@ curl -s -X POST https://api.varg.ai/v2/tools/video/call \
 | Weird things in the background crowd | Expected in 30 s takes. Cut around it, or keep crowds blurred and at the frame edges. |
 | A shot Kling invented looks more "AI" than your stills | Normal: its own multi-shots are a little softer. Use them as glue, or make that shot as a still too. |
 | Wrong lens on an invented shot | Name the lens in the prompt for that shot. |
+| A jump cut that looks like a bad splice | One `multi_prompt` take jumped to another place. Keep one place per take; make the new place its own take and cut in the edit. |
+| The head twitches in the first second | Kling settles in during the first ~1 s. Trim it; never use the opening frames of a take. |
 
 ## 7. Editing mindset
 
-Treat a 30-second generation like a live-action take: you get several cuts, repeated attempts at the same move and a ramp-up in one file, and you keep the 2–5 s that work. Generate 2–4 takes per beat, cut the best moments, and expect some takes to give nothing usable.
+Treat a 30-second generation like a live-action take: you get several cuts, repeated attempts at the same move and a ramp-up in one file, and you keep the 2–5 s that work. Never ship a raw take: our 15 s test, shown uncut, read as "a meme" to the first viewer (a head twitch at the start, a jarring cut to a new place), although the face, look and line were right. Generate 2–4 takes per beat, cut the best moments, and expect some takes to give nothing usable.
 
 ## Tested
 
