@@ -5,6 +5,9 @@ other AI video. "Most AI videos look cheap because nobody gives the AI a real fi
 (https://x.com/ScaleWthAI/status/2111821935021863254). People often cannot describe the look they want either; a
 few real frames give both sides the words. This step comes before the look bible (step 2 of the working loop).
 
+The full version, with seven sources in order, trend numbers from X and ten visual ideas, is the
+`find-references` skill.
+
 ## Where to look
 
 | Source | What it is good for |

@@ -58,7 +58,7 @@ Before step 1, agree a spend cap and the paid models allowed. Estimate before ev
 
 | # | Step | Writes | Goes deeper |
 |---|---|---|---|
-| 1 | References: real film stills and frames, what to take from each | `refs.md` | `varg-mockups` |
+| 1 | References: real film stills and frames, what to take from each | `refs.md` | `find-references`, `varg-mockups` |
 | 2 | Moodboard: palette in hex, light, framing, texture, type, motion, 5 "Never" | `moodboard.md` **STOP** | `varg-mockups`, `varg-video-prompting` |
 | 3 | Script and storyboard: 3 beats, one motif, timings, camera per shot | `script.md`, `STORYBOARD.md` **STOP** | `varg-previz` |
 | 4 | Sound first: voice, music, key SFX locked before picture | `audio.wav`, `beats.json` **STOP** | `varg-ai`, `varg-music-video`, [earshot](https://github.com/Leonxlnx/earshot) |
