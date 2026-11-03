@@ -2,19 +2,16 @@
 name: varg-video-editing
 description: >-
   Which service to edit an existing video with, and how to edit it without breaking it. A routing
-  guide for ten editing jobs: cut, trim, resize and join (FFmpeg, the varg ffmpeg tool, Rendi),
-  talking-head cleanup (silence and filler cuts from word timestamps: auto-editor, Descript,
-  ElevenLabs Scribe, Groq Whisper), long video to Shorts (OpusClip, or transcript + Gemini +
-  FFmpeg), captions and subtitles (ASS through FFmpeg, Remotion, HyperFrames, Submagic, ZapCap),
-  assembling from a timeline or template (HyperFrames, Remotion, Shotstack, Creatomate), AI edits
-  that restyle, swap people, relight or extend (varg Recast/Relight/ID-V2V, Runway Aleph, Luma Ray,
-  Wan VACE), dubbing and lip sync (HeyGen, ElevenLabs Dubbing, Sync Labs), upscaling, slow motion
-  and background removal (Topaz, SeedVR, Bria), finding moments and QA (Gemini, varg
-  video-analyze, Twelve Labs, VideoDB), and handing the cut to DaVinci Resolve, Premiere or Final
-  Cut. Use when someone asks to edit, cut, trim, shorten, clip, reframe, caption, subtitle,
-  translate, dub, lip-sync, upscale, restyle or clean up footage they already have, or asks which
-  tool or API to edit video with. Not for making a video from a brief (varg-ai and the format
-  skills).
+  guide for ten editing jobs: cut, trim, resize and join (FFmpeg, Rendi), talking-head cleanup
+  (silence and filler cuts), long video to Shorts (OpusClip, or transcript + FFmpeg), captions and
+  subtitles (ASS through FFmpeg, HyperFrames, Submagic), assembling from a timeline or template
+  (HyperFrames, Shotstack), AI edits that restyle, swap people, relight or extend (varg
+  Recast/Relight, Runway Aleph), dubbing and lip sync (HeyGen, ElevenLabs, Sync Labs), upscaling,
+  slow motion and background removal (Topaz, Bria), finding moments and QA (Gemini, Twelve Labs),
+  and handing off to Resolve, Premiere or Final Cut. Use when someone asks to edit, cut, trim,
+  shorten, clip, reframe, caption, subtitle, translate, dub, lip-sync, upscale, restyle or clean up
+  footage they already have, or asks which tool or API to edit video with. Not for making a video
+  from a brief (varg-ai and the format skills).
 license: MIT
 metadata:
   author: vargHQ

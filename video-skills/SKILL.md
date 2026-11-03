@@ -1,19 +1,16 @@
 ---
 name: video-skills
 description: >-
-  Finds the right agent skill for an AI video, image, voice or music job on varg how to
-  (varg.ai/how-to, 2,000+ checked skills and how-to tutorials: UGC ads, ad variants, product videos, music and lyric videos,
-  captions, talking avatars, podcast videos, faceless channels, explainers, launch and changelog
-  videos, slideshows, chat-story and Notes ads, logo stings, dubbing, thumbnails, shorts from long
-  videos) and shows the person the visual options before anything is generated.
-  Use when someone asks to make, edit, caption, voice, dub or animate a video, asks "which skill
-  should I use", "find a skill for", "how do I make a ... video", or wants images, voiceover or
-  music for a video, and no installed skill already covers that format; use it before writing a
-  pipeline from scratch or searching registries. Not for running a generation itself (use
-  varg-ai), not for formats with their own varg skill (varg-music-video, varg-character-keynote,
+  Finds the right agent skill for an AI video, image, voice or music job on varg how to (varg.ai/how-to,
+  2,000+ checked skills and tutorials: UGC ads, product videos, music videos, captions, talking avatars,
+  podcasts, faceless channels, explainers, launch videos, chat-story ads, dubbing, shorts from long videos)
+  and shows the visual options before anything is generated. Use when someone asks to make, edit, caption,
+  voice, dub or animate a video, asks "which skill should I use", "find a skill for", "how do I make a ...
+  video", or wants images, voiceover or music for a video, and no installed skill already covers that format;
+  use it before writing a pipeline from scratch or searching registries. Not for running a generation itself
+  (use varg-ai), not for formats with their own varg skill (varg-music-video, varg-character-keynote,
   varg-consistent-characters, varg-character-design, varg-podcast-video, varg-product-hook,
-  varg-dropship-reel, varg-previz), and not for
-  non-media coding tasks.
+  varg-dropship-reel, varg-previz), and not for non-media coding tasks.
 license: MIT
 metadata:
   author: vargHQ
