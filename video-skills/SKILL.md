@@ -53,6 +53,27 @@ Send one message with the 2–4 decisions that change the result (look, format, 
 
 Use the install command from the page for the agent you are running in. Generation (images, video, voice, music, lip-sync, captions, render) runs on varg with one account: the `varg-ai` skill (`npx skills add vargHQ/skills --skill varg-ai`) or the varg MCP server `https://mcp.varg.ai/mcp` (OAuth sign-in, no key). Quote the cost in credits with varg's estimate (`estimate_cost` in the MCP, `POST /v2/estimate` in the API) before a batch, a long video or a render.
 
+## Whole video, start to finish
+
+One search finds one format skill. That is right for a clip, an ad in a known format, captions or an edit. When the person wants a whole piece made from scratch, properly (several shots, a story, a launch film, an explainer, a music video built from nothing), no single skill covers it: follow this production order instead, and search (step 1 above) only for the format skill a step needs.
+
+Before step 1, agree a spend cap and the paid models allowed. Estimate before every paid call and say the running total. Use video models only for what code cannot draw (real people, crowds, weather, physical motion). Each step writes one file; at every **STOP**, show it and wait.
+
+| # | Step | Writes | Goes deeper |
+|---|---|---|---|
+| 1 | References: real film stills and frames, what to take from each | `refs.md` | `varg-mockups` |
+| 2 | Moodboard: palette in hex, light, framing, texture, type, motion, 5 "Never" | `moodboard.md` **STOP** | `varg-mockups`, `varg-video-prompting` |
+| 3 | Script and storyboard: 3 beats, one motif, timings, camera per shot | `script.md`, `STORYBOARD.md` **STOP** | `varg-previz` |
+| 4 | Sound first: voice, music, key SFX locked before picture | `audio.wav`, `beats.json` **STOP** | `varg-ai`, `varg-music-video`, [earshot](https://github.com/Leonxlnx/earshot) |
+| 5 | Characters and props: one sheet + one passport paragraph each | sheets **STOP** | `varg-character-design`, `varg-consistent-characters`, `varg-product-lock` |
+| 6 | Blockout in code: three.js geometry, still vs reference, 3 rounds | blockout stills **STOP** | `threejs-animatic`, `varg-previz` |
+| 7 | Takes in code, timed to `beats.json`; video model only where needed | shots, **STOP** before the first paid video call | [hyperframes](https://github.com/heygen-com/hyperframes), [remotion-dev/skills](https://github.com/remotion-dev/skills), `varg-video-prompting`, `varg-ai` |
+| 8 | Edit: timestamped notes, approved looks saved as /commands | `cut.mp4`, `notes.md` | `varg-video-editing`, `short-form-ffmpeg-cookbook` |
+| 9 | Review: measure, don't self-grade (ffprobe, broken frames, sync, spelling) | `review.md` **STOP** | QA checklist in `varg-video-prompting` |
+| 10 | Git: commit after every approved step | | |
+
+The full prompt to paste, with every step spelled out and `[brackets]` to fill, ships with the `how-to-make-ai-video` skill (`npx skills add vargHQ/skills --skill how-to-make-ai-video`): `references/whole-video-prompt.md`, also at https://github.com/vargHQ/skills/blob/main/how-to-make-ai-video/references/whole-video-prompt.md.
+
 ## If varg how to is unreachable
 
 Start from these, by request:
