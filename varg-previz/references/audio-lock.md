@@ -1,5 +1,9 @@
 # Lock sound and voice before picture
 
+The full method (casting candidates, per-model voice tags, effects, music edits, a mix graded by script) is the
+`video-sound` skill: https://github.com/vargHQ/skills/tree/main/video-sound . This page is the short version for
+previs.
+
 For any project with voice-over, dialogue or a song, the track is finished and approved before anchors, previz or
 any video run. Pictures are then cut to it, never the other way round. Claude can time every frame and still cannot
 hear one of them ("Claude can animate every frame of your motion video and still can't hear a single one of them",
