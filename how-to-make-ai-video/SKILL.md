@@ -75,7 +75,7 @@ Before step 1, set up the project with `video-project-github` (it creates the fo
 | 5 | Characters and props: one passport paragraph (pasted word for word), a turnaround sheet in the moodboard look, six expressions as cause + tells, a measured voice line; props with materials, wear and motion | `cast/*.md`, sheets **STOP** | `character-passport`, `varg-character-design`, `varg-consistent-characters`, `varg-product-lock` |
 | 6 | Blockout in code: three.js geometry, still vs reference, 3 rounds | blockout stills **STOP** | `threejs-animatic`, `varg-previz` |
 | 7 | Takes in code, timed to `beats.json`; video model only where needed | shots, **STOP** before the first paid video call | `video-animate`, [hyperframes](https://github.com/heygen-com/hyperframes), [remotion-dev/skills](https://github.com/remotion-dev/skills), `varg-video-prompting`, `varg-ai` |
-| 8 | Edit: timestamped notes, approved looks saved as /commands | `cut.mp4`, `notes.md` | `varg-video-editing`, `short-form-ffmpeg-cookbook` |
+| 8 | Edit: timestamped notes, approved looks saved as /commands | `cut.mp4`, `notes.md` | `edit-footage-with-code`, `varg-video-editing`, `short-form-ffmpeg-cookbook` |
 | 9 | Review: measure, don't self-grade (ffprobe, broken frames, sync, spelling) | `review.md` **STOP** | QA checklist in `varg-video-prompting` |
 | 10 | Keep it: private GitHub repo from the start, a saved version at every **STOP**, media by hash, undo for anything | `AGENTS.md`, `media.lock.jsonl` | `video-project-github` |
 
@@ -129,7 +129,8 @@ Start from these, by request:
 | UGC / creator ad, ad variants | `ai-ugc-ad-video`, `ad-creative-testing` | `varg-ai` |
 | Product video from a photo, product hook | `product-photo-to-video`, `varg-product-hook` | `varg-ai` |
 | Captions on a video | `remotion-captions`, `short-form-ffmpeg-cookbook` | |
-| Edit existing footage | `varg-video-editing`, `varg-video-edit-library` | `short-form-ffmpeg-cookbook` |
+| Edit existing footage | `edit-footage-with-code`, `varg-video-editing`, `varg-video-edit-library` | `short-form-ffmpeg-cookbook` |
+| Find B-roll, music, SFX you may use | `video-asset-sources` | `find-references` |
 | Music or lyric video | `varg-music-video`, `hyperframes` | `varg-ai` |
 | Launch, changelog, explainer video | `hyperframes` | `varg-ai` |
 | Consistent characters, character sheets | `varg-character-design`, `varg-consistent-characters` | `varg-ai` |
