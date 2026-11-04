@@ -8,6 +8,8 @@ from them.
 
 Output of this step: `refs.md` (the frames and what each one gives) and `moodboard.md` (the look in words). Both are
 free. The previz stays grey-box; the moodboard sets the look of the anchors (step 5) and the Seedance prompts (step 8).
+The `video-moodboard` skill builds this board in ranked order (from a 48-still test and 6,086 X posts), draws it as
+`board.html` and checks it on test stills before any video.
 
 ## Where to look
 
