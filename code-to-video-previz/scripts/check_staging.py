@@ -203,6 +203,21 @@ def main():
                         errors.append(f"{s['id']} t={lt:.2f}: '{b['name']}' blocks {name}'s head")
                 if z < .35:
                     warnings.append(f"{s['id']} t={lt:.2f}: the camera is {z:.2f} m from {name}'s head")
+    # Frames can look clean while a figure walks through the set between them, so check every eighth of a second
+    still_boxes = [b for b in solid if "keys" not in b]
+    end = max(s["end"] for s in S["shots"])
+    for name, f in figs.items():
+        hits = {}
+        for i in range(int(end * 8) + 1):
+            T = i / 8
+            head, feet, h = fig_points(f, T)
+            for share in (.2, .5, .8):
+                pt = [feet[k] + (head[k] - feet[k]) * share for k in range(3)]
+                for b in still_boxes:
+                    if inside(pt, b, pad=.01):
+                        hits.setdefault(b["name"], T)
+        for bname, T in hits.items():
+            errors.append(f"{name} passes through '{bname}' at about {T:.2f} s")
     # Figures that overlap in frame must differ in brightness, or they merge in a greyscale clip
     def lum(c):
         return c if isinstance(c, (int, float)) else .2126 * c[0] + .7152 * c[1] + .0722 * c[2]

@@ -108,6 +108,25 @@ noted, and many creators are paid partners of video platforms. These are reports
 - "I found that Seedance read the propeller motion much better if I had motion blur, so a simple hardware rendered playblast would not cut it." [Aharon Rabinowitz](https://x.com/ABAOProductions/status/2113284828514615563) (22,118 followers, 15 bookmarks)
 - "motion blur in the previz is inherited by the AI-generated video." [Kaku Drop](https://x.com/KakuDrop/status/2071471484921696332) (15,845 followers, 865 bookmarks, tr.)
 
+## Judging with an LLM
+
+- "Simply asking an LLM to score the outputs was not reliable enough, even with a very descriptive evaluation rubric." [Ghita Houir Alami (Notion)](https://x.com/ghita__ha/status/2112924291746734557) (2,982 followers, 116 bookmarks)
+- "Shipping an unverified LLM judge is the fastest way for people to lose trust in your evals (and your work in general)." [Hamel Husain](https://x.com/HamelHusain/status/2010782094256222323) (64,797 followers, 98 bookmarks)
+- "Reviewers can become so focused on checking each item that they overlook problems outside the rubric." [Hamel Husain and Shreya Shankar](https://hamel.dev/blog/posts/evals-faq/) (64,797 followers)
+- "Aim for about 100 examples per failure mode, with enough Pass and Fail examples to measure both classes." [Hamel Husain](https://hamel.dev/blog/posts/llm-judge/) (64,797 followers)
+- "For most small to medium-sized companies, appointing a single domain expert as a “benevolent dictator” is the most effective approach." [Hamel Husain and Shreya Shankar](https://hamel.dev/blog/posts/evals-faq/) (64,797 followers)
+- "Criteria drift raises serious questions for tools that assume the independence of evaluation from regular human observation of model outputs." [Shreya Shankar](https://x.com/sh_reya/status/1782425967115501603) (59,622 followers, 4 bookmarks)
+- "The model can review the sheet. It cannot review between the frames, and it cannot review taste" [m4lka](https://x.com/m4lkxx/status/2116504147465757161) (7,244 followers, 302 bookmarks)
+- ""It feels off" is a mood. A frame number and a cause is a task" [m4lka](https://x.com/m4lkxx/status/2116504147465757161) (7,244 followers, 302 bookmarks)
+- "The separation doesn't immediately eliminate that leniency on its own; the evaluator is still an LLM that is inclined to be generous towards LLM-generated outputs." [Prithvi Rajasekaran (Anthropic Labs)](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+- "Including phrases like "the best designs are museum quality" pushed designs toward a particular visual convergence" [Prithvi Rajasekaran (Anthropic Labs)](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+- "One caveat: a bias all the judges share cancels out of these comparisons. Only an outside reference, like human ratings, can measure it." [Towards AI (ToneBench)](https://x.com/towards_AI/status/2117507550081917245) (41,052 followers, 2 bookmarks)
+- "I told the judge to find defects, so it finds defects. When the real ones run out, it invents nitpicks and style preferences" [Daniel C. Sunday](https://x.com/DanielChibuihe/status/2117186879493668887) (9 followers)
+- "having evals and numbers help us get 80% of the way there faster, but maybe they're a crutch that it makes it harder to polish the final 20%?" [Eugene Yan](https://x.com/eugeneyan/status/1960148508495020234) (31,055 followers, 555 bookmarks)
+- "Video and audio judges hallucinate problems, so verify every claim against frames." [Elie Steinbock](https://x.com/elie2222/status/2107186094777434454) (16,801 followers, 539 bookmarks)
+- "On a three-minute song clip the fresh reviewer scored every cut 0.5 to 1.5 points above the owner, and stopped moving at about 7.5." [Tal Siach (Take One)](https://github.com/talsiach/take-one/blob/HEAD/references/reviewer-brief.md) (9,258 followers)
+- "A clean, simple shape can score 100 here without resembling the photo." [Kaloyan Chernev](https://kaloyan.blog/ai-models-rebuild-a-photo-in-blender)
+
 ## Repos, in the order we'd use them
 
 1. [scenario-labs/skills](https://github.com/scenario-labs/skills): best written blockout spec, MIT, vendor
