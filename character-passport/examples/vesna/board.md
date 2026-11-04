@@ -2,7 +2,7 @@
 
 | Who / what | Passport | Sheet | Expressions | Voice | Status |
 | --- | --- | --- | --- | --- | --- |
-| Vesna Maric, ICU nurse, 30 | `vesna.md` v1 (884 characters) | [moodboard look](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9349000aca74.png) · [grey](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c42ce8593595.png) | [cause + tells](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dc67992a61d5.png) | [v2 take](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_87c1c03d36ab.wav), 129 wpm (target 130), accent: listen | waiting for approval |
+| Vesna Doric, ICU nurse, 30 | `vesna.md` v1 (884 characters) | [moodboard look](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9349000aca74.png) · [grey](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c42ce8593595.png) | [cause + tells](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dc67992a61d5.png) | [v2 take](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_87c1c03d36ab.wav), 129 wpm (target 130), accent: listen | waiting for approval |
 | Her umbrella | `umbrella.md` v1 (299 characters) + motion block | [prop sheet](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9186f4657ef8.png) | — | — | waiting for approval |
 
 Open checks before approval:

@@ -23,7 +23,8 @@ The passport with no reference image gave the same woman in every shot.
 6. **Posture from history:** "a slight forward stoop after a 12-hour shift", "a rower's wide back", "stands with
    weight on the left leg". Posture is what makes a body look lived in.
 7. **No value words** (beautiful, perfect, stunning, flawless, attractive, cinematic), **no real people's names**
-   (they pull towards the model's average face or a lookalike), **no brands** (they draw logos).
+   (they pull towards the model's average face or a lookalike), **no brands** (they draw logos). Search every invented
+   full name on the web before use: our first surname for Vesna belonged to a real writer.
 8. **Under ~900 characters,** so passport + prop passport + look block + shot fit a 2,000-character image prompt.
 9. **Versioned, never paraphrased.** The agent pastes it from `cast/<id>.md` with `scripts/prompt.py`; any change
    is `v2` with a new sheet. `prompt.py check` fails any prompt where the passport drifted.
@@ -51,7 +52,7 @@ black outlines". The medium is identity, not style, when the character is made o
 Photoreal (LAST BUS, tested; 884 characters):
 
 ```passport
-Vesna Maric, a 30-year-old Croatian ICU nurse, 168 cm, narrow shoulders, long neck, a slight forward stoop after a 12-hour shift, weight on her left leg. Long oval face, deep-set dark brown eyes with grey shadows under them, thick straight black brows that almost meet, a strong straight nose with a small bump on the bridge, a wide mouth with a thin upper lip, a 2 cm pale scar across the left side of her chin. Olive skin with visible pores, a few freckles across the nose, no makeup. Shoulder-length black hair in a grown-out blunt cut, frizzy from rain, tucked behind her right ear only. Charcoal wool coat to mid-calf, single-breasted, the second button from the top missing, pilled cuffs; a navy V-neck scrub top showing at the collar; a black jersey scarf; worn black leather ankle boots with white salt marks. Short unpolished nails, a beige plaster on her right index finger.
+Vesna Doric, a 30-year-old Croatian ICU nurse, 168 cm, narrow shoulders, long neck, a slight forward stoop after a 12-hour shift, weight on her left leg. Long oval face, deep-set dark brown eyes with grey shadows under them, thick straight black brows that almost meet, a strong straight nose with a small bump on the bridge, a wide mouth with a thin upper lip, a 2 cm pale scar across the left side of her chin. Olive skin with visible pores, a few freckles across the nose, no makeup. Shoulder-length black hair in a grown-out blunt cut, frizzy from rain, tucked behind her right ear only. Charcoal wool coat to mid-calf, single-breasted, the second button from the top missing, pilled cuffs; a navy V-neck scrub top showing at the collar; a black jersey scarf; worn black leather ankle boots with white salt marks. Short unpolished nails, a beige plaster on her right index finger.
 ```
 
 Older man (untested example of the same form):

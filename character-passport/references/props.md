@@ -5,7 +5,7 @@ where it matters.
 
 Tested 2026-11-03: the umbrella's prop sheet kept every wear detail (lacquer worn to pale wood where the thumb
 rests, the bent front rib, faded top panels, rain beads). In the shots, where only the character sheet was attached,
-the worn handle came out right 0 of 22 times (two blind judges). A prop holds only when its own sheet goes in.
+the worn handle came out right 0 of 22 times (two blind AI judges). A prop holds only when its own sheet goes in.
 
 ## Which objects need a passport
 

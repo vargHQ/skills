@@ -1,6 +1,6 @@
 # The test behind this skill (2026-11-03)
 
-Small and honest: one character, four shots, one image per cell, two blind judges. Read gaps of 1 point or less as
+Small and honest: one character, four shots, one image per cell, two blind AI judges (fresh agents). Read gaps of 1 point or less as
 a tie. Every image and clip is linked in `examples/vesna/README.md`.
 
 ## Setup

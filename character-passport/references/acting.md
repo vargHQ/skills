@@ -5,7 +5,7 @@ Write every emotion as **a cause in the film + the physical tells**, never as an
 Tested 2026-11-03:
 
 - **Stills.** The same six slots as adjectives ("neutral, laughing, angry, surprised, sad, smug") and as cause +
-  tells. Two blind judges: cause + tells more real (7 vs 5 of 10), less theatrical (3.5 vs 6); both picked it for
+  tells. Two blind AI judges: cause + tells more real (7 vs 5 of 10), less theatrical (3.5 vs 6); both picked it for
   a quiet drama. Adjectives held the face slightly better (8.5 vs 7.5).
 - **Video.** One start frame, two prompts, two models. Adjective ("She gets angry because the bus did not stop.
   Emotional, dramatic, cinematic."): Kling 4 under-acted (turned away, no anger), Seedance 2.5 over-acted (a snarl
@@ -17,13 +17,16 @@ Tested 2026-11-03:
 | --- | --- | --- | --- |
 | 1 | Listening, rest face | who speaks, about what | lips closed and soft, eyes steady on the speaker, brows level, chin slightly down, slow blinks |
 | 2 | Real laugh | what is funny, to whom | cheeks lifted and crow's-feet at the outer eyes (AU6), lip corners pulled up (AU12), lower lids pushed up, mouth open (AU25/26), head tipped back. Without the eye part (AU6) a smile reads as posed |
-| 3 | Anger held in | what was done to them | brows down and together (AU4), upper lids tight, eyes narrowed (AU7), lips pressed thin (AU23/24), jaw set, nostrils slightly flared; no shouting |
-| 4 | Worry / grief | the news, the loss | inner brow ends raised and pulled together (AU1+4), a vertical crease between them, lip corners down or the lower lip pulled sideways (AU15/20), eyes unfocused or wet |
+| 3 | Anger held in | what was done to them | brows down and together (AU4), a hard stare: upper lids raised (AU5), lower lids tight (AU7), lips pressed thin (AU23/24), jaw set, nostrils slightly flared; no shouting |
+| 4 | Worry / grief | the news, the loss | inner brow ends raised and pulled together (AU1+4), a vertical crease between them, lip corners slightly down (AU15), eyes unfocused or wet |
 | 5 | Startle / fear | the sudden thing | brows up (AU1+2), upper lids raised showing white above the iris (AU5), lips stretched or jaw dropped (AU20/26), head pulled back, a sharp breath in |
 | 6 | Contempt | who they look down on | one mouth corner tightened and raised on one side only (unilateral AU14), eyes flat, lids half down, head tilted or chin raised |
 
 Optional swaps: disgust (nose wrinkled AU9, upper lip raised AU10), pride (chin up, small closed smile, chest
 open), shame (gaze down, head lowered, lips pressed), relief (long breath out, shoulders drop, eyes close briefly).
+
+Our tested sheet said "eyes narrowed" for anger and "lower lip pulled sideways" for worry; FACS puts an
+upper-lid raise in anger and the sideways lip stretch in fear, so the table above is corrected.
 
 **Eyes off the lens, at the cause.** The judges' main reason for preferring cause + tells: her eyes look
 off-camera at what causes the feeling, one side of the face moves more than the other, and the feeling is partly held

@@ -25,7 +25,7 @@ https://github.com/vargHQ/skills/tree/main/character-passport (references/ has t
    colour, material and one sign of wear · hands. Only what a camera sees. No "beautiful", "perfect", "cinematic",
    no real people's names, no brands. Under 900 characters. Never paraphrase it later: paste it.
 
-3. Turnaround sheet, one per look: top row front, side, back, full body, same scale, empty hands; bottom row three
+3. Turnaround sheet, one per look: top row three full-body views (front, side, back), same scale, empty hands; bottom row three
    large close-ups (front, three-quarter, profile). Light it like the film (the moodboard's key direction, colour
    temperature and film stock, a fill that keeps the face readable, a plain backdrop in the darkest palette colour);
    use flat 18% grey instead if the character crosses very different lights. No text. With varg: nano_banana_2_1,
@@ -34,12 +34,13 @@ https://github.com/vargHQ/skills/tree/main/character-passport (references/ has t
    misses with an edit pass on the sheet, not a re-roll.
 
 4. Six expressions, one 3x2 sheet with the turnaround as Image 1. Write each as a cause in the film plus physical
-   tells (brows, lids, mouth, jaw, head, breath), never an adjective. Default: listening, real laugh (crow's-feet,
+   tells (brows, lids, mouth, jaw, head, breath), eyes looking at the cause, never an adjective. Default: listening, real laugh (crow's-feet,
    lifted cheeks), anger held in (lips pressed, jaw set), worry (inner brows up and together), startle (upper lids
    up, jaw dropped), contempt (one mouth corner only).
 
 5. Voice line for everyone who speaks, in a ```voice block: pace in words per minute and where pauses go · pitch
-   and texture · accent (region, class, first language) · one verbal habit · default emotion. Generate a test line
+   and texture · accent (first language, region, class, strength) · one verbal habit (also written into the script)
+   · default emotion. Generate a test line
    in their own words, measure its pace (ffmpeg silencedetect, or scripts/voice_check.py), and change the
    instruction until it is within 15% of the target. I will listen for the accent.
 
