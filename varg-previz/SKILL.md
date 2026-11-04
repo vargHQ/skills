@@ -110,5 +110,6 @@ each estimated and approved first. Steps 1, 2, 3, 6 and 7 are free, and the dire
 
 ## Related skills
 
+`video-animate` (what to do once the previz is approved: code or AI, which model, cheap pass, takes, sound, plates for motion design),
 `varg-ai` (single generations, rendering), `hyperframes` (text, captions and graphics drawn in code on top of the
 clips, final assembly), `varg-music-video` if installed (song measurement, lip-sync pass, platform masters).

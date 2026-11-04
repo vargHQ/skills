@@ -65,7 +65,7 @@ WORK IN THIS ORDER. Each step writes one file. At every STOP, show me the file a
    Refine one area at a time.
    STOP: I approve the blockout stills.
 
-7. Takes -> the shots, built in code (Remotion or HyperFrames), timed to beats.json
+7. Takes -> the shots, built in code (Remotion or HyperFrames), timed to beats.json. Any video-model shot: follow video-animate
    Something should change every 2-3 seconds. Use a video model only for the shots listed in MONEY,
    from approved stills, with the estimate shown first.
    STOP before the first paid video call.
