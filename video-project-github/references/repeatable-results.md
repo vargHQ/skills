@@ -22,7 +22,7 @@ What repeats and what does not is measurable, so put each part on the right side
 8. **Keep facts where they cannot go stale.** In our test a status note said $5.42 spent while the log added up to $11.31, and all 24 runs answered $11.31. Agents trust data over notes, so `STATUS.md` holds what is next and `status` computes the money.
 9. **Keep the person's words.** `brief.md`, verbatim and dated, so a new session works from what they said and not from a summary.
 10. **Measure before showing.** Run the checks in `varg-video-prompting`'s QA list: `ffprobe` for duration and frame rate, black and frozen frames, sync of each hit against `beats.json`, spelling of on-screen words.
-11. **Separate maker and judge.** A different agent or a fresh session judges, without knowing who made it. Agents claimed success in 95.5% of edits that failed a test (Timeline-Bench). Anthropic's harness post found the split "a strong lever", though it too warns that an evaluator is "inclined to be generous".
+11. **Separate maker and judge,** and read `llm-judge.md` before asking a model to rank anything. A different agent or a fresh session judges, without knowing who made it. Agents claimed success in 95.5% of edits that failed a test (Timeline-Bench). Anthropic's harness post found the split "a strong lever", though it too warns that an evaluator is "inclined to be generous".
 12. **Compare by pairs.** "Which is better, A or B?" with authorship hidden. That is how Timeline-Bench collected its 2,582 editor judgments, and a panel of 3 LLM judges tracked the human ranking of agents closely (rho 0.93). It holds across agents, not for one edit: a single human judgment is itself noisy (alpha 0.10).
 
 ## Parallel agents
