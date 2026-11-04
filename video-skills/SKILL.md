@@ -64,7 +64,7 @@ Before step 1, agree a spend cap and the paid models allowed. Estimate before ev
 | 4 | Sound first: sound plan, voices cast from candidates, lines with pauses and breaths, music mapped to bars, key SFX, a checked mix | `sound/plan.md`, `cues.json`, `mix.wav`, `beats.json` **STOP** | `video-sound`, `varg-ai`, `varg-music-video`, [earshot](https://github.com/Leonxlnx/earshot) |
 | 5 | Characters and props: one passport paragraph (pasted word for word), a turnaround sheet in the moodboard look, six expressions as cause + tells, a measured voice line; props with materials, wear and motion | `cast/*.md`, sheets **STOP** | `character-passport`, `varg-character-design`, `varg-consistent-characters`, `varg-product-lock` |
 | 6 | Blockout in code: three.js geometry, still vs reference, 3 rounds | blockout stills **STOP** | `threejs-animatic`, `varg-previz` |
-| 7 | Takes in code, timed to `beats.json`; video model only where needed | shots, **STOP** before the first paid video call | [hyperframes](https://github.com/heygen-com/hyperframes), [remotion-dev/skills](https://github.com/remotion-dev/skills), `varg-video-prompting`, `varg-ai` |
+| 7 | Takes in code, timed to `beats.json`; video model only where needed | shots, **STOP** before the first paid video call | `video-animate`, [hyperframes](https://github.com/heygen-com/hyperframes), [remotion-dev/skills](https://github.com/remotion-dev/skills), `varg-video-prompting`, `varg-ai` |
 | 8 | Edit: timestamped notes, approved looks saved as /commands | `cut.mp4`, `notes.md` | `varg-video-editing`, `short-form-ffmpeg-cookbook` |
 | 9 | Review: measure, don't self-grade (ffprobe, broken frames, sync, spelling) | `review.md` **STOP** | QA checklist in `varg-video-prompting` |
 | 10 | Git: commit after every approved step | | |
@@ -99,6 +99,7 @@ Start from these, by request:
 | Launch, changelog, explainer, data video | `hyperframes` (HeyGen) | `hyperframes-registry`, `varg-ai` |
 | Music video / lyric video | `varg-music-video`, `hyperframes`, `motion-graphics-music-video` | `varg-ai` |
 | Plan a multi-shot video, storyboard, camera blocking | `varg-previz` | `varg-ai` |
+| Animate an approved previz or blockout, choose code or AI, Seedance or another model per shot | `video-animate` | `threejs-animatic`, `varg-video-prompting` |
 | Faceless channel video | `krea-faceless-video`, `hyperframes-vox-explainer` | `varg-ai` |
 | Dubbing / translation | `elevenlabs-dubbing` | `media-download` |
 | Thumbnails | `higgsfield-youtube-thumbnail` | |

@@ -200,6 +200,7 @@ Narrow frames: horizontal half-FOV = `atan(tan(vFOV/2)·W/H)`; at 9:16 and vFOV 
 
 ## Related skills
 
+`video-animate` (what to do once the animatic is approved: code or AI, which model, cheap pass, takes, sound, plates for motion design),
 `varg-previz` (full previz app, auto cameras, pack builder), `varg-ai` (models, prices, uploads, jobs),
 `varg-video-prompting` (prompting Seedance and other models), `varg-mockups` (still boards before animation),
 `varg-consistent-characters` (character and location sheets), `hyperframes` and its three.js adapter (HTML → MP4,
