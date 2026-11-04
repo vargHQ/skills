@@ -82,9 +82,13 @@ WORK IN THIS ORDER. Each step writes one file. At every STOP, show me the file a
    List every finding with its timestamp and fix it. Then show me.
    STOP: I approve the final cut.
 
-10. Git
-   Keep the project in a git repo. Commit after every approved step, with the step name in the message,
-   so any step can be rolled back.
+10. Keep it
+   From the start, keep this project in a private GitHub repo with the video-project-github skill
+   (npx skills add vargHQ/skills --skill video-project-github). If you can't install it, follow
+   https://github.com/vargHQ/skills/blob/main/video-project-github/references/paste-prompt.md.
+   Save a version at every STOP with the step name, and tell me in plain words. Video, audio and images
+   are stored by hash outside git. Keys stay out. Any step can be rolled back, and I can get the whole
+   project on a new laptop.
 ```
 
 ---
@@ -101,6 +105,7 @@ WORK IN THIS ORDER. Each step writes one file. At every STOP, show me the file a
 | 7 Takes | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) or [remotion-dev/skills](https://github.com/remotion-dev/skills) for code; `varg-video-prompting` + `varg-ai` for video model shots |
 | 8 Edit | `varg-video-editing`, `short-form-ffmpeg-cookbook`, `varg-video-edit-library`, `caption-styles` |
 | 9 Review | the QA checklists in `varg-video-prompting` and `varg-consistent-characters` |
+| 10 Keep it | `video-project-github` (private repo, folders, saved versions, media by hash, undo) |
 
 All `varg-*` skills and the others without a link are in https://github.com/vargHQ/skills
 (`npx skills add vargHQ/skills --skill <name>`). Remotion is source-available and most companies need a paid
