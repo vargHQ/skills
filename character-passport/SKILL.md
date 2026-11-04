@@ -33,7 +33,7 @@ choices back, one checkable line at a time, and proves each step on a still befo
 
 What our test showed (Nano Banana 2.1, 2026-11-03, full write-up: https://claude.ai/artifact/AJ1g4Qren3ZvwERSwrQigt):
 
-- **The passport gets you halfway; the sheet finishes the job.** Two blind judges scored "same person across four
+- **The passport gets you halfway; the sheet finishes the job.** Two blind AI judges scored "same person across four
   shots" 2/10 for the moodboard's one-line subject, 5/10 for the passport alone, and 7.5-8.5/10 with a sheet as
   Image 1. Grey and moodboard-lit sheets tied; neither leaked its grid or backdrop.
 - **Big features survive, small and side-specific ones don't.** Collar, scarf, hair and eye shadows: 89-100%.
@@ -41,7 +41,7 @@ What our test showed (Nano Banana 2.1, 2026-11-03, full write-up: https://claude
   0/22 when its own prop sheet was not attached.
 - **Cause + tells beats adjectives for acting.** Stills: more real (7 vs 5) and less theatrical (3.5 vs 6).
   Video, same start frame: the adjective prompt made Kling 4 under-act and Seedance 2.5 over-act into a snarl;
-  cause + tells + timing played as written on both.
+  cause + tells + timing played as written on both (one clip each).
 - **Measure the voice.** "Slow, half-second pauses" came out at 92 wpm against a 130 target; the corrected line
   landed at 129.
 
