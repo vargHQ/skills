@@ -7,7 +7,7 @@ description: >-
   stages a shot from a painting or still, invents one when there is no reference, checks
   everything with numbers and frames, and writes the handoff to Seedance or other video models. Same scene file renders
   in Three.js and headless Blender. Use for "previz", "blockout", "3D animatic", "three.js or blender", "prototype this
-  video", "copy this shot", "recreate this video in 3D", "stage this painting", "camera blocking with Claude or Codex", "code to video", or when generated shots keep drifting. Not for a full multi-shot three.js
+  video", "copy this shot", "recreate this video in 3D", "stage this painting", "camera blocking with Claude or Codex", "code to video", "rank takes", "LLM judge", or when generated shots keep drifting. Not for a full multi-shot three.js
   film with a review UI (threejs-animatic, varg-previz), prompting a shot with no prototype (varg-video-prompting) or the full animation pass (video-animate).
 license: MIT
 metadata:
@@ -82,6 +82,7 @@ clip, because "the reference video is a pixel channel, not a spec channel": what
 5. **Render stills**, first, middle and last frame of each shot, and look at every one. Fix one thing at a time.
 6. **Have a fresh agent review it.** A builder rates its own work too high. Give the reviewer only the frames, the
    reference and the beats, and ask for the biggest gap, not a score. Check its claims against an overlay before acting: reviewers are wrong too.
+   To rank several takes: `references/judging.md`. Never a 1 to 10 score, and never "which is better?" with no criteria.
 7. **The person approves the stills,** then the clip. Stop here for notes: they cost nothing now. If nobody can reply, make the call and say so in your report.
 8. **Render the clip** frame by frame, never by screen recording.
 9. **Hand it off** (section 7), one short test first, with a price and a yes from whoever pays.
@@ -205,6 +206,7 @@ The prompt: `references/handoff.md`. Copy-paste prompts for every step: `referen
 | `references/no-reference.md` | Case C: no reference at all |
 | `references/handoff.md` | prompts and rules for Seedance and other models |
 | `references/prompts.md` | paste-ready prompts |
+| `references/judging.md` | rank takes with an LLM judge: what we measured, the biases, gate and pair prompts, what a judge can't see |
 | `references/sources.md` | who said what, with links |
 | `scripts/check_staging.py` | number audit, standard library only |
 | `scripts/stage_three.ts`, `stage_three.html`, `cdp.ts` | three.js renderer (Bun, Chrome, ffmpeg) |
@@ -213,6 +215,7 @@ The prompt: `references/handoff.md`. Copy-paste prompts for every step: `referen
 | `scripts/measure_shot.py` | read a shot's move as a picture: pan, tilt, zoom, roll (uv, OpenCV) |
 | `scripts/solve_camera.py`, `solved_to_staging.py` | recover a shot's real 3D camera with Blender's tracker, then turn it into a camera path |
 | `scripts/place.py` | picture coordinates to world coordinates |
+| `scripts/judge_pack.py` | a blind judging round: random names, both orders, a copy that must tie, scoring |
 | `example/calling/` | Caravaggio's *The Calling of Saint Matthew*, staged from the picture |
 | `example/ab-test/` | one 5 s shot as 4 variants (grey or colour, capsule or joints), to settle the open questions on your model |
 

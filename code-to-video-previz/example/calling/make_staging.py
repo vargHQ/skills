@@ -61,8 +61,8 @@ boxes = [
     box("mullion_h", l, r, WALL - .1, WALL - .06, (sill + top) / 2 - .04, (sill + top) / 2 + .04, .05),
     box("shutter", wx(.465), wx(.565), WALL - .35, WALL - .29, sill, top, .10),
     box("table", -1.2, -.35, 3.15, 3.95, .735, .775, .18),
-    box("table_body", -1.15, -.40, 3.25, 3.85, 0, .735, .06),
-    box("stool", -.12, .15, 2.85, 3.15, 0, .5, .13),
+    dict(box("table_body", -1.15, -.40, 3.25, 3.85, 0, .735, .06), no_block=True),   # the painted figures sit into it
+    dict(box("stool", -.12, .15, 2.85, 3.15, 0, .5, .13), no_block=True),
 ]
 
 # One hard source, high and right, outside the frame. Its shadow edge is the composition. Two flags cut it.
