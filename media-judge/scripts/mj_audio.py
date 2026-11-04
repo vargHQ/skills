@@ -328,10 +328,11 @@ def voice_checks(path: str, y: np.ndarray, script_text: str | None, music_only: 
     try:
         from faster_whisper import WhisperModel
         model = WhisperModel("base", device="cpu", compute_type="int8")
-        segs, _info = model.transcribe(path, word_timestamps=True, vad_filter=True)
+        # Hand over samples we decoded with ffmpeg, so a PyAV version clash can't take this check down.
+        segs, _info = model.transcribe(decode(path, 16000), word_timestamps=True, vad_filter=True)
         words = [{"w": w.word.strip(), "t": round(w.start, 2), "t_end": round(w.end, 2), "p": round(w.probability, 3)} for s in segs for w in (s.words or [])]
     except Exception as err:
-        out.append(not_run("speech_to_text", "voice", f"faster-whisper did not run ({type(err).__name__}). Add it with: uv run --with faster-whisper"))
+        out.append(not_run("speech_to_text", "voice", f"faster-whisper did not run ({type(err).__name__}: {str(err)[:120]}). Add it with: uv run --with faster-whisper"))
     f0 = f0_track(y[: SR * 180])
     voiced = f0[f0 > 0]
     if len(voiced) > 25:

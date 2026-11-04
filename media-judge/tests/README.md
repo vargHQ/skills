@@ -23,3 +23,5 @@ Results on 2026-11-03:
 | Held-out graphic ads, thresholds frozen | 18 of 22 | 6 of 8 |
 
 Report the second kind of number. Keep some footage out of your tuning.
+
+The bench runs with `--music-only`, so it does not cover voice. To test voice, make a line with any TTS, then run `uv run --with faster-whisper ../scripts/judge.py audio line.wav --out runs/v --script right.txt`, and again with a script that has words changed. On our test line the first read 0.0 word error and the second 0.188, naming each changed word.
