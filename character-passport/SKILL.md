@@ -126,7 +126,14 @@ Images: the sheet (or its panels) as Image 1, prop sheet as Image 2, location ma
 job, plus a winner rule. Video: animate an approved still (Kling 4), or give Seedance 2.5 the face close-up and the
 full-body front. Model table: [references/generate.md](references/generate.md).
 
-### 8. STOP for approval
+### 8. Judge and rank takes
+
+Code first: `scripts/face_check.py` for identity, `scripts/voice_check.py` for pace, `scripts/prompt.py check` for
+passports. Then AI judges on one binary criterion per call, blind, reference first, three model families, takes
+ranked in pairs in both orders. Calibrate each criterion against people (`scripts/judge_agreement.py`) before
+trusting it. Rubric, judge prompt and the biases to design against: [references/judge.md](references/judge.md).
+
+### 9. STOP for approval
 
 Show `cast/board.md` with sheet, faces, prop sheet and the voice take's numbers. Nothing moves before a yes.
 
@@ -161,8 +168,11 @@ faces without consent.
 - `references/x-evidence.md`: 200+ techniques from X by topic, verbatim, with links and metrics
 - `references/craft-evidence.md`: design, slop, acting, voice, prop and sheet rules from studios, research and model guides, with quotes
 - `references/evidence.md`: the blind-judged test behind this skill (numbers, prompts, cost)
+- `references/judge.md`: judging and ranking takes with AI judges: rubric, prompt, protocol, biases
+- `references/judge-evidence.md`: the research behind judge.md (biases with numbers, VLM failure modes, sources)
 - `references/goal-prompt.md`: the whole skill as one copy-paste prompt
-- `scripts/prompt.py`, `scripts/voice_check.py`, `scripts/crop_sheet.py`
+- `scripts/prompt.py`, `scripts/voice_check.py`, `scripts/crop_sheet.py`, `scripts/face_check.py` (identity by face
+  embedding), `scripts/judge_agreement.py` (judge vs judge vs human: kappa, TPR, TNR)
 - `code/`: tested three.js blockout turnaround, VRM expression sheet, SVG FACS face rig, PBR prop, GLB turnaround,
   image-to-3D client scripts, and `shoot.ts` (Bun + Playwright headless renderer)
 - `examples/vesna/`: the worked example (passport, voice, six expressions, umbrella, all image URLs)
