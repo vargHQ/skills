@@ -41,7 +41,9 @@ WORK IN THIS ORDER. Each step writes one file. At every STOP, show me the file a
    STOP: I approve the look.
 
 3. Script and storyboard -> script.md + STORYBOARD.md
-   3 beats, one visual motif that comes back, timings per shot, the camera for every shot, plain narration.
+   Follow the video-script skill: one promise, ten hooks, beats joined by BUT or THEREFORE, one spoken line per
+   visual, every line sized to its seconds (about 2.5 words a second), checked with its check_script.py.
+   One visual motif that comes back, timings per shot, the camera for every shot, plain narration.
    Write dialogue to be performed: watch the punctuation, break long lines into short ones with pauses,
    put bodily actions between lines (a sniffle, a breath), give each speaker an anchor gesture.
    STOP: I approve the story and the shot list.

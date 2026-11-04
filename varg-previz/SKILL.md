@@ -46,7 +46,8 @@ pieces.
    5 things it would never do. Without it the agent picks the safe middle version
    (https://x.com/ScaleWthAI/status/2111821935021863254). → `references/references-and-moodboard.md`
 2. **Story**: pick a structure for the format and map it onto the timeline (song sections, VO beats or seconds).
-   One story beat per section, the hook in the first 2–3 s. → `references/story-structure.md`
+   One story beat per section, the hook in the first 2–3 s. → `references/story-structure.md`; write and check the
+   lines themselves with the `video-script` skill (word budget per beat, hooks, checker).
 3. **Storyboard**: `storyboard.json` is the single source of truth for timing. Every shot gets `id, start, end, scene,
    set, picture, action, camera`, plus `line` (lyric/VO), `beat`, `overlay`, `source` as needed. Cuts on downbeats
    when there is a song; this is a draft that step 4 re-times to the locked track. → schema in

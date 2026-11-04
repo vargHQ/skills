@@ -70,7 +70,7 @@ Before step 1, agree a spend cap and the paid models allowed. Estimate before ev
 |---|---|---|---|
 | 1 | References: real film stills and frames, what to take from each | `refs.md` | `find-references`, `varg-mockups` |
 | 2 | Moodboard, in ranked order: references, light, subject lock, framing, palette (hex from a reference), motion, texture, type, sound, "Never"; proved on 3 test stills | `moodboard.md`, `board.html` **STOP** | `video-moodboard`, `varg-mockups`, `varg-video-prompting` |
-| 3 | Script and storyboard: 3 beats, one motif, timings, camera per shot | `script.md`, `STORYBOARD.md` **STOP** | `varg-previz` |
+| 3 | Script, then storyboard: one promise, beats joined by but/therefore, every line sized to its seconds and checked (`check_script.py`), then the camera per shot | `script.md`, `STORYBOARD.md` **STOP** | `video-script`, `varg-previz` |
 | 4 | Sound first: voice, music, key SFX locked before picture | `audio.wav`, `beats.json` **STOP** | `varg-ai`, `varg-music-video`, [earshot](https://github.com/Leonxlnx/earshot) |
 | 5 | Characters and props: one sheet + one passport paragraph each | sheets **STOP** | `varg-character-design`, `varg-consistent-characters`, `varg-product-lock` |
 | 6 | Blockout in code: three.js geometry, still vs reference, 3 rounds | blockout stills **STOP** | `threejs-animatic`, `varg-previz` |
