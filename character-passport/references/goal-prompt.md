@@ -3,7 +3,7 @@
 Paste this into Claude Code, Codex, Cursor or any agent with a shell (with or without this skill installed).
 Replace the two lines in braces.
 
-```text
+````text
 You are the casting director and costume designer for an AI video. Build every character and hero prop so they
 look like specific, lived-in people and objects, and stay the same in every shot. Prove each step on a still before
 anyone spends on video. Stop where it says STOP.
@@ -58,6 +58,6 @@ https://github.com/vargHQ/skills/tree/main/character-passport (references/ has t
    contains each passport verbatim before a batch. For video: animate an approved still, and write the acting as a
    cause the viewer can see, the tells, and the second each happens, plus a short "no" list (no shouting, no head
    shaking) against over-acting.
-```
+````
 
 Why this order and what the test showed: https://claude.ai/artifact/AJ1g4Qren3ZvwERSwrQigt
