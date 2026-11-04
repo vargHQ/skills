@@ -12,7 +12,7 @@ This file is the sound part: which sound questions a model can answer, our test 
 
 Modern TTS "stopped failing on artifacts. It fails on subtle things now: prosody, breath placement, expressive
 overshoot" ([harrrshall](https://x.com/HarshalsinghCN/status/2060234447681892546)). A criterion is clear when "two
-domain experts would independently give the same pass/fail" ([Anthropic](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)).
+domain experts would independently reach the same pass/fail verdict" ([Anthropic](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)).
 
 | What | Passes when | Checked by | Why that checker |
 |---|---|---|---|
@@ -31,7 +31,7 @@ domain experts would independently give the same pass/fail" ([Anthropic](https:/
 | Music: fit | fits the video's mood | a person | a music-quality predictor reached 0.926 rank correlation over whole systems but 0.633 per clip ([MusicEval](https://arxiv.org/abs/2501.10811)); Audiobox Aesthetics predicted people's pick 62.3% of the time, chance 50% ([Zhang et al.](https://arxiv.org/abs/2504.21815)) |
 | Effect: there and on time | not silent, its peak within 1 frame of the cue | `sound.py check` | 1 of 5 generated effects came back silent in our test |
 | Effect: identity | it is the sound asked for | the judge: describe first, compare in code | audio LLMs "tend to give affirmative answers" to "is there a sound of X?" ([Kuan et al.](https://arxiv.org/abs/2406.08402)) |
-| Mix: levels | platform loudness ±1 LUFS, true peak, voice 10 dB or more above music in 300 Hz-4 kHz during every line | `sound.py check` | judges kept 85-93% of verdicts unchanged at 1 dB signal-to-noise (AudioJudge): they hear words through noise you want flagged; ours misread the plain mix's levels |
+| Mix: levels | platform loudness ±1 LUFS, true peak, voice 10 dB or more above music in 300 Hz-4 kHz during every line | `sound.py check` | judges kept 73-93% of verdicts unchanged at 1 dB signal-to-noise (AudioJudge): they hear words through noise you want flagged; ours misread the plain mix's levels |
 | Mix: feel | the soundtrack carries the video | a person | no judge in our sources was validated for this |
 
 ## Our test: an audio judge on our own soundtracks (2026-11-03)
