@@ -54,7 +54,7 @@ Use the install command from the page for the agent you are running in. Generati
 
 One search finds one format skill. That is right for a clip, an ad in a known format, captions or an edit. When the person wants a whole piece made from scratch, properly (several shots, a story, a launch film, an explainer, a music video built from nothing), no single skill covers it: follow this production order instead, and search (step 1 above) only for the format skill a step needs.
 
-Before step 1, agree a spend cap and the paid models allowed. Estimate before every paid call and say the running total. Use video models only for what code cannot draw (real people, crowds, weather, physical motion). Each step writes one file; at every **STOP**, show it and wait.
+Before step 1, set up the project with `video-project-github` (it creates the folders and the private repo, and the person only clicks once), then agree a spend cap and the paid models allowed. Estimate before every paid call and say the running total. Use video models only for what code cannot draw (real people, crowds, weather, physical motion). Each step writes one file; at every **STOP**, show it and wait.
 
 | # | Step | Writes | Goes deeper |
 |---|---|---|---|
@@ -67,7 +67,7 @@ Before step 1, agree a spend cap and the paid models allowed. Estimate before ev
 | 7 | Takes in code, timed to `beats.json`; video model only where needed | shots, **STOP** before the first paid video call | `video-animate`, [hyperframes](https://github.com/heygen-com/hyperframes), [remotion-dev/skills](https://github.com/remotion-dev/skills), `varg-video-prompting`, `varg-ai` |
 | 8 | Edit: timestamped notes, approved looks saved as /commands | `cut.mp4`, `notes.md` | `varg-video-editing`, `short-form-ffmpeg-cookbook` |
 | 9 | Review: measure, don't self-grade (ffprobe, broken frames, sync, spelling) | `review.md` **STOP** | QA checklist in `varg-video-prompting` |
-| 10 | Git: commit after every approved step | | |
+| 10 | Keep it: private GitHub repo from the start, a saved version at every **STOP**, media by hash, undo for anything | `AGENTS.md`, `media.lock.jsonl` | `video-project-github` |
 
 The full prompt to paste, with every step spelled out and `[brackets]` to fill, ships with the `how-to-make-ai-video` skill (`npx skills add vargHQ/skills --skill how-to-make-ai-video`): `references/whole-video-prompt.md`, also at https://github.com/vargHQ/skills/blob/main/how-to-make-ai-video/references/whole-video-prompt.md.
 
