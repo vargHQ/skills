@@ -98,6 +98,8 @@
     "./threejs-animatic",
     "./varg-mockups",
     "./varg-video-prompting",
+    "./edit-footage-with-code",
+    "./video-asset-sources",
     "./varg-video-editing",
     "./media-download",
     "./paper-shaders",
