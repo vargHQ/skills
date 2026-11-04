@@ -45,6 +45,9 @@ keeps audiences apart.
 
 ## 5. Judge drafts the way that works
 
+The full protocol, the bias table and both judge prompts are in `judge.md`. In short:
+
+
 - Turn the brief into YES/NO checks and answer each with one line of reason
   ([TICK](https://arxiv.org/abs/2410.03608)).
 - Compare two drafts pairwise, in both orders; count a win only if it holds both ways

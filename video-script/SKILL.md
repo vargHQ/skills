@@ -13,7 +13,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.1.0"
+  version: "1.2.0"
   openclaw:
     requires:
       anyBins:
@@ -292,6 +292,7 @@ cta: book a 15-minute demo
 | a social short or YouTube intro | `references/social.md` | hook formats, foreshadow, rehooks, platform versions |
 | a short-form drama or skit | `references/drama.md` | cold open, a cliffhanger per episode, dialogue for lip-sync, series bible |
 | better scripts over time | `references/improve.md` | log, read the numbers, test one thing, promote lessons |
+| the best of several scripts | `references/judge.md` | code checks, yes/no gates from the brief, pairwise in both orders, calibration |
 
 Test briefs for checking a change to this skill: `references/test-briefs.md`.
 
