@@ -6,7 +6,8 @@ other AI video. "Most AI videos look cheap because nobody gives the AI a real fi
 few real frames give both sides the words. This step comes before the look bible (step 2 of the working loop).
 
 The full version, with seven sources in order, trend numbers from X and ten visual ideas, is the
-`find-references` skill.
+`find-references` skill. Turning the chosen references into a checked board (ranked lines, hex taken from a
+reference, test stills scored line by line, 450+ source links) is the `video-moodboard` skill.
 
 ## Where to look
 
