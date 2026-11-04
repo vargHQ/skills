@@ -40,7 +40,7 @@ shot ids it plays over. On `eleven_v4`, audio tags such as `[whispers]` and `[la
   `eleven_v4` is the expressive default, `eleven_v4_turbo` half the price, `gemini_3_8_flash_tts` does two-speaker
   dialogue). Estimate first; a typical line is tens of credits, so an audition costs little but is still spend:
   ask before running it.
-- Claude may pre-screen more candidates and bring the best few (one agent "built a judge and tested the TTS model
+- An audio-capable model (Claude has no audio input) or measurements may pre-screen more candidates and bring the best few (one agent "built a judge and tested the TTS model
   until it found a few candidates", https://x.com/LLMJunky/status/2106411941497389342), but **the person listens and
   picks**. Record the choice and the voice id in `brief.md`.
 - Then render all lines in the chosen voice. Re-render only the lines that are wrong; keep approved takes.

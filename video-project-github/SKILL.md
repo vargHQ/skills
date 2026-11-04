@@ -167,3 +167,7 @@ judges. The checklist and the measurements behind it: `references/repeatable-res
 ## If something fails
 
 Exact errors and fixes: `references/troubleshooting.md`. Sources and benchmarks: `references/evidence.md`.
+
+## Ranking takes or deliverables with a model
+
+Scripts check facts, a person decides taste, and an LLM filters and finds defects. Criteria, evidence only and a tie as an allowed answer: `references/llm-judge.md`.
