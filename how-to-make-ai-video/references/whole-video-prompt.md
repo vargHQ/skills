@@ -74,7 +74,7 @@ WORK IN THIS ORDER. Each step writes one file. At every STOP, show me the file a
    Assemble on beats.json. I give notes with timestamps; you fix exactly those.
    When I approve a look or a fix, save it as a reusable /command so it stays the same.
 
-9. Review: measure, don't grade yourself -> review.md
+9. Review: measure, don't grade yourself (the media-judge skill runs these tests) -> review.md
    Run checks that need no opinion: duration and frame rate (ffprobe), black, frozen or broken frames,
    audio levels and sync of every hit against beats.json, spell-check every on-screen word,
    graphics that should move with the scene but are pinned to the screen, dark scenes that will band

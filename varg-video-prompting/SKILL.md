@@ -322,7 +322,8 @@ clip you have not checked.
    band, add fine grain or lift the blacks in the edit.
 5. Then look for the faults nobody measures: a graphic pinned to the screen that should sit in the scene, numbers
    that jiggle while they count (set tabular figures), one soft shot among sharp ones
-   (https://x.com/tetsuoai/status/2115277212824019367).
+   (https://x.com/tetsuoai/status/2115277212824019367). `media-judge` measures all of these, plus
+   upload banding with CAMBI: run it on the finished edit, in a fresh agent.
 
 Artifacts up to about 6 frames can be cut out in the edit; anything longer, or anything the reviewer sees twice,
 is a retake. Keep a jobs file (shot, job id, file URL, billed credits) the moment each job is submitted.

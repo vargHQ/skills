@@ -91,6 +91,7 @@
     "./video-animate",
     "./video-moodboard",
     "./video-sound",
+    "./media-judge",
     "./character-passport",
     "./video-project-github",
     "./varg-previz",
