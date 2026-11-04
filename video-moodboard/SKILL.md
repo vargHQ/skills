@@ -49,7 +49,7 @@ What the data says (full write-up: https://claude.ai/artifact/5ptKSPYFzvd7turkZe
 |---|---|---|---|
 | 1 | **References** | Words land camera moves about half the time (VBench mean 49.58%) and exact text in at best 0.67 of layouts; a reference carries both. All 14 guides cover style or image references; Kling 4.0, MiniMax H3, Seedance 2.5 put reference roles first. Posts mentioning references: ×1.25 saves, the highest. | 3–5 refs, each with ONE job |
 | 2 | **Light** | Only line that raised film-likeness. Veo: cinematography is "the most powerful tool for conveying tone and emotion". Vision models read light right only 41.6% of the time (ShotBench), so write it, don't infer it. | one source, direction, hardness, Kelvin, motivation |
-| 3 | **Subject lock** | All 14 guides cover the subject; five put it first. "if your character sheet is bad, you'll just waste tokens" (2,624 saves). | identity block + sheet on 18% grey |
+| 3 | **Subject lock** | All 14 guides cover the subject; five put it first. "if your character sheet is bad, you'll just waste tokens" (2,624 saves). | identity block + sheet (18% grey or in the board's light); full cast: character-passport |
 | 4 | **Framing** | Unprompted models default to a medium shot; a straight-down aerial was met only 58–71%. Vision models read lens size worst (37.7%). | shot size, height, angle, mm, placement % |
 | 5 | **Palette** | Obeyed best; colour is the easiest attribute for video models (T2V-CompBench). Invented hex hurt realism. | 3–5 hex from a reference, roles, grade |
 | 6 | **Motion** | Matters most once it moves, followed least (57% even when written). | one move, one action, duration, ref clip |
