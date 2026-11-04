@@ -137,7 +137,9 @@ in this order: subject and action, light, palette, framing, texture, motion, typ
 | Motion | frozen-motion cue present (stills) or the move happened (video) | yes/no |
 | Type | not in the still; set in code later | — |
 
-Use a second agent with fresh context as the critic: give it the board and the stills, not your reasoning. When a
+Use a second agent with fresh context as the critic: give it the board and the stills, not your reasoning, and
+follow `references/judge.md` (blind ids, line-by-line 0/1/2 with evidence, code measures first, pairs in both
+orders, never "rate the quality": without criteria our judges preferred the frames that ignored the board). When a
 line fails, rewrite that line or attach a reference image for it. Typical fixes: unusual angles need a 3D blockout
 (threejs-animatic) or a reference frame; a palette that looks graded needs hex from a real frame and a softer grade.
 
@@ -167,6 +169,7 @@ you have no rights to.
 - `references/evidence.md`: the test, the X statistics, the guide matrix, the benchmark numbers
 - `references/moodboard-template.md`: the blank board
 - `references/goal-prompt.md`: the whole skill as one copy-paste prompt
+- `references/judge.md`: how to rank frames with an unbiased LLM judge, with our bias tests and the judge prompt
 - `assets/board.html`: the visual board template
 - `scripts/palette.py`: extract a palette from a reference, check a still against hex (ΔE)
 - `examples/last-bus/`: a filled board with the 3 test stills
