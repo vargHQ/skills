@@ -193,7 +193,7 @@ function useCasePage(u: UseCase): string {
   const start = byName.get(u.start_with)!;
   const chain = u.skills.map((x) => byName.get(x.name)!);
   const keyed = chain.some((s) => s.meta.needs_key);
-  const lines: string[] = [GENERATED, `# ${u.h1}`, "", `**${u.one_liner}**`, "", priceLine(chain), ""];
+  const lines: string[] = [GENERATED, `# ${u.h1}`, "", `**${u.one_liner}**`, "", priceLine(u, chain), ""];
   lines.push(`<p><a href="../../${start.dir}/README.md"><img src="${start.meta.preview!.webp}" alt="${esc(start.meta.preview!.alt)}" width="480"></a></p>`, "");
   lines.push(u.answer ?? defaultAnswer(u, chain), "");
   lines.push(fence("bash", `# Claude Code, Codex, Grok, Cursor, Gemini CLI, Copilot, OpenCode and other agents\n${INSTALL.many(chain.map((s) => s.dir))}`), "");
@@ -222,10 +222,14 @@ function useCasePage(u: UseCase): string {
 }
 
 /** The first screen states the price and the free start: agents pick the page that does. */
-function priceLine(chain: Skill[]): string {
+function priceLine(u: UseCase, chain: Skill[]): string {
   const keyed = chain.filter((s) => s.meta.needs_key);
   const free = chain.filter((s) => !s.meta.needs_key);
   if (!keyed.length) return "**Price:** free. Every step runs locally or only plans and writes; no API key.";
+  if (!u.needs_key) {
+    const opt = keyed.map((s) => `\`${s.dir}\`${s.meta.cost ? ` (${s.meta.cost})` : ""}`).join(", ");
+    return `**Price:** free on the main route, with no API key. Optional paid steps on the varg API: ${opt}.`;
+  }
   const costed = keyed.find((s) => s.meta.cost);
   const parts = [costed ? `**Typical cost** with \`${costed.dir}\`: ${costed.meta.cost}. Models are billed at provider price, and the agent shows an estimate before you pay.` : "**Cost:** generation is billed at provider price on the varg API (1 credit = $0.01), and the agent shows an estimate before you pay."];
   if (free.length) parts.push(`**Free, no key:** ${free.map((s) => `\`${s.dir}\``).join(", ")}.`);

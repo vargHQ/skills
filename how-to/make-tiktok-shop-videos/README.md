@@ -3,7 +3,7 @@
 
 **Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.**
 
-**Typical cost** with `ai-ad-compliance-check`: ~$0.05 per ad analysis (video_analyze). Models are billed at provider price, and the agent shows an estimate before you pay. **Free, no key:** `tiktok-shop-video`, `product-video-hooks`, `ecommerce-video-edit`.
+**Price:** free on the main route, with no API key. Optional paid steps on the varg API: `ai-ad-compliance-check` (~$0.05 per ad analysis (video_analyze)).
 
 <p><a href="../../tiktok-shop-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_06cdbdbc1123.webp" alt="A smiling man in a bright kitchen presses a vegetable chopper and holds the container of diced onion up to the camera, with a $19.99 shop tag." width="480"></a></p>
 

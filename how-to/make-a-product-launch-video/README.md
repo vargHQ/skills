@@ -3,7 +3,7 @@
 
 **Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage.**
 
-**Typical cost** with `video-sound`: ~$0.01–0.02 per voice line, $0.01–0.06 per sound effect, $0.05 per 20 s music bed; mixing free. Models are billed at provider price, and the agent shows an estimate before you pay. **Free, no key:** `video-script`, `app-ui-mockups`, `kinetic-type-art`, `maps-and-data-motion`, `title-design`, `transition-craft`, `media-judge`.
+**Price:** free on the main route, with no API key. Optional paid steps on the varg API: `video-sound` (~$0.01–0.02 per voice line, $0.01–0.06 per sound effect, $0.05 per 20 s music bed; mixing free).
 
 <p><a href="../../app-ui-mockups/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ecb6f84bf919.webp" alt="HTML-built UI mockups play in turn: a coding-agent terminal run, a team chat channel, a floating 3D code slab and a tilted analytics dashboard." width="480"></a></p>
 

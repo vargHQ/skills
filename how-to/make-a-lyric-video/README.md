@@ -3,7 +3,7 @@
 
 **Turn a song and its lyrics into a lyric video with every word on the vocal: free kinetic type in code, or lyrics over AI footage.**
 
-**Typical cost** with `varg-music-video`: ~$2.10 per 5 s Seedance 2.5 shot at 720p (estimate). Models are billed at provider price, and the agent shows an estimate before you pay. **Free, no key:** `motion-formats`, `kinetic-type-art`, `caption-styles`.
+**Price:** free on the main route, with no API key. Optional paid steps on the varg API: `varg-music-video` (~$2.10 per 5 s Seedance 2.5 shot at 720p (estimate)).
 
 <p><a href="../../motion-formats/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cab816145ddf.webp" alt="Motion formats play in turn: a pixel-art runner on a CRT night level, a wave rippling through a wordmark, a VHS bouncing logo and a kinetic lyric word." width="480"></a></p>
 

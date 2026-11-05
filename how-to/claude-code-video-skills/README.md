@@ -3,7 +3,7 @@
 
 **Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key.**
 
-**Typical cost** with `varg-ai`: ~$2–5 per typical short video. Models are billed at provider price, and the agent shows an estimate before you pay. **Free, no key:** `how-to-make-ai-video`, `video-skills`.
+**Price:** free on the main route, with no API key. Optional paid steps on the varg API: `varg-ai` (~$2–5 per typical short video), `varg-publish-skill` (free).
 
 <p><a href="../../how-to-make-ai-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_45aff7612d54.webp" alt="On varg how to, the search box gets the request &quot;ugc ad with an ai actor holding my product&quot; and returns a UGC collection, skills and prompt cards ranked for it." width="480"></a></p>
 
