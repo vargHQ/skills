@@ -1,0 +1,33 @@
+name: Release
+
+# A new version in .claude-plugin/plugin.json on main becomes a tag and a GitHub release.
+# `gh skill install` and the release badge resolve the latest release first, so it must track main.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".claude-plugin/plugin.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Tag and release the plugin version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(jq -r .version .claude-plugin/plugin.json)
+          TAG="v$VERSION"
+          if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
+            echo "$TAG already exists"; exit 0
+          fi
+          SKILLS=$(find . -mindepth 2 -maxdepth 2 -name SKILL.md -not -path './.git/*' | wc -l | tr -d ' ')
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "varg skills $TAG" --generate-notes \
+            --notes "$SKILLS skills. Install: \`npx skills add vargHQ/skills\` · Claude Code: \`claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg\`"

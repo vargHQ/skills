@@ -1,0 +1,2785 @@
+{
+ "ad-creative-testing": {
+  "title": "How to test ad creatives on TikTok and Meta — from one winning ad",
+  "short": "Ad creative testing",
+  "tagline": "One winning ad and its metrics become a test plan: distinct concepts, budgets, when to judge, file names, kill or scale calls.",
+  "category": "ads",
+  "prompts": [
+   "Here's my best-selling serum ad, plan the next 10 creatives to test on Meta with a $1,500 budget",
+   "My 5 TikTok variants all perform the same — here is ./ads-export.csv, what is broken?",
+   "Is this ad fatigued? CPM is up 25% and CTR down 18% this week, should I kill it or iterate?"
+  ],
+  "keywords": [
+   "how to test ad creatives",
+   "creative testing meta ads",
+   "tiktok ad testing",
+   "ad fatigue",
+   "when to kill an ad",
+   "hook rate hold rate",
+   "meta andromeda creative diversification"
+  ],
+  "stack": [],
+  "needs_key": false,
+  "local": true,
+  "cost": "free (planning only)",
+  "output": "Test plan table and naming sheet (CSV)",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_440e42519df7.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_832802fd7456.jpg",
+   "alt": "Four genuinely different ad concepts play in a row as a test set: a pet nail clipper hook, a man relaxing in a heated neck massager, a backyard security-light hook and a glove-slicing demo.",
+   "credit": null
+  }
+ },
+ "ai-ad-compliance-check": {
+  "title": "AI ad compliance checker — TikTok Shop, Meta, YouTube, FTC, EU AI Act",
+  "short": "AI ad compliance",
+  "tagline": "A finished AI video ad becomes a pass / fix / block report with the rule, source, a rewrite for each fix and the AI labels to set.",
+  "category": "ads",
+  "prompts": [
+   "Check ./serum-ad.mp4 before I run it on TikTok Shop and Meta in the US and EU",
+   "Can my AI avatar say she used the product for two weeks? Here's the script and the video link",
+   "Do I need an AI label on this dropshipping reel with security-camera style footage?"
+  ],
+  "keywords": [
+   "ai ad compliance",
+   "tiktok shop ai rules",
+   "ftc fake testimonial rule",
+   "ai generated content label",
+   "is my ad allowed on tiktok",
+   "eu ai act labeling"
+  ],
+  "stack": [
+   "varg API",
+   "varg video_analyze",
+   "c2patool"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.05 per ad analysis (video_analyze)",
+  "output": "Pass / fix / block compliance report",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_813fb3b7dd72.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f0c6de6ffde4.jpg",
+   "alt": "An AI dropshipping reel plays beside its compliance report: a verdict of \"fix first\" and a table of FIX, WARN and PASS findings with timestamps, rules and fixes.",
+   "credit": null
+  }
+ },
+ "ai-ugc-ad-video": {
+  "title": "AI UGC ad generator for Claude Code — open-source Arcads alternative",
+  "short": "AI UGC ads",
+  "tagline": "An AI creator holds your real product and talks to a phone camera; face, voice and label stay locked across shots.",
+  "category": "ads",
+  "prompts": [
+   "Make a 20-second UGC ad for my serum from ./serum.jpg, a woman in her 50s in her bathroom, 9:16",
+   "Create an in-car yapper ad for our sleep gummies with a 35-year-old dad, 30 seconds, for Meta",
+   "I want three street-interview style UGC clips for my knee sleeve, label readable in every shot"
+  ],
+  "keywords": [
+   "ai ugc ads",
+   "arcads alternative",
+   "ai ugc video generator",
+   "ai actor ad",
+   "ugc ad without creators",
+   "open source ugc ads",
+   "creatify alternative"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Creatify",
+   "GPT Image 2.5",
+   "Nano Banana 2.1",
+   "ElevenLabs v4",
+   "Sync v3"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$1.20–6 per 15 s ad incl. retakes (estimate)",
+  "output": "9:16 MP4 UGC ad",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_78267bc8ba20.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8946d6cf1c99.jpg",
+   "alt": "An AI creator in a bright bathroom holds a white serum bottle beside her face and talks to a phone camera.",
+   "credit": null
+  }
+ },
+ "app-ui-mockups": {
+  "title": "Animated app UI mockups for launch videos — chats, terminals and code",
+  "short": "App UI mockups",
+  "tagline": "A script of messages, commands or code becomes an animated chat, terminal, notification or editor scene rebuilt in HTML.",
+  "category": "motion",
+  "prompts": [
+   "Animate the conversation in ./chat.json as a phone message thread for a 9:16 hook",
+   "Show a coding-agent terminal session fixing a bug for my launch video, 20 seconds",
+   "Make an exploded UI shot of my app screen with its layers floating apart, then sliding home"
+  ],
+  "keywords": [
+   "fake text message video",
+   "terminal animation video",
+   "coding agent demo video",
+   "code walkthrough animation",
+   "chat mockup animation",
+   "app launch video"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "MP4 or alpha MOV UI scene",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ecb6f84bf919.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7251077109d8.jpg",
+   "alt": "HTML-built UI mockups play in turn: a coding-agent terminal run, a team chat channel, a floating 3D code slab and a tilted analytics dashboard.",
+   "credit": null
+  }
+ },
+ "caption-styles": {
+  "title": "Animated TikTok captions — 17 styles for HyperFrames and Remotion",
+  "short": "Caption styles",
+  "tagline": "Word timestamps become one of 17 animated caption looks with set fonts, sizes, timing and 9:16 safe zones, rendered locally.",
+  "category": "motion",
+  "prompts": [
+   "Add word-by-word karaoke captions to ./talk.mp4 for TikTok, 9:16",
+   "Burn highlighted captions into my podcast clip ./ep12.mp4 from the word timestamps in ./words.json",
+   "Show me three caption looks for a calm skincare ad, then render a transparent caption layer"
+  ],
+  "keywords": [
+   "animated captions",
+   "tiktok captions",
+   "word by word subtitles",
+   "karaoke captions",
+   "remotion captions",
+   "ffmpeg ass subtitles",
+   "hormozi style captions"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion",
+   "FFmpeg",
+   "libass",
+   "WhisperX"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Burned-in MP4, transparent caption layer or ASS",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8d9492b7cbfe.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a86eeedc8c4b.jpg",
+   "alt": "The same line, \"Say less, show more\", is captioned in four looks over a vertical sunset clip: yellow karaoke fill, blue word pop, white highlight and a translucent box.",
+   "credit": null
+  }
+ },
+ "character-passport": {
+  "title": "Character sheets for AI video: passport, turnaround, expressions, voice",
+  "short": "Character passport",
+  "tagline": "Each character or hero prop gets a word-for-word passport, a turnaround sheet, six expressions and a voice line measured in wpm.",
+  "category": "preprod",
+  "prompts": [
+   "Cast my short film: a 62-year-old ferry mechanic and her worn umbrella, the same look in every shot",
+   "Make a character sheet and turnaround for the narrator in script.md, lit like moodboard.md",
+   "My AI character looks different in every clip; write a passport and a voice line at 130 wpm"
+  ],
+  "keywords": [
+   "consistent ai character",
+   "character sheet",
+   "character turnaround",
+   "expression sheet",
+   "character bible",
+   "same character in every shot",
+   "ai character voice"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "Gemini 3.8 Flash TTS",
+   "Python",
+   "Pillow",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.05 per image (Nano Banana 2.1), ~$0.01 per voice take",
+  "output": "Passport, turnaround sheet, expressions, voice take",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_fa6dbbcf6a07.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3d6e0c26e56c.jpg",
+   "alt": "A character passport for a woman in a long black coat: turnaround sheet, an expression grid, then film stills of her with a red umbrella at a rainy night bus stop.",
+   "credit": null
+  }
+ },
+ "code-to-video-previz": {
+  "title": "Code to video: prototype a shot in three.js or Blender before Seedance",
+  "short": "Code-to-video previz",
+  "tagline": "A brief, reference clip or painting becomes a 3D scene staged in metres, checked frames and a guide clip for a video model.",
+  "category": "preprod",
+  "prompts": [
+   "Recreate ./ref.mp4 in 3D with a solved camera so Seedance copies the move",
+   "Does this drone-over-the-harbour shot need a 3D prototype? If so, stage it in three.js in real metres",
+   "Stage the composition of painting.jpg as a 3D shot and render a guide clip in headless Blender"
+  ],
+  "keywords": [
+   "three.js or blender for previz",
+   "3d blockout for ai video",
+   "recreate a video in 3d",
+   "camera solve from reference video",
+   "code to video",
+   "previz with claude code",
+   "blender previz"
+  ],
+  "stack": [
+   "three.js",
+   "Blender",
+   "Python",
+   "Bun",
+   "Chrome",
+   "FFmpeg",
+   "uv",
+   "Seedance 2.5"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "staging.json, checked stills, guide clip",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7eb2082066a4.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_326f903e5d93.jpg",
+   "alt": "A coded 3D previz: blocky stand-in characters and props are staged in grey sets while a camera view and the shot code sit side by side.",
+   "credit": null
+  }
+ },
+ "ecommerce-video-ads": {
+  "title": "How to make ecommerce video ads that sell on TikTok, Reels and Meta",
+  "short": "Ecommerce video ads",
+  "tagline": "A product, its facts and a budget become an angle, hook, timed script and AI or real-footage ads that follow platform rules.",
+  "category": "ads",
+  "prompts": [
+   "Make 10 ads for my posture corrector from ./photos/, mostly for TikTok, budget $50 per video",
+   "Plan a 20-second Reels ad for our cast-iron pan: angle, hook, script and which shots to generate",
+   "I have 12 seconds of phone footage of my pet brush — turn it into a Meta ad plan with 3 concepts"
+  ],
+  "keywords": [
+   "ecommerce video ads",
+   "how to make product video ads",
+   "ai product ads for tiktok",
+   "tiktok ad script",
+   "meta video ad",
+   "viral product video"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Veo 3.1",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "ElevenLabs v4",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$1.50–9 per 15–30 s ad (estimate)",
+  "output": "9:16 and 4:5 MP4 ads, scripts",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_603edd8f0a7e.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b380657574db.jpg",
+   "alt": "Slow-motion water splashes around an amber serum bottle on wet black stone under the headline \"Your skin at 7am\".",
+   "credit": null
+  }
+ },
+ "ecommerce-video-edit": {
+  "title": "Turn raw product footage into a TikTok ad with FFmpeg — free, local",
+  "short": "FFmpeg ad edit",
+  "tagline": "Raw creator or product footage becomes a 9:16 ad: hook moved to second 0, dead air cut, captions, CTA, -14 LUFS, one MP4 per hook.",
+  "category": "ads",
+  "prompts": [
+   "Recut ./unboxing.mov into a 25-second TikTok ad with the reveal first and a 'Tap the orange cart' end card",
+   "Put these 5 new hooks in ./hooks/ in front of the body of ./winner.mp4, one MP4 each",
+   "Cut the dead air out of ./demo.mp4, add a text hook in the safe zone and export 9:16 plus 4:5"
+  ],
+  "keywords": [
+   "ffmpeg tiktok ad",
+   "edit product video for tiktok",
+   "ffmpeg cut silence",
+   "ffmpeg text overlay",
+   "tiktok safe zone",
+   "loudness -14 lufs ffmpeg",
+   "hook variants ffmpeg"
+  ],
+  "stack": [
+   "FFmpeg",
+   "ffprobe",
+   "Bash"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, runs locally",
+  "output": "9:16 MP4 per hook, 4:5 cut, cover",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2a78ccaa1bd1.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1d8b7e9a989a.jpg",
+   "alt": "Three vertical frames from one recut ad: a \"POV: 7 days later\" face close-up, a jade roller on the cheek with Roll, Lift, Glow labels and a pink shop-now end card.",
+   "credit": null
+  }
+ },
+ "edit-footage-with-code": {
+  "title": "Edit talking-head footage with Claude Code: cut dead air, add captions",
+  "short": "Edit footage with code",
+  "tagline": "Raw takes become a reviewed edit list, a clean cut between words, then captions, B-roll and sound checked by numbers and frames.",
+  "category": "editing",
+  "prompts": [
+   "Cut the pauses and retakes out of take.mp4, 12 minutes of me talking to camera, without clipping words",
+   "Rough cut this podcast episode, show me the edit list first, then add captions in HyperFrames",
+   "Compare cut_a.mp4 and cut_b.mp4 and tell me which edit is better and why"
+  ],
+  "keywords": [
+   "remove pauses from video",
+   "cut dead air",
+   "edit talking head video",
+   "rough cut with ai",
+   "edit video with hyperframes",
+   "edit video with remotion",
+   "ffmpeg silence removal"
+  ],
+  "stack": [
+   "FFmpeg",
+   "Python",
+   "HyperFrames",
+   "Remotion",
+   "Whisper"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "Clean cut MP4, edit list and FCPXML",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1c5ac9627ddb.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd45d1cc29e9.jpg",
+   "alt": "A talking-head take edited in code: a woman at a podcast desk speaks with word-by-word captions that highlight the active word, then the shot punches in at the sentence break.",
+   "credit": null
+  }
+ },
+ "find-references": {
+  "title": "Find human-made references for AI video: light, framing, type, motion",
+  "short": "Reference finder",
+  "tagline": "A video request becomes query packs over 22 open sources and a board of three human-made candidates per job.",
+  "category": "preprod",
+  "prompts": [
+   "Find lighting and framing references for a rainy night bus-stop scene before I generate anything",
+   "Make a reference board for a 30-second coffee ad in a 1970s kitchen: light, palette, texture and music",
+   "I'm coding a launch video in HyperFrames; find type and motion references so it doesn't look like a template"
+  ],
+  "keywords": [
+   "find references for ai video",
+   "reference board",
+   "lighting reference",
+   "film still references",
+   "motion reference",
+   "font reference",
+   "how to avoid ai slop"
+  ],
+  "stack": [
+   "Python",
+   "FFmpeg",
+   "ImageMagick",
+   "uv",
+   "Claude or Codex CLI"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free (no varg credits)",
+  "output": "board.html with three picks per job",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c02ffe003ee2.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_fc13499b8131.jpg",
+   "alt": "A board of four cinematic references, a woman reading by a lamp, a warmly lit dinner, a modern house at dusk and a sunlit pool, then each reference in turn.",
+   "credit": null
+  }
+ },
+ "footage-effects": {
+  "title": "FFmpeg glitch, glow, CRT and halftone effects for real footage",
+  "short": "Footage effects",
+  "tagline": "A clip you own gets glow, glitch, CRT, chromatic aberration, halftone, zoom blur or heat haze from tested FFmpeg chains.",
+  "category": "motion",
+  "prompts": [
+   "Add short glitch bursts on the cuts of ./clip.mp4 with ffmpeg",
+   "Put ./interview.mp4 on a green phosphor CRT screen",
+   "Make ./skate.mp4 look like a halftone print on paper"
+  ],
+  "keywords": [
+   "ffmpeg glitch effect",
+   "ffmpeg glow effect",
+   "crt effect video",
+   "halftone video effect",
+   "chromatic aberration ffmpeg",
+   "zoom blur effect",
+   "vhs look"
+  ],
+  "stack": [
+   "FFmpeg",
+   "HyperFrames",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Treated MP4 or ProRes MOV clip",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_69a257232639.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f89519726210.jpg",
+   "alt": "Film footage cycles through four looks: warm halation glow on rooftops, a curved CRT screen, an RGB-split digital glitch and a black-and-white halftone.",
+   "credit": "Footage: Tears of Steel (CC BY 3.0) © Blender Foundation, mango.blender.org"
+  }
+ },
+ "gpt-image-2-6": {
+  "title": "How to use GPT Image 2.6 — Flare vs Sunburst, sizes, prices and prompts",
+  "short": "GPT Image 2.6 guide",
+  "tagline": "A prompt or photo becomes a poster, infographic, print or character sheet with readable text, using measured sizes and prices.",
+  "category": "models",
+  "prompts": [
+   "Make a 3:4 launch poster for my lamp from ./lamp.png with the headline \"Light that follows you\" on GPT Image 2.6",
+   "Turn ./trip.jpg into an editorial travel print with the city name set in large type",
+   "Should I use Flare or Sunburst for a labelled 12-panel storyboard sheet, and what will it cost?"
+  ],
+  "keywords": [
+   "gpt image 2.6",
+   "gpt image 2.6 prompts",
+   "how to use gpt image 2.6",
+   "gpt image 2.6 api",
+   "gpt image 2.6 price",
+   "flare vs sunburst",
+   "ai infographic",
+   "ai poster generator"
+  ],
+  "stack": [
+   "GPT Image 2.6",
+   "varg API",
+   "varg MCP",
+   "fal"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.03–0.06 per image (measured)",
+  "output": "Posters, infographics and sheets with readable text",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e4acf638285c.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_157b40c477e7.jpg",
+   "alt": "GPT Image 2.6 outputs crossfade: a rainy Lisbon photo of a cyclist, the same scene as an editorial print, a coffee bag with crisp label text and a character sheet.",
+   "credit": null
+  }
+ },
+ "gpt-image-gif": {
+  "title": "Looping animated GIFs from GPT Image 2.6 — mascots, logos and prompts",
+  "short": "GPT Image GIFs",
+  "tagline": "A still, mascot, logo or prompt becomes a looping GPT Image 2.6 GIF sized to the frame budget, then WebP and MP4 for the web.",
+  "category": "models",
+  "prompts": [
+   "Animate my mascot ./pip.png waving and hopping as a looping GIF with a transparent background",
+   "Make a 9-frame looping GIF of a paper boat on a night sea, then convert it to WebP and MP4",
+   "My 12-frame GIF request at 1024×1024 was rejected. Pick a size that fits and run it again"
+  ],
+  "keywords": [
+   "ai gif generator",
+   "gpt image 2.6 gif",
+   "animated gif from image",
+   "animate a logo as a gif",
+   "looping gif",
+   "gif to webp ffmpeg"
+  ],
+  "stack": [
+   "GPT Image 2.6",
+   "varg API",
+   "FFmpeg",
+   "ImageMagick"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.03–0.07 per GIF (measured)",
+  "output": "Looping GIF plus animated WebP and MP4",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_517f33c08e84.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_13ec1d3d62a5.jpg",
+   "alt": "Two looping GIFs made with GPT Image 2.6: an origami paper boat rocking on a moonlit sea, then a cartoon fox mascot in a scarf waving.",
+   "credit": null
+  }
+ },
+ "gpt-image-markup-edit": {
+  "title": "GPT Image 2.6 markup edits — circle one spot, change only that part",
+  "short": "Markup image edits",
+  "tagline": "Circles, boxes, arrows and notes on a transparent layer tell GPT Image 2.6 to change only the marked spots of an image.",
+  "category": "models",
+  "prompts": [
+   "Put a party hat on the dog in ./dog.png and change nothing else: circle its head",
+   "Fix the misspelled word on the shop sign in ./storefront.jpg without touching the rest of the photo",
+   "In ./desk.png turn the red mug blue and replace the plant on the left with a lamp, using two colored circles"
+  ],
+  "keywords": [
+   "edit part of an image ai",
+   "gpt image 2.6 markup",
+   "circle to edit image",
+   "ai image edit only one area",
+   "ai inpainting",
+   "fix text in image ai"
+  ],
+  "stack": [
+   "GPT Image 2.6",
+   "varg API",
+   "Python",
+   "Pillow",
+   "ImageMagick"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.07 per markup edit (measured)",
+  "output": "Edited image, changed only inside the marks",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_fad6e6a57231.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_06b92f64618e.jpg",
+   "alt": "A cosy armchair scene with a sleeping cat gets red and blue circles drawn on it, then crossfades into the GPT Image 2.6 edit that follows the markup.",
+   "credit": null
+  }
+ },
+ "gpt-image-sprite-sheet": {
+  "title": "AI game sprite sheets with GPT Image 2.6 — Phaser and Godot atlases",
+  "short": "Game sprite sheets",
+  "tagline": "A character becomes a 4×4 GPT Image 2.6 sprite sheet, then frames, a looping GIF and a JSON atlas for Phaser or Godot.",
+  "category": "models",
+  "prompts": [
+   "Make a 16-frame run cycle sprite sheet of my knight ./knight.png for a Phaser game",
+   "Turn this character into idle, walk and attack sheets and give me a texture atlas with JSON",
+   "Slice ./sheet.png into frames, key out the white background, align the feet and make a looping GIF"
+  ],
+  "keywords": [
+   "ai sprite sheet generator",
+   "gpt image 2.6 sprite sheet",
+   "2d game sprite animation",
+   "walk cycle sprite sheet",
+   "phaser texture atlas",
+   "godot sprite frames"
+  ],
+  "stack": [
+   "GPT Image 2.6",
+   "varg API",
+   "ImageMagick",
+   "Phaser",
+   "Godot"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.06 per 1024×1024 sheet (measured)",
+  "output": "Frames, looping GIF, atlas PNG and JSON",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1dadec5fbb07.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_451c92921213.jpg",
+   "alt": "A 4x4 sprite sheet of a cartoon knight sits on the left while the sliced frames play as a looping run cycle on the right.",
+   "credit": null
+  }
+ },
+ "gpt-image-sticker-pack": {
+  "title": "Animated sticker pack from a photo with GPT Image 2.6 — Telegram, LINE",
+  "short": "Animated sticker packs",
+  "tagline": "A photo or character becomes 6–8 looping sticker GIFs, exported to Telegram, WhatsApp, LINE, WeChat, Discord and Slack specs.",
+  "category": "models",
+  "prompts": [
+   "Turn my selfie ./me.jpg into 8 chibi animated stickers for Telegram and WhatsApp",
+   "Make a LINE sticker set of my cat ./cat.jpg saying HI, LOVE, SORRY and BYE",
+   "Make 6 animated stickers of our mascot ./mascot.png and export them for Discord and Slack"
+  ],
+  "keywords": [
+   "ai sticker pack",
+   "animated stickers from photo",
+   "telegram animated stickers",
+   "line stickers ai",
+   "whatsapp animated stickers",
+   "wechat stickers",
+   "gpt image 2.6 stickers"
+  ],
+  "stack": [
+   "GPT Image 2.6",
+   "varg API",
+   "FFmpeg",
+   "ImageMagick",
+   "gifsicle"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.48 per 6-sticker pack (measured)",
+  "output": "6–8 animated stickers exported per messenger",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3dfe45eeda35.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_636fb7e8f70f.jpg",
+   "alt": "Three animated fox stickers from one pack play side by side: LOL, THANKS! and a startled reaction.",
+   "credit": null
+  }
+ },
+ "how-to-make-ai-video": {
+  "title": "How to make any AI video with Claude Code — tutorials, steps and options",
+  "short": "Make any AI video",
+  "tagline": "A video request becomes the best matching tutorial, its install command, 2–4 look options with examples and the steps.",
+  "category": "start",
+  "prompts": [
+   "How do I make a lyric video for my song ./track.mp3?",
+   "I want a 60-second launch film for our note-taking app made from scratch, plan it properly",
+   "Which workflow should I use to add TikTok-style captions to ./interview.mp4?"
+  ],
+  "keywords": [
+   "how to make ai video",
+   "how to make a ugc ad",
+   "how to make a music video with ai",
+   "ai video tutorial",
+   "ai video workflow",
+   "claude code video"
+  ],
+  "stack": [
+   "varg how to search",
+   "varg how to MCP",
+   "curl"
+  ],
+  "needs_key": false,
+  "local": false,
+  "cost": null,
+  "output": "Matched tutorial, options and production steps",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_45aff7612d54.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a8c79b0ffe68.jpg",
+   "alt": "On varg how to, the search box gets the request \"ugc ad with an ai actor holding my product\" and returns a UGC collection, skills and prompt cards ranked for it.",
+   "credit": null
+  }
+ },
+ "kinetic-type-art": {
+  "title": "Kinetic typography for Claude Code — 17 type pieces in HyperFrames",
+  "short": "Kinetic typography",
+  "tagline": "A word, line or manifesto becomes one of 17 beat-timed typography pieces, from one-word slams to a word corridor tunnel.",
+  "category": "motion",
+  "prompts": [
+   "Make a 15-second kinetic type intro, one word per beat at 120 BPM: BUILD. SHIP. REPEAT.",
+   "Animate the manifesto in ./manifesto.txt as a justified column with photos opening in the gaps",
+   "Typeface strobe on the word NOW that lands on our brand font, 9:16"
+  ],
+  "keywords": [
+   "kinetic typography",
+   "kinetic type animation",
+   "text animation video",
+   "typography motion graphics",
+   "wordmark animation",
+   "remotion text animation"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "MP4, WebM or alpha MOV type piece",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9f9aa09abad7.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_285f0a452b07.jpg",
+   "alt": "Kinetic type cuts on the beat: one word strobing through typefaces, big red and white word slams, then a word corridor rushing toward the camera.",
+   "credit": null
+  }
+ },
+ "kling-4-action-montage": {
+  "title": "AI action montage on Kling 4 — 30-second BMX, dance and chase takes",
+  "short": "Kling 4 action montage",
+  "tagline": "Three or four key stills and a one-line prompt become a 30-second Kling 4 trick, dance or chase montage with a crash ending.",
+  "category": "models",
+  "prompts": [
+   "Make a 30-second BMX montage on Kling 4 from the 4 stills in ./stills/, tail whip and bar spin, crash at the end, 9:16",
+   "Breakdance battle in a park ring starring my character ./dancer.png, no slow motion, 21:9",
+   "Scooter chase through night traffic in one 30-second take, then cut it down to the best 10 seconds"
+  ],
+  "keywords": [
+   "ai action montage",
+   "kling 4 action video",
+   "ai bmx video",
+   "ai breakdance video",
+   "ai chase scene",
+   "ai sports highlight video"
+  ],
+  "stack": [
+   "Kling 4",
+   "GPT Image 2.5",
+   "varg API",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2.36 (15 s, 720p) to ~$7.05 (30 s, 1080p) per take",
+  "output": "30-second montage take, cut to best pieces",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0c3e08ead522.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_34586980b243.jpg",
+   "alt": "A low fisheye shot follows a skateboarder in a red beanie bombing down a cobbled Lisbon street past a yellow tram.",
+   "credit": null
+  }
+ },
+ "kling-4-keyframe-film": {
+  "title": "How to make an AI short film with Kling 4 from key stills",
+  "short": "Kling 4 short film",
+  "tagline": "A beat sheet and cast photos become GPT Image 2.5 stills, one 30-second Kling 4 take per beat, and a film cut like live action.",
+  "category": "models",
+  "prompts": [
+   "Make a 60-second Halloween comedy short with Kling 4 starring the two people in ./cast/, 21:9",
+   "Plan a four-beat story: stills on GPT Image 2.5 first, then one 30-second Kling 4 take per beat, with a dialogue scene",
+   "My Kling 4 short looks like AI slop. Rebuild it from key stills and cut the usable seconds like live-action takes"
+  ],
+  "keywords": [
+   "ai short film",
+   "how to make an ai short film",
+   "kling 4 short film",
+   "cinematic ai video",
+   "kling 4 music video",
+   "ai film from key frames"
+  ],
+  "stack": [
+   "Kling 4",
+   "GPT Image 2.5",
+   "varg API",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$7.05 per 30 s take at 1080p; plan 2–4 takes per beat",
+  "output": "60–90 s cinematic short film MP4",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7c4a6940fcd3.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b378e096af64.jpg",
+   "alt": "An approved key frame of a towering wave made of glowing screens over a night street turns into the Kling 4 shot as the wave crashes down.",
+   "credit": null
+  }
+ },
+ "kling-4-prompting": {
+  "title": "Kling 4 prompting guide — key frames first, short director's prompts",
+  "short": "Kling 4 prompting",
+  "tagline": "Two to four key stills plus a short director's prompt become cinematic Kling 4 takes instead of flat, slow-motion AI video.",
+  "category": "models",
+  "prompts": [
+   "Write a Kling 4 prompt for the three stills in ./frames/: she walks into the diner and orders coffee, 15 seconds, 21:9",
+   "My Kling 4 clips keep coming out in slow motion with flat framing. What am I doing wrong?",
+   "Make my character from ./cast/front.png and ./cast/side.png a Kling 4 element and write a 10-second take where he says \"We're late\""
+  ],
+  "keywords": [
+   "kling 4 prompts",
+   "how to prompt kling 4",
+   "kling 4 reference to video",
+   "kling 4 vs seedance 2.5",
+   "kling 4 multi prompt",
+   "kling 4 elements",
+   "ai video prompts"
+  ],
+  "stack": [
+   "Kling 4",
+   "GPT Image 2.5",
+   "Nano Banana 2.1",
+   "varg API",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2.36 (15 s, 720p) to ~$7.05 (30 s, 1080p) per take",
+  "output": "Kling 4 prompts and reference-to-video takes",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d76861a123c6.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b1b45447f473.jpg",
+   "alt": "Kling 4 shot from key frames: a skateboarder ollies past a yellow Lisbon tram in a wide fisheye shot, low to the cobbles.",
+   "credit": null
+  }
+ },
+ "make-a-woke-profile-with-chatgpt": {
+  "title": "Turn a selfie into a satirical woke profile set with GPT Image 2.6",
+  "short": "Woke profile selfie",
+  "tagline": "One selfie becomes 11 satirical woke tiles, a 4:5 collage for X and an MP4, made on GPT Image 2.6 (aka Wokify).",
+  "category": "formats",
+  "prompts": [
+   "Wokify my selfie ./me.jpg, name Alex, pronouns he/they, and make the 4:5 collage for X",
+   "Make the \"I made me woke\" set from my photo plus an animated MP4 of the collage",
+   "Give me the ChatGPT prompts to turn my selfie into a woke action figure and a holographic trading card"
+  ],
+  "keywords": [
+   "wokify",
+   "i made me woke",
+   "chatgpt selfie prompts",
+   "ai action figure of yourself",
+   "gpt image 2.6 prompts",
+   "ai trading card from selfie"
+  ],
+  "stack": [
+   "varg API",
+   "GPT Image 2.6",
+   "Python",
+   "Pillow",
+   "FFmpeg",
+   "HyperFrames",
+   "ChatGPT (optional)"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.78 per full set (measured)",
+  "output": "11 tiles, a 4:5 collage and MP4",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f611911628bb.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_23c1becb03e5.jpg",
+   "alt": "Satirical GPT Image 2.6 profile shots of one man: a protest selfie with friends, a TV street interview, a holographic trading card and a cat in a rainbow scarf.",
+   "credit": null
+  }
+ },
+ "maps-and-data-motion": {
+  "title": "Animated travel maps, charts and audio visualizers — open source",
+  "short": "Maps and data motion",
+  "tagline": "Places, numbers or a soundtrack become a route map, globe dive, flyover, self-drawing chart, count-up or audio visualizer.",
+  "category": "motion",
+  "prompts": [
+   "Animate a route from Lisbon to Porto to Madrid with stops popping in, 16:9",
+   "Count-up stat: 2.4M users, landing with a pulse over ./broll.mp4",
+   "Silk-ribbon audio visualizer for ./track.wav, 1:1, 30 seconds"
+  ],
+  "keywords": [
+   "animated travel map",
+   "route map animation",
+   "animated bar chart video",
+   "count up animation",
+   "audio visualizer",
+   "map flyover animation",
+   "remotion map animation"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion",
+   "MapLibre GL",
+   "Natural Earth",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Map, chart or visualizer clip",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_aae64ee3b433.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_be1c920b027f.jpg",
+   "alt": "Data motion presets: a route line draws from Lisbon to Helsinki, a bar chart grows with one bar highlighted, a passenger count ticks up and silk audio ribbons flow.",
+   "credit": null
+  }
+ },
+ "media-download": {
+  "title": "Download videos from X, YouTube, TikTok and Instagram with yt-dlp",
+  "short": "Media download",
+  "tagline": "A link becomes a local MP4, MP3 or playlist from 1,800+ sites, or Pinterest images from a pin, board or search query.",
+  "category": "editing",
+  "prompts": [
+   "Download this video: https://x.com/someone/status/1234567890",
+   "Save the audio of https://www.youtube.com/watch?v=abc123 as an mp3",
+   "Grab 30 Pinterest images for 'film noir portrait' into ./refs for my moodboard"
+  ],
+  "keywords": [
+   "download twitter video",
+   "yt-dlp",
+   "download tiktok video",
+   "download instagram reel",
+   "youtube to mp3",
+   "download pinterest images",
+   "open source video downloader"
+  ],
+  "stack": [
+   "yt-dlp",
+   "gallery-dl",
+   "FFmpeg",
+   "bash"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "Local MP4, MP3 or image files",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5ec6a143fa1e.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5619f1204842.jpg",
+   "alt": "A downloaded NASA clip plays: an astronaut drives a lunar rover across grey regolith, then a technician in a clean suit works at a lab bench.",
+   "credit": "Footage: NASA (public domain)"
+  }
+ },
+ "media-judge": {
+  "title": "AI video QA: measure a render for glitches, banding, typos and drift",
+  "short": "Media judge",
+  "tagline": "A finished video, image or track becomes a list of timed, measured defects with evidence frames, and takes ranked by defects.",
+  "category": "preprod",
+  "prompts": [
+   "Review film.mp4 before I post it to X: broken frames, typos, upload banding and loudness",
+   "Rank the four takes in ./takes by defects; it's the same person in every shot",
+   "Check my 9:16 reel against ref.mp4 and tell me whether it still looks like the template"
+  ],
+  "keywords": [
+   "ai video qa",
+   "check video for glitches",
+   "review my video",
+   "pick the best take",
+   "video quality check",
+   "llm judge for video",
+   "is my video ready to post"
+  ],
+  "stack": [
+   "FFmpeg",
+   "libvmaf",
+   "Python",
+   "uv",
+   "OpenCV",
+   "RapidOCR",
+   "faster-whisper"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free",
+  "output": "Verdict with timed defects and evidence",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1283ff3c284b.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d400c7c3b5c0.jpg",
+   "alt": "Media-judge output for a vertical product reel: attention heat maps over frames beside a facts table where checks are marked clear, flagged or info.",
+   "credit": null
+  }
+ },
+ "motion-formats": {
+  "title": "Open-source VHS, analog horror, pixel art and lyric video templates",
+  "short": "Signature motion formats",
+  "tagline": "A brand, site or song becomes a VHS screensaver, analog-horror trailer, pixel-art runner, lyric video or launch trailer.",
+  "category": "motion",
+  "prompts": [
+   "Make a 25-second analog-horror trailer that browses my website and ends on the title",
+   "VHS bouncing-logo screensaver with ./logo.svg that hits the corner on cue, 9:16",
+   "Kinetic lyric video for ./song.mp3 from the lyrics in ./lyrics.txt"
+  ],
+  "keywords": [
+   "vhs effect video",
+   "analog horror trailer",
+   "pixel art animation",
+   "kinetic lyric video",
+   "bouncing logo screensaver",
+   "launch trailer animation"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Finished format video in MP4, WebM or MOV",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cab816145ddf.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2c95db834a6e.jpg",
+   "alt": "Motion formats play in turn: a pixel-art runner on a CRT night level, a wave rippling through a wordmark, a VHS bouncing logo and a kinetic lyric word.",
+   "credit": null
+  }
+ },
+ "paper-shaders": {
+  "title": "Paper Shaders for video — animated gradient backgrounds and logo stings",
+  "short": "Shader backgrounds",
+  "tagline": "Brand colors and a logo become frame-exact Paper Shaders backgrounds, textures and logo stings that render the same every time.",
+  "category": "motion",
+  "prompts": [
+   "Make a 6-second mesh gradient background in my colors #0F172A, #7C3AED and #F472B6",
+   "Liquid metal logo sting from ./logo.svg, 3 seconds, 16:9",
+   "Add a dithered grain texture behind the title card in my Remotion video"
+  ],
+  "keywords": [
+   "paper shaders",
+   "shader background video",
+   "animated gradient background",
+   "mesh gradient animation",
+   "liquid metal logo",
+   "dither effect",
+   "logo sting"
+  ],
+  "stack": [
+   "Paper Shaders",
+   "HyperFrames",
+   "Remotion",
+   "WebGL",
+   "Node"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Shader background or logo sting MP4",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2c2dc2f5d278.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5843a4635ce2.jpg",
+   "alt": "Paper Shaders presets rendered frame-exact: an orange and violet warp field, god rays bursting behind a V mark, a liquid-metal logo sting and a glowing smoke-ring countdown.",
+   "credit": "Shaders: Paper Shaders (Apache 2.0) © Paper, shaders.paper.design"
+  }
+ },
+ "product-photo-to-video": {
+  "title": "Turn a product photo into an AI video ad — Seedance 2.5 or Kling 4",
+  "short": "Product photo to video",
+  "tagline": "One to three product photos become a multi-shot product video with the label kept exact and the real packshot on the last second.",
+  "category": "ads",
+  "prompts": [
+   "Turn ./bottle.jpg into a 15-second TikTok product video, three shots, label exact, real packshot at the end",
+   "Make a macro pour video of my honey jar from these two photos, camera locked, label readable",
+   "I need a 360° loop of our headphones for the product page, 1:1, no person"
+  ],
+  "keywords": [
+   "product photo to video",
+   "ai product video",
+   "product video from photo",
+   "ai b-roll product",
+   "asmr product video ai",
+   "seedance 2.5 product"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Wan 3",
+   "GPT Image 2.5",
+   "Nano Banana 2.1",
+   "Bria",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2.50–10 per 15 s 720p video incl. one repaired shot (estimate)",
+  "output": "9:16 MP4 product video, 1:1 or 16:9 cut",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c291f75e56b7.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_da884fbffe0a.jpg",
+   "alt": "Three product photos of black wireless earbuds become one hero still on a stone pedestal, then a product video where the earbuds float and settle into their case.",
+   "credit": null
+  }
+ },
+ "product-video-hooks": {
+  "title": "Product video hooks: write the first 3 seconds of TikTok and Meta ads",
+  "short": "Product video hooks",
+  "tagline": "A product and the buyer's own words become 3-second hooks: matching visual, spoken line and text overlay, checked for claims.",
+  "category": "ads",
+  "prompts": [
+   "Write 12 hooks for my knee sleeve ad, women 50+, at least 4 different hook types",
+   "My ad's hook rate is 18% — give me 5 new openers for ./body.mp4 and make one MP4 per hook",
+   "Give me the first 3 seconds for a TikTok ad for our silicone dish rack, using these reviews"
+  ],
+  "keywords": [
+   "video hooks",
+   "tiktok hooks for products",
+   "first 3 seconds of a video ad",
+   "ad hook ideas",
+   "scroll stopping hooks",
+   "hook rate"
+  ],
+  "stack": [
+   "varg API",
+   "Kling 4",
+   "Seedance 2.5",
+   "Nano Banana 2.1",
+   "ElevenLabs v4",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free for written hooks; ~$0.20–1.20 per generated 3 s hook clip (estimate)",
+  "output": "Hook list, optional 9:16 hook clips",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_45312c879c64.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7dad8729dc58.jpg",
+   "alt": "A hand slams a steel water bottle onto a wooden table at sunset, water bursts out and a crushed plastic bottle rolls away.",
+   "credit": null
+  }
+ },
+ "short-form-ffmpeg-cookbook": {
+  "title": "FFmpeg commands for Reels and TikTok: 9:16 crop, captions, music",
+  "short": "FFmpeg for Reels",
+  "tagline": "Raw footage, an SRT and a music track become a 1080×1920 MP4 with burned-in captions, trims, joins and ducked music.",
+  "category": "editing",
+  "prompts": [
+   "Crop interview.mp4 to 9:16 and burn in subs.srt for Reels",
+   "Join clip1.mp4 and clip2.mp4, which have different sizes, into one vertical video at 30 fps",
+   "Put music.mp3 under my voice in vlog.mp4 and duck it while I talk"
+  ],
+  "keywords": [
+   "ffmpeg crop to 9:16",
+   "ffmpeg burn subtitles",
+   "ffmpeg vertical video",
+   "ffmpeg add background music",
+   "ffmpeg trim and join",
+   "ffmpeg commands for reels",
+   "ffmpeg cheat sheet"
+  ],
+  "stack": [
+   "FFmpeg",
+   "ffprobe",
+   "libass"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free locally; credits on the varg ffmpeg tool",
+  "output": "1080×1920 9:16 MP4",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_caf5441b3466.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a06e89ef408a.jpg",
+   "alt": "Before and after: a 16:9 talking-head clip of a woman at a podcast desk and the same take cropped to 9:16 for Reels with bold white captions burned in.",
+   "credit": null
+  }
+ },
+ "social-overlays": {
+  "title": "CTA, follow and review overlays for TikTok and Reels ads in Remotion",
+  "short": "Social CTA overlays",
+  "tagline": "Real reviews, comments and counts become CTA, follow, LIVE and review overlays placed inside one 9:16 safe box for every platform.",
+  "category": "motion",
+  "prompts": [
+   "Add a \"Shop now\" CTA pill at 0:12 and a follow prompt at the end of ./ad.mp4, 9:16",
+   "Put the real customer review in ./review.json on screen as a proof card over my UGC clip",
+   "Make a LIVE badge with a ticking viewer count for my stream highlight reel"
+  ],
+  "keywords": [
+   "cta overlay video",
+   "follow button animation",
+   "subscribe button animation",
+   "live badge overlay",
+   "review overlay for ads",
+   "tiktok safe zone"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Overlay MP4 or alpha MOV for 9:16",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2b131627cf41.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2c925b674ca2.jpg",
+   "alt": "Vertical clips get creator overlays: a CTA pill, a notification banner dropping in, a review proof card and a LIVE badge with viewer count.",
+   "credit": null
+  }
+ },
+ "threejs-animatic": {
+  "title": "three.js animatic: 3D camera blocking for a storyboard, rendered to MP4",
+  "short": "three.js animatic",
+  "tagline": "A shot list becomes a three.js grey-box with mannequins, real lenses and a camera plan, rendered to MP4 for Seedance @video1.",
+  "category": "preprod",
+  "prompts": [
+   "Build a three.js animatic of my 8-shot cafe scene, 16:9 at 120 BPM, and render it to MP4",
+   "Block the cameras for shots.md in 3D with lenses in mm and show me a top-down set map",
+   "Turn my approved animatic into a greyscale reference clip for Seedance 2.5 video-to-video"
+  ],
+  "keywords": [
+   "three.js animatic",
+   "3d previz",
+   "blockout",
+   "camera blocking",
+   "camera plan",
+   "previz to seedance",
+   "three.js video"
+  ],
+  "stack": [
+   "three.js",
+   "Bun",
+   "Chrome",
+   "FFmpeg",
+   "HyperFrames",
+   "Seedance 2.5"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "Animatic MP4 and camera plan",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5d51f752766a.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2e60a6cdab2e.jpg",
+   "alt": "A coded blockout animatic of a starship racing down a red tunnel plays beside the Seedance video made from it.",
+   "credit": null
+  }
+ },
+ "tiktok-shop-video": {
+  "title": "TikTok Shop videos from a product link — scripts that pass Shop rules",
+  "short": "TikTok Shop video",
+  "tagline": "A product link becomes a TikTok Shop script and phone shot list with a real presenter, one number in the demo and a cart CTA.",
+  "category": "ads",
+  "prompts": [
+   "Write a 25-second TikTok Shop video for this lint roller link as an affiliate, problem and fix in one clip",
+   "Why do my Shop videos stall at 200 views? Here are my last 3 scripts",
+   "Plan a week of TikTok Shop content for my phone stand with AI b-roll for the product close-ups"
+  ],
+  "keywords": [
+   "tiktok shop video",
+   "tiktok shop affiliate video",
+   "tiktok shop rules 2026",
+   "tiktok shop video ideas",
+   "tiktok shop script",
+   "tiktok shop violation"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "Bria",
+   "Kling 4",
+   "Seedance 2.5",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free for scripts; ~$0.40–3 per video for AI b-roll (estimate)",
+  "output": "Script, shot list, optional 9:16 MP4",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_06cdbdbc1123.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7947c94fedeb.jpg",
+   "alt": "A smiling man in a bright kitchen presses a vegetable chopper and holds the container of diced onion up to the camera, with a $19.99 shop tag.",
+   "credit": null
+  }
+ },
+ "title-design": {
+  "title": "Animated lower thirds, show opens and title reveals in HyperFrames",
+  "short": "Lower thirds and titles",
+  "tagline": "Names, places and show titles become lower thirds, speaker plates, show opens and glitch or CRT reveals that hold for two reads.",
+  "category": "motion",
+  "prompts": [
+   "Add a name lower third for \"Maya Chen, Head of Design\" to ./interview.mp4 at 0:04",
+   "Make a 10-second podcast show open with the show name on the beat and two guest plates",
+   "Glitch title reveal for \"CHAPTER 2\" on a transparent background, 16:9"
+  ],
+  "keywords": [
+   "lower third animation",
+   "animated lower thirds",
+   "title reveal animation",
+   "podcast intro animation",
+   "glitch text reveal",
+   "remotion lower third",
+   "hyperframes titles"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "MP4, WebM or alpha MOV title layers",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8f8381043403.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_756750e820cd.jpg",
+   "alt": "Broadcast titles over soft bokeh: \"The Quiet Hour\" show open, a name-and-role lower third and a glitch reveal of \"CLEAR SIGNAL\".",
+   "credit": null
+  }
+ },
+ "transition-craft": {
+  "title": "Beat-synced video transitions — infinite zoom, shake cut, tile flip",
+  "short": "Beat transitions",
+  "tagline": "Two shots and a beat grid become a timed transition: Droste zoom, shake cut, tile flip, bokeh, photo cloud or collage burst.",
+  "category": "motion",
+  "prompts": [
+   "Add a camera-shake cut on every bass hit in ./reel.mp4 using the beats in ./beats.json",
+   "Make an infinite Droste zoom into the laptop screen that lands on shot 2",
+   "Photo collage burst transition with the 12 photos in ./pics/, peaking on the downbeat"
+  ],
+  "keywords": [
+   "video transitions",
+   "infinite zoom transition",
+   "camera shake transition",
+   "beat sync transitions",
+   "bokeh transition",
+   "ffmpeg zoom transition",
+   "remotion transitions"
+  ],
+  "stack": [
+   "HyperFrames",
+   "Remotion",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free, renders locally",
+  "output": "Transition clip in MP4, WebM or MOV",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0311038082fa.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_248e9b4a03c7.jpg",
+   "alt": "A Droste zoom dives into a monitor in a dark room until its mountain sunset fills the frame, then an impact tile-flip mosaic reveals a night skyline.",
+   "credit": null
+  }
+ },
+ "varg-ad-library-remix": {
+  "title": "Remix winning competitor ads from the Meta Ad Library into new angles",
+  "short": "Ad library remix",
+  "tagline": "Competitor ads running 30+ days become 10–20 original concepts for your product, each with a hook, proof shot and provable claims.",
+  "category": "ads",
+  "prompts": [
+   "Here are 6 Meta Ad Library links from competitors selling posture correctors, give me new angles",
+   "What are the top TikTok Creative Center ads in pet supplies running now, and how do I remix them for my lint brush?",
+   "Clone the idea of this winning ad ./ref.mp4 for my water bottle without copying it"
+  ],
+  "keywords": [
+   "meta ad library",
+   "winning ads",
+   "competitor ad research",
+   "tiktok creative center top ads",
+   "spy on tiktok shop ads",
+   "ad angles",
+   "clone winning ad"
+  ],
+  "stack": [
+   "varg API",
+   "varg video_analyze",
+   "yt-dlp"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.05 per analyzed ad (video_analyze)",
+  "output": "10–20 ad concepts with hooks and claims",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b787efe35e8f.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_4db030847358.jpg",
+   "alt": "A remixed vertical product ad: a driver drops her phone between the seats, then hands fit a leather gap filler that catches coins and keys.",
+   "credit": null
+  }
+ },
+ "varg-ad-localize": {
+  "title": "Translate and dub a video ad for 8+ markets — ElevenLabs v4 and lip sync",
+  "short": "Ad localization",
+  "tagline": "One video ad becomes per-market versions: transcreated script, same voice, lip sync on talking faces, captions in that language.",
+  "category": "ads",
+  "prompts": [
+   "Localize ./gloves-ad.mp4 for TikTok Shop Mexico and Spain, prices in MXN and EUR",
+   "Make German and French versions of our winning Meta ad with the same voice",
+   "Dub this 30-second ad into Japanese and Thai and rebuild the on-screen text in those languages"
+  ],
+  "keywords": [
+   "translate video ad",
+   "ai dubbing for ads",
+   "localize video ad",
+   "tiktok shop markets",
+   "elevenlabs dubbing",
+   "lip sync translation",
+   "multilingual video ads"
+  ],
+  "stack": [
+   "varg API",
+   "ElevenLabs v4",
+   "Sync v3",
+   "Whisper",
+   "FFmpeg",
+   "Node.js"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": null,
+  "output": "Dubbed, re-captioned MP4 per market",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9d760b17d950.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_60910ef75a2c.jpg",
+   "alt": "An English glove ad and its Spanish market version play side by side on laptops with a pen pointing at prices, each with its own burned-in captions.",
+   "credit": null
+  }
+ },
+ "varg-ad-variants": {
+  "title": "AI ad variations: one winning video ad into 20 distinct creatives",
+  "short": "Ad variants",
+  "tagline": "One winning ad becomes 20 variants: about 7 new concepts and 13 one-change iterations, new hooks swapped in with FFmpeg.",
+  "category": "ads",
+  "prompts": [
+   "Make 20 versions of ./winner.mp4 for Meta, mostly new hooks, and name the files for testing",
+   "My best TikTok ad is fatiguing — make 5 new spoken hooks in the same voice and swap them onto the body",
+   "Scale this cutting-board ad: plan new concepts with a different persona and format, then the hook variants"
+  ],
+  "keywords": [
+   "ad variations",
+   "ai ad variants",
+   "creative variations for meta",
+   "hook variants",
+   "scale winning ad",
+   "meta andromeda creatives"
+  ],
+  "stack": [
+   "varg API",
+   "varg video_analyze",
+   "Seedance 2.5",
+   "Kling 4",
+   "Nano Banana 2.1",
+   "ElevenLabs v4",
+   "FFmpeg",
+   "Node.js"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.05 to tag the winner, ~$0.01 per voiced hook line; clips extra",
+  "output": "Variant MP4s, manifest and test plan",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_102d9752a5bb.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b1b849be0411.jpg",
+   "alt": "Three variants of the same cut-resistant glove ad play side by side, each opening on a different hook shot and caption.",
+   "credit": null
+  }
+ },
+ "varg-ai": {
+  "title": "AI video, image, voice and music API — Seedance 2.5, Kling 4, Veo 3.1",
+  "short": "AI video generation",
+  "tagline": "A prompt or photo becomes a video, image, voiceover, song or lip-synced clip through one varg API key.",
+  "category": "start",
+  "prompts": [
+   "Animate ./cabin.jpg into a 5-second 9:16 clip with slow snow falling",
+   "Generate a 30-second voiceover for this script and a calm instrumental bed to go under it",
+   "Make a 3-clip product video of my ceramic mug at 720p first, then render the keeper in 1080p"
+  ],
+  "keywords": [
+   "ai video generator api",
+   "text to video",
+   "image to video",
+   "seedance 2.5 api",
+   "kling 4 api",
+   "veo 3.1",
+   "ai voiceover",
+   "lip sync ai"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Veo 3.1",
+   "Nano Banana 2.1",
+   "GPT Image 2.6",
+   "ElevenLabs v4",
+   "Lyria 3.5"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2–5 per typical short video",
+  "output": "MP4 clips, images, speech and music files",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d85558840d5b.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c28a0af04713.jpg",
+   "alt": "A quick reel of varg generations: a cat pilot grinning in a vintage plane above golden clouds, an elephant carrying a glowing observatory under the aurora, a white sneaker in an orange dust burst and a claymation supplement jar.",
+   "credit": null
+  }
+ },
+ "varg-birthday-video": {
+  "title": "Personalized AI birthday video with a song that sings their name",
+  "short": "AI birthday video",
+  "tagline": "A name, an age and a few photos become a 15–60 s video with their name sung and their photo coming to life.",
+  "category": "formats",
+  "prompts": [
+   "Make a birthday video for my mom Rita turning 60 from ./mom.jpg, with a song that sings her name",
+   "Make a then-and-now birthday montage from the photos in ./photos/ for my friend's 30th",
+   "Make a 15-second birthday video for my dog Biscuit in a party hat that I can send on WhatsApp"
+  ],
+  "keywords": [
+   "ai birthday video",
+   "personalized birthday video",
+   "birthday song with name",
+   "happy birthday video ai",
+   "birthday video from photos",
+   "pet birthday video"
+  ],
+  "stack": [
+   "varg API",
+   "GPT Image 2.5",
+   "Wan 3",
+   "Seedance 2.5",
+   "Kling 4",
+   "ElevenLabs Music",
+   "Whisper",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.08–0.10 per name song, ~$1–3.40 per animated clip (tested)",
+  "output": "15–60 s MP4 for WhatsApp or TV",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bd1ca2b38b14.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5cda7399604f.jpg",
+   "alt": "A woman with curly hair blows out the candles on a \"Maya 30\" birthday cake surrounded by fairy lights, then laughs as friends film her.",
+   "credit": null
+  }
+ },
+ "varg-character-absurd": {
+  "title": "Absurd AI characters and mascots in the Italian-brainrot format",
+  "short": "Absurd AI mascots",
+  "tagline": "A food or object, an animal and one human detail become an original mascot with a turnaround sheet ready for video.",
+  "category": "characters",
+  "prompts": [
+   "Make an original brainrot-style character: a croissant that is also a pigeon, wearing tiny white sneakers",
+   "Design a grumpy cactus mascot for my plant shop as a 3D family-film turnaround sheet",
+   "Create three absurd food creatures for a micro-drama series in a clay stop-motion look"
+  ],
+  "keywords": [
+   "italian brainrot character",
+   "ai mascot generator",
+   "absurd ai characters",
+   "ai food character",
+   "brand mascot ai",
+   "talking animal ai"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.06 per sheet (Nano Banana 2.1, tested)",
+  "output": "Original mascot turnaround sheet",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7701d7fee03c.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ec397ce3cb30.jpg",
+   "alt": "Turnaround sheets of absurd 3D mascots crossfade: a bread T-rex in a beret, a grumpy cactus mail carrier and a nervous sheep accountant.",
+   "credit": null
+  }
+ },
+ "varg-character-beautiful-woman": {
+  "title": "Beautiful AI women with real skin who look like models, not dolls",
+  "short": "Beautiful AI women",
+  "tagline": "A model-casting description, real skin and fashion styling become a believable shoot of an adult woman, with no nudity.",
+  "category": "characters",
+  "prompts": [
+   "Make a photoreal 27-year-old woman for a swimwear campaign at sunset, real skin, no plastic look",
+   "Create an AI influencer with model looks and one signature detail, plus a sheet so she stays the same in every post",
+   "My prompt for a woman in an evening gown on a red carpet keeps getting blocked, rewrite it so it passes"
+  ],
+  "keywords": [
+   "realistic ai woman",
+   "ai model photo",
+   "ai influencer girl",
+   "beautiful ai woman prompt",
+   "ai swimwear photo",
+   "realistic ai skin"
+  ],
+  "stack": [
+   "varg API",
+   "Seedream 5 Pro",
+   "GPT Image 2.5",
+   "Nano Banana 2.1",
+   "Higgsfield Soul"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.06–0.24 per image (tested)",
+  "output": "Photoreal model-shoot images and a character sheet",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d4467dd9ae.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1ce3012d1b84.jpg",
+   "alt": "Three generated model portraits crossfade: a curly-haired woman in a white shirt in golden light, a blonde in a green satin gown on a red carpet and a woman in a black slip dress on a coastal terrace.",
+   "credit": null
+  }
+ },
+ "varg-character-big-guy": {
+  "title": "Big, heavy AI characters and gentle giants, played straight",
+  "short": "Big guy characters",
+  "tagline": "A big body and a small, delicate job become a character sheet where the contrast is the joke, never the body.",
+  "category": "characters",
+  "prompts": [
+   "Make a 160 kg florist in a tiny pink apron as a full-body character sheet, gentle and serious",
+   "Design a gentle giant who teaches ballet to adults, with a sheet that keeps his real size",
+   "Create a plus-size barista character for a café ad who makes perfect latte art"
+  ],
+  "keywords": [
+   "big guy ai character",
+   "plus-size ai character",
+   "gentle giant ai",
+   "ai strongman",
+   "how to make a heavy ai character"
+  ],
+  "stack": [
+   "varg API",
+   "Seedream 5 Pro"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.07 per sheet (Seedream 5 Pro, tested)",
+  "output": "Full-body character sheet",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_202aeee1e69a.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a86b567eac9e.jpg",
+   "alt": "A character sheet of a very large bald, bearded florist in a tiny pink apron: front, side and back views, then close-ups of his face.",
+   "credit": null
+  }
+ },
+ "varg-character-cartoon": {
+  "title": "Cartoon AI characters in 1990s sitcom, 3D film and anime looks",
+  "short": "Cartoon AI characters",
+  "tagline": "An original character, or your own photo, redrawn in a famous animation look from a written style block, never a show name.",
+  "category": "characters",
+  "prompts": [
+   "Turn ./me.jpg into a cartoon character in a yellow 1990s family-sitcom look, without naming the show",
+   "Make an original 3D family-film style mascot for my bakery and a model sheet",
+   "Redraw my mascot ./mascot.png as a felt puppet and in a hand-painted pastoral anime look"
+  ],
+  "keywords": [
+   "cartoon character ai",
+   "me as a cartoon",
+   "ai cartoon style",
+   "3d animated character ai",
+   "anime style character ai",
+   "sitcom cartoon style ai"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "Seedance 2.5",
+   "MiniMax H3"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": null,
+  "output": "Cartoon model sheet in the chosen look",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1602c5ec7ca3.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7651b1cc6a34.jpg",
+   "alt": "A model sheet of an original felt-puppet lighthouse keeper with teal felt skin, a fluffy white beard, a monocle and a lantern, then a push-in on his grinning and worried expressions.",
+   "credit": null
+  }
+ },
+ "varg-character-cringe": {
+  "title": "Cringe deadpan AI characters for the \"is he real?\" influencer format",
+  "short": "Cringe deadpan characters",
+  "tagline": "A bizarre but believable adult in a wrong suit becomes a character sheet plus a one-action-every-post format.",
+  "category": "characters",
+  "prompts": [
+   "Create a deadpan AI influencer: a 55-year-old man with a blonde bob in a mustard corduroy suit",
+   "Make a weird \"is he real?\" character who power-walks through a new ordinary place in every post",
+   "Build a cringe character sheet and a posting plan for a new faceless Instagram account"
+  ],
+  "keywords": [
+   "deadpan ai character",
+   "cringe ai influencer",
+   "weird ai character",
+   "is he real ai",
+   "ai persona instagram"
+  ],
+  "stack": [
+   "varg API",
+   "Seedream 5 Pro",
+   "Kling",
+   "Seedance",
+   "MiniMax H3 Max Recast"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.07 per sheet (Seedream 5 Pro, tested)",
+  "output": "Character sheet and a posting format",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6b9b9732cba6.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e887ecdaeefd.jpg",
+   "alt": "A deadpan character sheet of a slim man with a bowl haircut, tinted glasses and a mustard three-piece suit, panning from full body to his face.",
+   "credit": null
+  }
+ },
+ "varg-character-design": {
+  "title": "How to design an AI character and lock it in a reusable character sheet",
+  "short": "AI character design",
+  "tagline": "A premise, written details and one outfit become a character card and sheet you reuse in later images and videos.",
+  "category": "characters",
+  "prompts": [
+   "Design an 84-year-old Sicilian grandmother character with one signature detail and make a character sheet I can reuse",
+   "Create an AI influencer persona for my coffee shop and lock her look so she stays the same in every post",
+   "Turn the character card in ./hero.json into a turnaround sheet, then put him in a new scene riding a red scooter"
+  ],
+  "keywords": [
+   "ai character design",
+   "how to make a consistent ai character",
+   "ai character sheet",
+   "character turnaround sheet ai",
+   "ai influencer persona",
+   "how to create an ai character"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "Seedream 5 Pro",
+   "GPT Image 2.5",
+   "Kling 4",
+   "Seedance 2.5",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.06–0.24 per sheet, ~$0.83–2.03 per 5 s clip (tested)",
+  "output": "Character card and reusable character sheet",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6baed9973414.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b568f2be7338.jpg",
+   "alt": "A grid of eight memorable AI characters, from a grandma in leopard print to a sheep accountant in glasses, then the grandma speeds toward the camera on a red scooter.",
+   "credit": null
+  }
+ },
+ "varg-character-fitness": {
+  "title": "AI fitness influencer and gym coach characters that pass image filters",
+  "short": "AI fitness characters",
+  "tagline": "A role, a build and one signature colour become a fitness character sheet, in catalog wording that gets past false blocks.",
+  "category": "characters",
+  "prompts": [
+   "Make a 31-year-old strength coach character in a lime sports bra for my fitness app",
+   "My gym photo prompt keeps getting blocked, rewrite it for an activewear ad so it passes",
+   "Create a marathon runner as a character sheet, then a 5 s kettlebell clip of him on Kling 4"
+  ],
+  "keywords": [
+   "ai fitness influencer",
+   "ai gym character",
+   "ai personal trainer",
+   "activewear ad ai",
+   "sports bra prompt blocked",
+   "ai athlete character"
+  ],
+  "stack": [
+   "varg API",
+   "Seedream 5 Pro",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "Kling 4"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.07 per sheet (Seedream 5 Pro, tested)",
+  "output": "Fitness character sheet and workout stills",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1312937b4575.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8c4f49ad1fe0.jpg",
+   "alt": "A fitness coach character sheet: a muscular woman with a buzz cut in a lime sports bra and black leggings shown front, side and back.",
+   "credit": null
+  }
+ },
+ "varg-character-grandma": {
+  "title": "AI grandma and grandpa characters with real wrinkles and attitude",
+  "short": "AI grandma characters",
+  "tagline": "An exact age, one behaviour that doesn't fit it and a loud outfit become an 80+ character sheet ready for video.",
+  "category": "characters",
+  "prompts": [
+   "Make an AI granny influencer who rides a scooter and gives brutal advice, with a character sheet",
+   "Create a 91-year-old abuela character in a neon windbreaker for a snack ad",
+   "Design an ex-biker grandpa and put him in a new scene carrying his tiny dog in a bag"
+  ],
+  "keywords": [
+   "ai grandma",
+   "ai granny influencer",
+   "old lady character ai",
+   "ai grandpa character",
+   "elderly ai character"
+  ],
+  "stack": [
+   "varg API",
+   "Seedream 5 Pro",
+   "Nano Banana 2.1",
+   "Kling 4",
+   "Seedance 2.5"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.07 per sheet (Seedream 5 Pro, tested)",
+  "output": "80+ character sheet ready for video",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_12e07c5ef65c.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d3d8bb78b424.jpg",
+   "alt": "A tiny grandma in a leopard coat and curlers appears on her character sheet, then rides a red Vespa down a sunny Sicilian alley waving a wooden spoon.",
+   "credit": null
+  }
+ },
+ "varg-character-keynote": {
+  "title": "AI speaker on a conference stage: a 9:16 keynote clip on Seedance 2.5",
+  "short": "AI keynote speaker",
+  "tagline": "One spoken line and a character prompt become an 8-second 9:16 clip of them on stage, with voice and applause.",
+  "category": "characters",
+  "prompts": [
+   "Make a 9:16 keynote clip of a 68-year-old woman on stage saying \"I learned to code at sixty-eight\"",
+   "Put our mascot on a conference stage delivering one punchy line, with applause at the end",
+   "Swap the speaker in the keynote template for a big bearded chef and change the slide behind him to a pizza"
+  ],
+  "keywords": [
+   "ai keynote speaker video",
+   "talking avatar on stage",
+   "ai spokesperson video",
+   "talking character ai",
+   "ugc keynote ad",
+   "seedance 2.5 dialogue"
+  ],
+  "stack": [
+   "varg API",
+   "Higgsfield Soul",
+   "Nano Banana 2.1",
+   "Seedance 2.5"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$3.50 per 8 s render at 720p (estimate)",
+  "output": "8 s 9:16 MP4 with voice",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2725d2895c21.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b8c54b430728.jpg",
+   "alt": "A silver-haired man in a mustard-yellow suit and red sneakers delivers a line into a microphone on a spotlit keynote stage, then bows to the audience.",
+   "credit": null
+  }
+ },
+ "varg-consistent-characters": {
+  "title": "Consistent AI characters across every scene of a multi-scene ad",
+  "short": "Consistent AI characters",
+  "tagline": "Actor photos and a scene script become a multi-scene 9:16 ad where faces, outfits and the location stay the same.",
+  "category": "characters",
+  "prompts": [
+   "Here are photos of two actors, ./a1.jpg and ./a2.jpg: make a 5-scene 9:16 gym ad where they look the same in every shot",
+   "Remake this reference ad ./ref.mp4 with new people, keeping the same scenes and timing",
+   "My script has A1, A2, location L1 and four scenes: show me the stills first, then make the video with dialogue"
+  ],
+  "keywords": [
+   "consistent characters ai video",
+   "same character in every scene",
+   "consistent ai actor",
+   "multi-scene ai ad",
+   "ai ad with two actors",
+   "how to keep ai characters consistent"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "Kling 4",
+   "Seedance 2.5",
+   "Mureka 9.5",
+   "Whisper",
+   "Bun",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.65 stills + ~$4–5 video per 5-scene, 22 s ad (estimate)",
+  "output": "Captioned multi-scene 9:16 MP4 ad",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bba512ea33c7.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f56b6e1db0cd.jpg",
+   "alt": "The same two gym actors stay consistent across vertical scenes: a big man squatting next to a pale-haired coach, then both posing in the same bright studio.",
+   "credit": null
+  }
+ },
+ "varg-dropship-reel": {
+  "title": "Faceless dropshipping guide reel for Instagram, made with AI",
+  "short": "Dropshipping guide reel",
+  "tagline": "A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA.",
+  "category": "formats",
+  "prompts": [
+   "Make a 60-second dropshipping guide reel for this posture corrector: it costs $4 and sells for $29",
+   "Make one \"Comment GUIDE\" reel per product every day from my store screenshots in ./screens/",
+   "Make a faceless reel with a laptop and a hand with a marker pointing at the price and the demand chart"
+  ],
+  "keywords": [
+   "dropshipping reel",
+   "faceless reels dropshipping",
+   "comment guide reel",
+   "dropshipping video ai",
+   "product reel template",
+   "faceless product video"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "GPT Image 2.5",
+   "Wan 3",
+   "ElevenLabs v4",
+   "Whisper",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$12.50 for the first reel, ~$8.60 per next product (tested)",
+  "output": "60 s 9:16 MP4 reel with captions",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c3e193ed875e.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6a8d22b5cfb3.jpg",
+   "alt": "A faceless dropshipping reel: an LED pet nail clipper on a cat paw, then a hand circles the $24.99 store price on a laptop over a zigzag tablecloth.",
+   "credit": null
+  }
+ },
+ "varg-mascot-jingle-ad": {
+  "title": "AI jingle ad with a singing product mascot — Lyria 3.5 and Seedance 2.5",
+  "short": "Mascot jingle ad",
+  "tagline": "A product photo becomes a clay, plush or 3D mascot that sings a 15–30 s brand jingle, with lyric captions and a real end card.",
+  "category": "ads",
+  "prompts": [
+   "Turn my pet nail clipper ./clipper.jpg into a claymation mascot singing a 15-second jingle",
+   "Make a plush version of our coffee tin that sings the brand name twice, for Reels",
+   "Write a jingle for my water bottle and make the bottle sing it, 20 seconds, with karaoke captions"
+  ],
+  "keywords": [
+   "jingle ad",
+   "singing mascot ad",
+   "ai jingle generator",
+   "claymation product ad",
+   "talking product character",
+   "lyria 3.5 jingle"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "Lyria 3.5",
+   "Seedance 2.5",
+   "Whisper",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$5.78 per 15 s singing clip, ~$0.10 per jingle (tested)",
+  "output": "15–30 s singing mascot ad MP4",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0052df2b0599.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c9355bcdb021.jpg",
+   "alt": "A clay-style pet nail clipper mascot with googly eyes sings its jingle in a pastel room.",
+   "credit": null
+  }
+ },
+ "varg-mockups": {
+  "title": "AI storyboard and mockup boards: approve stills before paying for video",
+  "short": "Storyboard mockups",
+  "tagline": "A shot list becomes one HTML board of numbered stills with specs, prompts and approve or fix notes, plus phone and app mockups.",
+  "category": "preprod",
+  "prompts": [
+   "Mock up my 12-shot ad as a storyboard board with one still per shot before any video is made",
+   "Make a look test: the hardest frame in two looks on two image models, side by side with notes",
+   "Show me the references and prompts you would use for each shot as a board, but don't generate anything yet"
+  ],
+  "keywords": [
+   "ai storyboard",
+   "storyboard for ai video",
+   "look test",
+   "stills for approval",
+   "storyboard template html",
+   "phone mockup for video",
+   "mock up a video"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "HTML",
+   "Chrome",
+   "Bun",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.06–0.08 per Nano Banana 2.1 still, ~$0.23 per GPT Image 2.5 high-quality still",
+  "output": "HTML review board of stills",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c2a0028d3c9a.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_eb54c240f975.jpg",
+   "alt": "A storyboard approval board titled \"Last Bus\": a strip of six night bus-stop frames, the look line and anchors, then frame cards with shot specs and Approve / Needs fix buttons.",
+   "credit": null
+  }
+ },
+ "varg-music-video": {
+  "title": "AI music video director for Claude Code: your song, cut on the beat",
+  "short": "AI music video",
+  "tagline": "Your song is measured to the beat, storyboarded, shot on Seedance 2.5, lip-synced and cut on every downbeat.",
+  "category": "formats",
+  "prompts": [
+   "Make a music video for my song ./track.wav with one lead character, every cut on a downbeat",
+   "I have the lyrics: make the song and a 30-second AI music video for the first chorus",
+   "Make an anime-style music video with AI footage for ./song.mp3 and lip-sync the two singing shots"
+  ],
+  "keywords": [
+   "ai music video",
+   "how to make a music video with ai",
+   "music video from my song",
+   "lyric video with ai footage",
+   "seedance 2.5 music video",
+   "ai singing character",
+   "beat synced video"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "Sync v3",
+   "Lyria 3.5",
+   "Demucs",
+   "HyperFrames"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2.10 per 5 s Seedance 2.5 shot at 720p (estimate)",
+  "output": "Beat-cut music video MP4 per platform",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b43ffe510e98.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8e0b6721a7ad.jpg",
+   "alt": "Music video shots cut on the beat: a singer in a red patent trench walks a smoky neon alley in the rain, then belts and sings into the lens.",
+   "credit": null
+  }
+ },
+ "varg-occasion-video": {
+  "title": "AI wedding invitations, holiday greetings and old photos brought to life",
+  "short": "Invitations and greetings",
+  "tagline": "Names, dates and a few photos become an invitation, holiday greeting, old-photo or tribute video with every word spelled right.",
+  "category": "formats",
+  "prompts": [
+   "Make a wedding invitation video for WhatsApp: Anna & Leo, 12 June 2027, Lisbon, pop-up card style",
+   "Bring these scanned family photos in ./scans/ to life with gentle motion and calm music",
+   "Make a 20-second Diwali greeting video for our family group chat, lamp-lit, 9:16"
+  ],
+  "keywords": [
+   "ai wedding invitation video",
+   "save the date video",
+   "bring old photos to life",
+   "animate old photos",
+   "ai christmas video",
+   "memorial video ai",
+   "anniversary video ai"
+  ],
+  "stack": [
+   "varg API",
+   "GPT Image 2.5",
+   "Seedance 2.5",
+   "Kling 4",
+   "Wan 3",
+   "Nano Banana 2.1",
+   "ElevenLabs Music",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2.80 per 8 s invitation clip, ~$0.79 per 5 s old-photo clip (tested)",
+  "output": "9:16 or 16:9 MP4 with music",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_926c3d5ffd8d.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ef637a7430be.jpg",
+   "alt": "A wedding invitation unfolds into a pop-up floral arch reading \"Anna & Leo\", then an old seaside photo of a couple comes to life.",
+   "credit": null
+  }
+ },
+ "varg-podcast-video": {
+  "title": "AI podcast video generator for Claude Code: two consistent hosts",
+  "short": "AI podcast video",
+  "tagline": "Two character references and a short script become a studio dialogue video, each line spoken with native audio.",
+  "category": "characters",
+  "prompts": [
+   "Make an AI podcast clip with two hosts debating whether multitasking works, 9 scenes of 5 s each",
+   "Create a myth-vs-truth video with a host and a trickster in a studio, using ./host.jpg and ./trickster.jpg",
+   "Turn this 6-line dialogue into a talk-show video where both characters look the same from every angle"
+  ],
+  "keywords": [
+   "ai podcast video",
+   "two ai hosts talking",
+   "ai interview video",
+   "ai dialogue video",
+   "myth vs truth video",
+   "talking characters ai"
+  ],
+  "stack": [
+   "varg API",
+   "Nano Banana 2.1",
+   "Kling 4",
+   "Seedance 2.5",
+   "ElevenLabs v4",
+   "Sync v3",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$8 per 9-scene video at 720p (estimate)",
+  "output": "Stitched dialogue MP4 and HTML storyboard",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cbdbf41b2929.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ab403df238b6.jpg",
+   "alt": "Two AI podcast hosts at the same wooden table and brick wall: a woman in a teal T-shirt asks a question into a boom mic while a coach in a camouflage T-shirt answers in the matching close-up.",
+   "credit": null
+  }
+ },
+ "varg-previz": {
+  "title": "AI video previz pipeline: references to 3D blocking to Seedance 2.5",
+  "short": "AI video previz",
+  "tagline": "A brief or song becomes a story, locked audio, anchor sheets and a three.js grey-box previz exported as Seedance 2.5 v2v packs.",
+  "category": "preprod",
+  "prompts": [
+   "Previz my 90-second music video from song.wav: storyboard on the downbeats, 3D cameras, then a Seedance pack",
+   "Plan a 6-shot product ad before we spend credits: story, product sheet and camera blocking in 3D",
+   "Group these 24 storyboard shots into master scenes and build a grey-box set for each location, 9:16"
+  ],
+  "keywords": [
+   "ai video previz",
+   "3d animatic",
+   "camera blocking",
+   "storyboard to ai video",
+   "seedance video to video",
+   "shot list for ai video",
+   "previz workflow"
+  ],
+  "stack": [
+   "three.js",
+   "Python",
+   "Bun",
+   "Playwright",
+   "FFmpeg",
+   "varg API",
+   "Seedance 2.5"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": null,
+  "output": "Approved previz and Seedance v2v pack",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bdbaf1990c82.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_71aeb4ad0d47.jpg",
+   "alt": "Pre-visualisation of a retro anime space film: a pilot character sheet, then four neon storyboard frames from the film.",
+   "credit": null
+  }
+ },
+ "varg-product-hook": {
+  "title": "Viral product hook clips from product photos with Seedance 2.5",
+  "short": "Viral product hook",
+  "tagline": "Product photos become a 5–15 s hook that looks like phone footage: backyard-camera fail, torture test, problem then fix.",
+  "category": "ads",
+  "prompts": [
+   "Make a backyard-camera style hook for my snake-proof gaiters from ./gaiters.jpg, 9:16",
+   "Turn my cat harness photos into a 'The problem → Vs → The solution' reel, 18 seconds, music only",
+   "Find a hook that already went viral for pet nail clippers and remake it with my product"
+  ],
+  "keywords": [
+   "tiktok made me buy it",
+   "viral product hook",
+   "product hook video",
+   "dropshipping video ad",
+   "ugc product b-roll ai",
+   "seedance 2.5 product video"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Wan 3",
+   "varg video_analyze",
+   "yt-dlp"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$2.31 per 6 s 720p Seedance 2.5 clip (tested)",
+  "output": "5–15 s 9:16 hook clip",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_49236bae5f94.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f8d956a7d104.jpg",
+   "alt": "A phone-style close-up hook: a hand trims a ginger cat's claw with a glowing LED nail clipper on a fluffy blanket.",
+   "credit": null
+  }
+ },
+ "varg-product-lock": {
+  "title": "How to keep a product identical in AI video — no warped logos or labels",
+  "short": "Product lock",
+  "tagline": "Product photos become a lock sheet and 2–4 angle reference pack, so Seedance or Kling shots keep shape, color and label.",
+  "category": "ads",
+  "prompts": [
+   "My bottle's label melts in every AI shot — lock it from ./front.jpg and ./side.jpg before I make 10 clips",
+   "Make 4 product shots of our car seat gap filler where it keeps its exact wedge shape",
+   "Check these 3 generated clips against my product photos and tell me which ones drifted"
+  ],
+  "keywords": [
+   "consistent product in ai video",
+   "keep logo in ai video",
+   "product looks different ai",
+   "ai product drift",
+   "product reference images seedance",
+   "label consistency ai video"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "varg video_analyze",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.05 per clip drift check (video_analyze)",
+  "output": "Product-consistent 4–6 s AI shots",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5bd801ceb44e.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3c99ea6d73cf.jpg",
+   "alt": "Side-by-side car-seat product shots: on the left the product drifts in shape, on the right the lock-pack version keeps it identical as hands fit it.",
+   "credit": null
+  }
+ },
+ "varg-publish-skill": {
+  "title": "How to get your agent skill found by AI agents: list it on varg how to",
+  "short": "Publish your skill",
+  "tagline": "A skill folder or repo becomes a checked catalog card, shown to you first, then sent for review on varg how to.",
+  "category": "meta",
+  "prompts": [
+   "Publish the skill in ./caption-maker to varg how to",
+   "Check my repo github.com/me/thumbnail-maker against the varg standard and submit it to the catalog",
+   "How do I get the video tool I built found by agents? Fill the listing card and show it to me first"
+  ],
+  "keywords": [
+   "how to get found by ai agents",
+   "submit to varg how to",
+   "publish to an ai agent catalog",
+   "agent marketplace listing",
+   "list my agent tool"
+  ],
+  "stack": [
+   "varg MCP",
+   "varg API"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "free",
+  "output": "A catalog listing sent for review",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_84e7e9d2bbbe.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_907889895839.jpg",
+   "alt": "The varg how to publish page (\"Your agent publishes it\") hands over to a finished listing: the Video Moodboard card with its preview, install buttons and summary.",
+   "credit": null
+  }
+ },
+ "varg-tryon-video": {
+  "title": "AI try-on video from a flat-lay photo — Bria Virtual Try-On and Kling 4",
+  "short": "Try-on video",
+  "tagline": "A flat-lay clothing photo becomes a model wearing it and 5 s fit-check clips (turn, walk, mirror selfie) with size captions.",
+  "category": "ads",
+  "prompts": [
+   "Put the cardigan in ./flatlay.jpg on a model and make a 15-second fit-check video for TikTok",
+   "Make a try-on haul of these three dresses on the same model, with a 'Model 170 cm, wears M' caption",
+   "Turn my hoodie product photo into a mirror-selfie try-on clip, 9:16"
+  ],
+  "keywords": [
+   "ai try on video",
+   "virtual try-on video",
+   "flat lay to model",
+   "ai fashion model",
+   "clothing try on ai",
+   "fit check video"
+  ],
+  "stack": [
+   "varg API",
+   "Bria Virtual Try-On",
+   "Kling 4",
+   "Seedance 2.5",
+   "Nano Banana 2.1",
+   "GPT Image 2.5",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.04 per try-on still, ~$0.79 per 5 s Kling 4 clip (tested)",
+  "output": "15 s 9:16 try-on video ad",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b7847d18f90a.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9f39d82750a1.jpg",
+   "alt": "A model in a cream striped cardigan, white tee and light jeans does a fit-check turn in a bright bedroom.",
+   "credit": null
+  }
+ },
+ "varg-unboxing-video": {
+  "title": "AI unboxing and ASMR product video from two photos — Seedance 2.5",
+  "short": "AI unboxing video",
+  "tagline": "A box photo and a product photo become a hands-only unboxing clip with native ASMR taps, crinkle and lid pop, no music.",
+  "category": "ads",
+  "prompts": [
+   "Make a 10-second top-down ASMR unboxing of my LED clipper from ./box.jpg and ./product.jpg",
+   "I don't have packaging photos — make a box for my earbuds and an unboxing video ending with them switching on",
+   "Luxury macro unboxing of our perfume on marble, 15 seconds, 9:16"
+  ],
+  "keywords": [
+   "ai unboxing video",
+   "asmr product video",
+   "unboxing video ad",
+   "satisfying product video",
+   "hands only product demo",
+   "seedance 2.5 asmr"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Nano Banana 2.1",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$3.85 per 10 s 720p clip with audio (tested)",
+  "output": "5–15 s 9:16 unboxing MP4",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8641da59f6ec.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ea557af46b6b.jpg",
+   "alt": "Top-down hands-only unboxing on a wooden desk: the lid lifts off a white box and a blue pet nail clipper is taken out of its tray.",
+   "credit": null
+  }
+ },
+ "varg-video-edit-library": {
+  "title": "Video edit recipes: J-cuts, whip pans, click zooms and CTA end cards",
+  "short": "Video edit library",
+  "tagline": "An edit request like 'zoom into the button' becomes a named take with timing, the common mistake and a recipe per engine.",
+  "category": "editing",
+  "prompts": [
+   "Add a whip-pan transition between the two scenes in edit.mp4, FFmpeg only",
+   "Zoom in on every click in screen.mp4 and add an oversized cursor, in my HyperFrames project",
+   "Give my Remotion video an end card with a CTA button and the URL typed into an address bar"
+  ],
+  "keywords": [
+   "video transitions ffmpeg",
+   "j-cut and l-cut",
+   "lower third template",
+   "end card cta",
+   "screen recording zoom on click",
+   "remotion transitions",
+   "hyperframes effects",
+   "capcut transitions"
+  ],
+  "stack": [
+   "FFmpeg",
+   "HyperFrames",
+   "GSAP",
+   "Remotion",
+   "CapCut",
+   "GL Transitions"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "Edit recipe for your engine",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5330f5f9ebc7.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a7c30d469f04.jpg",
+   "alt": "Named edits applied with ffmpeg: a dancer twirling on a theatre stage whips into a vintage microphone in orange light beams, then a zoom transition into a glowing crystal reliquary.",
+   "credit": null
+  }
+ },
+ "varg-video-editing": {
+  "title": "Best video editing tool or API for each job: cut, caption, dub, upscale",
+  "short": "Editing service guide",
+  "tagline": "An editing job on existing footage becomes the right service or FFmpeg route, an edit decision list and checked output.",
+  "category": "editing",
+  "prompts": [
+   "Turn my 40-minute podcast.mp4 into five captioned Shorts; which tool should I use?",
+   "Dub this 2-minute product video into Spanish and keep the lip sync",
+   "Swap the actor in shot 3 of ad.mp4 and relight it to dusk without touching the rest"
+  ],
+  "keywords": [
+   "best ai video editing api",
+   "video editing api",
+   "how to dub a video with ai",
+   "long video to shorts",
+   "ai video upscaler",
+   "auto captions api",
+   "which video editing tool"
+  ],
+  "stack": [
+   "FFmpeg",
+   "varg API",
+   "HyperFrames",
+   "Remotion",
+   "OpusClip",
+   "HeyGen",
+   "ElevenLabs",
+   "Topaz"
+  ],
+  "needs_key": false,
+  "local": false,
+  "cost": null,
+  "output": "Edit plan with a service per step",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_31f8ec6ef72a.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_163206ab7393.jpg",
+   "alt": "One talking-head take exported four ways at once, 16:9, square, 4:5 and 9:16, each reframed on the speaker at her podcast desk.",
+   "credit": null
+  }
+ },
+ "varg-video-prompting": {
+  "title": "How to prompt AI video models — Seedance 2.5, Kling 4, Veo 3.1 and Wan 3",
+  "short": "AI video prompting",
+  "tagline": "A shot list becomes the right model per shot, structured prompts with reference roles, locked audio and a QA check per clip.",
+  "category": "models",
+  "prompts": [
+   "Which model should I use for a 5-second close-up of a woman laughing in the rain? Write the prompt too",
+   "Write a Seedance 2.5 prompt with @image1 as my character sheet ./sheet.png and three timed hard cuts",
+   "My image-to-video clip drifted from the still and put a phone in her hand. Fix the prompt"
+  ],
+  "keywords": [
+   "how to prompt seedance 2.5",
+   "ai video prompts",
+   "best ai video model",
+   "veo 3.1 prompts",
+   "image to video prompt",
+   "consistent character ai video",
+   "ai lip sync"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Veo 3.1",
+   "Wan 3",
+   "Nano Banana 2.1",
+   "ElevenLabs v4",
+   "Lyria 3.5"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": null,
+  "output": "Model picks, prompts and a QA defect list",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_507022243812.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_26e9eaca719b.jpg",
+   "alt": "One approved first frame animated by three video models side by side: a white supercar lifts off on jet thrusters over wet rails at night.",
+   "credit": null
+  }
+ },
+ "video-animate": {
+  "title": "How to animate a Blender or three.js previz with Seedance 2.5",
+  "short": "Previz to video",
+  "tagline": "An approved previz, cast and locked track become per-shot model picks, a cheap 480p pass, three takes per cut and plates.",
+  "category": "preprod",
+  "prompts": [
+   "Animate my approved three.js previz in ./previz to the locked track, 9:16, with a cheap 480p pass first",
+   "Which model for each shot in shots.md: Seedance 2.5, Kling 4 or code? Price the runs before spending",
+   "Turn this Blender grey-box render into a 20-second Seedance clip and give me three performance takes"
+  ],
+  "keywords": [
+   "blender to seedance",
+   "three.js to video",
+   "animate previz with ai",
+   "seedance or kling",
+   "which ai video model for this shot",
+   "480p draft ai video",
+   "animate to the beat"
+  ],
+  "stack": [
+   "varg API",
+   "Seedance 2.5",
+   "Kling 4",
+   "Wan 3",
+   "MiniMax H3",
+   "Python",
+   "FFmpeg"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.64–3.42 per 5 s Seedance 2.5 clip, 480p–1080p (estimate)",
+  "output": "Picture cut to the track, plus plates",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2ea643e37327.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_fcf3edd337dc.jpg",
+   "alt": "A grey-box previz shot and its cheap 480p Seedance pass play side by side: a starfighter faces a giant toothed tile monster in space.",
+   "credit": null
+  }
+ },
+ "video-asset-sources": {
+  "title": "Royalty-free B-roll, music and SFX an AI agent can fetch and legally use",
+  "short": "Video asset sources",
+  "tagline": "A missing clip, track or sound becomes a file from a tested source, with its license checked and a credits line recorded.",
+  "category": "editing",
+  "prompts": [
+   "Find 3 free vertical B-roll clips of city traffic at night that I can use in a paid ad",
+   "I need a whoosh and a UI click sound, CC0 only, and record the credits",
+   "Can I use this Freesound clip commercially? https://freesound.org/people/someone/sounds/123456/"
+  ],
+  "keywords": [
+   "free b-roll",
+   "royalty free music for video",
+   "free sound effects",
+   "stock footage api",
+   "pexels api",
+   "freesound cc0",
+   "can i use this clip commercially"
+  ],
+  "stack": [
+   "curl",
+   "Python",
+   "Pexels API",
+   "Pixabay API",
+   "Freesound API",
+   "Wikimedia Commons"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "Licensed asset files and a credits file",
+  "card": false,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ca358f236497.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_551997105106.jpg",
+   "alt": "Public-domain B-roll fetched by an agent from the NASA library: the Orion Nebula in infrared, Earth from the space station, green aurora over a treeline and Cassini passing Saturn.",
+   "credit": "Footage: NASA (public domain)"
+  }
+ },
+ "video-moodboard": {
+  "title": "How to make a moodboard AI video models actually follow",
+  "short": "Video moodboard",
+  "tagline": "References and a six-line brief become a ranked moodboard.md and board.html in hex, Kelvin and lens mm, proven on test stills.",
+  "category": "preprod",
+  "prompts": [
+   "Make a moodboard for a 40-second perfume film: night city, wet asphalt, warm sodium light, 9:16",
+   "Build a style bible from the three frames in ./refs before I prompt Seedance",
+   "My AI shots look generic; write a moodboard with the palette taken from ref.jpg and test it on 3 stills"
+  ],
+  "keywords": [
+   "ai video moodboard",
+   "how to make a moodboard",
+   "mood board for video",
+   "style bible",
+   "art direction for ai video",
+   "make it not look like ai",
+   "moodboard template"
+  ],
+  "stack": [
+   "Python",
+   "Pillow",
+   "varg API",
+   "Nano Banana 2.1",
+   "Seedream 5 Pro"
+  ],
+  "needs_key": false,
+  "local": false,
+  "cost": "~$0.05 per test still; the board itself is free",
+  "output": "moodboard.md, board.html, three test stills",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1d1bd7ef40dc.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_99cd869e6622.jpg",
+   "alt": "The \"Last Bus\" moodboard scrolls from references, light plan, subject lock and palette down to two test stills of a woman with a red umbrella at a rainy night bus stop.",
+   "credit": null
+  }
+ },
+ "video-project-github": {
+  "title": "Back up a video project to a private GitHub repo, no git needed",
+  "short": "Project on GitHub",
+  "tagline": "A project folder becomes a private GitHub repo with a version per approved step, media in Releases and a byte-exact restore.",
+  "category": "preprod",
+  "prompts": [
+   "Back up my video project in ~/films/ferry to a private GitHub repo; I've never used git",
+   "Go back to version 8 of the storyboard, I liked the old one better",
+   "Move this project to my new laptop and restore every video file exactly"
+  ],
+  "keywords": [
+   "back up video project",
+   "git for video projects",
+   "private github repo for video",
+   "undo changes in a video project",
+   "ai video project folder structure",
+   "store large video files outside git",
+   "move project to new computer"
+  ],
+  "stack": [
+   "Git",
+   "GitHub CLI",
+   "Python",
+   "GitHub Releases"
+  ],
+  "needs_key": false,
+  "local": false,
+  "cost": "free",
+  "output": "Private GitHub repo with restorable versions",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_483f2b7df560.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_97afbf735c70.jpg",
+   "alt": "A video project kept on GitHub: the repo file list with commits, then the README with prerequisites, quick start commands and the project layout.",
+   "credit": null
+  }
+ },
+ "video-script": {
+  "title": "How to write a video script for ads, UGC, Shorts and demos",
+  "short": "Video script",
+  "tagline": "A brief and a facts file become a timed script table with three hooks, checked for pace, hook timing and AI-sounding lines.",
+  "category": "preprod",
+  "prompts": [
+   "Write a 30-second TikTok ad script for my sourdough proofing box from facts.md, 9:16, voiceover at 150 wpm",
+   "I need a 60-second launch video script for my command-line tool, with three hooks and a pace check",
+   "How many words fit in 20 seconds? Write a Reels product review script for my standing desk"
+  ],
+  "keywords": [
+   "how to write a video script",
+   "ai video script",
+   "ugc ad script",
+   "tiktok script",
+   "youtube shorts script",
+   "voiceover script word count",
+   "video script example"
+  ],
+  "stack": [
+   "Python"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free",
+  "output": "script.md table plus three hooks",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6cc42561ccd8.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a4229b856526.jpg",
+   "alt": "A script table titled \"Every line, sized to its seconds\" lists time codes, spoken lines, on-screen text and visuals, then zooms into the lines and the passing check.",
+   "credit": null
+  }
+ },
+ "video-skills": {
+  "title": "Find the best AI video workflow — UGC ads, captions, avatars, dubbing",
+  "short": "Video workflow finder",
+  "tagline": "A video, voice or music request in any language becomes the right tested workflow plus visual options before anything is paid.",
+  "category": "start",
+  "prompts": [
+   "Find me the best way to turn my 1-hour podcast ./ep12.mp4 into vertical Shorts",
+   "I need a talking avatar presenter for a 30-second explainer, what should I use?",
+   "Dub my Spanish product video into English and German, which tool fits?"
+  ],
+  "keywords": [
+   "best ai video tool",
+   "which ai video tool to use",
+   "ai talking avatar",
+   "ai dubbing",
+   "long video to shorts",
+   "ai captions"
+  ],
+  "stack": [
+   "varg how to search",
+   "curl"
+  ],
+  "needs_key": false,
+  "local": false,
+  "cost": null,
+  "output": "Matched workflow, install command and look options",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_56f5acc73e92.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f3c697d90673.jpg",
+   "alt": "On varg how to, the search \"lyric video for my song\" returns a lyric-video tutorial, a music-video collection, video types and skills.",
+   "credit": null
+  }
+ },
+ "video-sound": {
+  "title": "Sound design for AI video: voiceover, SFX, music and a measured mix",
+  "short": "Video sound",
+  "tagline": "A script becomes a cue sheet, auditioned AI voices, sound effects on the frame, a music bed and a mix checked for LUFS.",
+  "category": "preprod",
+  "prompts": [
+   "Add voiceover, music and sound effects to my 45-second launch video in ./film and mix it to -14 LUFS",
+   "The AI narrator sounds fake; audition 4 voices on the two hardest lines in lines.md and let me pick",
+   "Plan the sound for a 30-second trailer: where the hits go, one silence, music bar by bar"
+  ],
+  "keywords": [
+   "sound design for video",
+   "ai voiceover",
+   "how to make an ai voice sound real",
+   "add music to video",
+   "sound effects for video",
+   "video audio mix lufs",
+   "pick the best voiceover take"
+  ],
+  "stack": [
+   "Python",
+   "FFmpeg",
+   "librosa",
+   "varg API",
+   "ElevenLabs v4",
+   "ElevenLabs Music",
+   "HyperFrames"
+  ],
+  "needs_key": true,
+  "local": false,
+  "cost": "~$0.01–0.02 per voice line, $0.01–0.06 per sound effect, $0.05 per 20 s music bed; mixing free",
+  "output": "Mixed master with cue sheet and checks",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6d4c33ff5cc.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6b8032fe0a90.jpg",
+   "alt": "A designed launch soundtrack shown as a waveform and spectrogram with labelled voice, impact and music regions while a playhead moves across.",
+   "credit": null
+  }
+ },
+ "_hero": {
+  "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f73c9a6f3d94.webp",
+  "jpg": "",
+  "alt": "A fast reel of varg skill results: a fisheye skateboarder in Lisbon, a wave of screens crashing on a night street, a singer in a red trench, a serum splash, god rays, a cat pilot, a bottle slam, a jet-powered supercar, floating earbuds, an elephant with an observatory, a Droste zoom, a dancer, a vegetable chopper and a liquid-metal V."
+ },
+ "_try": [
+  {
+   "ask": "Make a 15-second UGC ad for my serum from ./serum.jpg, 9:16 for TikTok",
+   "skill": "ai-ugc-ad-video"
+  },
+  {
+   "ask": "Turn ./song.mp3 into a music video cut on the beat",
+   "skill": "varg-music-video"
+  },
+  {
+   "ask": "Keep the same two actors in all five scenes of my ad",
+   "skill": "varg-consistent-characters"
+  },
+  {
+   "ask": "Turn ./product.jpg into an ASMR unboxing video",
+   "skill": "varg-unboxing-video"
+  },
+  {
+   "ask": "Add Hormozi-style captions to ./talk.mp4",
+   "skill": "caption-styles"
+  },
+  {
+   "ask": "Cut the dead air and retakes out of ./podcast.mp4",
+   "skill": "edit-footage-with-code"
+  },
+  {
+   "ask": "Make a looping GIF of my mascot waving",
+   "skill": "gpt-image-gif"
+  },
+  {
+   "ask": "Download this TikTok and crop it to 9:16 with burned-in captions",
+   "skill": "short-form-ffmpeg-cookbook"
+  }
+ ]
+}
