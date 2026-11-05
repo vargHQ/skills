@@ -8,7 +8,7 @@ the sheet's front close-up, same person >= 0.28). Checklist: two blind AI judges
 
 | Setting | Value | Why |
 | --- | --- | --- |
-| Model | `gpt_image_2_6` (Flare, the default) | Sunburst cost the same, took longer and gave no more consistent sheet panels |
+| Model | `gpt_image_2_6` (Flare, the default) | Sunburst cost the same, took longer, and its sheet panels were about as consistent (0.54 vs 0.51, one sheet each) |
 | Size | `provider_options.fal.image_size` `{"width": 2560, "height": 1440}` for sheets, 1920x1080 for shots | `aspect_ratio: "16:9"` alone returned 1088x608; the bigger size cost the same |
 | Quality | `high` | $0.06 a generation, $0.07 an edit with references |
 | References | the sheet URL in `files` (up to 16 per call) | no face-fidelity setting exists on 2.x; omit `input_fidelity` |
@@ -20,7 +20,7 @@ the sheet's front close-up, same person >= 0.28). Checklist: two blind AI judges
 
 | Test | GPT Image 2.6 | Nano Banana 2.1 |
 | --- | --- | --- |
-| Face similarity, passport only (4 shots) | 0.48, 4 of 4 same person | 0.44, 3 of 4 |
+| Face similarity, passport only (4 shots) | 0.48, 4 of 4 same person (3 of 4 at 1088x608) | 0.44, 3 of 4 |
 | + grey sheet as Image 1 | 0.72 | 0.66 |
 | + moodboard-lit sheet as Image 1 (vs the grey sheet) | 0.66 (0.75 vs its own sheet) | 0.58 |
 | Passport details right, passport only | 64% | 46% |
@@ -31,16 +31,21 @@ the sheet's front close-up, same person >= 0.28). Checklist: two blind AI judges
 
 - **Chained edits drift.** Five edits in a row on the last picture: 0.74, 0.55, 0.50, 0.46, 0.48 (Flare);
   0.73, 0.49, 0.42, 0.31, 0.29 (Sunburst, `reasoning_effort: low`). The same five instructions as fresh calls from
-  the sheet: 0.89, 0.70, 0.75, 0.66, 0.85 (mean 0.77). One judge also called the chained faces waxy (5 of 10).
-- **Expressions.** Cause + physical tells looked more genuine than adjectives in 8 of 12 blind pairs (both orders).
+  the sheet: 0.89, 0.70, 0.75, 0.66, 0.85 (mean 0.77). The fresh calls also carried the passport and look block; the
+  edits only the change. Chained frames still matched each other (0.71 vs 0.73): the chain settles into a different
+  face. One of two judges called all 5 chained Flare faces waxy, the other none (a lead, not a finding).
+- **Expressions.** Cause + physical tells looked more genuine than adjectives in 8 of 12 judgments (one AI judge, six
+  emotions shown in both orders; the cause prompt was 4x longer and repeated the face description).
   Misfires: "white above the irises" made startle cartoonish; "eyes wet" turned worry into sadness; the one-sided
   contempt tell did not show.
 - **Age.** InsightFace's age estimate: median 51 for the 12 shots (Nano Banana: 30) from a passport that says 30.
   An explicit age line moved the sheet's front close-up from 40 to 32 in one take.
-- **Invented text.** Readable signs and posters in 7 of 8 judge checks of text-only shots, 2 of 16 with a sheet.
-- **Props named in the look block appear.** "Only the umbrella saturated red" added a red umbrella to 4 of 4
-  close-ups that had none in the action.
-- **Prop sheets.** Wear landed (the worn J-handle); a geometry defect (a bent rib) did not.
+- **Invented text.** Readable signs and posters in 7 of 8 judge checks of text-only shots, 2 of 16 with a sheet;
+  the no-text line gave blank panels in one retest image.
+- **Props named in the look block appear.** "Only the umbrella saturated red" added a red umbrella to all 5
+  close-ups that had none in the action (2 in a stranger's hand).
+- **Prop sheets.** Wear landed on the sheet (the worn J-handle); a geometry defect (a bent rib) did not. In shots
+  without the prop sheet attached, the worn handle was right 6 of 24 times: attach it as Image 2.
 - **Fix passes.** A whole-sheet edit with six fixes kept the face, fixed almost nothing, kept the scar on the wrong
   side and added a ring. One fix on the front panel, cropped and enlarged 2x, with the side named as the viewer
   sees it, moved the scar to the correct side; hiding one ear under hair failed in the same call.
