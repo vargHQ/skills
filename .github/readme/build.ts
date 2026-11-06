@@ -159,10 +159,11 @@ function readme(): string {
     KEYED: skills.filter((s) => s.meta.needs_key).map((s) => `\`${s.dir}\``).join(", "),
     TRY: [
       "| Ask your agent | You get | Skill | Price |", "|---|---|---|---|",
-      ...((metaAll["_try"] as unknown as { ask: string; skill: string }[]) ?? []).map(({ ask, skill }) => {
+      ...((metaAll["_try"] as unknown as { ask: string; skill: string; with?: string }[]) ?? []).map(({ ask, skill, with: w }) => {
         const s = byName.get(skill);
-        if (!s) throw new Error(`_try: "${skill}" is not a skill`);
-        return `| "${ask}" | ${s.meta.output} | [\`${s.dir}\`](./${s.dir}/README.md) | ${s.meta.needs_key ? s.meta.cost ?? "provider price" : "free, no key"} |`;
+        if (!s || (w && !byName.has(w))) throw new Error(`_try: "${skill}" or "${w}" is not a skill`);
+        const link = (x: string) => `[\`${x}\`](./${x}/README.md)`;
+        return `| "${ask}" | ${s.meta.output} | ${link(s.dir)}${w ? ` + ${link(w)}` : ""} | ${s.meta.needs_key ? s.meta.cost ?? "provider price" : "free, no key"} |`;
       }),
     ].join("\n"),
     INSTALL_TABLE: [
