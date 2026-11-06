@@ -1,0 +1,149 @@
+# vargHQ/skills
+
+> 73 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
+
+## Install (for an agent asked to "install varg video skills")
+
+1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 73 makes a long skill list that some agents shorten.
+2. Run `npx skills add vargHQ/skills --skill <skill> --skill <skill>` (add `-a <agent> -g -y` for a global, non-interactive install; agents: claude-code, codex, cursor, grok, gemini-cli, github-copilot, opencode and 60+ more). Claude Code can take all of them as a plugin instead: `claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg`.
+3. For generation, connect the varg MCP (`https://mcp.varg.ai/mcp`, OAuth sign-in) or set `VARG_API_KEY` from https://varg.ai. Skills marked "no key" need neither.
+4. Read the chosen skill's SKILL.md before using it. AGENTS.md has the task → skill index; catalog.json has the same data as JSON.
+
+## Guides by task
+
+- [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-ai-ugc-ads/README.md): Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe. Start with `ai-ugc-ad-video`.
+- [How to make an AI music video for your song with Claude Code](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-an-ai-music-video/README.md): Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code. Start with `varg-music-video`.
+- [How to make a lyric video with AI: free kinetic type or AI footage](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-a-lyric-video/README.md): Turn a song and its lyrics into a lyric video with every word on the vocal: free kinetic type in code, or lyrics over AI footage. Start with `motion-formats`.
+- [Claude Code video editing: cut dead air and turn podcasts into Shorts](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/edit-video-with-claude-code/README.md): Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg. Start with `edit-footage-with-code`.
+- [How to make a product launch video with Claude Code (HyperFrames, Remotion)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-a-product-launch-video/README.md): Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage. Start with `app-ui-mockups`.
+- [How to make an AI talking avatar video from a photo (lip sync, podcasts)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-an-ai-talking-avatar-video/README.md): Turn a photo and a script into a lip-synced talking avatar, a keynote speaker clip or a two-host AI podcast with steady faces. Start with `varg-ai`.
+- [Image to video AI: how to turn a photo into a video with Seedance or Kling](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/image-to-video-ai/README.md): Turn any photo into a moving clip on Seedance 2.5, Kling 4, Veo 3.1 or Wan 3 with one varg key, or into a looping GIF. Start with `varg-ai`.
+- [Product photo to video with AI: product ads that keep your real label](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/product-photo-to-video/README.md): Turn 1-3 product photos into a TikTok, Reels or listing video (unboxing, ASMR, 360 loop, in-hand demo) with the label locked. Start with `product-photo-to-video`.
+- [How to make a faceless YouTube video with AI and Claude Code](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-a-faceless-youtube-video/README.md): Turn a topic into a faceless Short or YouTube video: script, a voice that doesn't sound fake, licensed or generated B-roll, captions, QA. Start with `video-script`.
+- [How to add captions to a video with AI: TikTok, Hormozi and karaoke styles](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/add-captions-to-video/README.md): Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames. Start with `caption-styles`.
+- [How to make an AI movie or short film with Claude Code, script to final cut](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-an-ai-movie/README.md): Turn an idea into an AI short film: script, real references, moodboard, cast passports, approved stills, animated shots, sound and QA. Start with `video-script`.
+- [How to make an AI influencer or AI character people remember](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-an-ai-influencer/README.md): Turn an idea into an AI influencer or character with a locked look: premise, details, styling, a character sheet, then reuse in video. Start with `varg-character-design`.
+- [How to keep a consistent character in AI video (same face in every shot)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/consistent-character-ai-video/README.md): Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot. Start with `varg-consistent-characters`.
+- [How to make motion graphics with Claude Code (HyperFrames, Remotion)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/claude-code-motion-graphics/README.md): Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free. Start with `kinetic-type-art`.
+- [How to make AI video ads for ecommerce: TikTok, Reels and Meta product ads](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-ecommerce-video-ads/README.md): Turn a product and four answers into ad creatives that sell: angle, hook, format, script, compliant AI shots, variants and a final cut. Start with `ecommerce-video-ads`.
+- [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/kling-4-and-seedance-prompt-guide/README.md): Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills. Start with `varg-video-prompting`.
+- [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/add-ai-voiceover-to-video/README.md): Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix. Start with `video-sound`.
+- [How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/gpt-image-2-6/README.md): Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets. Start with `gpt-image-2-6`.
+- [AI sprite sheet generator for games: GPT Image 2.6 to Phaser and Godot](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-game-sprite-sheets-with-ai/README.md): Turn a character still into a 16-frame run, walk, idle or attack cycle, sliced into a GIF, an atlas PNG and a JSON atlas for Phaser. Start with `gpt-image-sprite-sheet`.
+- [How to make vertical 9:16 video with FFmpeg: crop, burn captions, add music](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/ffmpeg-vertical-video/README.md): Turn any footage into a 1080x1920 MP4 for Reels, TikTok and Shorts with copyable FFmpeg commands tested on real media, free and local. Start with `short-form-ffmpeg-cookbook`.
+- [How to make an AI virtual try-on video from a flat-lay clothing photo](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/ai-virtual-try-on-video/README.md): Turn a flat-lay photo of clothing into a model wearing it and fit-check clips (turn, walk, mirror selfie) with the garment kept intact. Start with `varg-tryon-video`.
+- [AI video translator for ads: dub, lip-sync and recaption in 8+ markets](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/translate-and-dub-video-ads/README.md): Turn one video ad into versions for 8+ markets: transcreated script, same voice on ElevenLabs v4, lip sync on talking shots, new captions. Start with `varg-ad-localize`.
+- [How to make TikTok Shop affiliate videos with AI (without violations)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-tiktok-shop-videos/README.md): Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll. Start with `tiktok-shop-video`.
+- [How to make an AI birthday video with their name and photo (and e-invites)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-an-ai-birthday-video/README.md): Turn a name, an age and a few photos into a birthday video with a song that sings their name, or an invitation or holiday greeting. Start with `varg-birthday-video`.
+- [How to make AI ad variations for creative testing on Meta and TikTok](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-ad-variations-for-testing/README.md): Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale. Start with `varg-ad-variants`.
+- [AI storyboard to video: previz in three.js or Blender before you pay](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/ai-storyboard-to-video/README.md): Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video. Start with `varg-previz`.
+- [How to download videos from X, YouTube and TikTok with yt-dlp (no key)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/download-videos-from-x-youtube-tiktok/README.md): Turn a link from X, YouTube, Instagram, TikTok or 1,800+ other sites into a local MP4 or MP3, or a Pinterest board into reference images. Start with `media-download`.
+- [Claude Code video skills: find the right one, or publish your own](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/claude-code-video-skills/README.md): Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key. Start with `how-to-make-ai-video`.
+
+## Skills: Start here
+
+- [how-to-make-ai-video](https://raw.githubusercontent.com/vargHQ/skills/main/how-to-make-ai-video/SKILL.md): A video request becomes the best matching tutorial, its install command, 2–4 look options with examples and the steps. (no key)
+- [varg-ai](https://raw.githubusercontent.com/vargHQ/skills/main/varg-ai/SKILL.md): A prompt or photo becomes a video, image, voiceover, song or lip-synced clip through one varg API key. (varg key)
+- [video-skills](https://raw.githubusercontent.com/vargHQ/skills/main/video-skills/SKILL.md): A video, voice or music request in any language becomes the right tested workflow plus visual options before anything is paid. (no key)
+
+## Skills: Ads, UGC and ecommerce video
+
+- [ad-creative-testing](https://raw.githubusercontent.com/vargHQ/skills/main/ad-creative-testing/SKILL.md): One winning ad and its metrics become a test plan: distinct concepts, budgets, when to judge, file names, kill or scale calls. (no key · local)
+- [ai-ad-compliance-check](https://raw.githubusercontent.com/vargHQ/skills/main/ai-ad-compliance-check/SKILL.md): A finished AI video ad becomes a pass / fix / block report with the rule, source, a rewrite for each fix and the AI labels to set. (varg key)
+- [ai-ugc-ad-video](https://raw.githubusercontent.com/vargHQ/skills/main/ai-ugc-ad-video/SKILL.md): An AI creator holds your real product and talks to a phone camera; face, voice and label stay locked across shots. (varg key)
+- [ecommerce-video-ads](https://raw.githubusercontent.com/vargHQ/skills/main/ecommerce-video-ads/SKILL.md): A product, its facts and a budget become an angle, hook, timed script and AI or real-footage ads that follow platform rules. (varg key)
+- [ecommerce-video-edit](https://raw.githubusercontent.com/vargHQ/skills/main/ecommerce-video-edit/SKILL.md): Raw creator or product footage becomes a 9:16 ad: hook moved to second 0, dead air cut, captions, CTA, -14 LUFS, one MP4 per hook. (no key · local)
+- [product-photo-to-video](https://raw.githubusercontent.com/vargHQ/skills/main/product-photo-to-video/SKILL.md): One to three product photos become a multi-shot product video with the label kept exact and the real packshot on the last second. (varg key)
+- [product-video-hooks](https://raw.githubusercontent.com/vargHQ/skills/main/product-video-hooks/SKILL.md): A product and the buyer's own words become 3-second hooks: matching visual, spoken line and text overlay, checked for claims. (no key · local)
+- [tiktok-shop-video](https://raw.githubusercontent.com/vargHQ/skills/main/tiktok-shop-video/SKILL.md): A product link becomes a TikTok Shop script and phone shot list with a real presenter, one number in the demo and a cart CTA. (no key · local)
+- [varg-ad-library-remix](https://raw.githubusercontent.com/vargHQ/skills/main/varg-ad-library-remix/SKILL.md): Competitor ads running 30+ days become 10–20 original concepts for your product, each with a hook, proof shot and provable claims. (varg key)
+- [varg-ad-localize](https://raw.githubusercontent.com/vargHQ/skills/main/varg-ad-localize/SKILL.md): One video ad becomes per-market versions: transcreated script, same voice, lip sync on talking faces, captions in that language. (varg key)
+- [varg-ad-variants](https://raw.githubusercontent.com/vargHQ/skills/main/varg-ad-variants/SKILL.md): One winning ad becomes 20 variants: about 7 new concepts and 13 one-change iterations, new hooks swapped in with FFmpeg. (varg key)
+- [varg-mascot-jingle-ad](https://raw.githubusercontent.com/vargHQ/skills/main/varg-mascot-jingle-ad/SKILL.md): A product photo becomes a clay, plush or 3D mascot that sings a 15–30 s brand jingle, with lyric captions and a real end card. (varg key)
+- [varg-product-hook](https://raw.githubusercontent.com/vargHQ/skills/main/varg-product-hook/SKILL.md): Product photos become a 5–15 s hook that looks like phone footage: backyard-camera fail, torture test, problem then fix. (varg key)
+- [varg-product-lock](https://raw.githubusercontent.com/vargHQ/skills/main/varg-product-lock/SKILL.md): Product photos become a lock sheet and 2–4 angle reference pack, so Seedance or Kling shots keep shape, color and label. (varg key)
+- [varg-tryon-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-tryon-video/SKILL.md): A flat-lay clothing photo becomes a model wearing it and 5 s fit-check clips (turn, walk, mirror selfie) with size captions. (varg key)
+- [varg-unboxing-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-unboxing-video/SKILL.md): A box photo and a product photo become a hands-only unboxing clip with native ASMR taps, crinkle and lid pop, no music. (varg key)
+
+## Skills: Characters, avatars and dialogue
+
+- [varg-character-absurd](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-absurd/SKILL.md): A food or object, an animal and one human detail become an original mascot with a turnaround sheet ready for video. (varg key)
+- [varg-character-beautiful-woman](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-beautiful-woman/SKILL.md): A model-casting description, real skin and fashion styling become a believable shoot of an adult woman, with no nudity. (varg key)
+- [varg-character-big-guy](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-big-guy/SKILL.md): A big body and a small, delicate job become a character sheet where the contrast is the joke, never the body. (varg key)
+- [varg-character-cartoon](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-cartoon/SKILL.md): An original character, or your own photo, redrawn in a famous animation look from a written style block, never a show name. (varg key)
+- [varg-character-cringe](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-cringe/SKILL.md): A bizarre but believable adult in a wrong suit becomes a character sheet plus a one-action-every-post format. (varg key)
+- [varg-character-design](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-design/SKILL.md): A premise, written details and one outfit become a character card and sheet you reuse in later images and videos. (varg key)
+- [varg-character-fitness](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-fitness/SKILL.md): A role, a build and one signature colour become a fitness character sheet, in catalog wording that gets past false blocks. (varg key)
+- [varg-character-grandma](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-grandma/SKILL.md): An exact age, one behaviour that doesn't fit it and a loud outfit become an 80+ character sheet ready for video. (varg key)
+- [varg-character-keynote](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-keynote/SKILL.md): One spoken line and a character prompt become an 8-second 9:16 clip of them on stage, with voice and applause. (varg key)
+- [varg-consistent-characters](https://raw.githubusercontent.com/vargHQ/skills/main/varg-consistent-characters/SKILL.md): Actor photos and a scene script become a multi-scene 9:16 ad where faces, outfits and the location stay the same. (varg key)
+- [varg-podcast-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-podcast-video/SKILL.md): Two character references and a short script become a studio dialogue video, each line spoken with native audio. (varg key)
+
+## Skills: Music videos and ready formats
+
+- [make-a-woke-profile-with-chatgpt](https://raw.githubusercontent.com/vargHQ/skills/main/make-a-woke-profile-with-chatgpt/SKILL.md): One selfie becomes 11 satirical woke tiles, a 4:5 collage for X and an MP4, made on GPT Image 2.6 (aka Wokify). (varg key)
+- [varg-birthday-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-birthday-video/SKILL.md): A name, an age and a few photos become a 15–60 s video with their name sung and their photo coming to life. (varg key)
+- [varg-dropship-reel](https://raw.githubusercontent.com/vargHQ/skills/main/varg-dropship-reel/SKILL.md): A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA. (varg key)
+- [varg-music-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-music-video/SKILL.md): Your song is measured to the beat, storyboarded, shot on Seedance 2.5, lip-synced and cut on every downbeat. (varg key)
+- [varg-occasion-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-occasion-video/SKILL.md): Names, dates and a few photos become an invitation, holiday greeting, old-photo or tribute video with every word spelled right. (varg key)
+
+## Skills: Script, references, previz and QA
+
+- [character-passport](https://raw.githubusercontent.com/vargHQ/skills/main/character-passport/SKILL.md): Each character or hero prop gets a word-for-word passport, a turnaround sheet, six expressions and a voice line measured in wpm. (varg key)
+- [code-to-video-previz](https://raw.githubusercontent.com/vargHQ/skills/main/code-to-video-previz/SKILL.md): A brief, reference clip or painting becomes a 3D scene staged in metres, checked frames and a guide clip for a video model. (no key · local)
+- [find-references](https://raw.githubusercontent.com/vargHQ/skills/main/find-references/SKILL.md): A video request becomes query packs over 22 open sources and a board of three human-made candidates per job. (no key · local)
+- [media-judge](https://raw.githubusercontent.com/vargHQ/skills/main/media-judge/SKILL.md): A finished video, image or track becomes a list of timed, measured defects with evidence frames, and takes ranked by defects. (no key · local)
+- [threejs-animatic](https://raw.githubusercontent.com/vargHQ/skills/main/threejs-animatic/SKILL.md): A shot list becomes a three.js grey-box with mannequins, real lenses and a camera plan, rendered to MP4 for Seedance @video1. (no key · local)
+- [varg-mockups](https://raw.githubusercontent.com/vargHQ/skills/main/varg-mockups/SKILL.md): A shot list becomes one HTML board of numbered stills with specs, prompts and approve or fix notes, plus phone and app mockups. (varg key)
+- [varg-previz](https://raw.githubusercontent.com/vargHQ/skills/main/varg-previz/SKILL.md): A brief or song becomes a story, locked audio, anchor sheets and a three.js grey-box previz exported as Seedance 2.5 v2v packs. (varg key)
+- [video-animate](https://raw.githubusercontent.com/vargHQ/skills/main/video-animate/SKILL.md): An approved previz, cast and locked track become per-shot model picks, a cheap 480p pass, three takes per cut and plates. (varg key)
+- [video-moodboard](https://raw.githubusercontent.com/vargHQ/skills/main/video-moodboard/SKILL.md): References and a six-line brief become a ranked moodboard.md and board.html in hex, Kelvin and lens mm, proven on test stills. (no key)
+- [video-project-github](https://raw.githubusercontent.com/vargHQ/skills/main/video-project-github/SKILL.md): A project folder becomes a private GitHub repo with a version per approved step, media in Releases and a byte-exact restore. (no key)
+- [video-script](https://raw.githubusercontent.com/vargHQ/skills/main/video-script/SKILL.md): A brief and a facts file become a timed script table with three hooks, checked for pace, hook timing and AI-sounding lines. (no key · local)
+- [video-sound](https://raw.githubusercontent.com/vargHQ/skills/main/video-sound/SKILL.md): A script becomes a cue sheet, auditioned AI voices, sound effects on the frame, a music bed and a mix checked for LUFS. (varg key)
+
+## Skills: Model guides: Kling 4, Seedance, GPT Image 2.6
+
+- [gpt-image-2-6](https://raw.githubusercontent.com/vargHQ/skills/main/gpt-image-2-6/SKILL.md): A prompt or photo becomes a poster, infographic, print or character sheet with readable text, using measured sizes and prices. (varg key)
+- [gpt-image-gif](https://raw.githubusercontent.com/vargHQ/skills/main/gpt-image-gif/SKILL.md): A still, mascot, logo or prompt becomes a looping GPT Image 2.6 GIF sized to the frame budget, then WebP and MP4 for the web. (varg key)
+- [gpt-image-markup-edit](https://raw.githubusercontent.com/vargHQ/skills/main/gpt-image-markup-edit/SKILL.md): Circles, boxes, arrows and notes on a transparent layer tell GPT Image 2.6 to change only the marked spots of an image. (varg key)
+- [gpt-image-sprite-sheet](https://raw.githubusercontent.com/vargHQ/skills/main/gpt-image-sprite-sheet/SKILL.md): A character becomes a 4×4 GPT Image 2.6 sprite sheet, then frames, a looping GIF and a JSON atlas for Phaser or Godot. (varg key)
+- [gpt-image-sticker-pack](https://raw.githubusercontent.com/vargHQ/skills/main/gpt-image-sticker-pack/SKILL.md): A photo or character becomes 6–8 looping sticker GIFs, exported to Telegram, WhatsApp, LINE, WeChat, Discord and Slack specs. (varg key)
+- [kling-4-action-montage](https://raw.githubusercontent.com/vargHQ/skills/main/kling-4-action-montage/SKILL.md): Three or four key stills and a one-line prompt become a 30-second Kling 4 trick, dance or chase montage with a crash ending. (varg key)
+- [kling-4-keyframe-film](https://raw.githubusercontent.com/vargHQ/skills/main/kling-4-keyframe-film/SKILL.md): A beat sheet and cast photos become GPT Image 2.5 stills, one 30-second Kling 4 take per beat, and a film cut like live action. (varg key)
+- [kling-4-prompting](https://raw.githubusercontent.com/vargHQ/skills/main/kling-4-prompting/SKILL.md): Two to four key stills plus a short director's prompt become cinematic Kling 4 takes instead of flat, slow-motion AI video. (varg key)
+- [varg-video-prompting](https://raw.githubusercontent.com/vargHQ/skills/main/varg-video-prompting/SKILL.md): A shot list becomes the right model per shot, structured prompts with reference roles, locked audio and a QA check per clip. (varg key)
+
+## Skills: Motion graphics for HyperFrames and Remotion
+
+- [app-ui-mockups](https://raw.githubusercontent.com/vargHQ/skills/main/app-ui-mockups/SKILL.md): A script of messages, commands or code becomes an animated chat, terminal, notification or editor scene rebuilt in HTML. (no key · local)
+- [caption-styles](https://raw.githubusercontent.com/vargHQ/skills/main/caption-styles/SKILL.md): Word timestamps become one of 17 animated caption looks with set fonts, sizes, timing and 9:16 safe zones, rendered locally. (no key · local)
+- [footage-effects](https://raw.githubusercontent.com/vargHQ/skills/main/footage-effects/SKILL.md): A clip you own gets glow, glitch, CRT, chromatic aberration, halftone, zoom blur or heat haze from tested FFmpeg chains. (no key · local)
+- [kinetic-type-art](https://raw.githubusercontent.com/vargHQ/skills/main/kinetic-type-art/SKILL.md): A word, line or manifesto becomes one of 17 beat-timed typography pieces, from one-word slams to a word corridor tunnel. (no key · local)
+- [maps-and-data-motion](https://raw.githubusercontent.com/vargHQ/skills/main/maps-and-data-motion/SKILL.md): Places, numbers or a soundtrack become a route map, globe dive, flyover, self-drawing chart, count-up or audio visualizer. (no key · local)
+- [motion-formats](https://raw.githubusercontent.com/vargHQ/skills/main/motion-formats/SKILL.md): A brand, site or song becomes a VHS screensaver, analog-horror trailer, pixel-art runner, lyric video or launch trailer. (no key · local)
+- [paper-shaders](https://raw.githubusercontent.com/vargHQ/skills/main/paper-shaders/SKILL.md): Brand colors and a logo become frame-exact Paper Shaders backgrounds, textures and logo stings that render the same every time. (no key · local)
+- [social-overlays](https://raw.githubusercontent.com/vargHQ/skills/main/social-overlays/SKILL.md): Real reviews, comments and counts become CTA, follow, LIVE and review overlays placed inside one 9:16 safe box for every platform. (no key · local)
+- [title-design](https://raw.githubusercontent.com/vargHQ/skills/main/title-design/SKILL.md): Names, places and show titles become lower thirds, speaker plates, show opens and glitch or CRT reveals that hold for two reads. (no key · local)
+- [transition-craft](https://raw.githubusercontent.com/vargHQ/skills/main/transition-craft/SKILL.md): Two shots and a beat grid become a timed transition: Droste zoom, shake cut, tile flip, bokeh, photo cloud or collage burst. (no key · local)
+
+## Skills: Edit footage and FFmpeg
+
+- [edit-footage-with-code](https://raw.githubusercontent.com/vargHQ/skills/main/edit-footage-with-code/SKILL.md): Raw takes become a reviewed edit list, a clean cut between words, then captions, B-roll and sound checked by numbers and frames. (no key · local)
+- [media-download](https://raw.githubusercontent.com/vargHQ/skills/main/media-download/SKILL.md): A link becomes a local MP4, MP3 or playlist from 1,800+ sites, or Pinterest images from a pin, board or search query. (no key · local)
+- [short-form-ffmpeg-cookbook](https://raw.githubusercontent.com/vargHQ/skills/main/short-form-ffmpeg-cookbook/SKILL.md): Raw footage, an SRT and a music track become a 1080×1920 MP4 with burned-in captions, trims, joins and ducked music. (no key · local)
+- [varg-video-edit-library](https://raw.githubusercontent.com/vargHQ/skills/main/varg-video-edit-library/SKILL.md): An edit request like 'zoom into the button' becomes a named take with timing, the common mistake and a recipe per engine. (no key · local)
+- [varg-video-editing](https://raw.githubusercontent.com/vargHQ/skills/main/varg-video-editing/SKILL.md): An editing job on existing footage becomes the right service or FFmpeg route, an edit decision list and checked output. (no key)
+- [video-asset-sources](https://raw.githubusercontent.com/vargHQ/skills/main/video-asset-sources/SKILL.md): A missing clip, track or sound becomes a file from a tested source, with its license checked and a credits line recorded. (no key · local)
+
+## Skills: Publish your own skill
+
+- [varg-publish-skill](https://raw.githubusercontent.com/vargHQ/skills/main/varg-publish-skill/SKILL.md): A skill folder or repo becomes a checked catalog card, shown to you first, then sent for review on varg how to. (varg key)
+
+## Optional
+
+- [AGENTS.md](https://raw.githubusercontent.com/vargHQ/skills/main/AGENTS.md): task → skill index and rules for agents
+- [catalog.json](https://raw.githubusercontent.com/vargHQ/skills/main/catalog.json): every skill and guide as JSON (title, tagline, category, key, cost, preview, install)
+- [varg how to](https://varg.ai/how-to/llms.txt): 2,000+ more video skills and tutorials; keyless MCP at https://api.varg.ai/v2/skills/mcp
+- [varg model specs](https://varg.ai/models/llms.txt): current model ids, inputs, limits and prices
+- [varg MCP](https://mcp.varg.ai/mcp): generate with OAuth sign-in, one credit balance for every model

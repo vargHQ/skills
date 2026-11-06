@@ -1,0 +1,3138 @@
+[
+ {
+  "rank": 1,
+  "slug": "make-ai-ugc-ads",
+  "h1": "How to make AI UGC ads with Claude Code (open-source Arcads alternative)",
+  "short_title": "AI UGC ads",
+  "one_liner": "Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.",
+  "queries": [
+   "how to make ai ugc ads",
+   "how to make ai ugc videos",
+   "ai ugc ads",
+   "ai ugc video generator",
+   "how to make ai ugc ads for free",
+   "ai ugc video generator open source",
+   "ai ugc video generator github",
+   "arcads ai alternative free",
+   "cheaper alternative to arcads",
+   "how to make ai ugc that looks 100 real",
+   "ai ugc ads with product",
+   "best AI UGC video ad generator tools 2026",
+   "how to make a UGC ad that converts 2026 step by step"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'how to make ai ugc' returns 10 completions on both engines, 'how to make ai ugc ads' first on YouTube; 'ai ugc' completes to video generator, ads, creator, tiktok shop; 'arcads alternative' returns 10 on Google incl. 'arcads ai alternative free' and 'arcade open source alternative'",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "ugc-ad (AI actors, 'yappers')",
+    "value": "9"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "ads is the largest rubric: 48 of 150 posts, 16,770 bookmarks",
+    "value": "48 / 150"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Ads & UGC' topic",
+    "value": "30 of 843"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "'make a UGC ad for my product': Claude picked Arcads, Codex picked Creatify; W45 cold agent picked Creatify (URL to ad, about $24/month); varg was not a candidate",
+    "value": "0 of 3 picked varg"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "query 'ugc ad': mbfinotti ugc-ad-scripts 25,863 installs; coreyhaines31 ad-creative 141,379",
+    "value": "25,863"
+   },
+   {
+    "signal": "X Latest sample (2026-11-05, 20 English tweets, estimate)",
+    "detail": "'ai ugc': 20 tweets in about 2.5 hours (many are creator bios and hiring posts)",
+    "value": "~190/day (estimate)"
+   }
+  ],
+  "skills": [
+   {
+    "name": "ai-ugc-ad-video",
+    "role": "cast the AI creator, write the phone-real script, generate on Seedance 2.5 or Kling 4, reject pass"
+   },
+   {
+    "name": "product-video-hooks",
+    "role": "the first 3 seconds: on-screen, spoken and text hooks from the buyer's words"
+   },
+   {
+    "name": "video-script",
+    "role": "size every spoken line to its seconds and flag AI-sounding lines"
+   },
+   {
+    "name": "varg-product-lock",
+    "role": "keep the label, logo and shape identical in every shot"
+   },
+   {
+    "name": "caption-styles",
+    "role": "word-timed captions inside the 9:16 safe box"
+   },
+   {
+    "name": "social-overlays",
+    "role": "CTA pill, review proof card, comment callout"
+   },
+   {
+    "name": "ai-ad-compliance-check",
+    "role": "pass / fix / block report for TikTok, Meta, FTC and AI labels before it runs"
+   }
+  ],
+  "start_with": "ai-ugc-ad-video",
+  "example_prompts": [
+   "Make a 20-second UGC ad for my vitamin C serum from this photo: ./serum.jpg. A woman in her 30s at a bathroom mirror, 9:16 for Meta Reels. Quote credits before you generate.",
+   "Write three yapper-style AI UGC scripts for my posture corrector, then generate the best one with Kling 4.",
+   "Remake our winning street-interview ad as AI UGC with a new creator, same product label, labelled as AI.",
+   "Check this AI UGC ad before I run it on TikTok and Meta: ./ad.mp4"
+  ],
+  "faq": [
+   {
+    "q": "Do AI UGC ads work?",
+    "a": "For cold traffic and finding the winning angle, yes. The skill cites one operator's $100K test (220 videos): human UGC had the higher CTR and AI the higher ROAS, because AI made more variants cheaply. It is weak for high-ticket offers and warm audiences."
+   },
+   {
+    "q": "Are AI UGC ads legal?",
+    "a": "The AI creator may demo the product and state facts, but never give a first-person testimonial or result (\"I used it for two weeks...\"): the FTC bans fake testimonials, AI ones included, and New York requires a synthetic-performer disclosure. ai-ad-compliance-check returns the rule and a rewrite for each line. Not legal advice."
+   },
+   {
+    "q": "Can I use AI UGC on TikTok Shop?",
+    "a": "Not as the presenter. TikTok Shop rules ban an AI voice standing in for the presenter, so the skill stops and hands over to tiktok-shop-video, which uses AI only for b-roll under a real person."
+   },
+   {
+    "q": "Why does my AI UGC look fake?",
+    "a": "Usually waxy skin, perfect light and an unreadable label. The skill writes real skin details (pores, flyaway hairs), prompts phone flaws (handheld tremor, autofocus hunts, phone-mic audio), uses a straight-on product photo with a readable label, and rejects clips whose face, label or hand count drift."
+   },
+   {
+    "q": "Seedance 2.5 or Kling 4 for AI UGC?",
+    "a": "Seedance 2.5 looks the most real but takes about 3 attempts per keeper (reported); Kling 4 is cheaper and often right first time, and Kling 4 Flash is for drafts. The skill prices the whole batch with estimate_cost first."
+   },
+   {
+    "q": "How do I keep the same face and product in every clip?",
+    "a": "Make one creator still and an identity sheet, pass the same image plus the product photo on every shot, and never switch models between shots of one creator. varg-product-lock adds a lock sheet and a drift check for the product."
+   }
+  ],
+  "alternatives": [
+   "Arcads",
+   "Creatify",
+   "MakeUGC",
+   "HeyGen"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-ecommerce-video-ads",
+   "product-photo-to-video",
+   "make-tiktok-shop-videos",
+   "make-ad-variations-for-testing"
+  ]
+ },
+ {
+  "rank": 2,
+  "slug": "make-an-ai-music-video",
+  "h1": "How to make an AI music video for your song with Claude Code",
+  "short_title": "AI music video",
+  "one_liner": "Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.",
+  "queries": [
+   "ai music video generator",
+   "how to make an ai music video",
+   "how to make an ai music video for my song",
+   "ai music video generator free",
+   "ai music video generator from audio",
+   "ai music video lip sync",
+   "ai video for my song",
+   "suno music video generator",
+   "how to make ai music video suno",
+   "lyric video maker",
+   "lyric video generator ai",
+   "how to make a lyric video for youtube",
+   "kinetic typography lyric video",
+   "how to make a music video from an audio file with AI 2026"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai music video' returns 10 on both engines and 52 alphabet completions (generator, maker, lip sync, with my face, prompt); 'how to make an ai music video' 10/10 incl. 'for my song'; 'lyric video' 10/10 led by 'lyric video maker' and 'lyric video generator'",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "music-video 9; lyric-video 4",
+    "value": "9"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "queries 'music video' and 'lyric video': heygen-com/hyperframes music-to-video 419,141 installs",
+    "value": "419,141"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "music rubric 27 of 150 posts; the second most-saved post of all 150 (12,072 bookmarks) is an agent-made music video (Seedance shots + kinetic lyrics)",
+    "value": "27 / 150"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Music videos' 7 + 'AI music' 6 + 'Lyrics & songwriting' 2",
+    "value": "15 of 843"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "'make a lyric video for my song': Codex picked LyricFlow, Claude picked the open-source Lyriks CLI",
+    "value": "2 runs"
+   },
+   {
+    "signal": "X Latest sample (2026-11-05, 20 English tweets, estimate)",
+    "detail": "'lyric video': 20 tweets in about 80 minutes, nearly all shares of official lyric videos (watching, not making)",
+    "value": "~360/day (estimate)"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-music-video",
+    "role": "direct it end to end: song map, concept, cast, storyboard on downbeats, Seedance shots, lip-sync pass, review rounds"
+   },
+   {
+    "name": "kinetic-type-art",
+    "role": "lyric-style type: one word per beat, typeface strobe, manifesto layouts"
+   },
+   {
+    "name": "caption-styles",
+    "role": "karaoke-fill and active-word lyric captions"
+   },
+   {
+    "name": "motion-formats",
+    "role": "a kinetic lyric video or a one-shot DAW-timeline music video with no AI footage"
+   },
+   {
+    "name": "kling-4-keyframe-film",
+    "role": "the Kling 4 route: stills, then one 30-second take per beat"
+   },
+   {
+    "name": "media-judge",
+    "role": "measure the cut: broken frames, sound after the cut, loudness"
+   }
+  ],
+  "start_with": "varg-music-video",
+  "example_prompts": [
+   "Make a music video for my song ./track.wav with the lyrics in ./lyrics.txt. Anime look, one singer, cuts on the downbeats. Show me stills before any video.",
+   "Make a kinetic typography lyric video for this song, 16:9 for YouTube, no AI footage.",
+   "I have no song yet. Write lyrics about leaving a small town, make a 2-minute indie-pop track at 98 BPM, then a music video for it.",
+   "Remake this music video idea with Kling 4 and my character sheet: ./singer.png"
+  ],
+  "faq": [
+   {
+    "q": "Can AI make a music video from my audio file?",
+    "a": "Yes. varg-music-video starts from the WAV or MP3 and the lyric sheet: it splits stems (Demucs, run locally), fits a beat grid to the kick drum, gets word timings with Whisper on the vocal stem, and renders a timing proof you approve before any footage is made."
+   },
+   {
+    "q": "How does the AI singer lip-sync?",
+    "a": "The pipeline generates Seedance 2.5 shots and then runs a mandatory lip-sync pass on every singing shot."
+   },
+   {
+    "q": "Can I make a lyric video without AI footage, for free?",
+    "a": "Yes. motion-formats has a kinetic lyric video format and kinetic-type-art has lyric-style type; both render locally in HyperFrames or Remotion and spend no credits."
+   },
+   {
+    "q": "I don't have a song yet. Can AI make one?",
+    "a": "On varg, lyria_3_5 makes a full song with vocals up to about 3 minutes and eleven_music_v2_5 makes songs from 3 seconds to 10 minutes; many creators use Suno outside varg. State an exact BPM and structure in the prompt."
+   },
+   {
+    "q": "Why approve stills first?",
+    "a": "\"Fix stills, not clips\": a still costs a few credits, a clip tens to hundreds, and the video model keeps every fault in the still."
+   },
+   {
+    "q": "Can I make the music video with Kling 4?",
+    "a": "Yes, kling-4-keyframe-film covers music videos: key shots as stills, then one 30-second Kling 4 reference take per beat. The skill budgets a 30-second 1080p take at about 705 credits."
+   }
+  ],
+  "alternatives": [
+   "Neural Frames",
+   "Kaiber",
+   "Freebeat",
+   "LyricFlow"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-a-lyric-video",
+   "make-an-ai-movie",
+   "claude-code-motion-graphics",
+   "kling-4-and-seedance-prompt-guide"
+  ]
+ },
+ {
+  "slug": "make-a-lyric-video",
+  "h1": "How to make a lyric video with AI: free kinetic type or AI footage",
+  "short_title": "Lyric video",
+  "one_liner": "Turn a song and its lyrics into a lyric video with every word on the vocal: free kinetic type in code, or lyrics over AI footage.",
+  "queries": [
+   "how to make a lyric video",
+   "ai lyric video generator",
+   "ai lyric video maker",
+   "how to make a lyric video for a song",
+   "how to make a lyric video for youtube",
+   "how to make a lyric video for tiktok",
+   "how to make a lyric video for free",
+   "ai lyric video free",
+   "ai lyric video tutorial",
+   "animation kinetic typography lyric video"
+  ],
+  "skills": [
+   {
+    "name": "motion-formats",
+    "role": "The kinetic lyric video format: word punch, line karaoke, ballad drift and build-and-slam presets on the vocal"
+   },
+   {
+    "name": "kinetic-type-art",
+    "role": "Type pieces and beat maths for the hook and the chorus"
+   },
+   {
+    "name": "caption-styles",
+    "role": "Karaoke and word-pop looks timed 1-2 frames before the voice"
+   },
+   {
+    "name": "varg-music-video",
+    "role": "Word-level lyric timing from the vocal stem, and AI footage when the lyrics sit over generated shots"
+   }
+  ],
+  "start_with": "motion-formats",
+  "example_prompts": [
+   "Make a kinetic lyric video for ./song.mp3 with the lyrics in ./lyrics.txt, 16:9 for YouTube, white type on black.",
+   "Turn the chorus of my song into a 15-second vertical lyric clip for TikTok, one word at a time on the vocal.",
+   "Put the lyrics of ./track.wav over AI footage of a night drive, each line drawn on its sung words."
+  ],
+  "faq": [
+   {
+    "q": "Can I make a lyric video for free?",
+    "a": "Yes. The kinetic type route renders locally with HyperFrames or Remotion and FFmpeg, with no key and no credits. Only AI footage behind the words costs credits."
+   },
+   {
+    "q": "How are the words synced to the song?",
+    "a": "Whisper runs on the vocal stem with the lyric sheet as its prompt, and the sheet is aligned to what it heard, so every sung word gets a start and an end time. Every word on screen is drawn from those times."
+   },
+   {
+    "q": "Can an AI video model draw the lyrics?",
+    "a": "No. Video models don't draw text reliably, so every lyric is drawn in code on top of the footage, and the video prompts end with \"No text, letters or logos.\""
+   },
+   {
+    "q": "Which song can I use?",
+    "a": "Music you own or have licensed. The lyric formats assume your own song; for a song made from scratch, varg-music-video covers generating one first."
+   }
+  ],
+  "needs_key": false,
+  "related": [
+   "make-an-ai-music-video",
+   "add-captions-to-video",
+   "claude-code-motion-graphics"
+  ]
+ },
+ {
+  "rank": 3,
+  "slug": "edit-video-with-claude-code",
+  "h1": "Claude Code video editing: cut dead air and turn podcasts into Shorts",
+  "short_title": "Agent video editing",
+  "one_liner": "Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg.",
+  "queries": [
+   "claude code video editing",
+   "claude code video editing skill",
+   "claude code video editing skill github",
+   "claude code video editing remotion",
+   "edit video with ai claude",
+   "ai video editing agent",
+   "remove silence from video",
+   "cut dead air",
+   "auto cut dead air premiere pro",
+   "podcast to shorts ai",
+   "podcast to shorts ai free",
+   "turn my podcast into short clips",
+   "cut the silences out of my video and add zooms",
+   "ffmpeg remove silence auto cut video jump cuts script",
+   "open source podcast clip generator whisper ffmpeg highlight detection"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'claude code video editing' is the first completion of 'claude code video' on Google and YouTube; it completes to skill, skill github, mcp, remotion, premiere pro, davinci resolve; 'remove silence from video' 10/8; 'podcast to shorts' 10/10",
+    "value": "#1 for 'claude code video'"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "edit-footage (an agent edits my footage) 8; podcast-to-shorts 6",
+    "value": "8"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "3 of the study's 12 common tasks: 'turn my podcast into short clips' (OpusClip, Headliner), 'cut the silences out of my video and add zooms' (AutoCut, Gling), 'edit my video' (every agent search was an ffmpeg command); W45 cold agent also picked OpusClip",
+    "value": "3 of 12 tasks"
+   },
+   {
+    "signal": "Web search (aeo report 2026-W45)",
+    "detail": "'open source podcast clipper' top result is GitHub (nmbrthirteen/podcli); the W45 report recommends a podcast-clips page and an open-source clipper repo",
+    "value": "GitHub #1"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that ask to cut, trim, remove pauses or clip a long recording (keyword match)",
+    "value": "32 of 843 (134 searches)"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'podcast video' / 'subtitles': heygen-com/hyperframes talking-head-recut 407,794; 'cut silence': auto-editor 1,030",
+    "value": "407,794"
+   }
+  ],
+  "skills": [
+   {
+    "name": "edit-footage-with-code",
+    "role": "read the take as text and audio, cut dead air, retakes and stumbles in the silences, write a reviewable edit list"
+   },
+   {
+    "name": "varg-video-editing",
+    "role": "which service for each job: long video to Shorts (OpusClip or transcript + FFmpeg), cleanup, dubbing, upscaling"
+   },
+   {
+    "name": "short-form-ffmpeg-cookbook",
+    "role": "crop the clips to 1080x1920, burn captions, duck music"
+   },
+   {
+    "name": "caption-styles",
+    "role": "animated word-timed captions for the Shorts"
+   },
+   {
+    "name": "varg-video-edit-library",
+    "role": "named edits: J-cut, L-cut, speed ramp, punch-in zoom, end card"
+   },
+   {
+    "name": "video-asset-sources",
+    "role": "B-roll, music and SFX the agent can fetch and legally use"
+   },
+   {
+    "name": "media-judge",
+    "role": "check the render with numbers before a person watches"
+   },
+   {
+    "name": "video-project-github",
+    "role": "save a version after every approved cut, undo anything"
+   }
+  ],
+  "start_with": "edit-footage-with-code",
+  "example_prompts": [
+   "Cut the dead air, retakes and ums out of ./take.mp4 without clipping words. Show me the edit list before you cut.",
+   "Turn this 60-minute podcast episode into five 30-second vertical Shorts with captions: ./episode.mp4",
+   "Clean up my talking-head video, add punch-in zooms on the key lines and a CTA end card, then export for Reels.",
+   "Give me the cut as FCPXML so I can finish it in DaVinci Resolve."
+  ],
+  "faq": [
+   {
+    "q": "Can Claude Code edit my videos?",
+    "a": "Yes. edit-footage-with-code reads the take as text and audio, removes dead air, retakes and stumbles without clipping words, writes the cut as an edit list you review, then adds captions, B-roll and motion graphics in HyperFrames or Remotion. A plain cut needs FFmpeg only."
+   },
+   {
+    "q": "How does it cut silences without clipping words?",
+    "a": "It cuts only in the silence between words, at the quietest 10 ms slice, and finds real pauses from the audio, because word timestamps stretch across pauses: on the skill's test clip, gaps between words found 1 of 13 real pauses."
+   },
+   {
+    "q": "Can it turn a podcast into Shorts?",
+    "a": "Yes, as a reviewed edit: the agent reads the transcript to choose moments, you approve the plan, short-form-ffmpeg-cookbook crops each clip to 9:16 and burns captions. varg-video-editing names OpusClip when you want a hosted clipper instead."
+   },
+   {
+    "q": "Will it overwrite my original footage?",
+    "a": "No. The first rule is never overwrite the source; every step writes new files."
+   },
+   {
+    "q": "Can I finish the edit in Premiere or Resolve?",
+    "a": "Yes. The skill exports the cut as FCPXML for a person to finish in Resolve or Premiere."
+   },
+   {
+    "q": "Does it cost anything?",
+    "a": "The FFmpeg path is free and local. The varg ffmpeg tool (credits) is only for agents without a shell."
+   }
+  ],
+  "alternatives": [
+   "OpusClip",
+   "Descript",
+   "Gling",
+   "AutoCut",
+   "CapCut"
+  ],
+  "needs_key": false,
+  "related": [
+   "add-captions-to-video",
+   "ffmpeg-vertical-video",
+   "claude-code-motion-graphics",
+   "make-a-faceless-youtube-video"
+  ]
+ },
+ {
+  "rank": 4,
+  "slug": "make-a-product-launch-video",
+  "h1": "How to make a product launch video with Claude Code (HyperFrames, Remotion)",
+  "short_title": "Launch & explainer video",
+  "one_liner": "Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage.",
+  "queries": [
+   "product launch video",
+   "product launch video ai",
+   "product launch video skill",
+   "product launch video with claude",
+   "saas launch video",
+   "saas launch video template",
+   "claude code launch video",
+   "app demo video maker",
+   "app store preview video",
+   "ai explainer video generator",
+   "explainer video maker ai",
+   "remotion launch video",
+   "make a launch video for my app",
+   "make an explainer video for my SaaS"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'product launch video' 10/10 incl. 'product launch video skill' (Google) and 'product launch video with claude' (YouTube); 'claude code launch video' is the 'l' completion of 'claude code video' on both engines; 'ai explainer video' 10/10",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Launch videos' 60 + 'Explainers' 22 + 'Phone & app screens' 14: the largest group of requests after single shot techniques",
+    "value": "96 of 843"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "launch rubric 25 posts with 61,296 bookmarks, explainers 9 posts with 18,952; the most-saved post of all 150 (21,077 bookmarks) is a code-made UI motion loop; code-made videos have a median of 795 bookmarks vs 303 for the rest",
+    "value": "25 + 9 / 150"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "'make a launch video for my app': both agents picked Remotion; 'make an explainer video for my SaaS': Remotion (Claude), Tella (Codex), Hera (W45 cold agent)",
+    "value": "Remotion 3 of 5 runs"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "launch-video (motion graphics made by Claude Code) 7; explainer-video 7",
+    "value": "7"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "query 'launch video': heygen-com/hyperframes product-launch-video 539,162 installs",
+    "value": "539,162"
+   }
+  ],
+  "skills": [
+   {
+    "name": "video-script",
+    "role": "the launch or demo script: one promise, hooks, every line sized to its seconds"
+   },
+   {
+    "name": "app-ui-mockups",
+    "role": "terminal sessions, chat threads, code editor walkthroughs and exploded UI rebuilt as HTML instead of screen recordings"
+   },
+   {
+    "name": "kinetic-type-art",
+    "role": "type-led beats: one-word slams, manifesto, wordmark reveals"
+   },
+   {
+    "name": "maps-and-data-motion",
+    "role": "self-drawing charts, count-up stats, versus timelines"
+   },
+   {
+    "name": "title-design",
+    "role": "title cards, chapter cards, lower thirds"
+   },
+   {
+    "name": "transition-craft",
+    "role": "transitions that land on the beat"
+   },
+   {
+    "name": "video-sound",
+    "role": "voiceover, UI sounds on the frame, a measured mix"
+   },
+   {
+    "name": "media-judge",
+    "role": "check spelling, jiggling numbers and sound sync before posting"
+   }
+  ],
+  "start_with": "app-ui-mockups",
+  "example_prompts": [
+   "Make a 30-second launch video for my CLI tool: a terminal demo, three feature beats and the install command at the end. Render it locally with HyperFrames.",
+   "Make a 60-second explainer for our SaaS from the landing page copy in ./copy.md, with a count-up stat and a chart.",
+   "Turn our changelog into a 20-second feature release video, square, with UI sounds.",
+   "Make an App Store preview video for my iPhone app from these screenshots: ./shots/"
+  ],
+  "faq": [
+   {
+    "q": "Can Claude Code make a launch video?",
+    "a": "Yes. The agent writes the video as HTML (HyperFrames) or React (Remotion) and renders an MP4 locally. These skills give it presets in numbers, so the result isn't a generic template."
+   },
+   {
+    "q": "Do I need screen recordings of my app?",
+    "a": "No. app-ui-mockups rebuilds ten UI types as HTML (phone message thread, team chat, coding-agent terminal, code editor, exploded UI panels), with typing at 12-20 characters a second and reading holds set from the character count."
+   },
+   {
+    "q": "HyperFrames or Remotion?",
+    "a": "Both work. The skills name HyperFrames blocks and Remotion equivalents; edit-footage-with-code suggests HyperFrames for HTML-first work the agent checks itself, and Remotion for React codebases, brand systems or data-driven batches."
+   },
+   {
+    "q": "Can it show charts and numbers?",
+    "a": "Yes. maps-and-data-motion has self-drawing bar and line charts, count-up statistics and versus timelines, with chart rules such as bars from zero and one accent series."
+   },
+   {
+    "q": "Does it cost credits?",
+    "a": "The motion templates render locally for free with OFL or Apache fonts. Only generated voice, music or footage uses varg credits, priced with estimate_cost first."
+   }
+  ],
+  "alternatives": [
+   "Screen Studio",
+   "Jitter",
+   "Tella",
+   "Hera"
+  ],
+  "needs_key": false,
+  "related": [
+   "claude-code-motion-graphics",
+   "add-ai-voiceover-to-video",
+   "add-captions-to-video",
+   "claude-code-video-skills"
+  ]
+ },
+ {
+  "rank": 5,
+  "slug": "make-an-ai-talking-avatar-video",
+  "h1": "How to make an AI talking avatar video from a photo (lip sync, podcasts)",
+  "short_title": "Talking avatar",
+  "one_liner": "Turn a photo and a script into a lip-synced talking avatar, a keynote speaker clip or a two-host AI podcast with steady faces.",
+  "queries": [
+   "ai talking avatar",
+   "ai talking avatar free",
+   "ai talking avatar generator",
+   "talking photo ai",
+   "ai lip sync video generator",
+   "talking head video ai generator",
+   "how to make ai talking video free",
+   "how to make ai videos with talking characters",
+   "ai podcast video generator",
+   "ai podcast video",
+   "ai talking avatar open source",
+   "make a talking avatar video from my photo",
+   "best AI talking head generator from single photo realistic lip sync 2026"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai talking avatar', 'talking photo ai', 'ai lip sync' and 'ai podcast video' each return 10 on both engines; 'free', 'no sign up' and 'open source' tails are common",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "talking-avatar 8; ai-podcast listed as missing demand",
+    "value": "8"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "talking-head rubric 28 of 150 posts, 24,446 bookmarks",
+    "value": "28 / 150"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Talking heads & avatars' topic; 26 request texts mention talking, lip sync, avatars or presenters (keyword match)",
+    "value": "19 of 843"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "'make a talking avatar video from my photo': both agents picked HeyGen Photo Avatars; candidates Hedra, D-ID, SadTalker",
+    "value": "2 runs"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'talking head': talking-head-recut 407,794; runcomfy ai-avatar-video 384,518 (that family's counts may be inflated)",
+    "value": "384,518"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-character-design",
+    "role": "design the presenter or host and lock the look in a sheet"
+   },
+   {
+    "name": "video-sound",
+    "role": "a voice that doesn't sound fake: auditioned, directed, written for the ear"
+   },
+   {
+    "name": "varg-ai",
+    "role": "photo + audio to a talking head, lip-sync models, one key"
+   },
+   {
+    "name": "varg-character-keynote",
+    "role": "a custom character on a conference stage delivering one punchy line"
+   },
+   {
+    "name": "varg-podcast-video",
+    "role": "two AI hosts in one studio: master shot, close-ups, 5-second spoken scenes stitched into one MP4"
+   }
+  ],
+  "start_with": "varg-ai",
+  "example_prompts": [
+   "Make my photo ./me.jpg say this 20-second script in a calm voice, 9:16 with captions.",
+   "Make a 45-second AI podcast clip: two hosts argue myth vs truth about intermittent fasting, same faces in every angle.",
+   "Put our mascot on a conference stage delivering this line: 'We fixed onboarding. Clap.'",
+   "Make my dog's photo talk with a funny voice."
+  ],
+  "faq": [
+   {
+    "q": "Can I make a talking video from one photo?",
+    "a": "Yes. varg-ai runs photo + audio talking-head models such as veed_fabric_1_0 (about 160-470 credits in the skill's table) and lip-sync models, with one varg key. Price is quoted before anything runs."
+   },
+   {
+    "q": "How do I make an AI podcast with two hosts?",
+    "a": "varg-podcast-video builds an empty studio set, one wide master shot from the character references, close-ups derived from that master, then 5-second image-to-video scenes where each host speaks with native audio, reviewed on an HTML storyboard and stitched into one MP4."
+   },
+   {
+    "q": "How do I make the AI voice not sound robotic?",
+    "a": "video-sound casts the voice from candidates you pick, directs it with each model's documented tags, and writes lines for the ear with pauses, breaths and small actions."
+   },
+   {
+    "q": "Which model is best for talking characters?",
+    "a": "varg-podcast-video uses kling_v4 by default (native audio, 3-30 s), seedance_2_5 for hero close-ups (best faces and lip movement, higher price) and heygen_video_1 for cheap drafts."
+   },
+   {
+    "q": "Can it clip my existing podcast recording?",
+    "a": "No, that is editing, not generation: see edit-video-with-claude-code."
+   },
+   {
+    "q": "What does a keynote clip cost?",
+    "a": "varg-character-keynote says one run is roughly 350 credits at Seedance's 720p default (catalog, October 2026) and takes about 5-15 minutes; 1080p roughly doubles the cost."
+   }
+  ],
+  "alternatives": [
+   "HeyGen",
+   "D-ID",
+   "Hedra",
+   "Synthesia"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-ai-ugc-ads",
+   "add-ai-voiceover-to-video",
+   "consistent-character-ai-video",
+   "make-an-ai-influencer"
+  ]
+ },
+ {
+  "rank": 6,
+  "slug": "image-to-video-ai",
+  "h1": "Image to video AI: how to turn a photo into a video with Seedance or Kling",
+  "short_title": "Image to video",
+  "one_liner": "Turn any photo into a moving clip on Seedance 2.5, Kling 4, Veo 3.1 or Wan 3 with one varg key, or into a looping GIF.",
+  "queries": [
+   "image to video ai",
+   "photo to video ai",
+   "image to video ai free",
+   "animate photo ai",
+   "how to make ai video from picture",
+   "how to make ai video from photos",
+   "image to video ai generator",
+   "photo to video ai generator",
+   "bring old photos to life ai",
+   "claude code image to video",
+   "image to video slow camera push in from single photo 5 seconds"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'image to video ai' and 'photo to video ai' return 10 on both engines, 'animate photo ai' 9/10; 'free', 'no sign up' and 'no restrictions' tails dominate; 'claude code image to video' appears under 'claude code video' on YouTube",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "animate-photo (photo to video) 9: 'appears under 6+ seeds on both engines'",
+    "value": "9"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "agent searches with image/photo-to-video wording; no request text names the technique (people describe the result)",
+    "value": "40 of 4,215 searches"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'image to video': runcomfy image-to-video 442,822 and gencraft image-to-video 433,275 (inflated families likely)",
+    "value": "442,822"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-ai",
+    "role": "one key for Seedance 2.5, Kling 4, Veo 3.1 and Wan 3 image-to-video"
+   },
+   {
+    "name": "varg-video-prompting",
+    "role": "which model for the shot, prompt anatomy, what @image1 copies, QA"
+   },
+   {
+    "name": "kling-4-prompting",
+    "role": "start frames, key frames and the fixes for slow motion and face drift"
+   },
+   {
+    "name": "gpt-image-gif",
+    "role": "a looping GIF from the still instead of an MP4"
+   },
+   {
+    "name": "varg-occasion-video",
+    "role": "old family photos restored and brought to life"
+   }
+  ],
+  "start_with": "varg-ai",
+  "example_prompts": [
+   "Animate this photo into a 5-second clip with a slow push-in, no other motion: ./harbor.jpg",
+   "Turn my product photo into an 8-second 720p video with sound on Seedance 2.5. Quote the credits first.",
+   "Bring this 1962 photo of my grandparents to life: she turns to him and laughs. ./old.jpg",
+   "Make a looping GIF of this mascot waving: ./pip.png"
+  ],
+  "faq": [
+   {
+    "q": "Which model should I use to animate a photo?",
+    "a": "varg-video-prompting picks per shot between Seedance 2.5, Kling 4, Veo 3.1 and Wan 3. The varg-ai skill lists typical prices: seedance_2_5 5 s at 720p about 210 credits, wan_3 5 s at 720p about 53."
+   },
+   {
+    "q": "Is there a free image to video AI here?",
+    "a": "Generation costs credits; the skills price each call with estimate_cost and wait for a yes. Identical requests are cache hits and cost 0 credits, so re-runs while you tweak other shots are free."
+   },
+   {
+    "q": "Why does my animated photo warp or drift?",
+    "a": "Usually the prompt asks for too much motion or the still is weak. varg-video-prompting covers why clips drift or ignore the prompt, and kling-4-prompting lists the fixes (\"no slow motion\", key frames, lens lines, face drift in close-ups)."
+   },
+   {
+    "q": "Can I bring old family photos to life?",
+    "a": "Yes. In varg-occasion-video's test a 1962 photo was restored and colorized on nano_banana_2_1 (5 credits), then given 5 seconds of gentle motion on kling_v4 (79 credits). Only with the family's agreement."
+   },
+   {
+    "q": "Can I get a GIF instead of an MP4?",
+    "a": "Yes. gpt-image-gif makes a real animated GIF with GPT Image 2.6 (2-16 frames) from an approved still."
+   }
+  ],
+  "alternatives": [
+   "Runway",
+   "Google Flow",
+   "Higgsfield"
+  ],
+  "needs_key": true,
+  "related": [
+   "product-photo-to-video",
+   "kling-4-and-seedance-prompt-guide",
+   "gpt-image-2-6",
+   "make-an-ai-birthday-video"
+  ]
+ },
+ {
+  "rank": 7,
+  "slug": "product-photo-to-video",
+  "h1": "Product photo to video with AI: product ads that keep your real label",
+  "short_title": "Product photo to video",
+  "one_liner": "Turn 1-3 product photos into a TikTok, Reels or listing video (unboxing, ASMR, 360 loop, in-hand demo) with the label locked.",
+  "queries": [
+   "product photo to video ai",
+   "product photo to video ai free",
+   "product photo to video prompt",
+   "product image to video",
+   "ai product video generator",
+   "ai product video generator from image",
+   "ai product video prompt",
+   "how to make product video with ai free",
+   "ai unboxing video generator",
+   "ai unboxing video prompt",
+   "ai unboxing video asmr",
+   "how to make asmr product video",
+   "ai product video ads",
+   "image to video product photography keep object rigid no warping 2026"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'product photo to video' 10/9 led by 'product photo to video ai free'; 'ai product video' 10/10 (generator, from image, prompt, ads); 'ai unboxing video' 10/10 (generator, prompt, asmr)",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "product-video (product photo to video ad) 8",
+    "value": "8"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "product rubric 28 of 150 posts; 'storyboard sheet to hands-only ASMR unboxing ad' 2,774 bookmarks",
+    "value": "28 / 150"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Product videos' topic; 11 request texts name product photos, unboxing or ASMR; 72 agent searches",
+    "value": "19 of 843"
+   },
+   {
+    "signal": "Skill evidence (varg-unboxing-video, cites Motion 2026)",
+    "detail": "unboxing has the highest winner rate of any Meta ad format (9.8%) while only 2.1% of ads use it",
+    "value": "9.8%"
+   }
+  ],
+  "skills": [
+   {
+    "name": "product-photo-to-video",
+    "role": "truth sheet, cut-out, hero still, storyboard sheet, one multi-shot Seedance 2.5 or Kling 4 clip, real packshot on the last second"
+   },
+   {
+    "name": "varg-product-lock",
+    "role": "lock sheet, reference angles, camera-risk ladder, drift check"
+   },
+   {
+    "name": "varg-unboxing-video",
+    "role": "hands-only unboxing or ASMR with native sound, no music"
+   },
+   {
+    "name": "varg-product-hook",
+    "role": "a viral-style product-in-use hook clip from the same photos"
+   }
+  ],
+  "start_with": "product-photo-to-video",
+  "example_prompts": [
+   "Turn these three photos of my water bottle into a 12-second 9:16 product video: macro condensation, ice pour, packshot. ./bottle/",
+   "Make a hands-only ASMR unboxing video of my candle from ./box.jpg and ./candle.jpg, no music.",
+   "My logo melts in every AI shot. Lock the product and redo the 360 loop.",
+   "Make a 'TikTok made me buy it' torture-test clip of my phone case from its photos."
+  ],
+  "faq": [
+   {
+    "q": "Can AI make a product video from just a photo?",
+    "a": "Yes, from one to three photos: product-photo-to-video writes a product truth sheet (label text letter by letter), makes a cut-out and a hero still, an 8-12 panel storyboard sheet, then one multi-shot Seedance 2.5 or Kling 4 clip with a PRODUCT LOCK block. It never ships a Ken Burns slideshow."
+   },
+   {
+    "q": "Why does my logo or label melt in AI video?",
+    "a": "It is the #1 tell in AI product ads. varg-product-lock fixes geometry and surface in a lock sheet, passes 2-4 angles as references, climbs a camera-risk ladder (locked frame, push-in, slide, small orbit), bans risky motion words and composites the real packshot where text must be exact."
+   },
+   {
+    "q": "How do I make an ASMR unboxing video with AI?",
+    "a": "varg-unboxing-video writes hands-only, top-down or POV shots in timed VISUAL / ACTION / SOUND blocks on Seedance 2.5, with native ASMR sound (taps, crinkle, lid pop) and no music."
+   },
+   {
+    "q": "Can I make a viral hook clip from product photos?",
+    "a": "Yes. varg-product-hook generates a realistic UGC-style clip of the product in use (a torture test, problem then solution, a gift reaction) or remakes a hook that already went viral for that kind of product."
+   },
+   {
+    "q": "Does it work for clothes?",
+    "a": "Apparel try-on is one format here, but to put a garment on a model and keep it intact use varg-tryon-video."
+   }
+  ],
+  "alternatives": [
+   "Creatify",
+   "Pippit",
+   "Higgsfield"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-ecommerce-video-ads",
+   "make-ai-ugc-ads",
+   "ai-virtual-try-on-video",
+   "make-tiktok-shop-videos"
+  ]
+ },
+ {
+  "rank": 8,
+  "slug": "make-a-faceless-youtube-video",
+  "h1": "How to make a faceless YouTube video with AI and Claude Code",
+  "short_title": "Faceless video",
+  "one_liner": "Turn a topic into a faceless Short or YouTube video: script, a voice that doesn't sound fake, licensed or generated B-roll, captions, QA.",
+  "queries": [
+   "how to make a faceless youtube video",
+   "how to make a faceless youtube channel with ai",
+   "faceless youtube videos",
+   "faceless video ai generator",
+   "faceless video ai agent",
+   "faceless video ai workflow",
+   "faceless youtube automation",
+   "faceless youtube shorts",
+   "faceless ai video automation",
+   "faceless tiktok shop affiliate videos",
+   "AI tools to generate YouTube videos from script 2026"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'how to make a faceless' returns 10 on both engines, led by 'youtube channel' and 'youtube channel with ai'; 'faceless video ai' 10/10 incl. 'agent', 'workflow', 'automation'",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "faceless-video (YouTube automation) 9: 'biggest money thread on X'",
+    "value": "9"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'faceless video': heygen-com/hyperframes faceless-explainer 521,862; higgsfield-faceless-video 11,281",
+    "value": "521,862"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that mention faceless, a channel or no face (keyword match): low in the generated set",
+    "value": "5 of 843"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "short task 'make a YouTube video': agents searched 'AI tools to generate YouTube videos from script 2026'",
+    "value": "1 of 12 tasks"
+   }
+  ],
+  "skills": [
+   {
+    "name": "video-script",
+    "role": "the script table, hooks and a pace check"
+   },
+   {
+    "name": "video-sound",
+    "role": "voice casting, narration written for the ear, music and a measured mix"
+   },
+   {
+    "name": "video-asset-sources",
+    "role": "B-roll, music and SFX an agent can fetch and legally use, with a credits file"
+   },
+   {
+    "name": "varg-ai",
+    "role": "generated visuals and voice when stock won't do"
+   },
+   {
+    "name": "caption-styles",
+    "role": "word-timed captions"
+   },
+   {
+    "name": "varg-dropship-reel",
+    "role": "the 60-second faceless product 'guide' reel format"
+   },
+   {
+    "name": "media-judge",
+    "role": "check the render before you post"
+   }
+  ],
+  "start_with": "video-script",
+  "example_prompts": [
+   "Make a 60-second faceless YouTube Short about why octopuses have three hearts: script, calm narrator voice, B-roll I can use commercially, captions.",
+   "Write and produce a 4-minute faceless history video about the Library of Alexandria, 16:9, with a credits file for every clip.",
+   "Make one faceless product reel a day for my store in the 'Comment GUIDE' format.",
+   "Check my faceless video before I upload it: ./final.mp4"
+  ],
+  "faq": [
+   {
+    "q": "Can Claude Code make a faceless YouTube video?",
+    "a": "Yes, as a pipeline with a stop after each step: video-script writes and checks the script, video-sound casts and directs the voice, video-asset-sources finds B-roll you can use, caption-styles adds captions and media-judge checks the render."
+   },
+   {
+    "q": "Where do I get B-roll that's safe to use?",
+    "a": "video-asset-sources tested 97 databases on 2026-11-03. It accepts CC0, public domain, CC BY with a credit line and the Pexels, Pixabay, Mixkit Free and Coverr licenses, flags APIs you can't use commercially, and writes a credits file."
+   },
+   {
+    "q": "How do I make the AI narrator sound human?",
+    "a": "video-sound auditions candidate voices on a page you pick from, writes narration with pauses and breaths, and grades the mix with numbers (LUFS, true peak, voice over music)."
+   },
+   {
+    "q": "How many words fit in a Short?",
+    "a": "video-script sizes every line to its seconds and its checker flags lines that run too fast; the UGC skill works at about 2.5 words a second (60-75 words for 30 s)."
+   },
+   {
+    "q": "Is there a faceless format for product pages?",
+    "a": "Yes. varg-dropship-reel makes the 60-second faceless dropshipping 'guide' reel: a product hook, a laptop with a marker on the cost and store price, the steps, and a 'Comment GUIDE' ending."
+   }
+  ],
+  "alternatives": [
+   "InVideo",
+   "MoneyPrinterTurbo"
+  ],
+  "needs_key": true,
+  "related": [
+   "add-ai-voiceover-to-video",
+   "add-captions-to-video",
+   "edit-video-with-claude-code",
+   "make-tiktok-shop-videos"
+  ]
+ },
+ {
+  "rank": 9,
+  "slug": "add-captions-to-video",
+  "h1": "How to add captions to a video with AI: TikTok, Hormozi and karaoke styles",
+  "short_title": "Video captions",
+  "one_liner": "Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames.",
+  "queries": [
+   "add captions to video",
+   "add captions to video free",
+   "add captions to video ai",
+   "ai captions for videos",
+   "ai captions generator",
+   "animated captions",
+   "word by word captions",
+   "hormozi captions",
+   "hormozi style captions",
+   "karaoke captions",
+   "remotion captions",
+   "remotion tiktok captions",
+   "ffmpeg burn subtitles into video",
+   "how to add captions to a video automatically with ffmpeg and whisper",
+   "add captions to my video"
+  ],
+  "demand": [
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that mention captions or subtitles (keyword match), usually as part of a bigger spec",
+    "value": "108 of 843 (263 searches)"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Captions & subtitles' topic, the 4th largest",
+    "value": "32 of 843"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "'add captions to my video': Codex picked Clipchamp, Claude picked the GitHub repo m1guelpf/auto-subtitle; W45 cold agent picked Captions (captions.ai); the W45 report's first recommendation is this page",
+    "value": "0 of 3 picked varg"
+   },
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai captions' 10/10, 'animated captions' 10/10, 'hormozi captions' 10/8, 'word by word captions' 8/10; completions are mostly editor names (CapCut, Premiere Pro, DaVinci Resolve, Submagic, VEED); 'remotion captions' 8 on Google (github, tiktok style)",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'captions': heygen-com/hyperframes embedded-captions 453,757; remotion-captions 276,880",
+    "value": "453,757"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "captions 5: 'weak in autocomplete, but table stakes'",
+    "value": "5"
+   }
+  ],
+  "skills": [
+   {
+    "name": "edit-footage-with-code",
+    "role": "word-level transcript first (Whisper-family two-pass or ElevenLabs Scribe)"
+   },
+   {
+    "name": "caption-styles",
+    "role": "17 caption looks with presets: karaoke fill, active-word pop, sliding pill, word tiles, neon"
+   },
+   {
+    "name": "short-form-ffmpeg-cookbook",
+    "role": "burn SRT or ASS with FFmpeg, soft subtitles, safe zones"
+   },
+   {
+    "name": "varg-video-editing",
+    "role": "when a hosted captioner (Submagic) or translation is the better route"
+   }
+  ],
+  "start_with": "caption-styles",
+  "example_prompts": [
+   "Add Hormozi-style word-by-word captions to ./talk.mp4, 9:16, yellow active word, inside the TikTok safe zone.",
+   "Burn plain white subtitles into this video with FFmpeg and give me the SRT too.",
+   "Add karaoke-fill lyric captions to my music clip, one line at a time.",
+   "Caption this podcast clip with the sliding pill style in our brand blue #2D6BFF."
+  ],
+  "faq": [
+   {
+    "q": "How do I add word-by-word captions like Hormozi or MrBeast?",
+    "a": "caption-styles has 17 looks (active-word pop, karaoke fill, bouncing pill, tilted word cards and more) with exact presets for font, size per format and words per screen. One word at a time is for hooks, punchlines and clips of 20 s or less; phrases read better elsewhere."
+   },
+   {
+    "q": "Do I need a transcript first?",
+    "a": "Yes, with word-level timestamps (WhisperX, ElevenLabs Scribe or a forced aligner on the script). The skill never estimates word times from text length; active words light up 1-2 frames before the voice."
+   },
+   {
+    "q": "How do I burn subtitles into a video with FFmpeg?",
+    "a": "short-form-ffmpeg-cookbook uses the subtitles filter with force_style for SRT, converts to .ass for styled or karaoke captions, and adds soft switchable subtitles with mov_text when you don't want them burned in."
+   },
+   {
+    "q": "Where should captions sit on TikTok and Reels?",
+    "a": "Keep them out of the bottom 14% and the right edge of a 9:16 frame, where the buttons sit, and at 4.5:1 contrast against what is behind them."
+   },
+   {
+    "q": "Is it free?",
+    "a": "Yes. Caption templates render locally for free and every font is OFL or Apache. Credits only apply if you also generate footage, voice or music."
+   },
+   {
+    "q": "Can I translate the captions?",
+    "a": "varg-ad-localize rebuilds captions and on-screen text in the target language for ads; see translate-and-dub-video-ads."
+   }
+  ],
+  "alternatives": [
+   "Captions",
+   "CapCut",
+   "Submagic",
+   "VEED"
+  ],
+  "needs_key": false,
+  "related": [
+   "edit-video-with-claude-code",
+   "ffmpeg-vertical-video",
+   "translate-and-dub-video-ads",
+   "claude-code-motion-graphics"
+  ]
+ },
+ {
+  "rank": 10,
+  "slug": "make-an-ai-movie",
+  "h1": "How to make an AI movie or short film with Claude Code, script to final cut",
+  "short_title": "AI short film",
+  "one_liner": "Turn an idea into an AI short film: script, real references, moodboard, cast passports, approved stills, animated shots, sound and QA.",
+  "queries": [
+   "how to make an ai movie",
+   "how to make an ai movie for free",
+   "how to make an ai movie from a script",
+   "how to make an ai movie trailer",
+   "ai short film",
+   "ai short film workflow",
+   "ai filmmaking workflow",
+   "how to make an ai short movie",
+   "ai short film generator",
+   "seedance 2.5 short film",
+   "kling 4.0 short film",
+   "how to make ai videos look realistic",
+   "how to write a cinematic short film script structure"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'how to make an ai movie' returns 10 on both engines (for free, trailer, from scratch, from a script); 'ai short film' 10/10; 'ai film workflow' 7/9; 'seedance 2.5' and 'kling 4.0' both complete to 'short film' on YouTube",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "short-film (AI movie / short film / story video) 8; microdrama 6",
+    "value": "8"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Cinematic & short films' 43 + 'Stories & short dramas' 14",
+    "value": "57 of 843"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "shorts rubric 27 of 150 posts, 50,998 bookmarks, 82M views; 82 of 150 viral posts used Seedance 2.0 or 2.5",
+    "value": "27 / 150"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'short film': no strong incumbent (jnmetacode shortfilm-prompt 76 installs)",
+    "value": "76"
+   }
+  ],
+  "skills": [
+   {
+    "name": "video-script",
+    "role": "what is said, shown and heard in every beat, sized to the clock and the model"
+   },
+   {
+    "name": "find-references",
+    "role": "real human-made references per job, with a 'never' board"
+   },
+   {
+    "name": "video-moodboard",
+    "role": "a look written in numbers (hex, Kelvin, lens mm), proven on test stills"
+   },
+   {
+    "name": "character-passport",
+    "role": "one paragraph per character and prop, pasted word for word into every prompt"
+   },
+   {
+    "name": "varg-mockups",
+    "role": "a storyboard board of stills to approve before paying for video"
+   },
+   {
+    "name": "video-animate",
+    "role": "per-shot choice of code or AI video, 480p draft pass, cut to the locked track"
+   },
+   {
+    "name": "video-sound",
+    "role": "voices, SFX on the frame, music with a quiet part, measured mix"
+   },
+   {
+    "name": "media-judge",
+    "role": "measure the finished film: drift, banding, sync, loudness"
+   },
+   {
+    "name": "video-project-github",
+    "role": "private repo with a version after every approved step and the prompt, seed and cost of every take"
+   }
+  ],
+  "start_with": "video-script",
+  "example_prompts": [
+   "Make a 90-second AI short film about a lighthouse keeper who finds a robot on the beach. Start with the script and references, and stop for my approval after each step.",
+   "Build a moodboard and character passports for my sci-fi short, then a storyboard board of stills.",
+   "Animate my approved stills with Seedance 2.5 at 480p first, then the keepers in 1080p.",
+   "Review my finished short before I post it: ./film.mp4"
+  ],
+  "faq": [
+   {
+    "q": "Can you make a whole movie with AI?",
+    "a": "A short film, yes, in stages: script, references, moodboard, cast, stills, animation, sound, review. Each stage ends with something you approve, so nothing more is spent until you say yes."
+   },
+   {
+    "q": "How do I make AI video not look like AI slop?",
+    "a": "Start from real references (find-references), write the look as numbers instead of 'cinematic' (video-moodboard checks test stills line by line, palette by ΔE), paste each character's passport word for word, and approve stills before any video."
+   },
+   {
+    "q": "How do I keep characters the same across shots?",
+    "a": "character-passport writes one paragraph per character with every visible detail, a turnaround sheet and six expressions, and its prompt builder refuses paraphrased passports."
+   },
+   {
+    "q": "Seedance or Kling? One long take or short clips?",
+    "a": "video-animate decides per shot whether code, AI video or both makes it, picks the model, and runs a cheap 480p pass before paying for quality."
+   },
+   {
+    "q": "How do I check the film before posting?",
+    "a": "media-judge reads every frame and reports facts with timestamps: broken frames, banding after a simulated X or YouTube upload, a face, outfit or light that changed, sound after the cut, loudness. No score out of 10."
+   },
+   {
+    "q": "How do I not lose my project?",
+    "a": "video-project-github keeps it in a private GitHub repo with a version after every approved step, big media stored outside git, and the prompt, model, seed and cost of every take, even if you have never used git."
+   }
+  ],
+  "alternatives": [
+   "Higgsfield",
+   "Google Flow"
+  ],
+  "needs_key": true,
+  "related": [
+   "ai-storyboard-to-video",
+   "kling-4-and-seedance-prompt-guide",
+   "consistent-character-ai-video",
+   "add-ai-voiceover-to-video"
+  ]
+ },
+ {
+  "rank": 11,
+  "slug": "make-an-ai-influencer",
+  "h1": "How to make an AI influencer or AI character people remember",
+  "short_title": "AI influencer & characters",
+  "one_liner": "Turn an idea into an AI influencer or character with a locked look: premise, details, styling, a character sheet, then reuse in video.",
+  "queries": [
+   "how to make an ai influencer",
+   "how to make an ai influencer for free",
+   "ai influencer generator",
+   "how to make an ai influencer video",
+   "ai influencer prompts",
+   "ai influencer girl",
+   "ai fitness influencer",
+   "ai character generator",
+   "pixar style ai",
+   "pixar style ai video generator",
+   "ai cartoon character generator",
+   "me as a cartoon character",
+   "ai mascot generator",
+   "ai grandma videos",
+   "italian brainrot characters"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'how to make an ai influencer' and 'ai influencer' return 10 on both engines; 'pixar style ai', 'ai cartoon character', 'ai mascot' and 'ai grandma' 10/10; 'ai fitness influencer' 10/8",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "ai-influencer 8; kids-cartoon 8 (missing demand)",
+    "value": "8"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Characters' 24 + 'Art styles' 16",
+    "value": "40 of 843"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "characters rubric 17 of 150 posts, 17,250 bookmarks; recurring-character posts are saved 1.40 times per like",
+    "value": "17 / 150"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-character-design",
+    "role": "define, detail, dress and lock the character in a sheet; picks the category recipe"
+   },
+   {
+    "name": "varg-character-beautiful-woman",
+    "role": "model-grade women who look real, with wording that passes false moderation blocks"
+   },
+   {
+    "name": "varg-character-fitness",
+    "role": "coaches and athletes with real muscle and a signature outfit"
+   },
+   {
+    "name": "varg-character-cringe",
+    "role": "deadpan 'is he real?' personas with a repeatable posting format"
+   },
+   {
+    "name": "varg-character-grandma",
+    "role": "80+ grandmas and grandpas with contrast and a loud outfit"
+   },
+   {
+    "name": "varg-character-big-guy",
+    "role": "big characters whose size is shown, played straight"
+   },
+   {
+    "name": "varg-character-cartoon",
+    "role": "famous cartoon looks described in words, or 'me as a cartoon'"
+   },
+   {
+    "name": "varg-character-absurd",
+    "role": "original brainrot hybrids and mascots"
+   },
+   {
+    "name": "character-passport",
+    "role": "the paragraph, turnaround and voice line that keep the look in every video"
+   }
+  ],
+  "start_with": "varg-character-design",
+  "example_prompts": [
+   "Make an AI fitness influencer for my workout app: a coach in her 40s with a signature outfit, a character sheet and three gym scenes.",
+   "Make me as a 1990s yellow-sitcom cartoon from this selfie: ./me.jpg",
+   "Invent an absurd mascot for my bakery: a croissant with a tiny moustache, 3D family-film look, turnaround sheet.",
+   "Create a deadpan AI persona who repeats one action in a new city every post."
+  ],
+  "faq": [
+   {
+    "q": "How do I make an AI influencer that looks real, not plastic?",
+    "a": "Write striking features one by one, real skin, and the styling and light of a real shoot. varg-character-beautiful-woman does this for fashion, swimwear and red-carpet looks; adults only, no nudity."
+   },
+   {
+    "q": "Why do my swimwear or gym prompts get blocked?",
+    "a": "The beautiful-woman and fitness recipes include catalog-style wording that gets swimwear, sports bras, leggings and shirtless athletes past false moderation blocks."
+   },
+   {
+    "q": "Can I make a Pixar- or Simpsons-style version of me?",
+    "a": "Yes. varg-character-cartoon describes the famous looks in words instead of IP names (the names get blocked and don't belong in ads) and can restyle an existing character or a selfie."
+   },
+   {
+    "q": "How do I keep my AI influencer the same in every post?",
+    "a": "Lock the look in a character sheet (varg-character-design) and reuse it in later images and videos on Nano Banana, GPT Image, Kling 4, Seedance 2.5 or Wan 3; character-passport pastes the same paragraph into every prompt."
+   },
+   {
+    "q": "What makes an AI character memorable?",
+    "a": "A premise, an archetype and a contrast, one signature detail and one loud colour. The cringe recipe adds a format: the same action in a new place every post."
+   }
+  ],
+  "alternatives": [
+   "Higgsfield"
+  ],
+  "needs_key": true,
+  "related": [
+   "consistent-character-ai-video",
+   "make-an-ai-talking-avatar-video",
+   "gpt-image-2-6",
+   "make-ai-ugc-ads"
+  ]
+ },
+ {
+  "rank": 12,
+  "slug": "consistent-character-ai-video",
+  "h1": "How to keep a consistent character in AI video (same face in every shot)",
+  "short_title": "Consistent characters",
+  "one_liner": "Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.",
+  "queries": [
+   "consistent character ai video",
+   "consistent character ai video generator",
+   "how to keep character consistency in ai",
+   "how to keep character consistency in veo 3",
+   "how to keep character consistency in nano banana",
+   "consistent character video ai",
+   "how to create consistent character ai video from a single image",
+   "character sheet ai prompt",
+   "character turnaround sheet ai",
+   "consistent character kling ai",
+   "consistent character prompt",
+   "AI video prompt techniques for consistent characters across shots"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'consistent character' 10/10 plus 26 alphabet completions on Google; 'how to keep character consistent' returns 10/10, mostly '... in <tool>' (Midjourney, Veo 3, Nano Banana, Gemini, Grok, Google Flow, Sora); 'character sheet ai' 10/10",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "consistent-character 6: 'the #1 stated pain in X story, influencer and ad threads'",
+    "value": "6"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that ask for the same character, face or person across shots (keyword match)",
+    "value": "13 of 843 (102 searches)"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'consistent character' (2026-10-27 and 11-05): character-design-sheet skills with 61,319 / 53,830 / 42,079 installs (superpowers mirrors)",
+    "value": "61,319"
+   }
+  ],
+  "skills": [
+   {
+    "name": "character-passport",
+    "role": "passport paragraph, turnaround sheet, six expressions and a voice line per character"
+   },
+   {
+    "name": "varg-consistent-characters",
+    "role": "profile card per actor, empty location card, approved scene stills, image-to-video with dialogue, one cloud render"
+   },
+   {
+    "name": "varg-character-design",
+    "role": "design the character and its sheet when you have no actor photos"
+   },
+   {
+    "name": "varg-video-prompting",
+    "role": "environment master, what @image1 copies, the drift checklist"
+   },
+   {
+    "name": "media-judge",
+    "role": "flag a face, outfit or light that changed, with the timestamp"
+   }
+  ],
+  "start_with": "varg-consistent-characters",
+  "example_prompts": [
+   "Make a 5-scene ad where actors A1 and A2 from these photos stay identical in every shot, in one kitchen location: ./a1.jpg ./a2.jpg",
+   "Build a character passport and turnaround sheet for my mascot, then use it in three different scenes.",
+   "My character's jacket changes colour between shots. Find where and fix it: ./cut.mp4",
+   "Remake this reference ad with two new people, same scene script: ./reference.mp4"
+  ],
+  "faq": [
+   {
+    "q": "How do I keep the same face in every AI video shot?",
+    "a": "varg-consistent-characters makes one profile card per actor and an empty location card, composites each scene as a still you approve first, then animates it image-to-video with native dialogue audio, trimmed and captioned in one cloud render."
+   },
+   {
+    "q": "Can I use real actor photos?",
+    "a": "Yes, the pipeline is built for real actor or model photos as well as generated characters."
+   },
+   {
+    "q": "What is a character passport?",
+    "a": "One paragraph with every visible detail, pasted word for word into every prompt, plus a turnaround sheet, six expressions written as cause and physical tells, and a measured voice line. The builder refuses paraphrased passports."
+   },
+   {
+    "q": "Why does my character's outfit or face drift?",
+    "a": "Paraphrased descriptions, switching models mid-sequence and weak references. media-judge finds where it happened with a timestamp and evidence, so you regenerate only that shot."
+   },
+   {
+    "q": "Is re-rendering expensive?",
+    "a": "No. An identical prompt and parameters is a free cache hit locally and on api.varg.ai; the skill's full 5-scene re-render cost a few credits (the stitching fee)."
+   }
+  ],
+  "alternatives": [
+   "Higgsfield",
+   "OpenArt",
+   "Midjourney"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-an-ai-influencer",
+   "make-an-ai-movie",
+   "make-an-ai-talking-avatar-video",
+   "kling-4-and-seedance-prompt-guide"
+  ]
+ },
+ {
+  "rank": 13,
+  "slug": "claude-code-motion-graphics",
+  "h1": "How to make motion graphics with Claude Code (HyperFrames, Remotion)",
+  "short_title": "Motion graphics",
+  "one_liner": "Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.",
+  "queries": [
+   "claude code motion graphics",
+   "claude code motion graphics skill",
+   "claude code motion graphics remotion",
+   "claude code motion design",
+   "claude code animation skill",
+   "motion graphics ai",
+   "motion graphics ai skill",
+   "kinetic typography",
+   "kinetic typography generator",
+   "remotion skill",
+   "hyperframes skill",
+   "remotion vs hyperframes",
+   "logo animation ai",
+   "claude code animated logo",
+   "lower thirds"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'remotion' 10/10 with 'remotion skill' first on Google and 'remotion claude code' first on YouTube; 'hyperframes' 10/10 (github, skill, vs remotion); 'claude code motion graphics' 6/10; 'kinetic typography' and 'logo animation ai' 10/10",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "30 of 150 viral posts are videos an agent wrote as code; median 795 bookmarks vs 303 for the rest (TAKES #10)",
+    "value": "30 / 150"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Animation & motion graphics' 31 + 'Text & titles' 17 + 'Logo animations & intros' 12 + 'Backgrounds & shaders' 7",
+    "value": "67 of 843"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "'animate my logo': Codex picked Jitter, Claude picked SVGator",
+    "value": "2 runs"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'motion graphics': hyperframes motion-graphics 514,179; 'remotion': remotion-best-practices 755,608; 'kinetic typography': iart-ai kinetic-typography 3,108",
+    "value": "514,179"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "launch-video / motion graphics made by Claude Code 7: 'the most-bookmarked agent-video posts on X'",
+    "value": "7"
+   }
+  ],
+  "skills": [
+   {
+    "name": "kinetic-type-art",
+    "role": "17 kinetic type templates: one word per beat, typeface strobe, word tunnel, wordmark glitch"
+   },
+   {
+    "name": "title-design",
+    "role": "lower thirds, speaker plates, show opens, channel bumpers, glitch and chrome title reveals"
+   },
+   {
+    "name": "transition-craft",
+    "role": "six beat-timed transitions: collage burst, Droste zoom, tile flip, shake cut"
+   },
+   {
+    "name": "social-overlays",
+    "role": "CTA pill, follow prompt, LIVE badge, review card, counters"
+   },
+   {
+    "name": "paper-shaders",
+    "role": "frame-exact shader backgrounds and logo stings in brand colours"
+   },
+   {
+    "name": "motion-formats",
+    "role": "seven complete formats: VHS bouncing logo, analog-horror trailer, pixel runner, kinetic lyric video"
+   },
+   {
+    "name": "maps-and-data-motion",
+    "role": "globe dives, route maps, self-drawing charts, count-ups, audio visualizers"
+   },
+   {
+    "name": "varg-video-edit-library",
+    "role": "named edits and how to build each in FFmpeg, HyperFrames, Remotion and CapCut"
+   }
+  ],
+  "start_with": "kinetic-type-art",
+  "example_prompts": [
+   "Animate our logo ./logo.svg into a 4-second liquid-metal sting in our brand orange, transparent background.",
+   "Make a 10-second kinetic typography intro of the line 'Ship it tonight', one word per beat at 120 BPM.",
+   "Add a lower third with my name and title to ./talk.mp4, 16:9, broadcast safe area.",
+   "Make an animated route map from Lisbon to Tokyo for my travel video."
+  ],
+  "faq": [
+   {
+    "q": "Can Claude Code make motion graphics?",
+    "a": "Yes. The agent writes the animation as HTML (HyperFrames) or React (Remotion) and renders frame-exact MP4, WebM or transparent MOV. These skills give it exact presets (frames per beat, letter-spacing, easing, safe areas) instead of guesses."
+   },
+   {
+    "q": "Remotion or HyperFrames?",
+    "a": "Both: every template lists how to build it, starting from named HyperFrames blocks or Remotion equivalents. Values are driven from timeline time, so any frame renders the same on a re-render."
+   },
+   {
+    "q": "Can it animate my logo?",
+    "a": "Yes: paper-shaders for liquid-metal, god-ray and grain logo stings, kinetic-type-art for wordmark reveals, motion-formats for a wave through the wordmark or a VHS bouncing-logo screensaver, title-design for a channel bumper."
+   },
+   {
+    "q": "How do I make lower thirds and title cards?",
+    "a": "title-design sets hold time from word count, safe areas for 16:9 and 9:16 from EBU rules, type scale by frame height and enter and exit easing."
+   },
+   {
+    "q": "Does it cost credits?",
+    "a": "No. These templates render locally for free and use only OFL or Apache fonts."
+   }
+  ],
+  "alternatives": [
+   "After Effects",
+   "Jitter",
+   "SVGator"
+  ],
+  "needs_key": false,
+  "related": [
+   "make-a-product-launch-video",
+   "make-an-ai-music-video",
+   "ffmpeg-vertical-video",
+   "add-captions-to-video"
+  ]
+ },
+ {
+  "rank": 14,
+  "slug": "make-ecommerce-video-ads",
+  "h1": "How to make AI video ads for ecommerce: TikTok, Reels and Meta product ads",
+  "short_title": "Ecommerce video ads",
+  "one_liner": "Turn a product and four answers into ad creatives that sell: angle, hook, format, script, compliant AI shots, variants and a final cut.",
+  "queries": [
+   "ai video ad generator",
+   "ai video ads",
+   "ai product video ads",
+   "ai video ads for products",
+   "ai video ads for ecommerce",
+   "ecommerce product video",
+   "ecommerce product video skill",
+   "ai video ads for dropshipping",
+   "dropshipping video ads",
+   "dropshipping video ads ai",
+   "how to make dropshipping video ads",
+   "product ad ai",
+   "claymation ai ads"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai video ad' 10/10 (generator, maker, creator, for dropshipping); 'dropshipping video ad' 8/9; 'claymation ad ai' completes to 'claymation ai ads'",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior autocomplete (aeo collections, ecommerce cluster)",
+    "detail": "'ecommerce product video skill' is the #5 Google completion for 'ecommerce product video': people already search for a skill",
+    "value": "#5"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "ecommerce-video 7 (same queries as product-video 8)",
+    "value": "7"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Ads & UGC' 30 + 'Product videos' 19 (shared with the UGC and product pages)",
+    "value": "49 of 843"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "ads 48 + product 28 of 150 posts (overlapping)",
+    "value": "48 + 28 / 150"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'ugc ad' / 'ai ugc': coreyhaines31 marketingskills ad-creative 141,379 (copy-first, no video)",
+    "value": "141,379"
+   }
+  ],
+  "skills": [
+   {
+    "name": "ecommerce-video-ads",
+    "role": "the four questions, angle, hook, format, character, second-by-second script, platform rules, cost before generating"
+   },
+   {
+    "name": "product-video-hooks",
+    "role": "20+ hook types matched to the buyer's awareness"
+   },
+   {
+    "name": "varg-product-hook",
+    "role": "a viral-style product-in-use hook clip from product photos"
+   },
+   {
+    "name": "varg-mascot-jingle-ad",
+    "role": "the product as a singing claymation, plush or 3D mascot"
+   },
+   {
+    "name": "varg-dropship-reel",
+    "role": "the 60-second faceless 'guide' reel"
+   },
+   {
+    "name": "ecommerce-video-edit",
+    "role": "recut real footage into a 9:16 ad with FFmpeg, one MP4 per hook"
+   },
+   {
+    "name": "social-overlays",
+    "role": "CTA, review proof and comment-reply overlays from real data"
+   },
+   {
+    "name": "ai-ad-compliance-check",
+    "role": "AI labels, TikTok Shop and FTC rules before it runs"
+   }
+  ],
+  "start_with": "ecommerce-video-ads",
+  "example_prompts": [
+   "Make 10 ads for my magnetic phone mount for TikTok and Meta. Ask me what you need first and quote credits before generating.",
+   "Turn our product into a singing claymation mascot with a 20-second jingle that says the brand name in the hook.",
+   "Recut this creator video into a TikTok ad with three different hooks: ./creator.mp4",
+   "Make a 'TikTok made me buy it' hook clip for my lint roller from its photos."
+  ],
+  "faq": [
+   {
+    "q": "How do I make a TikTok ad for my product with AI?",
+    "a": "ecommerce-video-ads first asks where it runs, the product facts, your assets and budget, then picks the angle, hook, format and on-camera character, writes a second-by-second script, keeps the real product identical in AI shots and quotes the cost before generating."
+   },
+   {
+    "q": "What should the first 3 seconds be?",
+    "a": "product-video-hooks writes three agreeing layers (what is on screen, the spoken line, the text overlay) from the buyer's own words, across 20+ hook types, and checks each against platform claim rules."
+   },
+   {
+    "q": "Can I make an ad without a person in it?",
+    "a": "Yes. varg-mascot-jingle-ad turns the product itself into a claymation, plush or 3D character singing a 15-30 s jingle; non-human ads skip the fake-person problem."
+   },
+   {
+    "q": "Can I edit my existing footage into an ad?",
+    "a": "ecommerce-video-edit moves the best moment to second 0, puts the hook text in the safe zone, cuts dead air, adds a CTA end card, masters to -14 LUFS and writes one MP4 per hook, free and local with FFmpeg."
+   },
+   {
+    "q": "Will AI ads get my account flagged?",
+    "a": "The skills apply AI labels, TikTok Shop's bans on AI voices, slideshows and mismatched prices, and the FTC fake-testimonial rule; ai-ad-compliance-check returns a pass / fix / block list before anything runs."
+   }
+  ],
+  "alternatives": [
+   "Creatify",
+   "Arcads",
+   "Pippit"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-ai-ugc-ads",
+   "product-photo-to-video",
+   "make-tiktok-shop-videos",
+   "make-ad-variations-for-testing"
+  ]
+ },
+ {
+  "rank": 15,
+  "slug": "kling-4-and-seedance-prompt-guide",
+  "h1": "Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI",
+  "short_title": "Kling & Seedance prompts",
+  "one_liner": "Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.",
+  "queries": [
+   "kling 4.0 vs seedance 2.5",
+   "kling 4 prompt guide",
+   "kling prompt guide",
+   "kling ai prompt guide image to video",
+   "kling 4.0 tutorial",
+   "kling 4.0 flash",
+   "seedance prompt guide",
+   "seedance 2.5 prompt guide",
+   "seedance prompt skill github",
+   "seedance prompt structure",
+   "seedance vs kling",
+   "which ai video model is best",
+   "how to make ai videos look realistic",
+   "best ai video model 2026"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'kling 4.0 vs seedance 2.5' is the first Google completion for both 'kling 4' and 'kling 4.0'; 'kling prompt' 10/10 led by 'kling prompt guide'; 'seedance prompt' 10/7 led by 'seedance prompt guide' and incl. 'seedance prompt skill github'; 'seedance vs kling' 10/9",
+    "value": "#1 completion"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "82 of 150 viral prompt posts used Seedance 2.0 or 2.5 (TAKES #11)",
+    "value": "82 / 150"
+   },
+   {
+    "signal": "X Latest sample (2026-11-05, 20 English tweets, estimate)",
+    "detail": "'kling 4': 20 English tweets in about 6 hours on 2026-11-05 (Kling 4.0 Flash launch day)",
+    "value": "~80/day (estimate)"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "agent searches that ask which model, how to prompt, or how to make it look real (keyword match); request texts were written without model names by design",
+    "value": "163 of 4,215 searches"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'video prompt': a Seedance 2.5 prompt-engineering skill (sd25-pe) 10,021, minimax h3-prompt-writing 12,321; 'kling': kling-3-0 (runcomfy) 417,932, kling-cli 11,115",
+    "value": "10,021"
+   }
+  ],
+  "skills": [
+   {
+    "name": "video-animate",
+    "role": "which model per shot (Seedance or Kling), long take or short clips, 480p draft first"
+   },
+   {
+    "name": "varg-video-prompting",
+    "role": "the working loop and prompt anatomy for Seedance 2.5, Kling 4, Veo 3.1 and Wan 3"
+   },
+   {
+    "name": "kling-4-prompting",
+    "role": "Kling 4 reference-to-video: 2-4 key frames, multi-shot seconds, 'no slow motion', failure fixes"
+   },
+   {
+    "name": "kling-4-keyframe-film",
+    "role": "a short film or music video, one 30-second Kling 4 take per beat"
+   },
+   {
+    "name": "kling-4-action-montage",
+    "role": "a 30-second action montage from 3-4 key frames"
+   },
+   {
+    "name": "media-judge",
+    "role": "rank takes on measured defects and pick the keeper"
+   }
+  ],
+  "start_with": "varg-video-prompting",
+  "example_prompts": [
+   "Write a Kling 4 prompt for this shot from my two stills: a skateboarder ollies off a Lisbon curb, one continuous 8-second shot. ./s1.png ./s2.png",
+   "Should this shot be Seedance 2.5 or Kling 4? Make a 480p draft on each and rank them.",
+   "My Seedance clips look like AI slop. Rewrite the prompt from my moodboard and character sheet.",
+   "Make a 30-second BMX montage ending in a crash from these four key frames with Kling 4."
+  ],
+  "faq": [
+   {
+    "q": "Kling 4 or Seedance 2.5: which is better?",
+    "a": "It depends on the shot; video-animate decides per shot. kling-4-prompting explains why Kling 4 often looks worse than Seedance 2.5: it works best when a strong image model composes every shot and Kling gets two to four key frames and a short director's prompt."
+   },
+   {
+    "q": "How do I prompt Kling 4?",
+    "a": "Give it 2-4 key frames (@Image, @Element, @Video, @Voice references), write multi-shot prompts with seconds, put dialogue in quotes, add 'no slow motion' and a lens or film-look line, and pin the reference route in the varg call."
+   },
+   {
+    "q": "How do I prompt Seedance 2.5?",
+    "a": "varg-video-prompting's loop: references, look bible, environment master, character sheets, approved stills, audio lock, animate, QA, plus what @image1, @video1 and @audio1 references copy and gotchas from paid runs."
+   },
+   {
+    "q": "Why does my AI video look like AI slop?",
+    "a": "Common causes the skills fix: slow motion by default, six fingers, AI-smooth framing and face drift in close-ups (Kling), and video generated from unapproved stills. Fix the still, not the clip."
+   },
+   {
+    "q": "How much does a 30-second Kling 4 take cost?",
+    "a": "kling-4-keyframe-film budgets about 705 credits for a 30 s take at 1080p and about two thirds of that at 720p, and plans 2-4 takes per beat. Every take is priced with estimate_cost first."
+   }
+  ],
+  "alternatives": [],
+  "needs_key": true,
+  "related": [
+   "image-to-video-ai",
+   "make-an-ai-movie",
+   "ai-storyboard-to-video",
+   "consistent-character-ai-video"
+  ]
+ },
+ {
+  "rank": 16,
+  "slug": "add-ai-voiceover-to-video",
+  "h1": "How to add an AI voiceover that doesn't sound fake (plus music and SFX)",
+  "short_title": "Voiceover & sound",
+  "one_liner": "Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix.",
+  "queries": [
+   "ai voiceover for video",
+   "ai voiceover generator",
+   "ai voiceover free",
+   "how to make a video with ai voice over",
+   "how to make ai video voice over",
+   "ai sound design for video",
+   "ai sound design generator for video",
+   "ai sound design for video free",
+   "ai voiceover text to speech",
+   "calm female AI text-to-speech voiceover natural 2026",
+   "best text-to-speech API calm female voice natural 2026",
+   "ffmpeg sidechaincompress duck sound effects under dialogue"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai voiceover' 10/10 (free, generator, for video, text to speech); 'ai sound design' 10/10 with 'for video' first on both engines; 'how to make ai video voice over' is the 'v' completion of 'how to make ai video' on YouTube",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "voiceover-music 7: 'how to make a video with ai voice / voiceover' are the top completions of 'how to make a video with ai'",
+    "value": "7"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Voice & voiceover' 22 + 'Sound effects' 10",
+    "value": "32 of 843"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that mention voiceover, narration, music or sound effects (keyword match), usually as part of a bigger spec",
+    "value": "105 of 843 (315 searches)"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'voiceover': elevenlabs text-to-speech 18,913; 'sound design': no video-specific leader (sound-design-film 646)",
+    "value": "18,913"
+   }
+  ],
+  "skills": [
+   {
+    "name": "video-script",
+    "role": "narration written for the ear and sized to the clock"
+   },
+   {
+    "name": "video-sound",
+    "role": "voice casting and direction, SFX on the frame, music planned bar by bar, a mix graded in numbers"
+   },
+   {
+    "name": "video-asset-sources",
+    "role": "music and SFX you can legally use, with a credits file"
+   },
+   {
+    "name": "varg-ai",
+    "role": "ElevenLabs v4 voices and Lyria or Mureka music on one key"
+   }
+  ],
+  "start_with": "video-sound",
+  "example_prompts": [
+   "Add a warm, unhurried narrator voice to ./cut.mp4 from ./script.md. Give me three voice candidates to pick from first.",
+   "Do the sound design for my 30-second launch video: UI clicks on the exact frames, a music bed with a quiet part, mix to -14 LUFS.",
+   "Find free whoosh and riser sound effects I can use commercially and list the credits.",
+   "My AI voiceover sounds robotic. Rewrite the lines for the ear and re-voice them."
+  ],
+  "faq": [
+   {
+    "q": "How do I make an AI voiceover not sound robotic?",
+    "a": "video-sound casts the voice from candidates you pick on an audition page, directs it with each model's documented tags, and writes narration for the ear with pauses, breaths and small actions."
+   },
+   {
+    "q": "Can an agent mix audio if it can't hear?",
+    "a": "Yes, because every step writes numbers: a cue sheet, scripts that build and grade the mix (LUFS, true peak, voice over music, effects within a frame, cuts on the beat, dead air) and an audio LLM judge that shortlists takes for a person."
+   },
+   {
+    "q": "Where can I get free music and SFX I can use commercially?",
+    "a": "video-asset-sources tested 97 databases on 2026-11-03, lists 37 queries that work with no key, accepts only licenses that hold (CC0, CC BY with credit, Pexels, Pixabay, Mixkit Free, Coverr) and writes a credits file."
+   },
+   {
+    "q": "Which voice and music models are available?",
+    "a": "On varg: ElevenLabs v4 voices (the varg-ai skill lists about 84 credits for a line) and Lyria or Mureka music, on the same key as video and images."
+   },
+   {
+    "q": "How loud should a Reels or TikTok video be?",
+    "a": "The skills master social cuts to -14 LUFS (ecommerce-video-edit, varg-birthday-video); video-sound measures LUFS and true peak on every mix."
+   }
+  ],
+  "alternatives": [
+   "CapCut",
+   "Canva"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-a-faceless-youtube-video",
+   "make-an-ai-movie",
+   "make-a-product-launch-video",
+   "make-an-ai-talking-avatar-video"
+  ]
+ },
+ {
+  "rank": 17,
+  "slug": "gpt-image-2-6",
+  "h1": "How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets",
+  "short_title": "GPT Image 2.6",
+  "one_liner": "Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets.",
+  "queries": [
+   "gpt image 2.6",
+   "gpt image 2.6 gif",
+   "gpt image 2.6 sunburst",
+   "gpt image 2.6 vs 2.5",
+   "gpt image 2.6 pricing",
+   "gpt image 2 prompt",
+   "chatgpt image prompts",
+   "chatgpt image trend prompt",
+   "chatgpt action figure prompt",
+   "ai gif generator from image",
+   "ai sticker pack generator",
+   "ai sticker pack telegram",
+   "ai sprite sheet generator",
+   "sprite sheet generator ai",
+   "animated sticker maker for whatsapp"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'gpt image 2' completes to 'gpt image 2.6' first on both engines (the model shipped 2026-11-04); 'gpt image 2.6' completes to sunburst, gif, api, vs 2.5, pricing; 'ai sprite sheet' 10/10; 'ai sticker pack' 10 on Google; 'ai gif generator' 10/8; 'chatgpt image prompt' 10/10",
+    "value": "#1 completion"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Images & thumbnails' topic",
+    "value": "44 of 843"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "GPT Image 2 / 2.5 made the stills in 15 of 150 viral posts",
+    "value": "15 / 150"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'gif': anthropics slack-gif-creator 78,471; 'gpt image': gpt-image-2 skills 89,079 and 20,357; 'sprite sheet': pixijs-assets 6,806; 'sticker': gif-sticker-maker 2,806",
+    "value": "78,471"
+   }
+  ],
+  "skills": [
+   {
+    "name": "gpt-image-2-6",
+    "role": "the model guide: Flare vs Sunburst, sizes, measured prices, prompt recipes for posters, infographics, storyboard sheets"
+   },
+   {
+    "name": "gpt-image-markup-edit",
+    "role": "change only the circled spots and nothing else"
+   },
+   {
+    "name": "gpt-image-gif",
+    "role": "looping animated GIFs, the frame pixel budget, loop-lock wording"
+   },
+   {
+    "name": "gpt-image-sticker-pack",
+    "role": "6-8 animated stickers exported per messenger spec"
+   },
+   {
+    "name": "gpt-image-sprite-sheet",
+    "role": "4x4 sprite sheets sliced into frames, GIF and a Phaser or Godot atlas"
+   },
+   {
+    "name": "make-a-woke-profile-with-chatgpt",
+    "role": "the 'I made me woke' selfie set, collage and GIFs"
+   }
+  ],
+  "start_with": "gpt-image-2-6",
+  "example_prompts": [
+   "Make a GPT Image 2.6 infographic poster explaining how solar panels work, 4:5, readable text.",
+   "Turn this photo of my cat into a Telegram sticker pack with 8 emotions: ./cat.jpg",
+   "Make a 16-frame run cycle sprite sheet for a knight and export a Phaser atlas.",
+   "Only change the circled sign to say OPEN and leave everything else: ./shop.jpg"
+  ],
+  "faq": [
+   {
+    "q": "What's the difference between Flare and Sunburst?",
+    "a": "They are the two GPT Image 2.6 variants; the skill compares them, explains quality vs reasoning_effort, and lists sizes, what fal rejects (xhigh and max effort, SVG, over 16 GIF frames) and measured prices. It notes the token price is the same as 2.5."
+   },
+   {
+    "q": "Can GPT Image 2.6 make GIFs?",
+    "a": "Yes, with output_format gif and 2-16 frames. It draws all frames as one sprite sheet, so frames share one image's pixel budget and price; approve a still first, and avoid text in frames and fast motion."
+   },
+   {
+    "q": "How do I make a Telegram or WhatsApp sticker pack from a photo?",
+    "a": "gpt-image-sticker-pack makes one approved chibi still, 6-8 emotions with one short word each, one looping GIF per emotion (6-7 credits each, measured 2026-11-05), then exports and checks them against Telegram, WhatsApp, LINE, WeChat, Discord and Slack specs."
+   },
+   {
+    "q": "Can it make game sprite sheets for Phaser or Godot?",
+    "a": "Yes. gpt-image-sprite-sheet uses a strict 4x4 sheet spec; slice.sh cuts frames, keys out the background, aligns a ground line and writes a looping GIF, an atlas PNG and a TexturePacker JSON atlas. The model fails at pixel art."
+   },
+   {
+    "q": "How do I change one spot without changing the rest?",
+    "a": "gpt-image-markup-edit draws circles, boxes and arrows on a transparent PNG the size of the source and writes a prompt per colour ending in 'Change nothing outside the marks.'"
+   },
+   {
+    "q": "What is the 'I made me woke' trend?",
+    "a": "make-a-woke-profile-with-chatgpt turns one selfie into 11 satirical versions plus GIFs and a 4:5 collage for about 78 credits; the prompts also work pasted into ChatGPT. Not for photos of others without consent."
+   }
+  ],
+  "alternatives": [
+   "ChatGPT",
+   "Nano Banana"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-game-sprite-sheets-with-ai",
+   "image-to-video-ai",
+   "make-an-ai-influencer",
+   "ai-storyboard-to-video"
+  ]
+ },
+ {
+  "slug": "make-game-sprite-sheets-with-ai",
+  "h1": "AI sprite sheet generator for games: GPT Image 2.6 to Phaser and Godot",
+  "short_title": "Game sprite sheets",
+  "one_liner": "Turn a character still into a 16-frame run, walk, idle or attack cycle, sliced into a GIF, an atlas PNG and a JSON atlas for Phaser.",
+  "queries": [
+   "ai sprite sheet generator",
+   "ai sprite sheet",
+   "ai sprite sheet animation",
+   "ai sprite sheet generator from image",
+   "ai sprite sheet generator github",
+   "best ai sprite sheet generator",
+   "character sprite sheet ai",
+   "ai sprite sheet maker",
+   "ai sprite sheet generator free",
+   "ai pixel art sprite sheet generator"
+  ],
+  "skills": [
+   {
+    "name": "varg-character-design",
+    "role": "Design the character and lock one approved still"
+   },
+   {
+    "name": "gpt-image-sprite-sheet",
+    "role": "The strict 4×4 sheet prompt, then slice.sh cuts frames, keys the background, aligns the ground line and writes the GIF and atlases"
+   },
+   {
+    "name": "gpt-image-2-6",
+    "role": "Sizes, quality settings and measured prices for GPT Image 2.6"
+   },
+   {
+    "name": "gpt-image-gif",
+    "role": "The native GIF route when you only need a looping animation"
+   }
+  ],
+  "start_with": "gpt-image-sprite-sheet",
+  "example_prompts": [
+   "Make a 16-frame run cycle sprite sheet of my knight from ./knight.png for Phaser.",
+   "Turn this mascot into an idle and an attack sprite sheet with a transparent background.",
+   "Make a walk cycle sprite sheet of a fox character and tell me how to import it into Godot."
+  ],
+  "faq": [
+   {
+    "q": "Can GPT Image 2.6 make pixel-art sprites?",
+    "a": "Not well: the model fails at pixel art, so use it for painted, cartoon or vector-style sprites."
+   },
+   {
+    "q": "What frame size do I get?",
+    "a": "The sheet divided by four: 256 px frames from a 1024×1024 sheet, 512 px from a 2048×2048 one."
+   },
+   {
+    "q": "Does it work in Phaser and Godot?",
+    "a": "slice.sh writes a TexturePacker JSON Hash atlas that Phaser loads directly, and the skill gives the Godot import steps."
+   },
+   {
+    "q": "How much does a sprite sheet cost?",
+    "a": "About $0.06 for a 1024×1024 sheet on GPT Image 2.6, measured on varg. Slicing and the atlas are free and local."
+   }
+  ],
+  "needs_key": true,
+  "related": [
+   "gpt-image-2-6",
+   "consistent-character-ai-video",
+   "image-to-video-ai"
+  ]
+ },
+ {
+  "rank": 18,
+  "slug": "ffmpeg-vertical-video",
+  "h1": "How to make vertical 9:16 video with FFmpeg: crop, burn captions, add music",
+  "short_title": "FFmpeg vertical video",
+  "one_liner": "Turn any footage into a 1080x1920 MP4 for Reels, TikTok and Shorts with copyable FFmpeg commands tested on real media, free and local.",
+  "queries": [
+   "ffmpeg vertical video",
+   "ffmpeg crop video",
+   "ffmpeg burn subtitles into video",
+   "ffmpeg burn in srt subtitles",
+   "ffmpeg hardcode subtitles",
+   "ffmpeg add background music to video",
+   "ffmpeg instagram reels",
+   "ffmpeg tiktok quality",
+   "ffmpeg glitch effect",
+   "ffmpeg crop horizontal video to vertical 1080x1920 9:16 center crop scale",
+   "ffmpeg crop 16:9 to 9:16 vertical video with burned-in captions",
+   "FFmpeg background music ducking voiceover sidechaincompress -18 dB 45 second video",
+   "ffmpeg remove silence auto cut video jump cuts script"
+  ],
+  "demand": [
+   {
+    "signal": "Agent search words (aeo knowledge, 4,455 agent searches)",
+    "detail": "'ffmpeg' appears in 6.4% of agent searches (Claude 10.6%, Codex 2.2%)",
+    "value": "6.4%"
+   },
+   {
+    "signal": "GitHub reach (aeo agent-discovery study)",
+    "detail": "a GitHub page is in the top 5 for 81% of searches that contain 'ffmpeg'",
+    "value": "81%"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "agent searches that match ffmpeg, 9:16, vertical, 1080x1920 or crop (keyword match)",
+    "value": "372 of 4,215 searches"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "short task 'edit my video': all agent searches were ffmpeg commands; 'make a TikTok video' included 'programmatically generate short vertical video 9:16 ffmpeg python'",
+    "value": "2 of 12 tasks"
+   },
+   {
+    "signal": "Web search (aeo report 2026-W45)",
+    "detail": "'ffmpeg burn subtitles into vertical 9:16 video' returns GitHub and small blogs (convertaudiototext.com, fileflows.com, github.com)",
+    "value": "no varg result"
+   },
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "the consumer side is thinner: 'ffmpeg burn subtitles' 7 on Google (into video, into mp4, font size), 'ffmpeg tiktok' 10 (quality, upload method), 'ffmpeg vertical' 8 (mostly flip and stack)",
+    "value": "7-10 on Google"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'ffmpeg': digitalsamba claude-code-video-toolkit ffmpeg 13,038; 'vertical video': reelary vertical-video 754",
+    "value": "13,038"
+   }
+  ],
+  "skills": [
+   {
+    "name": "short-form-ffmpeg-cookbook",
+    "role": "crop to 9:16, burn SRT or ASS captions, trim and join, duck music under the voice"
+   },
+   {
+    "name": "ecommerce-video-edit",
+    "role": "recut product footage into a TikTok ad: hook at second 0, CTA card, -14 LUFS, one MP4 per hook"
+   },
+   {
+    "name": "footage-effects",
+    "role": "tested ffmpeg filter chains for glow, glitch, CRT, chromatic aberration, halftone, zoom blur"
+   },
+   {
+    "name": "varg-video-edit-library",
+    "role": "every ffmpeg xfade, J-cuts, L-cuts and speed ramps"
+   }
+  ],
+  "start_with": "short-form-ffmpeg-cookbook",
+  "example_prompts": [
+   "Crop ./wide.mp4 to 1080x1920 keeping the speaker centred, burn ./subs.srt and add ./music.mp3 ducked under the voice.",
+   "Join these five clips of different sizes into one vertical video with FFmpeg: ./clips/",
+   "Add a subtle VHS and chromatic aberration look to this clip with ffmpeg only.",
+   "Give me three versions of this ad with different first-second hooks for TikTok: ./ad.mp4"
+  ],
+  "faq": [
+   {
+    "q": "How do I crop a horizontal video to 9:16 with FFmpeg?",
+    "a": "Center crop with crop=ih*9/16:ih,scale=1080:1920,setsar=1; add an x offset in pixels if the subject is off-centre; or keep the whole frame over a blurred copy of itself. The cookbook has all three, tested."
+   },
+   {
+    "q": "How do I burn subtitles into a video with FFmpeg?",
+    "a": "Use the subtitles filter with force_style for an SRT, convert to .ass for styled or karaoke captions, or mux soft subtitles with mov_text when they should stay switchable."
+   },
+   {
+    "q": "How do I add background music that ducks under the voice?",
+    "a": "The cookbook's music recipe ducks the track while people talk and keeps the voice on top; check the result with ffprobe and a frame grab before the next step."
+   },
+   {
+    "q": "Where do captions go so TikTok buttons don't cover them?",
+    "a": "Keep them out of the bottom 14% and the right edge of the 9:16 frame, then read a frame grab to check."
+   },
+   {
+    "q": "Can FFmpeg add a VHS, CRT or glitch look?",
+    "a": "Yes. footage-effects has tested ffmpeg filter chains for digital glitch (subtle to corrupt), CRT (consumer TV, arcade, terminal), chromatic aberration, halftone, glow and zoom blur, with HyperFrames and Remotion equivalents."
+   },
+   {
+    "q": "My agent has no shell. Can it still run FFmpeg?",
+    "a": "Yes, on the varg ffmpeg tool, which costs credits; with a shell everything here is free and local."
+   }
+  ],
+  "alternatives": [],
+  "needs_key": false,
+  "related": [
+   "add-captions-to-video",
+   "edit-video-with-claude-code",
+   "make-ecommerce-video-ads",
+   "claude-code-motion-graphics"
+  ]
+ },
+ {
+  "rank": 19,
+  "slug": "ai-virtual-try-on-video",
+  "h1": "How to make an AI virtual try-on video from a flat-lay clothing photo",
+  "short_title": "Virtual try-on",
+  "one_liner": "Turn a flat-lay photo of clothing into a model wearing it and fit-check clips (turn, walk, mirror selfie) with the garment kept intact.",
+  "queries": [
+   "virtual try on ai",
+   "virtual try on ai video",
+   "ai virtual try on video",
+   "ai try on clothes video",
+   "virtual try on ai clothes",
+   "virtual try on ai free",
+   "ai video for clothing brand",
+   "ai video generator for clothing brand",
+   "ai model video for clothing brand",
+   "ai fashion model video generator",
+   "how to make ai fashion model video",
+   "kling ai virtual try on"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'virtual try on ai' 10/9 (free, clothes, video, api); 'ai video for clothing brand' 10/6; 'ai fashion model video' 10/8; 'ai try on video' completes to 'ai virtual try on video' and 'ai try on clothes video'",
+    "value": "10/10 on Google"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "clothing-brand-video 7: 'ai video for clothing brand' is #3 on YouTube for 'ai video for'; ecommerce cluster ranked 'virtual try on ai' priority 1",
+    "value": "7"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "'e-commerce outfit board to 4 s fashion lookbook animation' 1,170 bookmarks",
+    "value": "1,170 bookmarks"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'virtual try-on': eachlabs virtual-try-on 222 installs: almost no competition in agent registries",
+    "value": "222"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that mention try-on, clothing, outfits or fashion (keyword match)",
+    "value": "5 of 843"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-tryon-video",
+    "role": "clean the garment photo, dress the model (Bria Virtual Try-On or an edit), animate fit-check motions, honest size captions"
+   },
+   {
+    "name": "varg-character-design",
+    "role": "one consistent model per product line, with a 4-view sheet"
+   },
+   {
+    "name": "product-photo-to-video",
+    "role": "accessories and items that need no body"
+   },
+   {
+    "name": "ai-ad-compliance-check",
+    "role": "AI-model labels and synthetic-performer disclosure"
+   }
+  ],
+  "start_with": "varg-tryon-video",
+  "example_prompts": [
+   "Put this cardigan ./cardigan.jpg on a model and make a 15-second fit-check video: slow turn, tug and let fall, mirror selfie.",
+   "Make try-on videos for my 6 new dresses on the same model, with size captions.",
+   "My logo print gets blurry in the try-on. Redo it and keep the print exact.",
+   "Make a try-on haul TikTok for my streetwear drop from flat-lays: ./drop/"
+  ],
+  "faq": [
+   {
+    "q": "Can AI put my clothes on a model?",
+    "a": "Yes. varg-tryon-video dresses a model photo with Bria Virtual Try-On in one call (4 credits in the skill's test), or with a Nano Banana or GPT Image edit for harder garments, then keeps the same model across shots."
+   },
+   {
+    "q": "What photos do I need?",
+    "a": "A flat-lay or ghost-mannequin photo of 1000 px or more with tags and measurement labels removed, and a full-body model photo (generated, or a consenting real person)."
+   },
+   {
+    "q": "Will prints, logos and buttons survive?",
+    "a": "Bria can soften prints, logos and embroidery; then the skill uses nano_banana_2_1 or gpt_image_2_5 with both images and an instruction to preserve every visible print and seam. In the test, stripes and buttons held but two patch pockets were dropped."
+   },
+   {
+    "q": "How is the try-on animated?",
+    "a": "Fit-check motions that sell clothes (slow turn, tug and let fall, walk to camera, mirror selfie, fabric close-up) on Kling 4 (79 credits per 5 s at 720p in the test) or Seedance 2.5 with the garment as a reference."
+   },
+   {
+    "q": "Do I have to label an AI model?",
+    "a": "Yes: an AI label on TikTok and Meta, and in ads reaching New York a visible synthetic-performer disclosure. Never use a real person's likeness without consent."
+   }
+  ],
+  "alternatives": [
+   "Kling AI",
+   "Canva"
+  ],
+  "needs_key": true,
+  "related": [
+   "product-photo-to-video",
+   "make-ecommerce-video-ads",
+   "make-an-ai-influencer",
+   "make-tiktok-shop-videos"
+  ]
+ },
+ {
+  "rank": 20,
+  "slug": "translate-and-dub-video-ads",
+  "h1": "AI video translator for ads: dub, lip-sync and recaption in 8+ markets",
+  "short_title": "Translate & dub ads",
+  "one_liner": "Turn one video ad into versions for 8+ markets: transcreated script, same voice on ElevenLabs v4, lip sync on talking shots, new captions.",
+  "queries": [
+   "ai video translator",
+   "ai video translator dubbing",
+   "ai video translator lip sync",
+   "ai dubbing video",
+   "ai dubbing video translator",
+   "dub video ai",
+   "translate video to another language ai",
+   "translate video english to spanish ai",
+   "ai video dubbing github",
+   "TV commercial dubbing German French lip sync transcreation agency",
+   "HeyGen vs ElevenLabs vs Rask AI Portuguese video dubbing voice preservation",
+   "how to localize Spanish subtitles from Spain Spanish to Mexican Spanish"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai video translator' 10/10 (free, dubbing, subtitles, lip sync); 'ai dubbing' 10/10; 'dub video ai' 10/10 incl. 'ai video dubbing github'",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "dubbing (AI video translator) 6: 'every competitor ships it'",
+    "value": "6"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that ask to translate, dub or localize (keyword match)",
+    "value": "11 of 843 (45 searches)"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'ad localization': 1,108 installs across the top 14 results, none for video; elevenlabs dubbing 5,352",
+    "value": "1,108 total"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-ad-localize",
+    "role": "transcreate per market, voice in the same voice, lip-sync only talking shots, rebuild captions and on-screen text, native-review checklist"
+   },
+   {
+    "name": "caption-styles",
+    "role": "captions in the target language with the same look"
+   },
+   {
+    "name": "varg-video-editing",
+    "role": "dubbing and lip-sync routes for non-ad video (HeyGen, ElevenLabs, Sync Labs)"
+   }
+  ],
+  "start_with": "varg-ad-localize",
+  "example_prompts": [
+   "Localize our winning TikTok Shop ad ./ad.mp4 for Mexico, Brazil and Germany, same voice, prices from ./offer.json.",
+   "Make a Spanish (Mexico) version of this ad with lip sync on the talking shots only.",
+   "Translate the on-screen text and captions of this ad into Japanese and re-cut it on the new words.",
+   "Give me the native-review checklist for the French version before it runs."
+  ],
+  "faq": [
+   {
+    "q": "Can AI dub my ad and keep the same voice?",
+    "a": "Yes. varg-ad-localize voices the new script with ElevenLabs v4 in the same voice as the source, or a consented clone of the real speaker, in one call for the whole script."
+   },
+   {
+    "q": "Does it lip-sync?",
+    "a": "Only where it matters: shots where a face talks for more than 1.5 seconds go through Sync v3."
+   },
+   {
+    "q": "Is it just machine translation?",
+    "a": "No, it transcreates per market: hook, slang, claims, units, local price and currency from an offer card, each line fitted to its time slot. Variants matter: es-MX is not es-ES, pt-BR, Gulf Arabic for SA."
+   },
+   {
+    "q": "What happens to text on screen?",
+    "a": "Captions and on-screen text are rebuilt in the target language instead of inpainted, and every shot is re-cut on the new language's words."
+   },
+   {
+    "q": "Which markets does it cover?",
+    "a": "TikTok Shop and Meta markets such as UK, DE, FR, IT, ES, ID, TH, VN, MY, PH, JP, MX, BR and SA, ending with a native-review checklist before anything runs."
+   },
+   {
+    "q": "Can I dub a podcast or a film instead?",
+    "a": "That is outside this skill; varg-video-editing routes dubbing and lip sync for other video."
+   }
+  ],
+  "alternatives": [
+   "HeyGen",
+   "ElevenLabs",
+   "Rask AI"
+  ],
+  "needs_key": true,
+  "related": [
+   "add-captions-to-video",
+   "make-ad-variations-for-testing",
+   "make-tiktok-shop-videos",
+   "make-ai-ugc-ads"
+  ]
+ },
+ {
+  "rank": 21,
+  "slug": "make-tiktok-shop-videos",
+  "h1": "How to make TikTok Shop affiliate videos with AI (without violations)",
+  "short_title": "TikTok Shop videos",
+  "one_liner": "Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.",
+  "queries": [
+   "tiktok shop videos ai",
+   "ai tiktok shop video generator",
+   "ai tiktok shop affiliate",
+   "how to make ai tiktok shop affiliate videos",
+   "tiktok shop affiliate video rules",
+   "tiktok shop affiliate video requirements",
+   "does tiktok shop allow ai videos",
+   "tiktok shop videos not getting views",
+   "tiktok shop video ideas",
+   "how long should a tiktok shop affiliate video be",
+   "ai ugc tiktok shop",
+   "faceless tiktok shop affiliate videos"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai tiktok shop' 10/10 (video generator, affiliate, slideshows, automation); 'tiktok shop affiliate video' 10/10 (rules, requirements, ai videos); 'tiktok shop ai video' 10 on Google incl. 'does tiktok shop allow ai videos'; 'ai ugc tiktok shop' is #3 for 'ai ugc' on YouTube",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "tiktok-shop-video 5",
+    "value": "5"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'tiktok shop': nexscope-ai TikTok Shop skills at about 1.1-1.3k installs each, all research and listings, none make videos",
+    "value": "~1.3k"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "no TikTok Shop topic in the 843-request set",
+    "value": "0 of 843"
+   }
+  ],
+  "skills": [
+   {
+    "name": "tiktok-shop-video",
+    "role": "script and shot list in Shop's own styles, the 2025-2026 rules that kill reach and accounts"
+   },
+   {
+    "name": "product-video-hooks",
+    "role": "hooks tied to the product from the first frame"
+   },
+   {
+    "name": "ecommerce-video-edit",
+    "role": "edit the real footage: hook at second 0, captions in the safe zone, one MP4 per hook"
+   },
+   {
+    "name": "ai-ad-compliance-check",
+    "role": "TikTok Shop AI product rules: no fake effects, before/after, changed quantity or size"
+   }
+  ],
+  "start_with": "tiktok-shop-video",
+  "example_prompts": [
+   "Write a TikTok Shop affiliate video for this product link with a shot list I can film on my phone: https://example.com/product",
+   "Why are my TikTok Shop videos stuck at 200 views? Here are my last five: ./videos/",
+   "Plan a week of TikTok Shop videos for my skincare product, each a different angle and hook.",
+   "Check this Shop video for violations before I post it: ./shop.mp4"
+  ],
+  "faq": [
+   {
+    "q": "Does TikTok Shop allow AI videos?",
+    "a": "AI is fine for product b-roll (macro shots, in-use scenes, ingredient bursts) under a real presenter, with the AIGC label. An AI voice or pre-recorded narration standing in for the presenter is banned, and so are still-image slideshows: use at least 3 s of real moving footage. The skill says to check Seller Center for your market."
+   },
+   {
+    "q": "Why are my TikTok Shop videos stuck at 200 views?",
+    "a": "Common causes the skill checks: near-duplicate reposts, hooks unrelated to the product, trending organic sounds instead of TikTok's commercial sounds, and 5+ low-quality Shop videos in 7 days, which hides product links for a week."
+   },
+   {
+    "q": "Can I mention the price or a deal?",
+    "a": "Only if it matches the live product page exactly; 'under $20' or 'flash deal' that isn't exactly true is a violation."
+   },
+   {
+    "q": "How long should a TikTok Shop video be?",
+    "a": "The skill's script is 18-35 s: a 3-second hook with the product in frame, a demo with one specific number, proof, and a cart CTA."
+   },
+   {
+    "q": "What can get my account penalized?",
+    "a": "Weight-loss claims or body before/after, minors selling, unlabelled AI people; six violations in 90 days can remove selling permissions."
+   }
+  ],
+  "alternatives": [],
+  "needs_key": false,
+  "related": [
+   "make-ecommerce-video-ads",
+   "make-ai-ugc-ads",
+   "product-photo-to-video",
+   "make-ad-variations-for-testing"
+  ]
+ },
+ {
+  "rank": 22,
+  "slug": "make-an-ai-birthday-video",
+  "h1": "How to make an AI birthday video with their name and photo (and e-invites)",
+  "short_title": "Birthday & occasion videos",
+  "one_liner": "Turn a name, an age and a few photos into a birthday video with a song that sings their name, or an invitation or holiday greeting.",
+  "queries": [
+   "ai birthday video maker",
+   "ai birthday video generator",
+   "ai video for birthday wishes",
+   "birthday video with name and photo",
+   "happy birthday video with name",
+   "happy birthday song with name",
+   "ai birthday video maker with photos",
+   "ai birthday video prompt",
+   "ai video for birthday invitation",
+   "ai wedding invitation video maker",
+   "bring old photos to life ai free",
+   "ai christmas video generator",
+   "ai video for anniversary"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai birthday video', 'birthday video with name', 'happy birthday song with name', 'ai wedding invitation video' and 'ai christmas video' return 10 on both engines; Google 'ai video for' alphabet returns anniversary, birthday, happy birthday, wedding invitation and festivals",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "greetings-invitations 6: 'strongly India-skewed', seasonal",
+    "value": "6"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'birthday video': 11 results with 3 installs or fewer each; varg-birthday-video ranks 3rd",
+    "value": "rank 3"
+   },
+   {
+    "signal": "Agent request topics (843 requests; topic sizes were set from catalog weights, so treat as relative)",
+    "detail": "'Greetings & celebrations' topic",
+    "value": "3 of 843"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-birthday-video",
+    "role": "the 5 questions, stills with the name spelled right, animation, a song that sings the name, a WhatsApp-ready file"
+   },
+   {
+    "name": "varg-occasion-video",
+    "role": "wedding invitations, save-the-dates, holiday greetings, old photos brought to life, anniversaries, memorials"
+   }
+  ],
+  "start_with": "varg-birthday-video",
+  "example_prompts": [
+   "Make a 30-second birthday video for my mom Anna turning 60 from these photos, with a song that sings her name: ./photos/",
+   "Make an animated birthday invitation for my son's 7th, dinosaur theme, for WhatsApp.",
+   "Make a wedding save-the-date video for Anna & Leo, 14 June, Lisbon, envelope that opens.",
+   "Make a Christmas greeting video for my bakery's customers."
+  ],
+  "faq": [
+   {
+    "q": "Can AI make a birthday song that sings their name?",
+    "a": "Yes. ElevenLabs Music (eleven_music_v2_5) sings the name; in the skill's test a 32-second song with every line and the name sung cost 8 credits."
+   },
+   {
+    "q": "Will the name be spelled right on the cake?",
+    "a": "GPT Image 2.5 prints the name on the cake; the test still spelled 'MAYA 30' right on the first try (22 credits)."
+   },
+   {
+    "q": "What does a birthday video cost?",
+    "a": "Every clip is priced before it runs. In the skill's test: the key still 22 credits, 8 s of Seedance 2.5 at 720p with sound 308 credits, 10 s of Wan 3 100 credits, the song 8 credits."
+   },
+   {
+    "q": "Will it play on WhatsApp and iMessage?",
+    "a": "Yes. It exports 9:16 H.264 + AAC with faststart at -14 LUFS, under 60 s and 16 MB, the file WhatsApp, iMessage and Instagram play without re-encoding."
+   },
+   {
+    "q": "Can it do weddings, Christmas or old photos?",
+    "a": "varg-occasion-video covers invitations and save-the-dates with names and dates printed right, holiday and festival greetings, old photos brought to life, anniversary love stories and memorial tributes."
+   },
+   {
+    "q": "Can I animate photos of family members?",
+    "a": "Only with their agreement; for a surprise, the sender's word that the person would want it. Never a celebrity, a public figure or a stranger."
+   }
+  ],
+  "alternatives": [],
+  "needs_key": true,
+  "related": [
+   "image-to-video-ai",
+   "gpt-image-2-6",
+   "add-ai-voiceover-to-video",
+   "make-an-ai-music-video"
+  ]
+ },
+ {
+  "rank": 23,
+  "slug": "make-ad-variations-for-testing",
+  "h1": "How to make AI ad variations for creative testing on Meta and TikTok",
+  "short_title": "Ad variants & testing",
+  "one_liner": "Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.",
+  "queries": [
+   "meta ads creative testing framework",
+   "meta ad creative testing",
+   "tiktok ads creative testing",
+   "ai ad creative testing",
+   "ad creative testing tools",
+   "winning ad creatives",
+   "meta ad library product research",
+   "meta ad library video download",
+   "meta ad library claude",
+   "hook variations ugc",
+   "make 10 variations of my video ad for A/B testing",
+   "best practices A/B testing video ad hooks and CTA closing lines 2026",
+   "Remotion render multiple video variants batch props 15 second ads"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ad creative testing' 10/9 (meta, framework, tiktok, ai); 'meta ad library' 10/9 incl. 'product research', 'video download', 'claude'; 'hook variations' completes to 'hook variations ugc' first on Google; 'ai ad variations' returns nothing on Google (people don't type it)",
+    "value": "10/10 on Google"
+   },
+   {
+    "signal": "Agent picks (aeo study 2026-10-27, 12 tasks x Claude + Codex; W45 cold agents)",
+    "detail": "short task 'make 10 variations of my video ad for A/B testing': Claude picked Creatomate, Codex picked Sovran",
+    "value": "1 of 12 tasks"
+   },
+   {
+    "signal": "Prior demand score (aeo collections study, 2026-10-30, scale 1-10)",
+    "detail": "ad-variants 5: X agent threads like '20 more versions of every winner'",
+    "value": "5"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that ask for variants, versions or A/B tests (keyword match)",
+    "value": "33 of 843"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "mbfinotti advertising-skills: ad-creative-test-plan 26,373, ad-creative-fatigue 26,380, ad-hook-analyzer 26,034 (planning, no video)",
+    "value": "26,373"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-ad-library-remix",
+    "role": "find winners in Meta Ad Library, TikTok Creative Center, Kalodata or FastMoss and turn them into new angles"
+   },
+   {
+    "name": "ad-creative-testing",
+    "role": "why the ad won, concepts that count as different, how many to launch, budget, when to judge, kill or scale"
+   },
+   {
+    "name": "varg-ad-variants",
+    "role": "20 variants: about 7 new concepts and 13 single-variable iterations, hooks swapped with a tested FFmpeg script, names and a test plan"
+   },
+   {
+    "name": "product-video-hooks",
+    "role": "new openers for the iterations"
+   },
+   {
+    "name": "ecommerce-video-edit",
+    "role": "one MP4 per hook from real footage"
+   }
+  ],
+  "start_with": "varg-ad-variants",
+  "example_prompts": [
+   "Turn our winning ad ./winner.mp4 into 20 variants for Meta, mostly new hooks, with file names and a test plan.",
+   "Find the top running competitor ads for posture correctors in the Meta Ad Library and give me 10 new angles we can prove.",
+   "Our variants all perform the same. Tell me why and plan concepts Andromeda treats as different.",
+   "Hook rate is fine but CPA doubled this week. Is this ad fatigued? Kill, iterate or scale?"
+  ],
+  "faq": [
+   {
+    "q": "How many ad creatives should I test?",
+    "a": "ad-creative-testing's defaults: with no winner yet, 8-15 concepts per batch across 3+ angles; on TikTok 3-5 creatives per ad group; Meta's Creative Testing tool takes 2-5 ads at up to 20% of budget for 7 days. Judge after about 1-3x target CPA in spend, never in the first 48 hours."
+   },
+   {
+    "q": "Why do all my variants perform the same?",
+    "a": "Meta's Andromeda and TikTok treat caption swaps and small edits as the same ad. Variants have to change the buyer, angle, format or first frame to count as different concepts."
+   },
+   {
+    "q": "What's in the 20 variants?",
+    "a": "About 7 new concepts that each change the message, visual execution or format, and about 13 single-variable iterations, mostly new hooks swapped onto the winner with a tested FFmpeg script (word-boundary cut, 20 ms fade), re-captioned and named."
+   },
+   {
+    "q": "When should I kill or scale an ad?",
+    "a": "The testing skill reads hook rate, hold rate, CTR and CPA to find which part failed, then says kill, iterate or scale."
+   },
+   {
+    "q": "Can I copy a competitor's winning ad?",
+    "a": "Its angle, not its footage. varg-ad-library-remix ranks ads by winner signals (running 30+ days, many variants), breaks down hook, angle, format and offer, and writes 10-20 new concepts using only claims you can prove. It never re-uploads someone else's footage."
+   }
+  ],
+  "alternatives": [
+   "Creatomate",
+   "Sovran",
+   "Pencil"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-ecommerce-video-ads",
+   "make-ai-ugc-ads",
+   "translate-and-dub-video-ads",
+   "make-tiktok-shop-videos"
+  ]
+ },
+ {
+  "rank": 24,
+  "slug": "ai-storyboard-to-video",
+  "h1": "AI storyboard to video: previz in three.js or Blender before you pay",
+  "short_title": "Storyboard & previz",
+  "one_liner": "Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video.",
+  "queries": [
+   "ai storyboard generator",
+   "ai storyboard generator from script",
+   "ai storyboard to video",
+   "storyboard to video ai",
+   "storyboard to video seedance",
+   "storyboard to video kling",
+   "ai storyboard workflow",
+   "3d previs seedance",
+   "3d previs to ai",
+   "blender previs",
+   "script and location reference photos to animatic workflow beat by beat",
+   "create storyboard shots from location photos preserve architecture camera angles AI"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'ai storyboard' 10/10 (generator, to video, from script, workflow); 'storyboard to video' 10/10 incl. seedance, kling, higgsfield, google flow; '3d previz' completes to '3d previs seedance' and '3d previs to ai' on YouTube; 'previz' alone is ambiguous (meaning, studio)",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'previz': varg-previz ranks 5th in a thin field (~750 installs in the top 20); 'storyboard': video-storyboard 923, seedance-storyboard 900",
+    "value": "rank 5"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that name a storyboard, shot list or animatic (keyword match)",
+    "value": "5 of 843 (58 searches)"
+   },
+   {
+    "signal": "X viral prompt posts (aeo 2026-10-30, 150 posts with full prompts)",
+    "detail": "'storyboard sheet to hands-only ASMR unboxing ad' 2,774 bookmarks",
+    "value": "2,774 bookmarks"
+   }
+  ],
+  "skills": [
+   {
+    "name": "varg-mockups",
+    "role": "an HTML storyboard board of stills with approve / fix / reject per frame"
+   },
+   {
+    "name": "varg-previz",
+    "role": "story, character and product sheets, master plates, a three.js grey-box previz with auto cameras, Seedance video-to-video packs"
+   },
+   {
+    "name": "threejs-animatic",
+    "role": "a full three.js animatic: mannequins, sets in metres, a lens and START/END keys per shot, timed to the track"
+   },
+   {
+    "name": "code-to-video-previz",
+    "role": "whether a shot needs 3D at all, Three.js or Blender, copying a reference shot with a solved camera"
+   },
+   {
+    "name": "video-animate",
+    "role": "animate the approved previz: model per shot, 480p draft, cut to the locked track"
+   }
+  ],
+  "start_with": "varg-previz",
+  "example_prompts": [
+   "Storyboard my 30-second ad script as a board of stills I can approve frame by frame: ./script.md",
+   "Make a three.js animatic of these 8 storyboard shots timed to ./track.mp3, with a lens and camera move per shot.",
+   "Copy the camera of this reference shot in 3D and hand it to Seedance: ./ref.mp4",
+   "Turn my approved previz into Seedance 2.5 video-to-video shots, 480p drafts first."
+  ],
+  "faq": [
+   {
+    "q": "Can AI make a storyboard from my script?",
+    "a": "Yes. varg-mockups makes one self-contained HTML storyboard board with numbered frames, shot specs, prompts and approve / needs-fix / reject per frame; the stills come from Nano Banana 2.1 or GPT Image 2.5 and stay consistent (character sheets, environment master first)."
+   },
+   {
+    "q": "What is a previz and why bother?",
+    "a": "A schematic 3D version of every shot with a real camera. threejs-animatic fixes camera, geography, scale and timing for free before the paid step, and shows every camera frustum on a top-down set map for review."
+   },
+   {
+    "q": "How does the animatic become AI video?",
+    "a": "It is rendered to MP4 frame by frame (headless Chrome or HyperFrames) and used as the @video1 reference for Seedance 2.5 video-to-video on varg, so the generated shots keep the approved camera and blocking."
+   },
+   {
+    "q": "Three.js or Blender?",
+    "a": "code-to-video-previz decides if a shot needs a 3D prototype at all and which tool fits; the same scene file renders in Three.js and headless Blender."
+   },
+   {
+    "q": "Do I need npm or a 3D artist?",
+    "a": "No. threejs-animatic ships a working starter project with no npm, and varg-previz makes auto cameras from plain storyboard words like 'MCU, 3/4 left, push in'."
+   }
+  ],
+  "alternatives": [
+   "Boords",
+   "Katalist",
+   "Higgsfield"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-an-ai-movie",
+   "kling-4-and-seedance-prompt-guide",
+   "make-an-ai-music-video",
+   "consistent-character-ai-video"
+  ]
+ },
+ {
+  "rank": 25,
+  "slug": "download-videos-from-x-youtube-tiktok",
+  "h1": "How to download videos from X, YouTube and TikTok with yt-dlp (no key)",
+  "short_title": "Download videos",
+  "one_liner": "Turn a link from X, YouTube, Instagram, TikTok or 1,800+ other sites into a local MP4 or MP3, or a Pinterest board into reference images.",
+  "queries": [
+   "download twitter video",
+   "download twitter video to mp4",
+   "download twitter video from link",
+   "tiktok downloader no watermark",
+   "tiktok downloader github",
+   "youtube video downloader for pc",
+   "instagram reel downloader",
+   "pinterest downloader",
+   "pinterest board downloader",
+   "yt-dlp mp4 command",
+   "yt-dlp best quality",
+   "yt-dlp cookies from browser",
+   "yt-dlp mp3"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'download twitter video' 10/10; 'tiktok downloader' 10/10 (no watermark, github); 'yt-dlp' 8/10 (mp4 command, best quality, cookies from browser, mp3); 'pinterest downloader' 10/10 (board downloader, bulk image downloader); 'download x video' returns nothing: people still type 'twitter'",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "Agent requests (aeo agent-discovery study, 843 requests / 4,215 agent searches)",
+    "detail": "request texts that ask to download or save a video (keyword match): downloading is a step inside other jobs, rarely the request",
+    "value": "2 of 843"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'yt-dlp': yt-dlp skill 1,777; 'download video': openmontage video-download 1,410",
+    "value": "1,777"
+   },
+   {
+    "signal": "Estimate",
+    "detail": "absolute consumer search volume for downloaders is likely high, but autocomplete shows prominence, not volume; not measured here",
+    "value": "not measured"
+   }
+  ],
+  "skills": [
+   {
+    "name": "media-download",
+    "role": "yt-dlp and gallery-dl: best-quality MP4, audio-only MP3, playlists, logged-in sessions, Pinterest pins, boards and searches"
+   },
+   {
+    "name": "find-references",
+    "role": "study downloaded clips as references and prove who made them"
+   },
+   {
+    "name": "video-asset-sources",
+    "role": "clips, music and SFX whose license lets you put them in a video"
+   }
+  ],
+  "start_with": "media-download",
+  "example_prompts": [
+   "Download this X video in the best quality: https://x.com/user/status/123",
+   "Rip the audio of this YouTube video as MP3.",
+   "Download every video in this Instagram carousel at 720p.",
+   "Grab 50 pins from this Pinterest board for my moodboard: https://www.pinterest.com/user/board/"
+  ],
+  "faq": [
+   {
+    "q": "How do I download a video from X (Twitter)?",
+    "a": "Paste the link: media-download saves the best quality to ./downloads/<Site>/<title> [<id>].mp4; -q 720 caps the size. The same works for YouTube, Instagram, Facebook, TikTok, Threads, Reddit, Vimeo and the 1,800+ other sites yt-dlp supports."
+   },
+   {
+    "q": "Can I download only the audio?",
+    "a": "Yes, -a saves an MP3."
+   },
+   {
+    "q": "What about videos that need a login?",
+    "a": "-c chrome (or safari, firefox, edge, brave) uses your logged-in browser session; yt-dlp reads the cookies locally and they never leave the machine."
+   },
+   {
+    "q": "Can it download a Pinterest board for a moodboard?",
+    "a": "Yes: a pin, a board, a profile or a plain search query; private boards need a cookies.txt export."
+   },
+   {
+    "q": "It says 'Unsupported URL'. What now?",
+    "a": "Sites change often: update yt-dlp and gallery-dl (brew upgrade, yt-dlp -U or pip install -U) and retry once."
+   },
+   {
+    "q": "Can I reuse a downloaded clip in my video?",
+    "a": "Downloading doesn't give you a license. Use video-asset-sources for footage you can legally put in a video, or keep downloads as references."
+   }
+  ],
+  "alternatives": [],
+  "needs_key": false,
+  "related": [
+   "make-an-ai-movie",
+   "edit-video-with-claude-code",
+   "make-ad-variations-for-testing",
+   "claude-code-video-skills"
+  ]
+ },
+ {
+  "rank": 26,
+  "slug": "claude-code-video-skills",
+  "h1": "Claude Code video skills: find the right one, or publish your own",
+  "short_title": "Find video skills",
+  "one_liner": "Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key.",
+  "queries": [
+   "claude code video skills",
+   "claude code video skills github",
+   "claude code video toolkit",
+   "claude code skills for video generation",
+   "claude skill video generation",
+   "best claude skills for video creation",
+   "best skill to create video with claude",
+   "ai video skill github",
+   "ai video generation skill github",
+   "claude skills marketplace",
+   "best claude code skills",
+   "how to make a claude skill",
+   "publish claude skills",
+   "agent skills for AI video"
+  ],
+  "demand": [
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-05)",
+    "detail": "'claude code video' 10/10; its 's' and 't' completions are 'claude code video skills', 'claude code video skills github' and 'claude code video toolkit' on both engines; 'claude skill video' 10/10 (editing, generation, creation, script); 'claude skills' 10/10 (marketplace, github, library); 'how to make a claude skill' 10/10",
+    "value": "10/10 on both engines"
+   },
+   {
+    "signal": "TikTok search terms (aeo agent-discovery study)",
+    "detail": "'best claude skills for video creation', 'best skill to create video with claude', 'claude code video toolkit free'",
+    "value": "223 terms collected"
+   },
+   {
+    "signal": "Agent search words (aeo knowledge)",
+    "detail": "agents almost never search for a 'skill' (0.2% of 4,455 searches), so this page serves people and agents that already have the catalog URL (W44: 8 of 8 agents with the URL found the right skill)",
+    "value": "0.2%"
+   },
+   {
+    "signal": "Web search (aeo report 2026-W45)",
+    "detail": "github.com/vargHQ/skills ranks #1 for 'agent skills for AI video' (the only varg hit in 29 queries)",
+    "value": "rank 1"
+   },
+   {
+    "signal": "skills.sh search (2026-11-05)",
+    "detail": "'video' queries are led by HyperFrames skills at about 1.2-1.4M installs each; varg-ai had 72 (2026-10-27)",
+    "value": "72 vs ~1.3M"
+   }
+  ],
+  "skills": [
+   {
+    "name": "how-to-make-ai-video",
+    "role": "one keyless search over varg how to: best skill, install command, the 2-4 options to show, the steps, production order for a whole film"
+   },
+   {
+    "name": "video-skills",
+    "role": "the same catalog, with visual options shown before anything is generated"
+   },
+   {
+    "name": "varg-ai",
+    "role": "run the generation once a skill is chosen, one key for every model"
+   },
+   {
+    "name": "varg-publish-skill",
+    "role": "turn your own skill into a varg how to listing and send it for review"
+   }
+  ],
+  "start_with": "how-to-make-ai-video",
+  "example_prompts": [
+   "Which skill should I use to make a lyric video for my song? Show me the options with examples before generating.",
+   "Find a skill for turning a spreadsheet into an animated chart video.",
+   "Publish my skill in ./my-skill/ to varg how to.",
+   "What's the status of the skills I submitted?"
+  ],
+  "faq": [
+   {
+    "q": "Which skill should I use for my video?",
+    "a": "Ask in your own words: how-to-make-ai-video searches varg how to (2,000+ checked video skills and tutorials) and returns the best skill with its install command, the 2-4 choices to put to you with example videos, and the steps. One call takes about 0.1-0.5 s, needs no key and works in any language."
+   },
+   {
+    "q": "Do I need an API key to search?",
+    "a": "No. The search is public, also as an MCP server at https://api.varg.ai/v2/skills/mcp. Generation needs a varg account (the varg-ai skill or the varg MCP with OAuth)."
+   },
+   {
+    "q": "How do I install these skills?",
+    "a": "npx skills add vargHQ/skills --yes, or in Claude Code: claude plugin marketplace add vargHQ/skills, then claude plugin install varg@varg."
+   },
+   {
+    "q": "Do they work in Codex, Cursor or Gemini CLI?",
+    "a": "They follow the Agent Skills standard; the README names Claude Code, Cursor, Windsurf, OpenCode and ClawHub, and the repo ships a Gemini CLI extension file."
+   },
+   {
+    "q": "How do I publish my own video skill?",
+    "a": "varg-publish-skill reads your skill folder or repo, checks it against the varg media skill standard, fills the one card format (name, summary, triggers, category, install command, a real example), shows it to you and sends it for review with publish_skill. The team usually reviews within a day."
+   }
+  ],
+  "alternatives": [],
+  "needs_key": false,
+  "related": [
+   "make-an-ai-movie",
+   "make-ai-ugc-ads",
+   "edit-video-with-claude-code",
+   "make-a-product-launch-video"
+  ]
+ }
+]

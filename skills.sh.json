@@ -1,0 +1,133 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Start here",
+      "description": "One key for every model, and a search that finds the right skill for any video request.",
+      "skills": [
+        "how-to-make-ai-video",
+        "varg-ai",
+        "video-skills"
+      ]
+    },
+    {
+      "title": "Ads & ecommerce",
+      "description": "Product photos and links into ads that run on TikTok, TikTok Shop, Reels and Meta, plus hooks, variants, testing, dubbing and compliance.",
+      "skills": [
+        "ad-creative-testing",
+        "ai-ad-compliance-check",
+        "ai-ugc-ad-video",
+        "ecommerce-video-ads",
+        "ecommerce-video-edit",
+        "product-photo-to-video",
+        "product-video-hooks",
+        "tiktok-shop-video",
+        "varg-ad-library-remix",
+        "varg-ad-localize",
+        "varg-ad-variants",
+        "varg-mascot-jingle-ad",
+        "varg-product-hook",
+        "varg-product-lock",
+        "varg-tryon-video",
+        "varg-unboxing-video"
+      ]
+    },
+    {
+      "title": "Characters",
+      "description": "Characters people remember, the same face in every scene, talking heads, keynotes and two-person podcasts.",
+      "skills": [
+        "varg-character-absurd",
+        "varg-character-beautiful-woman",
+        "varg-character-big-guy",
+        "varg-character-cartoon",
+        "varg-character-cringe",
+        "varg-character-design",
+        "varg-character-fitness",
+        "varg-character-grandma",
+        "varg-character-keynote",
+        "varg-consistent-characters",
+        "varg-podcast-video"
+      ]
+    },
+    {
+      "title": "Ready formats",
+      "description": "Formats that already spread: music videos, birthday and holiday videos, faceless reels, selfie series.",
+      "skills": [
+        "make-a-woke-profile-with-chatgpt",
+        "varg-birthday-video",
+        "varg-dropship-reel",
+        "varg-music-video",
+        "varg-occasion-video"
+      ]
+    },
+    {
+      "title": "Pre-production",
+      "description": "The steps that stop AI slop: script, references, moodboard, character passports, sound, previz, animation and measured QA.",
+      "skills": [
+        "character-passport",
+        "code-to-video-previz",
+        "find-references",
+        "media-judge",
+        "threejs-animatic",
+        "varg-mockups",
+        "varg-previz",
+        "video-animate",
+        "video-moodboard",
+        "video-project-github",
+        "video-script",
+        "video-sound"
+      ]
+    },
+    {
+      "title": "Model guides",
+      "description": "How to prompt each model, with measured prices and the failure fixes from paid runs.",
+      "skills": [
+        "gpt-image-2-6",
+        "gpt-image-gif",
+        "gpt-image-markup-edit",
+        "gpt-image-sprite-sheet",
+        "gpt-image-sticker-pack",
+        "kling-4-action-montage",
+        "kling-4-keyframe-film",
+        "kling-4-prompting",
+        "varg-video-prompting"
+      ]
+    },
+    {
+      "title": "Motion graphics",
+      "description": "Captions, titles, kinetic type, overlays, UI mockups, transitions, maps and shaders as exact presets. Local, no key.",
+      "skills": [
+        "app-ui-mockups",
+        "caption-styles",
+        "footage-effects",
+        "kinetic-type-art",
+        "maps-and-data-motion",
+        "motion-formats",
+        "paper-shaders",
+        "social-overlays",
+        "title-design",
+        "transition-craft"
+      ]
+    },
+    {
+      "title": "Editing & FFmpeg",
+      "description": "Cut, caption, reframe and repurpose footage you already have; download sources; find assets you may legally use.",
+      "skills": [
+        "edit-footage-with-code",
+        "media-download",
+        "short-form-ffmpeg-cookbook",
+        "varg-video-edit-library",
+        "varg-video-editing",
+        "video-asset-sources"
+      ]
+    },
+    {
+      "title": "Publishing",
+      "description": "List a skill you built on varg how to.",
+      "skills": [
+        "varg-publish-skill"
+      ]
+    }
+  ]
+}

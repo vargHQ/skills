@@ -1,0 +1,17 @@
+{
+  "name": "varg",
+  "owner": {
+    "name": "varg",
+    "url": "https://varg.ai"
+  },
+  "metadata": {
+    "description": "varg AI video skills for Cursor."
+  },
+  "plugins": [
+    {
+      "name": "varg",
+      "source": "./",
+      "description": "73 AI video skills and the varg MCP."
+    }
+  ]
+}
