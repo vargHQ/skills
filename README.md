@@ -16,10 +16,11 @@ Seedance 2.5, Kling 4, Veo 3.1, GPT Image 2.6 and ElevenLabs v4 on one key, or f
 </div>
 
 ```bash
-npx skills add vargHQ/skills
+npx skills add vargHQ/skills                                   # pick skills and agents
+npx skills add vargHQ/skills --skill caption-styles -a codex   # one skill, one agent
 ```
 
-Or paste this into your agent: *"Install varg video skills for me by reading https://raw.githubusercontent.com/vargHQ/skills/main/llms.txt"*. Then ask for the result in plain words. The agent reads the matching skill, asks the two or three choices that matter, shows stills before any video is paid for, and hands back the MP4.
+Agents for `-a`: `claude-code`, `codex`, `grok`, `cursor`, `gemini-cli`, `github-copilot`, `opencode` and 60+ more. Or paste this into your agent: *"Install varg video skills for me by reading https://raw.githubusercontent.com/vargHQ/skills/main/llms.txt"*. Then ask for the result in plain words. The agent reads the matching skill, asks the two or three choices that matter, shows stills before any video is paid for, and hands back the MP4.
 
 ## Try these
 
@@ -29,10 +30,10 @@ Or paste this into your agent: *"Install varg video skills for me by reading htt
 | "Turn ./song.mp3 into a music video cut on the beat" | Beat-cut music video MP4 per platform | [`varg-music-video`](./varg-music-video/README.md) | ~$2.10 per 5 s Seedance 2.5 shot at 720p (estimate) |
 | "Keep the same two actors in all five scenes of my ad" | Captioned multi-scene 9:16 MP4 ad | [`varg-consistent-characters`](./varg-consistent-characters/README.md) | ~$0.65 stills + ~$4–5 video per 5-scene, 22 s ad (estimate) |
 | "Turn ./product.jpg into an ASMR unboxing video" | 5–15 s 9:16 unboxing MP4 | [`varg-unboxing-video`](./varg-unboxing-video/README.md) | ~$3.85 per 10 s 720p clip with audio (tested) |
-| "Add Hormozi-style captions to ./talk.mp4" | Burned-in MP4, transparent caption layer or ASS | [`caption-styles`](./caption-styles/README.md) | free, no key |
+| "Add Hormozi-style captions to ./talk.mp4" | Burned-in MP4, transparent caption layer or ASS | [`caption-styles`](./caption-styles/README.md) + [`edit-footage-with-code`](./edit-footage-with-code/README.md) | free, no key |
 | "Cut the dead air and retakes out of ./podcast.mp4" | Clean cut MP4, edit list and FCPXML | [`edit-footage-with-code`](./edit-footage-with-code/README.md) | free, no key |
 | "Make a looping GIF of my mascot waving" | Looping GIF plus animated WebP and MP4 | [`gpt-image-gif`](./gpt-image-gif/README.md) | ~$0.03–0.07 per GIF (measured) |
-| "Download this TikTok and crop it to 9:16 with burned-in captions" | 1080×1920 9:16 MP4 | [`short-form-ffmpeg-cookbook`](./short-form-ffmpeg-cookbook/README.md) | free, no key |
+| "Download this TikTok and crop it to 9:16 with burned-in captions" | 1080×1920 9:16 MP4 | [`short-form-ffmpeg-cookbook`](./short-form-ffmpeg-cookbook/README.md) + [`media-download`](./media-download/README.md) | free, no key |
 
 Prices are the measured figures in each skill at provider price (1 credit = $0.01); the agent shows an estimate before it spends anything.
 

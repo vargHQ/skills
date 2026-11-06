@@ -2767,7 +2767,8 @@
   },
   {
    "ask": "Add Hormozi-style captions to ./talk.mp4",
-   "skill": "caption-styles"
+   "skill": "caption-styles",
+   "with": "edit-footage-with-code"
   },
   {
    "ask": "Cut the dead air and retakes out of ./podcast.mp4",
@@ -2779,7 +2780,8 @@
   },
   {
    "ask": "Download this TikTok and crop it to 9:16 with burned-in captions",
-   "skill": "short-form-ffmpeg-cookbook"
+   "skill": "short-form-ffmpeg-cookbook",
+   "with": "media-download"
   }
  ]
 }

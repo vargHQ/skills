@@ -15,10 +15,11 @@ Seedance 2.5, Kling 4, Veo 3.1, GPT Image 2.6 and ElevenLabs v4 on one key, or f
 </div>
 
 ```bash
-npx skills add vargHQ/skills
+npx skills add vargHQ/skills                                   # pick skills and agents
+npx skills add vargHQ/skills --skill caption-styles -a codex   # one skill, one agent
 ```
 
-Or paste this into your agent: *"Install varg video skills for me by reading https://raw.githubusercontent.com/vargHQ/skills/main/llms.txt"*. Then ask for the result in plain words. The agent reads the matching skill, asks the two or three choices that matter, shows stills before any video is paid for, and hands back the MP4.
+Agents for `-a`: `claude-code`, `codex`, `grok`, `cursor`, `gemini-cli`, `github-copilot`, `opencode` and 60+ more. Or paste this into your agent: *"Install varg video skills for me by reading https://raw.githubusercontent.com/vargHQ/skills/main/llms.txt"*. Then ask for the result in plain words. The agent reads the matching skill, asks the two or three choices that matter, shows stills before any video is paid for, and hands back the MP4.
 
 ## Try these
 
