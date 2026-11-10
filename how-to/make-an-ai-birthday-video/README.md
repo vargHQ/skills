@@ -78,7 +78,7 @@ Only with their agreement; for a surprise, the sender's word that the person wou
 - [How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets](../gpt-image-2-6/README.md) — Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets.
 - [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](../add-ai-voiceover-to-video/README.md) — Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix.
 - [How to make an AI music video for your song with Claude Code](../make-an-ai-music-video/README.md) — Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: ai birthday video maker · ai birthday video generator · ai video for birthday wishes · birthday video with name and photo · happy birthday video with name · happy birthday song with name · ai birthday video maker with photos · ai birthday video prompt · ai video for birthday invitation · ai wedding invitation video maker · bring old photos to life ai free · ai christmas video generator · ai video for anniversary</sub>
 

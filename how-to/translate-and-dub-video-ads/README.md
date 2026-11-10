@@ -77,7 +77,7 @@ That is outside this skill; varg-video-editing routes dubbing and lip sync for o
 - [How to make AI ad variations for creative testing on Meta and TikTok](../make-ad-variations-for-testing/README.md) — Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
 - [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](../make-ai-ugc-ads/README.md) — Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: HeyGen, ElevenLabs, Rask AI.</sub><br>
 <sub>People also search: ai video translator · ai video translator dubbing · ai video translator lip sync · ai dubbing video · ai dubbing video translator · dub video ai · translate video to another language ai · translate video english to spanish ai · ai video dubbing github · TV commercial dubbing German French lip sync transcreation agency · HeyGen vs ElevenLabs vs Rask AI Portuguese video dubbing voice preservation · how to localize Spanish subtitles from Spain Spanish to Mexican Spanish</sub>

@@ -88,7 +88,7 @@ The FFmpeg path is free and local. The varg ffmpeg tool (credits) is only for ag
 - [How to make vertical 9:16 video with FFmpeg: crop, burn captions, add music](../ffmpeg-vertical-video/README.md) — Turn any footage into a 1080x1920 MP4 for Reels, TikTok and Shorts with copyable FFmpeg commands tested on real media, free and local.
 - [How to make motion graphics with Claude Code (HyperFrames, Remotion)](../claude-code-motion-graphics/README.md) — Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.
 - [How to make a faceless YouTube video with AI and Claude Code](../make-a-faceless-youtube-video/README.md) — Turn a topic into a faceless Short or YouTube video: script, a voice that doesn't sound fake, licensed or generated B-roll, captions, QA.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: OpusClip, Descript, Gling, AutoCut, CapCut.</sub><br>
 <sub>People also search: claude code video editing · claude code video editing skill · claude code video editing skill github · claude code video editing remotion · edit video with ai claude · ai video editing agent · remove silence from video · cut dead air · auto cut dead air premiere pro · podcast to shorts ai · podcast to shorts ai free · turn my podcast into short clips · cut the silences out of my video and add zooms · ffmpeg remove silence auto cut video jump cuts script · open source podcast clip generator whisper ffmpeg highlight detection</sub>

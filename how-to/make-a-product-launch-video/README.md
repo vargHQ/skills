@@ -85,7 +85,7 @@ The motion templates render locally for free with OFL or Apache fonts. Only gene
 - [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](../add-ai-voiceover-to-video/README.md) — Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix.
 - [How to add captions to a video with AI: TikTok, Hormozi and karaoke styles](../add-captions-to-video/README.md) — Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames.
 - [Claude Code video skills: find the right one, or publish your own](../claude-code-video-skills/README.md) — Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Screen Studio, Jitter, Tella, Hera.</sub><br>
 <sub>People also search: product launch video · product launch video ai · product launch video skill · product launch video with claude · saas launch video · saas launch video template · claude code launch video · app demo video maker · app store preview video · ai explainer video generator · explainer video maker ai · remotion launch video · make a launch video for my app · make an explainer video for my SaaS</sub>
