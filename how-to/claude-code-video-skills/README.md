@@ -76,7 +76,7 @@ varg-publish-skill reads your skill folder or repo, checks it against the varg m
 - [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](../make-ai-ugc-ads/README.md) — Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.
 - [Claude Code video editing: cut dead air and turn podcasts into Shorts](../edit-video-with-claude-code/README.md) — Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg.
 - [How to make a product launch video with Claude Code (HyperFrames, Remotion)](../make-a-product-launch-video/README.md) — Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: claude code video skills · claude code video skills github · claude code video toolkit · claude code skills for video generation · claude skill video generation · best claude skills for video creation · best skill to create video with claude · ai video skill github · ai video generation skill github · claude skills marketplace · best claude code skills · how to make a claude skill · publish claude skills · agent skills for AI video</sub>
 

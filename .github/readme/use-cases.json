@@ -2129,6 +2129,109 @@
   ]
  },
  {
+  "slug": "make-videos-with-claude-fable-5-2",
+  "h1": "How to make videos with Claude Fable 5.2: Blender films, game trailers, 3D explainers and Fable vs Opus",
+  "short_title": "Fable 5.2 videos",
+  "one_liner": "Turn one prompt into a video made of code: a Blender film written in Python, a trailer of a game the model built, a 3D explainer or a Fable vs Opus split screen.",
+  "queries": [
+   "fable 5.2 video generation",
+   "claude fable 5.2 video",
+   "fable 5.2 vs opus 5.5",
+   "fable 5.2 blender",
+   "claude blender animation",
+   "claude blender skill",
+   "make a video with claude code",
+   "create video games with claude code",
+   "record a three.js game as a video",
+   "3d explainer video with code",
+   "same prompt two models comparison video"
+  ],
+  "demand": [
+   {
+    "signal": "X launch-day research (2026-11-10)",
+    "detail": "121 posts of videos made by Claude Fable 5.2 writing code in its first 24 hours: games recorded as trailers 3.45M views, 3D science explainers 1.37M, 'make the strongest video you can' 1.25M, Blender films in Python 838k (Riley Brown's 6,165 bookmarks), Fable vs Opus split screens 824k",
+    "value": "9.30M views, 44.0k bookmarks"
+   },
+   {
+    "signal": "Google autocomplete (2026-11-10)",
+    "detail": "'fable 5.2' and 'claude fable 5.2' both complete to 'vs opus 5.5' first; 'fable 5.2 video' completes to 'video generation' and 'video editing'; 'claude blender' completes to mcp, skill, connector, plugin, animation; 'make video with claude code' completes to 'create video games with claude code'",
+    "value": "vs opus 5.5 = #1 completion"
+   },
+   {
+    "signal": "varg how to demand cards",
+    "detail": "'Fake AAA Gameplay Trailer' and 'What-If Science Explainer' were listed as wanted with no skill",
+    "value": "2 wanted cards"
+   }
+  ],
+  "skills": [
+   {
+    "name": "blender-code-film",
+    "role": "a short film in Blender written entirely in Python: shots as data, stills first, critic loop, Eevee or Cycles, music bed"
+   },
+   {
+    "name": "code-game-trailer",
+    "role": "record a browser game frame-exact on a virtual clock with scripted inputs and cameras, then cut the trailer"
+   },
+   {
+    "name": "code-3d-explainer",
+    "role": "a 3D explainer built one part at a time, with a checked fact sheet before any animation"
+   },
+   {
+    "name": "model-split-screen",
+    "role": "same prompt, two models: fair runs, measured time and cost, side-by-side or stacked layout, blind reveal"
+   },
+   {
+    "name": "code-to-video-previz",
+    "role": "a Blender or three.js blockout that drives Seedance when the shot should be generated, not rendered"
+   },
+   {
+    "name": "video-sound",
+    "role": "music bed, sound effects on the frame and a measured mix"
+   }
+  ],
+  "start_with": "blender-code-film",
+  "example_prompts": [
+   "Make a 20-second low-poly storybook film in Blender, entirely in Python: a lantern drifting through a forest at dusk, 4 shots. Stills first.",
+   "I built a browser game in ./game/index.html. Record a 20-second trailer with 5 shots, a title card and an end card.",
+   "Make a 3D explainer of how a mitochondrion makes energy, built one part at a time, with a fact sheet I can check first.",
+   "Same prompt to Fable 5.2 and Opus 5.5: lay out both results side by side with their time and cost, 9:16, blind until the last 3 seconds."
+  ],
+  "faq": [
+   {
+    "q": "Does Claude Fable 5.2 generate video?",
+    "a": "Not as a video model. It writes code that renders video: Python that drives Blender, three.js or WebGL scenes recorded in headless Chrome, or HyperFrames compositions. These skills give it the rendering, recording and checking steps that make the result a finished MP4."
+   },
+   {
+    "q": "Do I need a GPU or a paid key?",
+    "a": "No. Eevee renders the 9-second starter film at 1080p in about 11 minutes on an Apple Silicon Mac, and the game and explainer captures run in headless Chrome. A varg key is only needed for an optional music bed or narration."
+   },
+   {
+    "q": "How do people make the Fable vs Opus side-by-side videos?",
+    "a": "Run one prompt twice under the same rules in fresh sessions, log time and cost while each runs, trim both to the same moment, then model-split-screen lays them out with the numbers under each clip, optionally blind until the reveal."
+   },
+   {
+    "q": "Why record a game with a virtual clock instead of a screen recorder?",
+    "a": "A screen recorder drops frames whenever the machine is busy. With the page's clock replaced, every frame is rendered on purpose at 30 or 60 fps, so the trailer is smooth and the same on every run, and scripted inputs and cameras make each shot repeatable."
+   },
+   {
+    "q": "How do I keep a 3D science film accurate?",
+    "a": "code-3d-explainer writes a fact sheet with a source for every claim and has a fresh critic check it before any 3D work. A 586k-view launch-day film about atoms was called out in replies for the wrong physics."
+   }
+  ],
+  "alternatives": [
+   "Higgsfield MCP",
+   "Blender MCP",
+   "Remotion"
+  ],
+  "needs_key": false,
+  "related": [
+   "claude-code-motion-graphics",
+   "ai-storyboard-to-video",
+   "make-an-ai-music-video",
+   "make-a-product-launch-video"
+  ]
+ },
+ {
   "slug": "make-game-sprite-sheets-with-ai",
   "h1": "AI sprite sheet generator for games: GPT Image 2.6 to Phaser and Godot",
   "short_title": "Game sprite sheets",

@@ -68,6 +68,9 @@
       "id": "formats",
       "title": "Music videos and ready formats",
       "skills": [
+        "blender-code-film",
+        "code-3d-explainer",
+        "code-game-trailer",
         "make-a-woke-profile-with-chatgpt",
         "varg-birthday-video",
         "varg-dropship-reel",
@@ -130,6 +133,7 @@
       "skills": [
         "edit-footage-with-code",
         "media-download",
+        "model-split-screen",
         "short-form-ffmpeg-cookbook",
         "varg-video-edit-library",
         "varg-video-editing",
@@ -299,6 +303,45 @@
       "description": "Ten animated UI mockups for product, launch and dev-tool videos, rebuilt as HTML instead of screen recordings: phone message thread, team chat channel, coding-agent terminal session, terminal command run, desktop terminal window, desktop notification banner, code editor walkthrough, 3D code slab, exploded UI panels and an amber CRT console. Presets give typing speed (12-20 characters per second with seeded gaps), reading holds from character count, entrance easing and scale, camera lead before each action, text size as a share of frame height, and theme colors from MIT theme sources, from Charm VHS, Screen Studio, Emil Kowalski, Apple HIG and Netflix timing rules. Use when someone wants a fake text or Slack conversation, a terminal or Claude Code demo, a code walkthrough or an exploded UI shot in a video. NOT for recording a real screen or for real people's messages presented as genuine."
     },
     {
+      "name": "blender-code-film",
+      "title": "Blender film from code: a 3D short written entirely in Python",
+      "tagline": "A brief becomes a Blender film built and rendered from one Python file: shots as data, stills first, critic loop, Eevee or Cycles.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": false,
+      "local": true,
+      "cost": "free locally: 9 s at 1080p in 10 min 34 s on an Apple Silicon Mac (measured)",
+      "output": "PNG frames and an MP4 film, the .blend, contact sheets",
+      "stack": [
+        "Blender 5.x",
+        "Python (bpy)",
+        "Eevee",
+        "Cycles",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "claude blender animation",
+        "blender python animation",
+        "fable 5.2 blender",
+        "make a video in blender with ai",
+        "blender film from code",
+        "claude blender skill"
+      ],
+      "use_cases": [
+        "make-videos-with-claude-fable-5-2"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/blender-code-film/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/blender-code-film/README.md",
+      "how_to": "https://varg.ai/how-to/skills/blender-code-film",
+      "install": "npx skills add vargHQ/skills --skill blender-code-film",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_417a3b4d8684.webp",
+        "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_5c3e8f79b006.jpg",
+        "alt": "A low-poly forest valley at dusk rendered in Blender from Python: a glowing lantern orb drifts between pine trees through warm haze and floating sparks."
+      },
+      "description": "Make a short 3D film in Blender written entirely in Python by an agent (Claude Fable 5.2, Claude Code, Codex): the shots and the look as data, a world built from code (procedural terrain, hundreds of instanced props, node materials, lights, haze), one camera per shot bound to timeline markers, a stills-first approval pass, a quarter-size draft, a contact-sheet audit, a fresh critic subagent, then the final render to PNG frames and an ffmpeg encode with an optional varg music bed. Includes a tested starter (scripts/film.py, a 9 s three-shot film) and the Blender 5.x traps that turn frames black. Use when someone asks for a Blender animation or film made with code or Python, \"make a video in Blender with Claude\", a 3D short, music video, toy commercial or product film rendered in Blender, a low-poly or storybook 3D film, or a remake of a viral Fable 5.2 Blender video. Not for previz that feeds Seedance (code-to-video-previz, varg-previz), three.js films in the browser (karpathy-3d-story, code-3d-explainer), recording a browser game (code-game-trailer), 2D motion graphics (hyperframes, kinetic-type-art) or AI-generated footage (varg-ai)."
+    },
+    {
       "name": "caption-styles",
       "title": "Animated TikTok captions — 17 styles for HyperFrames and Remotion",
       "tagline": "Word timestamps become one of 17 animated caption looks with set fonts, sizes, timing and 9:16 safe zones, rendered locally.",
@@ -388,6 +431,83 @@
       "description": "Cast an AI video before anything moves: for every character and hero prop, a passport (one paragraph, every visible detail, pasted word for word into every prompt), a turnaround sheet in the moodboard's look, six expressions written as cause + physical tells, a measured voice line (pace in words per minute, accent, one verbal habit), and for props the materials, wear and how they move and sound. Includes anti-slop design rules, a prompt builder that refuses paraphrased passports, code routes (three.js, VRM, SVG face rig) and tested reference sites. Use for \"make a character\", \"consistent character\", \"character sheet\", \"turnaround\", \"character bible\", \"expression sheet\", \"voice for my character\", \"prop sheet\", \"same person in every shot\", or characters that look generic, plastic or different from shot to shot. Not for category looks (varg-character-design), real actor photos in multi-scene ads (varg-consistent-characters) or the film's look (video-moodboard)."
     },
     {
+      "name": "code-3d-explainer",
+      "title": "3D explainer from code: build the invisible one part at a time",
+      "tagline": "A cell, atom, virus or engine built in three.js part by part, zooming through scales to a cutaway, with every fact checked first.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": false,
+      "local": true,
+      "cost": "free locally: 21 s at 1080p in 53 s (22.5 s with HyperFrames) on an Apple M4 Pro (measured)",
+      "output": "1920×1080 MP4 plus a fact sheet with sources, QA contact sheets and label checks",
+      "stack": [
+        "three.js",
+        "Bun",
+        "Chrome (headless, CDP)",
+        "FFmpeg",
+        "HyperFrames (optional)"
+      ],
+      "keywords": [
+        "3d science explainer video",
+        "explain how it works in 3d",
+        "animal cell 3d animation",
+        "three.js explainer video",
+        "kurzgesagt style 3d explainer",
+        "fable 5.2 explainer"
+      ],
+      "use_cases": [
+        "make-videos-with-claude-fable-5-2"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/code-3d-explainer/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/code-3d-explainer/README.md",
+      "how_to": "https://varg.ai/how-to/skills/code-3d-explainer",
+      "install": "npx skills add vargHQ/skills --skill code-3d-explainer",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_822f53d8f96a.webp",
+        "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_4cffb0f1dfb5.jpg",
+        "alt": "A 3D animal cell built in three.js part by part on a near-black background: a teal membrane, an orange nucleolus, labelled organelles and a scale bar."
+      },
+      "description": "Make a 3D explainer video of something you cannot film (a cell, an atom, a virus, a protein, an engine, a reactor, a black hole, a maths idea) entirely in code: a sourced fact sheet checked by a fresh critic subagent before any 3D work, the subject built in three.js from procedural geometry (and real data such as PDB coordinates) one part per beat with a label and a one-line fact, a camera that tours the build and zooms through scales to an x-ray cutaway of the whole, a live scale bar, deterministic 1080p rendering with headless Chrome (scripts/capture.ts) or HyperFrames, and QA scripts that check label overlap, phone legibility, reading time and that every word on screen is in the approved fact sheet. Includes a working 21 s animal-cell film to copy. Use when someone asks for a 3D explainer, a science explainer video, \"explain how X works in 3D\", a cell / atom / virus / molecule / engine / reactor / black hole animation, \"build it one part at a time\", a cutaway or exploded view explained, a Kurzgesagt-style 3D explainer, a \"zoom into the invisible\" film, or a Fable 5.2 code explainer. Not for 2D maths and equation animations (manim-skill), short 2D motion formats (motion-formats), general HTML-to-video work (hyperframes), writing the script itself (video-script) or sound design and music (video-sound)."
+    },
+    {
+      "name": "code-game-trailer",
+      "title": "Game trailer from code: record a browser game frame by frame and cut it",
+      "tagline": "Record the three.js game your agent built with exact frames, scripted shots and trailer cameras, then cut it on the beat to a 1080p trailer.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": false,
+      "local": true,
+      "cost": "free locally: an 18.6 s 1080p trailer in 56 s on an Apple M4 Pro (measured)",
+      "output": "1920×1080 trailer MP4 at -14 LUFS, a 1280×720 preview, a contact sheet and a check report",
+      "stack": [
+        "Bun",
+        "Chrome (headless, CDP)",
+        "three.js",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "game trailer",
+        "record three.js game",
+        "gameplay video from a browser game",
+        "fable 5.2 game trailer",
+        "headless chrome frame capture",
+        "create video games with claude code"
+      ],
+      "use_cases": [
+        "make-videos-with-claude-fable-5-2"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/code-game-trailer/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/code-game-trailer/README.md",
+      "how_to": "https://varg.ai/how-to/skills/code-game-trailer",
+      "install": "npx skills add vargHQ/skills --skill code-game-trailer",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_0a9bdd0e2104.webp",
+        "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_5f2d839d6b69.jpg",
+        "alt": "Trailer of a browser game made in code: a paper-lantern glider with red wings flies through a dusk canyon, trailing sparks, past a score counter."
+      },
+      "description": "Turn a browser game or three.js / WebGL scene an agent built into a cinematic trailer MP4: a virtual clock injected before the page's scripts makes every frame exact at 30 or 60 fps, a director JSON scripts each shot (key and mouse inputs, game setup, trailer camera paths, slow motion, HTML titles and end cards), headless Chrome captures 1920x1080 frames, ffmpeg cuts them on the beat, a music bed (code-written or from varg) is normalised to -14 LUFS, and a checker measures frozen frames, loudness, debug text, third-party names and claims. Includes a tested example game. Use when someone asks for a game trailer, to record my three.js game, a gameplay video, a trailer for my browser game, a Fable 5.2 game video or a fake AAA gameplay trailer. Not for HTML motion graphics (hyperframes), 3D previz for AI video (threejs-animatic), AI-generated footage (varg-ai) or editing existing footage (short-form-ffmpeg-cookbook)."
+    },
+    {
       "name": "code-to-video-previz",
       "title": "Code to video: prototype a shot in three.js or Blender before Seedance",
       "tagline": "A brief, reference clip or painting becomes a 3D scene staged in metres, checked frames and a guide clip for a video model.",
@@ -417,6 +537,7 @@
         "blender previz"
       ],
       "use_cases": [
+        "make-videos-with-claude-fable-5-2",
         "ai-storyboard-to-video"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/code-to-video-previz/SKILL.md",
@@ -1195,6 +1316,43 @@
         "alt": "Media-judge output for a vertical product reel: attention heat maps over frames beside a facts table where checks are marked clear, flagged or info."
       },
       "description": "Judge a finished AI-made video, image or track by measuring it, then rank takes on the defects found. One command reads every frame and writes facts with timestamps and evidence: broken frames, banding after a simulated X or YouTube upload, numbers that jiggle, spelling, too much on screen, nothing leading the eye, motion with no cause, pinned graphics, sliding labels, a face, outfit or light that changed, sound after the cut, loudness, voice against the script, and distance to references against the template. A fresh agent settles only what eyes can settle. No score out of 10. Use when someone says \"review this video\", \"check my render\", \"self-review\", \"QA\", \"judge\", \"critique\", \"score these takes\", \"pick the best take\", \"does it match the reference\", \"it looks like a template\", \"is it ready to post\", \"reverse engineer this reel\", or after any agent finishes a film, short drama, reel or ad. Not for making or repairing media (varg-ai, varg-video-editing) or ad law (ai-ad-compliance-check)."
+    },
+    {
+      "name": "model-split-screen",
+      "title": "Same prompt, two models: side-by-side comparison videos with time and cost",
+      "tagline": "Two runs of one prompt become a side-by-side or stacked video with each model's measured time and cost, optionally blind until the reveal.",
+      "category": "editing",
+      "version": "1.0.0",
+      "needs_key": false,
+      "local": true,
+      "cost": "free locally: a 9 s 1080p split in under 2 s (measured)",
+      "output": "1920×1080 or 1080×1920 MP4 with names, stats, optional blind reveal and winner frame",
+      "stack": [
+        "Python",
+        "Pillow",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "fable 5.2 vs opus 5.5",
+        "same prompt two models video",
+        "ai model comparison video",
+        "side by side comparison video",
+        "split screen comparison with ffmpeg",
+        "blind a/b video test"
+      ],
+      "use_cases": [
+        "make-videos-with-claude-fable-5-2"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/model-split-screen/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/model-split-screen/README.md",
+      "how_to": "https://varg.ai/how-to/skills/model-split-screen",
+      "install": "npx skills add vargHQ/skills --skill model-split-screen",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_2e1850a6570d.webp",
+        "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_005952a9f241.jpg",
+        "alt": "Split-screen comparison: the same Blender forest scene rendered by Eevee and by Cycles side by side, each labelled with seconds per frame and total render time."
+      },
+      "description": "Make the \"same prompt, two models\" comparison video that every model launch produces (Claude Fable 5.2 vs Opus 5.5, Seedance vs Kling, Eevee vs Cycles): run one prompt twice under the same rules, log the real time and cost of each run, then lay the two results side by side (1920×1080) or stacked (1080×1920), started on the same frame, each with its name and its time and cost under it, optionally blind (\"A\" and \"B\" until the last seconds, then the reveal) and with a winner frame. scripts/split.py does the layout with ffmpeg and Pillow, so it works with an ffmpeg built without drawtext. Use when someone asks for a model comparison video, \"Fable vs Opus\", \"same prompt two models\", a side-by-side or split-screen comparison with cost and time, a blind \"guess which one\" test, or A/B of two renders or two edits. Not for a split screen inside a story edit (varg-video-edit-library), comparing many models in a grid of stills (gpt-image-2-6), or making the clips themselves (blender-code-film, code-game-trailer, varg-ai)."
     },
     {
       "name": "motion-formats",
@@ -3100,7 +3258,8 @@
         "make-an-ai-talking-avatar-video",
         "make-a-faceless-youtube-video",
         "make-an-ai-movie",
-        "add-ai-voiceover-to-video"
+        "add-ai-voiceover-to-video",
+        "make-videos-with-claude-fable-5-2"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/video-sound/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/video-sound/README.md",
@@ -3682,6 +3841,35 @@
       ],
       "page": "https://github.com/vargHQ/skills/blob/main/how-to/gpt-image-2-6/README.md",
       "markdown": "https://raw.githubusercontent.com/vargHQ/skills/main/how-to/gpt-image-2-6/README.md"
+    },
+    {
+      "slug": "make-videos-with-claude-fable-5-2",
+      "title": "How to make videos with Claude Fable 5.2: Blender films, game trailers, 3D explainers and Fable vs Opus",
+      "one_liner": "Turn one prompt into a video made of code: a Blender film written in Python, a trailer of a game the model built, a 3D explainer or a Fable vs Opus split screen.",
+      "start_with": "blender-code-film",
+      "skills": [
+        "blender-code-film",
+        "code-game-trailer",
+        "code-3d-explainer",
+        "model-split-screen",
+        "code-to-video-previz",
+        "video-sound"
+      ],
+      "queries": [
+        "fable 5.2 video generation",
+        "claude fable 5.2 video",
+        "fable 5.2 vs opus 5.5",
+        "fable 5.2 blender",
+        "claude blender animation",
+        "claude blender skill",
+        "make a video with claude code",
+        "create video games with claude code",
+        "record a three.js game as a video",
+        "3d explainer video with code",
+        "same prompt two models comparison video"
+      ],
+      "page": "https://github.com/vargHQ/skills/blob/main/how-to/make-videos-with-claude-fable-5-2/README.md",
+      "markdown": "https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-videos-with-claude-fable-5-2/README.md"
     },
     {
       "slug": "make-game-sprite-sheets-with-ai",

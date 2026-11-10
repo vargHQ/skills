@@ -75,7 +75,7 @@ Weight-loss claims or body before/after, minors selling, unlabelled AI people; s
 - [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](../make-ai-ugc-ads/README.md) — Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.
 - [Product photo to video with AI: product ads that keep your real label](../product-photo-to-video/README.md) — Turn 1-3 product photos into a TikTok, Reels or listing video (unboxing, ASMR, 360 loop, in-hand demo) with the label locked.
 - [How to make AI ad variations for creative testing on Meta and TikTok](../make-ad-variations-for-testing/README.md) — Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: tiktok shop videos ai · ai tiktok shop video generator · ai tiktok shop affiliate · how to make ai tiktok shop affiliate videos · tiktok shop affiliate video rules · tiktok shop affiliate video requirements · does tiktok shop allow ai videos · tiktok shop videos not getting views · tiktok shop video ideas · how long should a tiktok shop affiliate video be · ai ugc tiktok shop · faceless tiktok shop affiliate videos</sub>
 

@@ -1,10 +1,10 @@
 # vargHQ/skills
 
-> 73 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
+> 77 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
 
 ## Install (for an agent asked to "install varg video skills")
 
-1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 73 makes a long skill list that some agents shorten.
+1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 77 makes a long skill list that some agents shorten.
 2. Run `npx skills add vargHQ/skills --skill <skill> --skill <skill>` (add `-a <agent> -g -y` for a global, non-interactive install; agents: claude-code, codex, cursor, grok, gemini-cli, github-copilot, opencode and 60+ more). Claude Code can take all of them as a plugin instead: `claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg`.
 3. For generation, connect the varg MCP (`https://mcp.varg.ai/mcp`, OAuth sign-in) or set `VARG_API_KEY` from https://varg.ai. Skills marked "no key" need neither.
 4. Read the chosen skill's SKILL.md before using it. AGENTS.md has the task → skill index; catalog.json has the same data as JSON.
@@ -29,6 +29,7 @@
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/kling-4-and-seedance-prompt-guide/README.md): Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills. Start with `varg-video-prompting`.
 - [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/add-ai-voiceover-to-video/README.md): Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix. Start with `video-sound`.
 - [How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/gpt-image-2-6/README.md): Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets. Start with `gpt-image-2-6`.
+- [How to make videos with Claude Fable 5.2: Blender films, game trailers, 3D explainers and Fable vs Opus](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-videos-with-claude-fable-5-2/README.md): Turn one prompt into a video made of code: a Blender film written in Python, a trailer of a game the model built, a 3D explainer or a Fable vs Opus split screen. Start with `blender-code-film`.
 - [AI sprite sheet generator for games: GPT Image 2.6 to Phaser and Godot](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-game-sprite-sheets-with-ai/README.md): Turn a character still into a 16-frame run, walk, idle or attack cycle, sliced into a GIF, an atlas PNG and a JSON atlas for Phaser. Start with `gpt-image-sprite-sheet`.
 - [How to make vertical 9:16 video with FFmpeg: crop, burn captions, add music](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/ffmpeg-vertical-video/README.md): Turn any footage into a 1080x1920 MP4 for Reels, TikTok and Shorts with copyable FFmpeg commands tested on real media, free and local. Start with `short-form-ffmpeg-cookbook`.
 - [How to make an AI virtual try-on video from a flat-lay clothing photo](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/ai-virtual-try-on-video/README.md): Turn a flat-lay photo of clothing into a model wearing it and fit-check clips (turn, walk, mirror selfie) with the garment kept intact. Start with `varg-tryon-video`.
@@ -81,6 +82,9 @@
 
 ## Skills: Music videos and ready formats
 
+- [blender-code-film](https://raw.githubusercontent.com/vargHQ/skills/main/blender-code-film/SKILL.md): A brief becomes a Blender film built and rendered from one Python file: shots as data, stills first, critic loop, Eevee or Cycles. (no key · local)
+- [code-3d-explainer](https://raw.githubusercontent.com/vargHQ/skills/main/code-3d-explainer/SKILL.md): A cell, atom, virus or engine built in three.js part by part, zooming through scales to a cutaway, with every fact checked first. (no key · local)
+- [code-game-trailer](https://raw.githubusercontent.com/vargHQ/skills/main/code-game-trailer/SKILL.md): Record the three.js game your agent built with exact frames, scripted shots and trailer cameras, then cut it on the beat to a 1080p trailer. (no key · local)
 - [make-a-woke-profile-with-chatgpt](https://raw.githubusercontent.com/vargHQ/skills/main/make-a-woke-profile-with-chatgpt/SKILL.md): One selfie becomes 11 satirical woke tiles, a 4:5 collage for X and an MP4, made on GPT Image 2.6 (aka Wokify). (varg key)
 - [varg-birthday-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-birthday-video/SKILL.md): A name, an age and a few photos become a 15–60 s video with their name sung and their photo coming to life. (varg key)
 - [varg-dropship-reel](https://raw.githubusercontent.com/vargHQ/skills/main/varg-dropship-reel/SKILL.md): A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA. (varg key)
@@ -131,6 +135,7 @@
 
 - [edit-footage-with-code](https://raw.githubusercontent.com/vargHQ/skills/main/edit-footage-with-code/SKILL.md): Raw takes become a reviewed edit list, a clean cut between words, then captions, B-roll and sound checked by numbers and frames. (no key · local)
 - [media-download](https://raw.githubusercontent.com/vargHQ/skills/main/media-download/SKILL.md): A link becomes a local MP4, MP3 or playlist from 1,800+ sites, or Pinterest images from a pin, board or search query. (no key · local)
+- [model-split-screen](https://raw.githubusercontent.com/vargHQ/skills/main/model-split-screen/SKILL.md): Two runs of one prompt become a side-by-side or stacked video with each model's measured time and cost, optionally blind until the reveal. (no key · local)
 - [short-form-ffmpeg-cookbook](https://raw.githubusercontent.com/vargHQ/skills/main/short-form-ffmpeg-cookbook/SKILL.md): Raw footage, an SRT and a music track become a 1080×1920 MP4 with burned-in captions, trims, joins and ducked music. (no key · local)
 - [varg-video-edit-library](https://raw.githubusercontent.com/vargHQ/skills/main/varg-video-edit-library/SKILL.md): An edit request like 'zoom into the button' becomes a named take with timing, the common mistake and a recipe per engine. (no key · local)
 - [varg-video-editing](https://raw.githubusercontent.com/vargHQ/skills/main/varg-video-editing/SKILL.md): An editing job on existing footage becomes the right service or FFmpeg route, an edit decision list and checked output. (no key)

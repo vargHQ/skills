@@ -54,6 +54,9 @@
       "title": "Ready formats",
       "description": "Formats that already spread: music videos, birthday and holiday videos, faceless reels, selfie series.",
       "skills": [
+        "blender-code-film",
+        "code-3d-explainer",
+        "code-game-trailer",
         "make-a-woke-profile-with-chatgpt",
         "varg-birthday-video",
         "varg-dropship-reel",
@@ -116,6 +119,7 @@
       "skills": [
         "edit-footage-with-code",
         "media-download",
+        "model-split-screen",
         "short-form-ffmpeg-cookbook",
         "varg-video-edit-library",
         "varg-video-editing",

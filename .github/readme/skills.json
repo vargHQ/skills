@@ -2783,5 +2783,150 @@
    "skill": "short-form-ffmpeg-cookbook",
    "with": "media-download"
   }
- ]
+ ],
+ "blender-code-film": {
+  "title": "Blender film from code: a 3D short written entirely in Python",
+  "short": "Blender film from code",
+  "tagline": "A brief becomes a Blender film built and rendered from one Python file: shots as data, stills first, critic loop, Eevee or Cycles.",
+  "category": "formats",
+  "prompts": [
+   "Make a 20-second low-poly storybook film in Blender with Python: a lantern drifting through a forest at dusk, 4 shots, stills first",
+   "Make a 15-second 90s toy commercial in Blender for a glow-in-the-dark robot, then mux it with an upbeat jingle",
+   "Remake this Fable 5.2 Blender film idea as our own: a desk room at golden hour turning to night, 6 shots"
+  ],
+  "keywords": [
+   "claude blender animation",
+   "blender python animation",
+   "fable 5.2 blender",
+   "make a video in blender with ai",
+   "blender film from code",
+   "claude blender skill"
+  ],
+  "stack": [
+   "Blender 5.x",
+   "Python (bpy)",
+   "Eevee",
+   "Cycles",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free locally: 9 s at 1080p in 10 min 34 s on an Apple Silicon Mac (measured)",
+  "output": "PNG frames and an MP4 film, the .blend, contact sheets",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_417a3b4d8684.webp",
+   "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_5c3e8f79b006.jpg",
+   "alt": "A low-poly forest valley at dusk rendered in Blender from Python: a glowing lantern orb drifts between pine trees through warm haze and floating sparks.",
+   "credit": null
+  }
+ },
+ "model-split-screen": {
+  "title": "Same prompt, two models: side-by-side comparison videos with time and cost",
+  "short": "Model split screen",
+  "tagline": "Two runs of one prompt become a side-by-side or stacked video with each model's measured time and cost, optionally blind until the reveal.",
+  "category": "editing",
+  "prompts": [
+   "Lay out ./fable.mp4 and ./opus.mp4 side by side with their time and cost: Fable 1 h 57 min $81.10, Opus 3 h 11 min $45.97",
+   "Make a 9:16 blind A/B of these two renders and reveal the names in the last 3 seconds",
+   "Run this prompt in two fresh sessions, log time and cost, then make the comparison video"
+  ],
+  "keywords": [
+   "fable 5.2 vs opus 5.5",
+   "same prompt two models video",
+   "ai model comparison video",
+   "side by side comparison video",
+   "split screen comparison with ffmpeg",
+   "blind a/b video test"
+  ],
+  "stack": [
+   "Python",
+   "Pillow",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free locally: a 9 s 1080p split in under 2 s (measured)",
+  "output": "1920×1080 or 1080×1920 MP4 with names, stats, optional blind reveal and winner frame",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_2e1850a6570d.webp",
+   "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_005952a9f241.jpg",
+   "alt": "Split-screen comparison: the same Blender forest scene rendered by Eevee and by Cycles side by side, each labelled with seconds per frame and total render time.",
+   "credit": null
+  }
+ },
+ "code-game-trailer": {
+  "title": "Game trailer from code: record a browser game frame by frame and cut it",
+  "short": "Code game trailer",
+  "tagline": "Record the three.js game your agent built with exact frames, scripted shots and trailer cameras, then cut it on the beat to a 1080p trailer.",
+  "category": "formats",
+  "prompts": [
+   "Make a 20-second trailer of the three.js game in this folder, with a title card and music",
+   "Record my browser game as a cinematic gameplay video I can post on X",
+   "Fable 5.2 built me a game in one HTML file; cut a trailer for it with slow motion on the best moment"
+  ],
+  "keywords": [
+   "game trailer",
+   "record three.js game",
+   "gameplay video from a browser game",
+   "fable 5.2 game trailer",
+   "headless chrome frame capture",
+   "create video games with claude code"
+  ],
+  "stack": [
+   "Bun",
+   "Chrome (headless, CDP)",
+   "three.js",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free locally: an 18.6 s 1080p trailer in 56 s on an Apple M4 Pro (measured)",
+  "output": "1920×1080 trailer MP4 at -14 LUFS, a 1280×720 preview, a contact sheet and a check report",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_0a9bdd0e2104.webp",
+   "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_5f2d839d6b69.jpg",
+   "alt": "Trailer of a browser game made in code: a paper-lantern glider with red wings flies through a dusk canyon, trailing sparks, past a score counter.",
+   "credit": null
+  }
+ },
+ "code-3d-explainer": {
+  "title": "3D explainer from code: build the invisible one part at a time",
+  "short": "3D science explainer",
+  "tagline": "A cell, atom, virus or engine built in three.js part by part, zooming through scales to a cutaway, with every fact checked first.",
+  "category": "formats",
+  "prompts": [
+   "Make a 20-second 3D video of an animal cell, built one organelle at a time, ending on a cutaway",
+   "Explain how a nuclear reactor works by building one you can take apart in three.js",
+   "Zoom from a fingertip down to the atoms and show why two fingers never really touch, with correct physics"
+  ],
+  "keywords": [
+   "3d science explainer video",
+   "explain how it works in 3d",
+   "animal cell 3d animation",
+   "three.js explainer video",
+   "kurzgesagt style 3d explainer",
+   "fable 5.2 explainer"
+  ],
+  "stack": [
+   "three.js",
+   "Bun",
+   "Chrome (headless, CDP)",
+   "FFmpeg",
+   "HyperFrames (optional)"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free locally: 21 s at 1080p in 53 s (22.5 s with HyperFrames) on an Apple M4 Pro (measured)",
+  "output": "1920×1080 MP4 plus a fact sheet with sources, QA contact sheets and label checks",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_822f53d8f96a.webp",
+   "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_4cffb0f1dfb5.jpg",
+   "alt": "A 3D animal cell built in three.js part by part on a near-black background: a teal membrane, an orange nucleolus, labelled organelles and a scale bar.",
+   "credit": null
+  }
+ }
 }

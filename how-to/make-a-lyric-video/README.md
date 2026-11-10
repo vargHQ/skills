@@ -69,7 +69,7 @@ Music you own or have licensed. The lyric formats assume your own song; for a so
 - [How to make an AI music video for your song with Claude Code](../make-an-ai-music-video/README.md) — Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.
 - [How to add captions to a video with AI: TikTok, Hormozi and karaoke styles](../add-captions-to-video/README.md) — Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames.
 - [How to make motion graphics with Claude Code (HyperFrames, Remotion)](../claude-code-motion-graphics/README.md) — Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.
-- [All 28 guides](../README.md) · [all 73 skills](../../README.md#all-73-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: how to make a lyric video · ai lyric video generator · ai lyric video maker · how to make a lyric video for a song · how to make a lyric video for youtube · how to make a lyric video for tiktok · how to make a lyric video for free · ai lyric video free · ai lyric video tutorial · animation kinetic typography lyric video</sub>
 
