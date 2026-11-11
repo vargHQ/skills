@@ -1,7 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "varg AI video skills",
-  "description": "77 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics and FFmpeg edits, generated on the varg API or rendered locally.",
+  "description": "78 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics and FFmpeg edits, generated on the varg API or rendered locally.",
   "folders": [
     "ad-creative-testing",
     "ai-ad-compliance-check",
@@ -12,6 +12,7 @@
     "character-passport",
     "code-3d-explainer",
     "code-game-trailer",
+    "code-path-traced-film",
     "code-to-video-previz",
     "ecommerce-video-ads",
     "ecommerce-video-edit",

@@ -71,6 +71,7 @@
         "blender-code-film",
         "code-3d-explainer",
         "code-game-trailer",
+        "code-path-traced-film",
         "make-a-woke-profile-with-chatgpt",
         "varg-birthday-video",
         "varg-dropship-reel",
@@ -506,6 +507,45 @@
         "alt": "Trailer of a browser game made in code: a paper-lantern glider with red wings flies through a dusk canyon, trailing sparks, past a score counter."
       },
       "description": "Turn a browser game or three.js / WebGL scene an agent built into a cinematic trailer MP4: a virtual clock injected before the page's scripts makes every frame exact at 30 or 60 fps, a director JSON scripts each shot (key and mouse inputs, game setup, trailer camera paths, slow motion, HTML titles and end cards), headless Chrome captures 1920x1080 frames, ffmpeg cuts them on the beat, a music bed (code-written or from varg) is normalised to -14 LUFS, and a checker measures frozen frames, loudness, debug text, third-party names and claims. Includes a tested example game. Use when someone asks for a game trailer, to record my three.js game, a gameplay video, a trailer for my browser game, a Fable 5.2 game video or a fake AAA gameplay trailer. Not for HTML motion graphics (hyperframes), 3D previz for AI video (threejs-animatic), AI-generated footage (varg-ai) or editing existing footage (short-form-ffmpeg-cookbook)."
+    },
+    {
+      "name": "code-path-traced-film",
+      "title": "Path-traced film from code: a short where the agent writes the renderer too",
+      "tagline": "A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": false,
+      "local": true,
+      "cost": "free locally: 70 s at 1280x720 (1,560 frames) in 1 h 46 min on a MacBook Pro M4 Pro (measured)",
+      "output": "PNG frames, an MP4 film with score and captions, a one-file live page",
+      "stack": [
+        "WebGL2 (GLSL)",
+        "Headless Chrome",
+        "Bun",
+        "Python (numpy)",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "path tracer film from code",
+        "write your own renderer with claude",
+        "fable 5.2 path tracer",
+        "animated short made entirely in code",
+        "webgl path tracer animation",
+        "no blender 3d film"
+      ],
+      "use_cases": [
+        "make-videos-with-claude-fable-5-2"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/code-path-traced-film/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/code-path-traced-film/README.md",
+      "how_to": "https://varg.ai/how-to/skills/code-path-traced-film",
+      "install": "npx skills add vargHQ/skills --skill code-path-traced-film",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d3436e5fa9.webp",
+        "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3caf00c2eb41.jpg",
+        "alt": "A clay mouse in a red scarf looks up at a glowing firefly in tall night grass, path traced by a renderer written in code."
+      },
+      "description": "Make a short animated film in which everything is code the agent writes, including the renderer: a path tracer in one WebGL2 shader (no Blender, no three.js, no meshes, no textures), characters and props as signed distance fields, a meadow of analytic curved grass blades, moon, firefly and window lights with soft shadows, depth of field and motion blur, a variance-guided denoiser, a score synthesized in numpy from the same timeline, captions and an encode. Includes the complete tested film \"The Smallest Star\" (70 s, 11 shots, two characters) as a starter, a live page that runs the same renderer in the browser, and the speed-ups and traps found while making it. Use when someone asks for a film, short or music piece \"made entirely in code\", \"write your own renderer / ray tracer / path tracer and make a film with it\", a storybook or clay-diorama 3D short without Blender, a \"no assets, no video model\" showcase of what a coding model can do, or a remake of The Smallest Star with another story. Not for a Blender film (blender-code-film), a three.js explainer (code-3d-explainer), recording a browser game (code-game-trailer), 2D motion graphics (kinetic-type-art, hyperframes) or AI-generated footage (varg-ai)."
     },
     {
       "name": "code-to-video-previz",
@@ -3853,7 +3893,8 @@
         "code-3d-explainer",
         "model-split-screen",
         "code-to-video-previz",
-        "video-sound"
+        "video-sound",
+        "code-path-traced-film"
       ],
       "queries": [
         "fable 5.2 video generation",

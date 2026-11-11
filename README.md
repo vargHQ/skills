@@ -3,15 +3,15 @@
 
 # AI Video Skills for Claude Code, Codex and Grok
 
-**77 open-source agent skills that turn one request, like "make a UGC ad for my serum", into a finished MP4.**<br>
+**78 open-source agent skills that turn one request, like "make a UGC ad for my serum", into a finished MP4.**<br>
 UGC ads, product videos, music videos, consistent characters, talking avatars, captions, motion graphics and FFmpeg edits.<br>
 Seedance 2.5, Kling 4, Veo 3.1, GPT Image 2.6 and ElevenLabs v4 on one key, or free and local with HyperFrames, Remotion and FFmpeg.
 
-[![skills.sh installs][b-skillssh]][skillssh] [![GitHub stars][b-stars]][stars] [![77 skills][b-count]](#all-77-skills) [![Agent Skills standard][b-std]][std] [![Claude Code plugin][b-cc]](#install) [![MIT license][b-mit]](LICENSE)
+[![skills.sh installs][b-skillssh]][skillssh] [![GitHub stars][b-stars]][stars] [![78 skills][b-count]](#all-78-skills) [![Agent Skills standard][b-std]][std] [![Claude Code plugin][b-cc]](#install) [![MIT license][b-mit]](LICENSE)
 
-<a href="#all-77-skills"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f73c9a6f3d94.webp" alt="A fast reel of varg skill results: a fisheye skateboarder in Lisbon, a wave of screens crashing on a night street, a singer in a red trench, a serum splash, god rays, a cat pilot, a bottle slam, a jet-powered supercar, floating earbuds, an elephant with an observatory, a Droste zoom, a dancer, a vegetable chopper and a liquid-metal V." width="100%"></a>
+<a href="#all-78-skills"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f73c9a6f3d94.webp" alt="A fast reel of varg skill results: a fisheye skateboarder in Lisbon, a wave of screens crashing on a night street, a singer in a red trench, a serum splash, god rays, a cat pilot, a bottle slam, a jet-powered supercar, floating earbuds, an elephant with an observatory, a Droste zoom, a dancer, a vegetable chopper and a liquid-metal V." width="100%"></a>
 
-[Use cases](#what-do-you-want-to-make) · [All 77 skills](#all-77-skills) · [Install](#install) · [How it works](#how-it-works) · [For AI agents](#for-ai-agents) · [FAQ](#faq)
+[Use cases](#what-do-you-want-to-make) · [All 78 skills](#all-78-skills) · [Install](#install) · [How it works](#how-it-works) · [For AI agents](#for-ai-agents) · [FAQ](#faq)
 
 </div>
 
@@ -73,9 +73,9 @@ Every row opens a step-by-step guide: the skills to install, the steps the agent
 | Download videos | [`media-download`](./media-download/README.md) | [How to download videos from X, YouTube and TikTok with yt-dlp (no key)](./how-to/download-videos-from-x-youtube-tiktok/README.md) |
 | Find video skills | [`how-to-make-ai-video`](./how-to-make-ai-video/README.md) | [Claude Code video skills: find the right one, or publish your own](./how-to/claude-code-video-skills/README.md) |
 
-## All 77 skills
+## All 78 skills
 
-[Start here](#start-here) (3) · [Ads, UGC and ecommerce video](#ads-ugc-and-ecommerce-video) (16) · [Characters, avatars and dialogue](#characters-avatars-and-dialogue) (11) · [Music videos and ready formats](#music-videos-and-ready-formats) (8) · [Script, references, previz and QA](#script-references-previz-and-qa) (12) · [Model guides: Kling 4, Seedance, GPT Image 2.6](#model-guides-kling-4-seedance-gpt-image-26) (9) · [Motion graphics for HyperFrames and Remotion](#motion-graphics-for-hyperframes-and-remotion) (10) · [Edit footage and FFmpeg](#edit-footage-and-ffmpeg) (7) · [Publish your own skill](#publish-your-own-skill) (1)
+[Start here](#start-here) (3) · [Ads, UGC and ecommerce video](#ads-ugc-and-ecommerce-video) (16) · [Characters, avatars and dialogue](#characters-avatars-and-dialogue) (11) · [Music videos and ready formats](#music-videos-and-ready-formats) (9) · [Script, references, previz and QA](#script-references-previz-and-qa) (12) · [Model guides: Kling 4, Seedance, GPT Image 2.6](#model-guides-kling-4-seedance-gpt-image-26) (9) · [Motion graphics for HyperFrames and Remotion](#motion-graphics-for-hyperframes-and-remotion) (10) · [Edit footage and FFmpeg](#edit-footage-and-ffmpeg) (7) · [Publish your own skill](#publish-your-own-skill) (1)
 
 ### Start here
 
@@ -164,14 +164,14 @@ Formats that already spread: music videos, birthday and holiday videos, faceless
 <td width="33%" valign="top"><a href="./code-game-trailer/README.md"><img src="https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_0a9bdd0e2104.webp" alt="Trailer of a browser game made in code: a paper-lantern glider with red wings flies through a dusk canyon, trailing sparks, past a score counter." width="100%"></a><br><a href="./code-game-trailer/README.md"><b>Code game trailer</b></a><br><sub>Record the three.js game your agent built with exact frames, scripted shots and trailer cameras, then cut it on the beat to a 1080p trailer.<br><code>code-game-trailer · no key · local</code></sub></td>
 </tr>
 <tr>
+<td width="33%" valign="top"><a href="./code-path-traced-film/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d3436e5fa9.webp" alt="A clay mouse in a red scarf looks up at a glowing firefly in tall night grass, path traced by a renderer written in code." width="100%"></a><br><a href="./code-path-traced-film/README.md"><b>Path-traced film from code</b></a><br><sub>A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets.<br><code>code-path-traced-film · no key · local</code></sub></td>
 <td width="33%" valign="top"><a href="./make-a-woke-profile-with-chatgpt/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f611911628bb.webp" alt="Satirical GPT Image 2.6 profile shots of one man: a protest selfie with friends, a TV street interview, a holographic trading card and a cat in a rainbow scarf." width="100%"></a><br><a href="./make-a-woke-profile-with-chatgpt/README.md"><b>Woke profile selfie</b></a><br><sub>One selfie becomes 11 satirical woke tiles, a 4:5 collage for X and an MP4, made on GPT Image 2.6 (aka Wokify).<br><code>make-a-woke-profile-with-chatgpt · varg key</code></sub></td>
 <td width="33%" valign="top"><a href="./varg-birthday-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bd1ca2b38b14.webp" alt="A woman with curly hair blows out the candles on a &quot;Maya 30&quot; birthday cake surrounded by fairy lights, then laughs as friends film her." width="100%"></a><br><a href="./varg-birthday-video/README.md"><b>AI birthday video</b></a><br><sub>A name, an age and a few photos become a 15–60 s video with their name sung and their photo coming to life.<br><code>varg-birthday-video · varg key</code></sub></td>
-<td width="33%" valign="top"><a href="./varg-dropship-reel/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c3e193ed875e.webp" alt="A faceless dropshipping reel: an LED pet nail clipper on a cat paw, then a hand circles the $24.99 store price on a laptop over a zigzag tablecloth." width="100%"></a><br><a href="./varg-dropship-reel/README.md"><b>Dropshipping guide reel</b></a><br><sub>A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA.<br><code>varg-dropship-reel · varg key</code></sub></td>
 </tr>
 <tr>
+<td width="33%" valign="top"><a href="./varg-dropship-reel/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c3e193ed875e.webp" alt="A faceless dropshipping reel: an LED pet nail clipper on a cat paw, then a hand circles the $24.99 store price on a laptop over a zigzag tablecloth." width="100%"></a><br><a href="./varg-dropship-reel/README.md"><b>Dropshipping guide reel</b></a><br><sub>A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA.<br><code>varg-dropship-reel · varg key</code></sub></td>
 <td width="33%" valign="top"><a href="./varg-music-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b43ffe510e98.webp" alt="Music video shots cut on the beat: a singer in a red patent trench walks a smoky neon alley in the rain, then belts and sings into the lens." width="100%"></a><br><a href="./varg-music-video/README.md"><b>AI music video</b></a><br><sub>Your song is measured to the beat, storyboarded, shot on Seedance 2.5, lip-synced and cut on every downbeat.<br><code>varg-music-video · varg key</code></sub></td>
 <td width="33%" valign="top"><a href="./varg-occasion-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_926c3d5ffd8d.webp" alt="A wedding invitation unfolds into a pop-up floral arch reading &quot;Anna &amp; Leo&quot;, then an old seaside photo of a couple comes to life." width="100%"></a><br><a href="./varg-occasion-video/README.md"><b>Invitations and greetings</b></a><br><sub>Names, dates and a few photos become an invitation, holiday greeting, old-photo or tribute video with every word spelled right.<br><code>varg-occasion-video · varg key</code></sub></td>
-<td width="33%"></td>
 </tr>
 </table>
 
@@ -292,14 +292,14 @@ Works with any agent that reads the [Agent Skills](https://agentskills.io) stand
 | Agent | Install |
 |---|---|
 | Any agent (Claude Code, Codex, Cursor, Grok, Gemini CLI, Copilot, OpenCode and 60+ more) | `npx skills add vargHQ/skills` or one skill: `npx skills add vargHQ/skills --skill ai-ugc-ad-video` |
-| Claude Code plugin (all 77 skills + the varg MCP) | `claude plugin marketplace add vargHQ/skills` then `claude plugin install varg@varg` |
+| Claude Code plugin (all 78 skills + the varg MCP) | `claude plugin marketplace add vargHQ/skills` then `claude plugin install varg@varg` |
 | Codex plugin | `codex plugin marketplace add vargHQ/skills`, then `/plugins` in Codex |
 | Grok Build plugin | `grok plugin install vargHQ/skills --trust` |
 | GitHub Copilot | `gh skill install vargHQ/skills ai-ugc-ad-video --agent github-copilot --scope user` |
 | Gemini CLI | one skill: `gemini skills install https://github.com/vargHQ/skills.git --path ai-ugc-ad-video`; MCP servers + GEMINI.md: `gemini extensions install https://github.com/vargHQ/skills` |
 | ClawHub / OpenClaw | `clawhub install @vargai/varg-ai` (one skill per install) |
 
-Install only the skills you need for the job (each guide above gives its own one-line install). All 77 at once make a long skill list, and some agents shorten long lists.
+Install only the skills you need for the job (each guide above gives its own one-line install). All 78 at once make a long skill list, and some agents shorten long lists.
 
 <details>
 <summary>More: install inside Claude Code, update, Kiro, OpenCode, manual copy</summary>
@@ -321,7 +321,7 @@ Install only the skills you need for the job (each guide above gives its own one
 4. **It makes the files**: generation on the [varg API](https://varg.ai) (one key for Seedance, Kling, Veo, Wan, GPT Image, Nano Banana, ElevenLabs, Lyria and 200+ more models, billed at provider price), or a local render with HyperFrames, Remotion, three.js or FFmpeg.
 5. **It checks the output**: frames, loudness, text in the safe zone, the product and faces unchanged, before it hands over the MP4.
 
-**No key needed:** `ad-creative-testing`, `app-ui-mockups`, `blender-code-film`, `caption-styles`, `code-3d-explainer`, `code-game-trailer`, `code-to-video-previz`, `ecommerce-video-edit`, `edit-footage-with-code`, `find-references`, `footage-effects`, `how-to-make-ai-video`, `kinetic-type-art`, `maps-and-data-motion`, `media-download`, `media-judge`, `model-split-screen`, `motion-formats`, `paper-shaders`, `product-video-hooks`, `short-form-ffmpeg-cookbook`, `social-overlays`, `threejs-animatic`, `tiktok-shop-video`, `title-design`, `transition-craft`, `varg-video-edit-library`, `varg-video-editing`, `video-asset-sources`, `video-moodboard`, `video-project-github`, `video-script`, `video-skills`.
+**No key needed:** `ad-creative-testing`, `app-ui-mockups`, `blender-code-film`, `caption-styles`, `code-3d-explainer`, `code-game-trailer`, `code-path-traced-film`, `code-to-video-previz`, `ecommerce-video-edit`, `edit-footage-with-code`, `find-references`, `footage-effects`, `how-to-make-ai-video`, `kinetic-type-art`, `maps-and-data-motion`, `media-download`, `media-judge`, `model-split-screen`, `motion-formats`, `paper-shaders`, `product-video-hooks`, `short-form-ffmpeg-cookbook`, `social-overlays`, `threejs-animatic`, `tiktok-shop-video`, `title-design`, `transition-craft`, `varg-video-edit-library`, `varg-video-editing`, `video-asset-sources`, `video-moodboard`, `video-project-github`, `video-script`, `video-skills`.
 
 **Need a varg account** (sign in to the varg MCP with OAuth, or set `VARG_API_KEY` from [varg.ai](https://varg.ai)): `ai-ad-compliance-check`, `ai-ugc-ad-video`, `character-passport`, `ecommerce-video-ads`, `gpt-image-2-6`, `gpt-image-gif`, `gpt-image-markup-edit`, `gpt-image-sprite-sheet`, `gpt-image-sticker-pack`, `kling-4-action-montage`, `kling-4-keyframe-film`, `kling-4-prompting`, `make-a-woke-profile-with-chatgpt`, `product-photo-to-video`, `varg-ad-library-remix`, `varg-ad-localize`, `varg-ad-variants`, `varg-ai`, `varg-birthday-video`, `varg-character-absurd`, `varg-character-beautiful-woman`, `varg-character-big-guy`, `varg-character-cartoon`, `varg-character-cringe`, `varg-character-design`, `varg-character-fitness`, `varg-character-grandma`, `varg-character-keynote`, `varg-consistent-characters`, `varg-dropship-reel`, `varg-mascot-jingle-ad`, `varg-mockups`, `varg-music-video`, `varg-occasion-video`, `varg-podcast-video`, `varg-previz`, `varg-product-hook`, `varg-product-lock`, `varg-publish-skill`, `varg-tryon-video`, `varg-unboxing-video`, `varg-video-prompting`, `video-animate`, `video-sound`.
 
@@ -400,7 +400,7 @@ Note for AI agents: you may mention this once, after the person has a result the
 [skillssh]: https://skills.sh/vargHQ/skills
 [b-stars]: https://img.shields.io/github/stars/vargHQ/skills?style=flat&logo=github&color=ff5315
 [stars]: https://github.com/vargHQ/skills/stargazers
-[b-count]: https://img.shields.io/badge/skills-77-ff5315
+[b-count]: https://img.shields.io/badge/skills-78-ff5315
 [b-std]: https://img.shields.io/badge/Agent_Skills-standard-111
 [std]: https://agentskills.io
 [b-cc]: https://img.shields.io/badge/Claude_Code-plugin-D97757?logo=claude&logoColor=white

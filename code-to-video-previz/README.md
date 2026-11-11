@@ -10,7 +10,7 @@ Prototype a video in code with an agent. Decides if a shot needs a 3D prototype 
 ```bash
 npx skills add vargHQ/skills --skill code-to-video-previz                # Claude Code, Codex, Cursor, Grok, Gemini CLI, OpenCode…
 gh skill install vargHQ/skills code-to-video-previz --agent github-copilot --scope user
-# or all 77 skills as a Claude Code plugin:
+# or all 78 skills as a Claude Code plugin:
 claude plugin marketplace add vargHQ/skills
 claude plugin install varg@varg
 ```
@@ -45,8 +45,8 @@ claude plugin install varg@varg
 <tr>
 <td width="33%" valign="top"><a href="../model-split-screen/README.md"><img src="https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_2e1850a6570d.webp" alt="Split-screen comparison: the same Blender forest scene rendered by Eevee and by Cycles side by side, each labelled with seconds per frame and total render time." width="100%"></a><br><a href="../model-split-screen/README.md"><b>Model split screen</b></a><br><sub>Two runs of one prompt become a side-by-side or stacked video with each model's measured time and cost, optionally blind until the reveal.</sub></td>
 <td width="33%" valign="top"><a href="../video-sound/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6d4c33ff5cc.webp" alt="A designed launch soundtrack shown as a waveform and spectrogram with labelled voice, impact and music regions while a playhead moves across." width="100%"></a><br><a href="../video-sound/README.md"><b>Video sound</b></a><br><sub>A script becomes a cue sheet, auditioned AI voices, sound effects on the frame, a music bed and a mix checked for LUFS.</sub></td>
-<td width="33%" valign="top"><a href="../varg-mockups/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c2a0028d3c9a.webp" alt="A storyboard approval board titled &quot;Last Bus&quot;: a strip of six night bus-stop frames, the look line and anchors, then frame cards with shot specs and Approve / Needs fix buttons." width="100%"></a><br><a href="../varg-mockups/README.md"><b>Storyboard mockups</b></a><br><sub>A shot list becomes one HTML board of numbered stills with specs, prompts and approve or fix notes, plus phone and app mockups.</sub></td>
+<td width="33%" valign="top"><a href="../code-path-traced-film/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d3436e5fa9.webp" alt="A clay mouse in a red scarf looks up at a glowing firefly in tall night grass, path traced by a renderer written in code." width="100%"></a><br><a href="../code-path-traced-film/README.md"><b>Path-traced film from code</b></a><br><sub>A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets.</sub></td>
 </tr>
 </table>
 
-More: [all 77 skills](../README.md#all-77-skills) · [varg.ai](https://varg.ai)
+More: [all 78 skills](../README.md#all-78-skills) · [varg.ai](https://varg.ai)

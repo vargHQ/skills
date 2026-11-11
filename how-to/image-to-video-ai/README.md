@@ -85,7 +85,7 @@ Yes. gpt-image-gif makes a real animated GIF with GPT Image 2.6 (2-16 frames) fr
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
 - [How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets](../gpt-image-2-6/README.md) — Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets.
 - [How to make an AI birthday video with their name and photo (and e-invites)](../make-an-ai-birthday-video/README.md) — Turn a name, an age and a few photos into a birthday video with a song that sings their name, or an invitation or holiday greeting.
-- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Runway, Google Flow, Higgsfield.</sub><br>
 <sub>People also search: image to video ai · photo to video ai · image to video ai free · animate photo ai · how to make ai video from picture · how to make ai video from photos · image to video ai generator · photo to video ai generator · bring old photos to life ai · claude code image to video · image to video slow camera push in from single photo 5 seconds</sub>

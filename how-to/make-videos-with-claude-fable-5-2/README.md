@@ -7,11 +7,11 @@
 
 <p><a href="../../blender-code-film/README.md"><img src="https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_417a3b4d8684.webp" alt="A low-poly forest valley at dusk rendered in Blender from Python: a glowing lantern orb drifts between pine trees through warm haze and floating sparks." width="480"></a></p>
 
-**Short answer:** start with [`blender-code-film`](../../blender-code-film/README.md): a short film in Blender written entirely in Python: shots as data, stills first, critic loop, Eevee or Cycles, music bed. The other 5 skills below add the steps around it. Ask your agent for the result in your own words; it asks the few choices that matter before anything is paid for and hands back the files.
+**Short answer:** start with [`blender-code-film`](../../blender-code-film/README.md): a short film in Blender written entirely in Python: shots as data, stills first, critic loop, Eevee or Cycles, music bed. The other 6 skills below add the steps around it. Ask your agent for the result in your own words; it asks the few choices that matter before anything is paid for and hands back the files.
 
 ```bash
 # Claude Code, Codex, Grok, Cursor, Gemini CLI, Copilot, OpenCode and other agents
-npx skills add vargHQ/skills --skill blender-code-film --skill code-game-trailer --skill code-3d-explainer --skill model-split-screen --skill code-to-video-previz --skill video-sound
+npx skills add vargHQ/skills --skill blender-code-film --skill code-game-trailer --skill code-3d-explainer --skill model-split-screen --skill code-to-video-previz --skill video-sound --skill code-path-traced-film
 ```
 
 Then ask your agent in plain words, for example: *"Make a 20-second low-poly storybook film in Blender, entirely in Python: a lantern drifting through a forest at dusk, 4 shots. Stills first."*
@@ -26,6 +26,7 @@ Then ask your agent in plain words, for example: *"Make a 20-second low-poly sto
 | 4 | [`model-split-screen`](../../model-split-screen/README.md) | Same prompt, two models: fair runs, measured time and cost, side-by-side or stacked layout, blind reveal. <sub>no key · local</sub> |
 | 5 | [`code-to-video-previz`](../../code-to-video-previz/README.md) | A Blender or three.js blockout that drives Seedance when the shot should be generated, not rendered. <sub>no key · local</sub> |
 | 6 | [`video-sound`](../../video-sound/README.md) | Music bed, sound effects on the frame and a measured mix. <sub>varg key</sub> |
+| 7 | [`code-path-traced-film`](../../code-path-traced-film/README.md) | A short film from a path tracer the agent writes itself: characters from distance fields, analytic grass, a numpy score, a live page. <sub>no key · local</sub> |
 
 <table>
 <tr>
@@ -37,7 +38,7 @@ Then ask your agent in plain words, for example: *"Make a 20-second low-poly sto
 <tr>
 <td width="25%" valign="top"><a href="../../code-to-video-previz/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7eb2082066a4.webp" alt="A coded 3D previz: blocky stand-in characters and props are staged in grey sets while a camera view and the shot code sit side by side." width="100%"></a><br><a href="../../code-to-video-previz/README.md"><b>Code-to-video previz</b></a><br><sub>staging.json, checked stills, guide clip</sub></td>
 <td width="25%" valign="top"><a href="../../video-sound/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6d4c33ff5cc.webp" alt="A designed launch soundtrack shown as a waveform and spectrogram with labelled voice, impact and music regions while a playhead moves across." width="100%"></a><br><a href="../../video-sound/README.md"><b>Video sound</b></a><br><sub>Mixed master with cue sheet and checks</sub></td>
-<td width="25%"></td>
+<td width="25%" valign="top"><a href="../../code-path-traced-film/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d3436e5fa9.webp" alt="A clay mouse in a red scarf looks up at a glowing firefly in tall night grass, path traced by a renderer written in code." width="100%"></a><br><a href="../../code-path-traced-film/README.md"><b>Path-traced film from code</b></a><br><sub>PNG frames, an MP4 film with score and captions, a one-file live page</sub></td>
 <td width="25%"></td>
 </tr>
 </table>
@@ -83,7 +84,7 @@ code-3d-explainer writes a fact sheet with a source for every claim and has a fr
 - [AI storyboard to video: previz in three.js or Blender before you pay](../ai-storyboard-to-video/README.md) — Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video.
 - [How to make an AI music video for your song with Claude Code](../make-an-ai-music-video/README.md) — Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.
 - [How to make a product launch video with Claude Code (HyperFrames, Remotion)](../make-a-product-launch-video/README.md) — Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage.
-- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield MCP, Blender MCP, Remotion.</sub><br>
 <sub>People also search: fable 5.2 video generation · claude fable 5.2 video · fable 5.2 vs opus 5.5 · fable 5.2 blender · claude blender animation · claude blender skill · make a video with claude code · create video games with claude code · record a three.js game as a video · 3d explainer video with code · same prompt two models comparison video</sub>

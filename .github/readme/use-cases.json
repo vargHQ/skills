@@ -2187,6 +2187,10 @@
    {
     "name": "video-sound",
     "role": "music bed, sound effects on the frame and a measured mix"
+   },
+   {
+    "name": "code-path-traced-film",
+    "role": "a short film from a path tracer the agent writes itself: characters from distance fields, analytic grass, a numpy score, a live page"
    }
   ],
   "start_with": "blender-code-film",

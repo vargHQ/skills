@@ -76,7 +76,7 @@ The skills master social cuts to -14 LUFS (ecommerce-video-edit, varg-birthday-v
 - [How to make an AI movie or short film with Claude Code, script to final cut](../make-an-ai-movie/README.md) — Turn an idea into an AI short film: script, real references, moodboard, cast passports, approved stills, animated shots, sound and QA.
 - [How to make a product launch video with Claude Code (HyperFrames, Remotion)](../make-a-product-launch-video/README.md) — Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage.
 - [How to make an AI talking avatar video from a photo (lip sync, podcasts)](../make-an-ai-talking-avatar-video/README.md) — Turn a photo and a script into a lip-synced talking avatar, a keynote speaker clip or a two-host AI podcast with steady faces.
-- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: CapCut, Canva.</sub><br>
 <sub>People also search: ai voiceover for video · ai voiceover generator · ai voiceover free · how to make a video with ai voice over · how to make ai video voice over · ai sound design for video · ai sound design generator for video · ai sound design for video free · ai voiceover text to speech · calm female AI text-to-speech voiceover natural 2026 · best text-to-speech API calm female voice natural 2026 · ffmpeg sidechaincompress duck sound effects under dialogue</sub>

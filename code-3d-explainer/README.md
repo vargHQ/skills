@@ -10,7 +10,7 @@ Make a 3D explainer video of something you cannot film (a cell, an atom, a virus
 ```bash
 npx skills add vargHQ/skills --skill code-3d-explainer                # Claude Code, Codex, Cursor, Grok, Gemini CLI, OpenCode…
 gh skill install vargHQ/skills code-3d-explainer --agent github-copilot --scope user
-# or all 77 skills as a Claude Code plugin:
+# or all 78 skills as a Claude Code plugin:
 claude plugin marketplace add vargHQ/skills
 claude plugin install varg@varg
 ```
@@ -45,8 +45,8 @@ claude plugin install varg@varg
 <tr>
 <td width="33%" valign="top"><a href="../code-to-video-previz/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7eb2082066a4.webp" alt="A coded 3D previz: blocky stand-in characters and props are staged in grey sets while a camera view and the shot code sit side by side." width="100%"></a><br><a href="../code-to-video-previz/README.md"><b>Code-to-video previz</b></a><br><sub>A brief, reference clip or painting becomes a 3D scene staged in metres, checked frames and a guide clip for a video model.</sub></td>
 <td width="33%" valign="top"><a href="../video-sound/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6d4c33ff5cc.webp" alt="A designed launch soundtrack shown as a waveform and spectrogram with labelled voice, impact and music regions while a playhead moves across." width="100%"></a><br><a href="../video-sound/README.md"><b>Video sound</b></a><br><sub>A script becomes a cue sheet, auditioned AI voices, sound effects on the frame, a music bed and a mix checked for LUFS.</sub></td>
-<td width="33%"></td>
+<td width="33%" valign="top"><a href="../code-path-traced-film/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d3436e5fa9.webp" alt="A clay mouse in a red scarf looks up at a glowing firefly in tall night grass, path traced by a renderer written in code." width="100%"></a><br><a href="../code-path-traced-film/README.md"><b>Path-traced film from code</b></a><br><sub>A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets.</sub></td>
 </tr>
 </table>
 
-More: [all 77 skills](../README.md#all-77-skills) · [this skill on varg how to](https://varg.ai/how-to/skills/code-3d-explainer) · [varg.ai](https://varg.ai)
+More: [all 78 skills](../README.md#all-78-skills) · [this skill on varg how to](https://varg.ai/how-to/skills/code-3d-explainer) · [varg.ai](https://varg.ai)
