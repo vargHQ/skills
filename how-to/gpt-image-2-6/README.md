@@ -92,7 +92,7 @@ make-a-woke-profile-with-chatgpt turns one selfie into 11 satirical versions plu
 - [Image to video AI: how to turn a photo into a video with Seedance or Kling](../image-to-video-ai/README.md) — Turn any photo into a moving clip on Seedance 2.5, Kling 4, Veo 3.1 or Wan 3 with one varg key, or into a looping GIF.
 - [How to make an AI influencer or AI character people remember](../make-an-ai-influencer/README.md) — Turn an idea into an AI influencer or character with a locked look: premise, details, styling, a character sheet, then reuse in video.
 - [AI storyboard to video: previz in three.js or Blender before you pay](../ai-storyboard-to-video/README.md) — Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video.
-- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: ChatGPT, Nano Banana.</sub><br>
 <sub>People also search: gpt image 2.6 · gpt image 2.6 gif · gpt image 2.6 sunburst · gpt image 2.6 vs 2.5 · gpt image 2.6 pricing · gpt image 2 prompt · chatgpt image prompts · chatgpt image trend prompt · chatgpt action figure prompt · ai gif generator from image · ai sticker pack generator · ai sticker pack telegram · ai sprite sheet generator · sprite sheet generator ai · animated sticker maker for whatsapp</sub>

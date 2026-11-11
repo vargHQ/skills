@@ -72,7 +72,7 @@ About $0.06 for a 1024×1024 sheet on GPT Image 2.6, measured on varg. Slicing a
 - [How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets](../gpt-image-2-6/README.md) — Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets.
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
 - [Image to video AI: how to turn a photo into a video with Seedance or Kling](../image-to-video-ai/README.md) — Turn any photo into a moving clip on Seedance 2.5, Kling 4, Veo 3.1 or Wan 3 with one varg key, or into a looping GIF.
-- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: ai sprite sheet generator · ai sprite sheet · ai sprite sheet animation · ai sprite sheet generator from image · ai sprite sheet generator github · best ai sprite sheet generator · character sprite sheet ai · ai sprite sheet maker · ai sprite sheet generator free · ai pixel art sprite sheet generator</sub>
 

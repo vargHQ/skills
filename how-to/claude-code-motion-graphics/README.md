@@ -84,7 +84,7 @@ No. These templates render locally for free and use only OFL or Apache fonts.
 - [How to make an AI music video for your song with Claude Code](../make-an-ai-music-video/README.md) — Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.
 - [How to make vertical 9:16 video with FFmpeg: crop, burn captions, add music](../ffmpeg-vertical-video/README.md) — Turn any footage into a 1080x1920 MP4 for Reels, TikTok and Shorts with copyable FFmpeg commands tested on real media, free and local.
 - [How to add captions to a video with AI: TikTok, Hormozi and karaoke styles](../add-captions-to-video/README.md) — Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames.
-- [All 29 guides](../README.md) · [all 77 skills](../../README.md#all-77-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: After Effects, Jitter, SVGator.</sub><br>
 <sub>People also search: claude code motion graphics · claude code motion graphics skill · claude code motion graphics remotion · claude code motion design · claude code animation skill · motion graphics ai · motion graphics ai skill · kinetic typography · kinetic typography generator · remotion skill · hyperframes skill · remotion vs hyperframes · logo animation ai · claude code animated logo · lower thirds</sub>

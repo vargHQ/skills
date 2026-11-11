@@ -2,8 +2,8 @@
   "$schema": "https://cursor.com/schemas/cursor-plugin/plugin.json",
   "name": "varg",
   "displayName": "varg AI video skills",
-  "description": "77 AI video skills: UGC ads, product videos, music videos, consistent characters, captions, motion graphics and FFmpeg edits, plus the varg MCP for Seedance, Kling, Veo, GPT Image and ElevenLabs on one key.",
-  "version": "2.16.0",
+  "description": "78 AI video skills: UGC ads, product videos, music videos, consistent characters, captions, motion graphics and FFmpeg edits, plus the varg MCP for Seedance, Kling, Veo, GPT Image and ElevenLabs on one key.",
+  "version": "2.17.0",
   "author": {
     "name": "varg",
     "url": "https://varg.ai"
@@ -33,6 +33,7 @@
     "./character-passport",
     "./code-3d-explainer",
     "./code-game-trailer",
+    "./code-path-traced-film",
     "./code-to-video-previz",
     "./ecommerce-video-ads",
     "./ecommerce-video-edit",

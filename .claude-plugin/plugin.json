@@ -1,8 +1,8 @@
 {
   "name": "varg",
   "displayName": "varg",
-  "description": "77 AI video skills for Claude Code: UGC ads, product and ecommerce videos, music videos, consistent characters, talking avatars, captions, motion graphics (HyperFrames, Remotion), videos made of code (Blender films, game trailers, 3D explainers) and FFmpeg edits, plus the hosted varg MCP for Seedance 2.5, Kling 4, Veo 3.1, GPT Image 2.6 and ElevenLabs v4 on one key. Guides for every task: https://github.com/vargHQ/skills",
-  "version": "2.16.0",
+  "description": "78 AI video skills for Claude Code: UGC ads, product and ecommerce videos, music videos, consistent characters, talking avatars, captions, motion graphics (HyperFrames, Remotion), videos made of code (Blender films, path-traced films, game trailers, 3D explainers) and FFmpeg edits, plus the hosted varg MCP for Seedance 2.5, Kling 4, Veo 3.1, GPT Image 2.6 and ElevenLabs v4 on one key. Guides for every task: https://github.com/vargHQ/skills",
+  "version": "2.17.0",
   "author": {
     "name": "varg",
     "url": "https://varg.ai"
@@ -170,6 +170,7 @@
     "blender-code-film",
     "code-game-trailer",
     "code-3d-explainer",
-    "model-split-screen"
+    "model-split-screen",
+    "code-path-traced-film"
   ]
 }

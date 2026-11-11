@@ -1,10 +1,10 @@
 # vargHQ/skills
 
-> 77 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
+> 78 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
 
 ## Install (for an agent asked to "install varg video skills")
 
-1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 77 makes a long skill list that some agents shorten.
+1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 78 makes a long skill list that some agents shorten.
 2. Run `npx skills add vargHQ/skills --skill <skill> --skill <skill>` (add `-a <agent> -g -y` for a global, non-interactive install; agents: claude-code, codex, cursor, grok, gemini-cli, github-copilot, opencode and 60+ more). Claude Code can take all of them as a plugin instead: `claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg`.
 3. For generation, connect the varg MCP (`https://mcp.varg.ai/mcp`, OAuth sign-in) or set `VARG_API_KEY` from https://varg.ai. Skills marked "no key" need neither.
 4. Read the chosen skill's SKILL.md before using it. AGENTS.md has the task → skill index; catalog.json has the same data as JSON.
@@ -85,6 +85,7 @@
 - [blender-code-film](https://raw.githubusercontent.com/vargHQ/skills/main/blender-code-film/SKILL.md): A brief becomes a Blender film built and rendered from one Python file: shots as data, stills first, critic loop, Eevee or Cycles. (no key · local)
 - [code-3d-explainer](https://raw.githubusercontent.com/vargHQ/skills/main/code-3d-explainer/SKILL.md): A cell, atom, virus or engine built in three.js part by part, zooming through scales to a cutaway, with every fact checked first. (no key · local)
 - [code-game-trailer](https://raw.githubusercontent.com/vargHQ/skills/main/code-game-trailer/SKILL.md): Record the three.js game your agent built with exact frames, scripted shots and trailer cameras, then cut it on the beat to a 1080p trailer. (no key · local)
+- [code-path-traced-film](https://raw.githubusercontent.com/vargHQ/skills/main/code-path-traced-film/SKILL.md): A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets. (no key · local)
 - [make-a-woke-profile-with-chatgpt](https://raw.githubusercontent.com/vargHQ/skills/main/make-a-woke-profile-with-chatgpt/SKILL.md): One selfie becomes 11 satirical woke tiles, a 4:5 collage for X and an MP4, made on GPT Image 2.6 (aka Wokify). (varg key)
 - [varg-birthday-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-birthday-video/SKILL.md): A name, an age and a few photos become a 15–60 s video with their name sung and their photo coming to life. (varg key)
 - [varg-dropship-reel](https://raw.githubusercontent.com/vargHQ/skills/main/varg-dropship-reel/SKILL.md): A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA. (varg key)

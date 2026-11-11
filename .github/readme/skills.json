@@ -2928,5 +2928,42 @@
    "alt": "A 3D animal cell built in three.js part by part on a near-black background: a teal membrane, an orange nucleolus, labelled organelles and a scale bar.",
    "credit": null
   }
+ },
+ "code-path-traced-film": {
+  "title": "Path-traced film from code: a short where the agent writes the renderer too",
+  "short": "Path-traced film from code",
+  "tagline": "A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets.",
+  "category": "formats",
+  "prompts": [
+   "Write a 30-second fable about a snail and a lighthouse and film it with a path tracer you write yourself: no Blender, no assets",
+   "Remake The Smallest Star with my story, a paper boat that wants to reach the sea. Keep the night look, 6 shots",
+   "Make a 20-second clay-diorama short entirely in code with its own renderer and a synthesized score, plus a live page where I can drag the camera"
+  ],
+  "keywords": [
+   "path tracer film from code",
+   "write your own renderer with claude",
+   "fable 5.2 path tracer",
+   "animated short made entirely in code",
+   "webgl path tracer animation",
+   "no blender 3d film"
+  ],
+  "stack": [
+   "WebGL2 (GLSL)",
+   "Headless Chrome",
+   "Bun",
+   "Python (numpy)",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "free locally: 70 s at 1280x720 (1,560 frames) in 1 h 46 min on a MacBook Pro M4 Pro (measured)",
+  "output": "PNG frames, an MP4 film with score and captions, a one-file live page",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_39d3436e5fa9.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3caf00c2eb41.jpg",
+   "alt": "A clay mouse in a red scarf looks up at a glowing firefly in tall night grass, path traced by a renderer written in code.",
+   "credit": null
+  }
  }
 }
