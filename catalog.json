@@ -1920,7 +1920,7 @@
       "title": "AI video, image, voice and music API — Seedance 2.5, Kling 4, Veo 3.1",
       "tagline": "A prompt or photo becomes a video, image, voiceover, song or lip-synced clip through one varg API key.",
       "category": "start",
-      "version": "2.2.4",
+      "version": "2.2.5",
       "needs_key": true,
       "local": false,
       "cost": "~$2–5 per typical short video",
