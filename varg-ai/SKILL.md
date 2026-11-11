@@ -13,7 +13,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "2.2.3"
+  version: "2.2.4"
   openclaw:
     requires:
       env:
