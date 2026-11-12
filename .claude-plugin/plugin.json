@@ -171,6 +171,9 @@
     "code-game-trailer",
     "code-3d-explainer",
     "model-split-screen",
-    "code-path-traced-film"
+    "code-path-traced-film",
+    "./ai-parody-video",
+    "./scene-recast-video",
+    "./multi-angle-monologue"
   ]
 }
