@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.1.1"
+  version: "1.1.2"
   openclaw:
     requires:
       anyBins:
@@ -64,10 +64,10 @@ The video: [what it is, who it is for, how long, where it will be shown]
 
 Rules:
 
-- Before step 1, ask once for what is missing: what the video is, who it is for, the length, the platform and aspect ratio, a spend cap and the paid models allowed. Then set up the project with step 10's skill, so every STOP is a saved version.
-- One step at a time, in order. Before a step, read its guide and install its skill. Skip a step only when the person already has its output.
+- Before step 1, ask once for what is missing: what the video is, who it is for, the length, the platform and aspect ratio, the brand (name, colours, type, logo), what the person loves and hates in videos like it, a spend cap and the paid models allowed. Then set up the project with step 10's skill, so every STOP is a saved version.
+- One step at a time, in order. Before a step, read its guide and install its skill. Skip a step only when the person already has its output. When a skill names a different next step, this order wins; a video drawn entirely in code still takes every step, and step 7 sends its shots to code.
 - Each step writes its files. At every STOP, show them and wait for the person's yes.
-- Estimate the cost before every paid call and say the running total. Never go over the cap. Nothing before step 7 needs a video model.
+- Estimate the cost before every paid call and say the running total. Never go over the cap. Nothing before step 7 needs a video model: steps 2 and 5 make a few paid stills and step 4 paid voice and music, each after its estimate and a yes.
 - Use video models only for what code cannot draw: real people, crowds, weather, physical motion. Text, numbers, UI, charts and logos are built in code.
 - Sound is locked before picture (step 4), and the picture is cut to it.
 - Measure, do not grade yourself (step 9). Between close takes a person picks.
@@ -75,8 +75,8 @@ Rules:
 
 | # | Step | Writes | Skill | Guide |
 |---|---|---|---|---|
-| 1 | **References**: Write the brief, then one query pack per job the piece needs: light gets the most, then framing, people, location, texture, palette, type, motion, music. Search each source in its own words, open everything you keep, prove who made it, and show three candidates per job. Turn what the obvious search repeats into never.md. Sites that forbid bots go into links.md for the person to open. | refs.md, never.md, links.md | `find-references`, `varg-mockups` | https://varg.ai/how-to/find-references-for-an-ai-video.md |
-| 2 | **Moodboard** **STOP**: Write the board in ranked order: references, light, subject lock, framing, palette as hex taken from a reference, motion, texture, type, sound, and a Never list. Every line is a number or a named thing. Prove the board on three test stills before anything else is generated. | moodboard.md, board.html | `video-moodboard`, `varg-mockups`, `varg-video-prompting` | https://varg.ai/how-to/make-a-moodboard-for-an-ai-video.md |
+| 1 | **References** **STOP**: Write the brief, then one query pack per job the piece needs: light gets the most, then framing, people, location, texture, palette, type, motion, music. Search each source in its own words, open everything you keep, prove who made it, and show three candidates per job. Turn what the obvious search repeats into never.md. Sites that forbid bots go into links.md for the person to open. The person picks the references. | refs/refs.md, refs/never.md, refs/links.md, refs/board.html | `find-references`, `varg-mockups` | https://varg.ai/how-to/find-references-for-an-ai-video.md |
+| 2 | **Moodboard** **STOP**: Write the board in ranked order: references, light, subject lock, framing, palette as hex taken from a reference, motion, texture, type, sound, and a Never list. Every line is a number or a named thing, and every hex comes from a picked reference, never from memory. Prove the board on three test stills before anything else is generated. | look/moodboard.md, look/board.html | `video-moodboard`, `varg-mockups`, `varg-video-prompting` | https://varg.ai/how-to/make-a-moodboard-for-an-ai-video.md |
 | 3 | **Script** **STOP**: One promise, ten hooks to choose from, beats joined by BUT or THEREFORE, one spoken line per visual, every line sized to its seconds (about 2.5 words a second) and checked with the skill's check_script.py. Then the storyboard: timing and camera for every shot. | script.md, STORYBOARD.md | `video-script`, `varg-previz` | https://varg.ai/how-to/write-a-video-script-with-an-agent.md |
 | 4 | **Sound and voice** **STOP**: Lock the sound before any picture: a sound plan, two or three voice candidates to pick from, lines written with pauses and breaths, music mapped to bars, the few effects that matter, and a mix measured by script. beats.json holds the time of every cut, hit and word; the picture is cut to it. | sound/plan.md, cues.json, mix.wav, beats.json | `video-sound`, `varg-ai`, `varg-music-video`, [earshot](https://github.com/Leonxlnx/earshot) | https://varg.ai/how-to/design-sound-and-voice-for-ai-video.md |
 | 5 | **Characters and props** **STOP**: For every person, creature, product and prop: one passport paragraph that is pasted word for word into every later prompt, a turnaround sheet in the moodboard's look, six expressions written as a cause plus physical tells, and a measured voice line. Props get materials, wear and how they move. | cast/*.md, character and prop sheets | `character-passport`, `varg-character-design`, `varg-consistent-characters`, `varg-product-lock` | https://varg.ai/how-to/design-characters-and-props-for-ai-video.md |
