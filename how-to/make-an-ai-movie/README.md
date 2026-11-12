@@ -58,6 +58,10 @@ Then ask your agent in plain words, for example: *"Make a 90-second AI short fil
 - "Animate my approved stills with Seedance 2.5 at 480p first, then the keepers in 1080p."
 - "Review my finished short before I post it: ./film.mp4"
 
+## A finished example
+
+["Not you.", a 41-second parody film made by Claude Code in ten steps for $2.12](https://github.com/SecurityQQ/ai-parody-video-claude-code): the whole project is public, step by step: references, moodboard, script, voice lines, character sheets, a three.js blockout, shot prompts, the edit as code, the AI judges' findings and the bill.
+
 ## What you need
 
 - The generation steps call the [varg API](https://varg.ai) (Seedance, Kling, Veo, GPT Image, ElevenLabs and more on one key). Sign in to the varg MCP with OAuth or set `VARG_API_KEY`. Models are billed at provider price, 1 credit = $0.01, and the agent shows an estimate before anything expensive.

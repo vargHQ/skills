@@ -1302,7 +1302,12 @@
    "kling-4-and-seedance-prompt-guide",
    "consistent-character-ai-video",
    "add-ai-voiceover-to-video"
-  ]
+  ],
+  "worked_example": {
+   "title": "\"Not you.\", a 41-second parody film made by Claude Code in ten steps for $2.12",
+   "url": "https://github.com/SecurityQQ/ai-parody-video-claude-code",
+   "note": "the whole project is public, step by step: references, moodboard, script, voice lines, character sheets, a three.js blockout, shot prompts, the edit as code, the AI judges' findings and the bill."
+  }
  },
  {
   "rank": 11,
@@ -2233,7 +2238,12 @@
    "ai-storyboard-to-video",
    "make-an-ai-music-video",
    "make-a-product-launch-video"
-  ]
+  ],
+  "worked_example": {
+   "title": "\"Not you.\", a 41-second parody film made by Claude Code in ten steps for $2.12",
+   "url": "https://github.com/SecurityQQ/ai-parody-video-claude-code",
+   "note": "the whole project is public, step by step: references, moodboard, script, voice lines, character sheets, a three.js blockout, shot prompts, the edit as code, the AI judges' findings and the bill."
+  }
  },
  {
   "slug": "make-game-sprite-sheets-with-ai",

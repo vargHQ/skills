@@ -50,6 +50,10 @@ Then ask your agent in plain words, for example: *"Make a 20-second low-poly sto
 - "Make a 3D explainer of how a mitochondrion makes energy, built one part at a time, with a fact sheet I can check first."
 - "Same prompt to Fable 5.2 and Opus 5.5: lay out both results side by side with their time and cost, 9:16, blind until the last 3 seconds."
 
+## A finished example
+
+["Not you.", a 41-second parody film made by Claude Code in ten steps for $2.12](https://github.com/SecurityQQ/ai-parody-video-claude-code): the whole project is public, step by step: references, moodboard, script, voice lines, character sheets, a three.js blockout, shot prompts, the edit as code, the AI judges' findings and the bill.
+
 ## What you need
 
 - The generation steps call the [varg API](https://varg.ai) (Seedance, Kling, Veo, GPT Image, ElevenLabs and more on one key). Sign in to the varg MCP with OAuth or set `VARG_API_KEY`. Models are billed at provider price, 1 credit = $0.01, and the agent shows an estimate before anything expensive.

@@ -34,6 +34,7 @@ type UseCase = {
   queries: string[]; skills: { name: string; role: string }[]; start_with: string;
   example_prompts: string[]; faq: { q: string; a: string }[];
   alternatives?: string[]; needs_key: boolean; related: string[];
+  worked_example?: { title: string; url: string; note: string };
 };
 type Skill = { dir: string; name: string; description: string; version: string; fm: Record<string, any>; meta: Meta; uses: UseCase[] };
 
@@ -204,6 +205,7 @@ function useCasePage(u: UseCase): string {
   lines.push("", tiles(chain.map((s) => ({ href: `../../${s.dir}/README.md`, img: s.meta.preview!, title: s.meta.short, line: s.meta.output })), 4), "");
   lines.push("## Requests to paste into your agent", "");
   for (const p of u.example_prompts) lines.push(`- "${p}"`);
+  if (u.worked_example) lines.push("", "## A finished example", "", `[${u.worked_example.title}](${u.worked_example.url}): ${u.worked_example.note}`);
   lines.push("", "## What you need", "");
   lines.push(keyed
     ? `- The generation steps call the [varg API](https://varg.ai) (Seedance, Kling, Veo, GPT Image, ElevenLabs and more on one key). Sign in to the varg MCP with OAuth or set \`VARG_API_KEY\`. Models are billed at provider price, 1 credit = $0.01, and the agent shows an estimate before anything expensive.`
