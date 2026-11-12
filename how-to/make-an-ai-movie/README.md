@@ -60,7 +60,7 @@ Then ask your agent in plain words, for example: *"Make a 90-second AI short fil
 
 ## A finished example
 
-["Not you.", a 41-second parody film made by Claude Code in ten steps for $2.12](https://github.com/SecurityQQ/ai-parody-video-claude-code): the whole project is public, step by step: references, moodboard, script, voice lines, character sheets, a three.js blockout, shot prompts, the edit as code, the AI judges' findings and the bill.
+["Not you.", a 41-second parody film made by Claude Code in ten steps for $2.12 in model calls](https://github.com/SecurityQQ/ai-parody-video-claude-code): the whole project is public, step by step: references, moodboard, script, voice lines, character sheets, a three.js blockout, shot prompts, the edit as code, the AI judges' findings and the bill.
 
 ## What you need
 
