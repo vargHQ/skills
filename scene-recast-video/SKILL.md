@@ -89,21 +89,47 @@ text, no extra objects, no AI artifacts.
 
 | Route | Send | Use it when |
 |---|---|---|
-| Seedance 2.5 with a video reference, `byteplus:dreamina-seedance-2-5-260628` or `fal:bytedance/seedance-2.5/reference-to-video` | `files`: the plate, then the images (`@video1`, `@image1…`), up to 3 videos and 9 images, 4 to 30 s, `provider_options.byteplus.omni_reference_task_type: "reference"` | The default. Best at motion, timing and framing; strictest filter on known footage and known faces. |
-| MiniMax H3 Max Recast, `minimax_h3_max_recast` | `files`: the video (5 to 30 s, no shot over 15 s), then up to four photos; optional `prompt`; `provider_options.fal.enhance_realism: true` | Only the people change. Keeps motion, gestures, camera, cuts and the soundtrack. From $1.50 a run. |
-| Wan 3, `fal:alibaba/wan-3.0/reference-to-video` | reference videos (up to 5), images (up to 10), audio (up to 5), 2 to 30 s, 1080p | A cheaper second opinion, or when you also bring a voice clip. |
+| MiniMax H3 Max Recast, `minimax_h3_max_recast` | `files`: the video (5 to 30 s, no shot over 15 s), then up to four photos; optional `prompt` ("the man becomes the wizard from the photo"); `provider_options.fal.enhance_realism: true` | Start here. Only the people change: room, props, camera and every move stay. Output at 768p or 1080p. |
+| Seedance 2.5 with a video reference, `seedance_2_5` | `files`: the plate, then the images (`@video1`, `@image1…`), up to 3 videos and 9 images, 4 to 30 s, `provider_options.piapi.input.omni_reference_task_type: "reference"` | When more than the people should change (set, style, an added event), or you want native audio. The scene is redrawn from the plate, so small set details shift. |
+| Wan 3, `fal:alibaba/wan-3.0/reference-to-video` | reference videos (up to 5), images (up to 10), audio (up to 5), 2 to 30 s, 1080p | A second opinion, or when you also bring a voice clip. Not tested here. |
 
 ```bash
+# Recast: the plate and one character sheet
 curl -s -X POST https://api.varg.ai/v2/tools/video/call -H "Authorization: Bearer $VARG_API_KEY" \
   -H "Content-Type: application/json" -d '{
-  "model": "byteplus:dreamina-seedance-2-5-260628",
-  "prompt": "<recast prompt>",
-  "files": [{"url":"PLATE_MP4"},{"url":"CHARACTER_1"},{"url":"CHARACTER_2"}],
-  "aspect_ratio": "16:9", "resolution": "480p", "duration": 15, "audio": true,
-  "provider_options": {"byteplus": {"omni_reference_task_type": "reference"}}}'
+  "model": "minimax_h3_max_recast",
+  "prompt": "the man becomes the old wizard from the reference photo",
+  "files": [{"url":"PLATE_MP4"},{"url":"CHARACTER_SHEET"}],
+  "resolution": "720p"}'
+
+# Seedance 2.5: the plate as a motion reference
+curl -s -X POST https://api.varg.ai/v2/tools/video/call -H "Authorization: Bearer $VARG_API_KEY" \
+  -H "Content-Type: application/json" -d '{
+  "model": "seedance_2_5",
+  "prompt": "Reference @video1 for the motion, camera movement and framing. <Character> from @image1 performs exactly the same <action> as the man in @video1, same timing, in the same <room>. One continuous handheld take, no cuts.",
+  "files": [{"url":"PLATE_MP4"},{"url":"CHARACTER_SHEET"}],
+  "aspect_ratio": "9:16", "resolution": "480p", "duration": 10, "audio": false,
+  "provider_options": {"piapi": {"input": {"omni_reference_task_type": "reference"}}}}'
 ```
 
-Draft at 480p, check (section 6), then rerun the keeper at 720p or 1080p with the same inputs. Model facts, limits and the measured price per second: `varg-previz/references/seedance-v2v.md`. Armin's own comparison of the two engines he uses: the Seedance tool "is more accurate on motion control and timing", the MiniMax one "drops the timing on some frames" and "wins on cost"; Seedance "goes up to 30 seconds in one clip".
+### What a real run showed (varg, 2026-11-12)
+
+One plate (a 10 s stock clip of a man dancing in a kitchen, one take, 720x1280), one character sheet (an invented wizard: face close-up plus three full-body views on grey), one run on each route, no retries:
+
+| | Recast | Seedance 2.5, reference task |
+|---|---|---|
+| Result | Same moves second by second, same kitchen down to the posters, face and costume from the sheet | Same moves second by second, face and costume from the sheet, kitchen redrawn close to the plate |
+| Output | 768x1344, 10 s, no audio (the plate had none) | 480x854, 10 s |
+| Cost | $3.00 | $2.48 at 480p |
+
+What failed on the way, so you do not pay to learn it:
+
+- **Seedance edit task** (`omni_reference_task_type: "edit"`) rejects the job unless `aspect_ratio` is `"adaptive"` and `duration` is `-1`. The varg body does not accept a top-level `duration` below 1, so leave it out and put both inside `provider_options.piapi.input`.
+- **The pinned standard route** (`piapi:seedance-2.5`) answered "Content moderation violation" three times: for the stock clip in edit and in reference mode, and for a clip of an AI-made character. It refuses a photoreal person in the reference video, licensed or generated. The `seedance_2_5` alias routes the same request to a tier that accepts it.
+- **A 480p plate** (832x480) came back "Invalid input"; the same clip at 1280x720 was accepted. Keep plates at 720p or more.
+- `estimate_cost` gives the ceiling: Recast showed $9.00 and charged $3.00.
+
+Draft on Seedance at 480p, check (section 6), then rerun the keeper at 720p or 1080p with the same inputs. Model facts and limits: `varg-previz/references/seedance-v2v.md`. Armin's own comparison of the two engines he uses: the Seedance tool "is more accurate on motion control and timing", the MiniMax one "drops the timing on some frames" and "wins on cost"; Seedance "goes up to 30 seconds in one clip". On the single-take test above the two were level on timing.
 
 ## 6. Check against the source, then fix
 
@@ -142,9 +168,9 @@ ffmpeg -i plate.mp4 -i take.mp4 -filter_complex \
 
 | Step | Runs | About |
 |---|---|---|
-| 480p drafts on Seedance 2.5, 2 runs of 15 s, 2 passes each | 4 | $10 (about 16 credits per second measured at 480p) |
-| Keepers at 720p or 1080p | 2 | $8 to $20 |
-| Or MiniMax H3 Max Recast, 2 passes | 2 | from $3 |
+| MiniMax H3 Max Recast, 3 plates of 10 s, 2 passes each | 6 | $18 (measured: $3.00 for 10 s at 768p) |
+| Or 480p drafts on Seedance 2.5, 3 plates of 10 s, 2 passes each | 6 | $15 (measured: $2.48 for 10 s at 480p) |
+| Seedance keepers at 720p or 1080p | 3 | check `estimate_cost` |
 | Upscale | 1 | from $0.50 |
 
 ## Related skills

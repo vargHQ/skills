@@ -77,7 +77,7 @@ Downloading doesn't give you a license. Use video-asset-sources for footage you 
 - [Claude Code video editing: cut dead air and turn podcasts into Shorts](../edit-video-with-claude-code/README.md) — Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg.
 - [How to make AI ad variations for creative testing on Meta and TikTok](../make-ad-variations-for-testing/README.md) — Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.
 - [Claude Code video skills: find the right one, or publish your own](../claude-code-video-skills/README.md) — Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key.
-- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: download twitter video · download twitter video to mp4 · download twitter video from link · tiktok downloader no watermark · tiktok downloader github · youtube video downloader for pc · instagram reel downloader · pinterest downloader · pinterest board downloader · yt-dlp mp4 command · yt-dlp best quality · yt-dlp cookies from browser · yt-dlp mp3</sub>
 

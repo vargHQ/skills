@@ -51,6 +51,7 @@
       "id": "characters",
       "title": "Characters, avatars and dialogue",
       "skills": [
+        "multi-angle-monologue",
         "varg-character-absurd",
         "varg-character-beautiful-woman",
         "varg-character-big-guy",
@@ -68,11 +69,13 @@
       "id": "formats",
       "title": "Music videos and ready formats",
       "skills": [
+        "ai-parody-video",
         "blender-code-film",
         "code-3d-explainer",
         "code-game-trailer",
         "code-path-traced-film",
         "make-a-woke-profile-with-chatgpt",
+        "scene-recast-video",
         "varg-birthday-video",
         "varg-dropship-reel",
         "varg-music-video",
@@ -225,6 +228,47 @@
       "description": "Turns an AI video ad into a compliance report for TikTok Shop, TikTok ads, Meta, YouTube, the FTC, New York's synthetic-performer law and the EU AI Act before it runs: varg video_analyze pulls every shot, spoken and on-screen claim and person, each claim is matched to the seller's evidence, the visuals are checked against TikTok Shop's AI product rules (no fake effects, before/after, changed quantity or size), people and voices against the FTC fake-testimonial rule, and the result is a pass / fix / block list with the rule, source and date, a rewrite for each fix, and the AI labels to set on each platform. Use when someone asks \"is this ad allowed\", \"will TikTok Shop reject this\", \"check my AI ad for compliance\", \"do I need an AI label\", \"can an AI avatar say it used the product\", or before publishing AI product ads, UGC or testimonials. Not legal advice, and not for writing the ad (use ecommerce-video-ads or tiktok-shop-video)."
     },
     {
+      "name": "ai-parody-video",
+      "title": "How to make AI parody videos of movie scenes and public figures",
+      "tagline": "A known scene, one wrong element and a payoff become a 10-45 second parody, with six measured formats and the rules for real people.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": true,
+      "local": false,
+      "cost": "measured: $0.96 for a 12 s one-prompt sketch; $3.00 for a 10 s recast",
+      "output": "10-45 s parody MP4 with subtitles, plus the plan table",
+      "stack": [
+        "varg API",
+        "Seedance 2.5",
+        "MiniMax H3",
+        "Kling 4",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "ai parody video",
+        "how to make ai parody videos",
+        "ai movie parody",
+        "ai celebrity parody video",
+        "ai meme video",
+        "ai movie mashup",
+        "fake live news ai video",
+        "ai spoof video"
+      ],
+      "use_cases": [
+        "make-ai-parody-videos"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/ai-parody-video/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/ai-parody-video/README.md",
+      "how_to": "https://varg.ai/how-to/skills/ai-parody-video",
+      "install": "npx skills add vargHQ/skills --skill ai-parody-video",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_350a40cd23d4.webp",
+        "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_87d1d5e04b3d.jpg",
+        "alt": "A mockumentary office sketch from one prompt: a wizard points a wand at a printer, a deadpan colleague holds a mug, then the wizard talks to the camera."
+      },
+      "description": "Plan and make a short AI parody video: a known movie scene, TV format or news shot with one wrong element, 10 to 45 seconds, built to be shared. Gives the joke structure, six formats measured on clips with 60 thousand to 9 million views (scene recast with new dialogue, original-vs-remake, one-prompt sitcom sketch, fake live news shot, character monologue, silent slapstick), which production route each one takes, prompt templates for the sketch and the news shot, subtitle and caption rules, and a plain list of what is allowed with real people, known characters, studio footage and cloned voices, with platform AI labels. Use when someone asks for a parody, spoof, meme video, movie mashup, crossover, \"X in the world of Y\", a celebrity or politician comedy clip, a fake trailer, or wants videos like the viral AI parodies on X, TikTok or Shorts. Then use scene-recast-video for remakes of an existing clip and multi-angle-monologue for speeches."
+    },
+    {
       "name": "ai-ugc-ad-video",
       "title": "AI UGC ad generator for Claude Code — open-source Arcads alternative",
       "tagline": "An AI creator holds your real product and talks to a phone camera; face, voice and label stay locked across shots.",
@@ -375,7 +419,8 @@
         "edit-video-with-claude-code",
         "make-a-faceless-youtube-video",
         "add-captions-to-video",
-        "translate-and-dub-video-ads"
+        "translate-and-dub-video-ads",
+        "make-ai-parody-videos"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/caption-styles/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/caption-styles/README.md",
@@ -1296,7 +1341,8 @@
         "open source video downloader"
       ],
       "use_cases": [
-        "download-videos-from-x-youtube-tiktok"
+        "download-videos-from-x-youtube-tiktok",
+        "make-ai-parody-videos"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/media-download/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/media-download/README.md",
@@ -1344,7 +1390,8 @@
         "make-a-faceless-youtube-video",
         "make-an-ai-movie",
         "consistent-character-ai-video",
-        "kling-4-and-seedance-prompt-guide"
+        "kling-4-and-seedance-prompt-guide",
+        "make-ai-parody-videos"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/media-judge/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/media-judge/README.md",
@@ -1431,6 +1478,46 @@
         "alt": "Motion formats play in turn: a pixel-art runner on a CRT night level, a wave rippling through a wordmark, a VHS bouncing logo and a kinetic lyric word."
       },
       "description": "Seven complete motion formats, each with a beat structure in seconds, a shot list and presets: a found-footage analog-horror trailer of a website, an authentic VHS bouncing-logo screensaver, a pixel-art runner on a CRT, a wordmark with a wave running through it, a one-shot music video that follows a DAW timeline, a launch trailer for an import feature, and a kinetic lyric video. Values come from VHS signal models (ntsc-rs, Finn McKenty), pixel-art conventions (Pedro Medeiros, Slynyrd), School of Motion, Netflix timing rules, screenlife rules and launch-film designers on X. Use when someone asks for one of these formats, a VHS or analog-horror look, a pixel art animation, a lyric video or a beat-synced launch video. NOT for generating the song or footage (varg-ai, varg-music-video)."
+    },
+    {
+      "name": "multi-angle-monologue",
+      "title": "How to make an AI character monologue with multiple camera angles",
+      "tagline": "One still becomes four angles, one acted voice track is cut at the pauses, and each part is lip-synced to its own angle.",
+      "category": "characters",
+      "version": "1.0.0",
+      "needs_key": true,
+      "local": false,
+      "cost": "under $2 for stills and voice, plus 6-12 lip-synced parts (estimate first)",
+      "output": "30-90 s monologue MP4 cut across four angles",
+      "stack": [
+        "varg API",
+        "Nano Banana 2.1",
+        "ElevenLabs v4",
+        "MiniMax H3 Max",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "ai character monologue",
+        "ai talking character multiple angles",
+        "lip sync multiple shots",
+        "elevenlabs v4 audio tags",
+        "minimax h3 lip sync",
+        "ai dialogue scene",
+        "ai actor performance prompt"
+      ],
+      "use_cases": [
+        "make-ai-parody-videos"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/multi-angle-monologue/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/multi-angle-monologue/README.md",
+      "how_to": "https://varg.ai/how-to/skills/multi-angle-monologue",
+      "install": "npx skills add vargHQ/skills --skill multi-angle-monologue",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a9b7dde96277.webp",
+        "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7e6f408861c5.jpg",
+        "alt": "An old wizard in an open-plan office complains to the camera about the printer, cut from a front angle to a side close-up with the lips on the words."
+      },
+      "description": "Make a one-minute character monologue that plays like a filmed scene: one base still, three more camera angles of the same moment, one voice track with acting tags, the audio cut into parts under 15 seconds at the pauses, each part lip-synced to its own angle with a performance prompt, then an edit that changes angle on every part. Includes the angle prompts, the voice script format with bracketed directions, the per-shot performance prompt, the varg calls and the checks. Use when someone wants a character to deliver a speech, rant, confession, villain monologue, \"explains X in character\" sketch, parody address or documentary-style interview with consistent face and voice for 30 to 90 seconds, or says their talking AI character looks like a frozen avatar. For a remake of an existing scene use scene-recast-video; for the joke and the rules for real people use ai-parody-video; for a two-host show use varg-podcast-video."
     },
     {
       "name": "paper-shaders",
@@ -1557,6 +1644,47 @@
         "alt": "A hand slams a steel water bottle onto a wooden table at sunset, water bursts out and a crushed plastic bottle rolls away."
       },
       "description": "Turn a product into scroll-stopping video hooks. Writes the first 3 seconds of TikTok, Reels and Meta product videos as three agreeing layers (what is on screen, the spoken line, the text overlay), from the buyer's own words, across 20+ hook types taken from Meta's Hooks Menu, Motion's 2026 hook data, Hormozi's callouts and the TikTok openers that spread in 2026 (late discovery, compliment then reveal, problem and fix in one clip, reply to a comment). It matches each hook to the buyer's awareness, checks it against platform claim rules, and, when footage exists, makes one MP4 per hook for testing. Use when someone asks for hooks, openers, the first 3 seconds, a better intro, or new hook variants for a product video or ad. NOT for whole ad plans (use ecommerce-video-ads), generating a viral-style product-in-use hook clip from photos (use varg-product-hook), app or SaaS hooks, or YouTube titles and thumbnails."
+    },
+    {
+      "name": "scene-recast-video",
+      "title": "How to remake a movie scene with new characters using AI (motion control)",
+      "tagline": "A reference clip, photos of your cast and a replace-keep-never prompt become your version with the original motion, timing and camera.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": true,
+      "local": false,
+      "cost": "measured: $3.00 for a 10 s Recast at 768p, $2.48 for 10 s on Seedance 2.5 at 480p",
+      "output": "5-30 s remake MP4 and a stacked original-vs-remake MP4",
+      "stack": [
+        "varg API",
+        "Seedance 2.5",
+        "MiniMax H3 Max Recast",
+        "Wan 3",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "ai scene remake",
+        "motion control ai video",
+        "seedance video reference",
+        "character swap video ai",
+        "higgsfield genjutsu alternative",
+        "recast video ai",
+        "video to video character replace",
+        "live action remake ai"
+      ],
+      "use_cases": [
+        "make-ai-parody-videos"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/scene-recast-video/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/scene-recast-video/README.md",
+      "how_to": "https://varg.ai/how-to/skills/scene-recast-video",
+      "install": "npx skills add vargHQ/skills --skill scene-recast-video",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bdf35f76a7dd.webp",
+        "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ec79b0a030ef.jpg",
+        "alt": "An old wizard in a blue star robe does a goofy dance in a retro kitchen: an invented character recast into a stock dance clip, same moves, same room."
+      },
+      "description": "Remake a known scene with a new cast: give a video model a short reference clip (a film scene, a dance, a fight, a news shot, a meme) plus photos of your own characters and a \"replace, keep, never\" prompt, and get your version with the motion, timing, camera and cuts of the original. Covers trimming the clip, character references, the recast prompt, new dialogue, the first-frame lock, the motion-only plate (greyscale or depth), three varg routes (Seedance 2.5 with a video reference, MiniMax H3 Max Recast, Wan 3), a frame-by-frame check against the source and a stacked original-vs-remake export. Use when someone wants a parody of a movie scene, \"this scene but with X\", a character swap, a motion-control remake, a live-action version of a game or anime scene, a meme recast, or asks how the Higgsfield Genjutsu / Seedance video-reference remakes on X are made. For the joke, format choice and the rules for real people use ai-parody-video; for a talking monologue use multi-angle-monologue."
     },
     {
       "name": "short-form-ffmpeg-cookbook",
@@ -2224,7 +2352,8 @@
         "make-an-ai-influencer",
         "consistent-character-ai-video",
         "make-game-sprite-sheets-with-ai",
-        "ai-virtual-try-on-video"
+        "ai-virtual-try-on-video",
+        "make-ai-parody-videos"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-design/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/varg-character-design/README.md",
@@ -3299,7 +3428,8 @@
         "make-a-faceless-youtube-video",
         "make-an-ai-movie",
         "add-ai-voiceover-to-video",
-        "make-videos-with-claude-fable-5-2"
+        "make-videos-with-claude-fable-5-2",
+        "make-ai-parody-videos"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/video-sound/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/video-sound/README.md",
@@ -4193,6 +4323,38 @@
       ],
       "page": "https://github.com/vargHQ/skills/blob/main/how-to/claude-code-video-skills/README.md",
       "markdown": "https://raw.githubusercontent.com/vargHQ/skills/main/how-to/claude-code-video-skills/README.md"
+    },
+    {
+      "slug": "make-ai-parody-videos",
+      "title": "How to make AI parody videos of movie scenes with Claude Code",
+      "one_liner": "Turn a known movie scene and one wrong element into a 10-45 second parody: recast the scene, write the sketch, or cut a monologue across four angles.",
+      "start_with": "ai-parody-video",
+      "skills": [
+        "ai-parody-video",
+        "scene-recast-video",
+        "multi-angle-monologue",
+        "media-download",
+        "varg-character-design",
+        "caption-styles",
+        "video-sound",
+        "media-judge"
+      ],
+      "queries": [
+        "how to make ai parody videos",
+        "ai parody video",
+        "ai movie parody",
+        "ai celebrity parody video",
+        "how to make ai movie mashup",
+        "ai scene remake with different characters",
+        "seedance motion control tutorial",
+        "higgsfield genjutsu tutorial",
+        "how to make ai meme videos",
+        "ai fake news video parody",
+        "character swap in video ai",
+        "how are viral ai parody videos made"
+      ],
+      "page": "https://github.com/vargHQ/skills/blob/main/how-to/make-ai-parody-videos/README.md",
+      "markdown": "https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-ai-parody-videos/README.md"
     }
   ]
 }

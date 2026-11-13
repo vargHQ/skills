@@ -130,7 +130,14 @@ curl -s -X POST https://api.varg.ai/v2/tools/video/call -H "Authorization: Beare
   "resolution": "720p", "duration": 12}'
 ```
 
-`minimax_h3_max` and `minimax_h3_max_turbo` can sync to an audio track and follow the prompt; `minimax_h3_max_lipsync` takes one image and audio from 5 s up to 15 min with no direction (from $0.30), good for a draft of the whole speech on one angle. Check the model page for current inputs (https://varg.ai/models/llms.txt).
+Tested on varg on 2026-11-12 with a 14 s speech cut into two parts:
+
+- `minimax_h3_max` with the still and the audio part in `files` keeps your audio as it is (the pauses in the output land on the same milliseconds) and follows the prompt: asked to "turn his eyes to the lens" on the last line, he did. A 6.4 s part at 720p cost $0.56. The output runs about a second longer than the audio, which is the hold you asked for; trim it in the edit.
+- `minimax_h3_max_lipsync` takes one image and audio from 5 s up to 15 min and ignores direction: the lips are right, the head barely moves and the eyes stay where the still put them. A 7.8 s part at 480p cost $0.48. Good for a draft of the whole speech on one angle, not for the performance.
+- `estimate_cost` shows the worst case for the lip sync model ($3.60 at 480p); the real charge follows the audio length.
+- ElevenLabs v4 does not read the bracketed tags aloud; `[sighs]` and `[whispers]` came out as a sigh and a whisper.
+
+Check the model page for current inputs (https://varg.ai/models/llms.txt).
 
 ## 6. Join and check
 
@@ -156,7 +163,7 @@ ffmpeg -i scene.mp4 -i voice.mp3 -map 0:v -map 1:a -c:v copy -c:a aac -shortest 
 |---|---|---|
 | Base still and three angles, with retries | 6 to 8 images | under $1 |
 | Voice, two takes | 2 | under $1 |
-| Six lip-synced parts at 720p, one retry each | 12 runs | check `estimate_cost`; `minimax_h3_max_turbo` for drafts |
+| Six lip-synced parts of 10 s at 720p on `minimax_h3_max`, one retry each | 12 runs | about $10 (measured: $0.56 for 6.4 s) |
 
 ## Related skills
 

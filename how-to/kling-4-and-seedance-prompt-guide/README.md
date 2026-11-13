@@ -86,7 +86,7 @@ kling-4-keyframe-film budgets about 705 credits for a 30 s take at 1080p and abo
 - [How to make an AI movie or short film with Claude Code, script to final cut](../make-an-ai-movie/README.md) — Turn an idea into an AI short film: script, real references, moodboard, cast passports, approved stills, animated shots, sound and QA.
 - [AI storyboard to video: previz in three.js or Blender before you pay](../ai-storyboard-to-video/README.md) — Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video.
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
-- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: kling 4.0 vs seedance 2.5 · kling 4 prompt guide · kling prompt guide · kling ai prompt guide image to video · kling 4.0 tutorial · kling 4.0 flash · seedance prompt guide · seedance 2.5 prompt guide · seedance prompt skill github · seedance prompt structure · seedance vs kling · which ai video model is best · how to make ai videos look realistic · best ai video model 2026</sub>
 

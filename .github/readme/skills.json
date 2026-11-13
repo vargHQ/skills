@@ -2995,9 +2995,15 @@
   ],
   "needs_key": true,
   "local": false,
-  "cost": "1-4 generations for a 15 s sketch; about $10 of drafts for a 30 s recast",
+  "cost": "measured: $0.96 for a 12 s one-prompt sketch; $3.00 for a 10 s recast",
   "output": "10-45 s parody MP4 with subtitles, plus the plan table",
-  "card": true
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_350a40cd23d4.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_87d1d5e04b3d.jpg",
+   "alt": "A mockumentary office sketch from one prompt: a wizard points a wand at a printer, a deadpan colleague holds a mug, then the wizard talks to the camera.",
+   "credit": null
+  }
  },
  "scene-recast-video": {
   "title": "How to remake a movie scene with new characters using AI (motion control)",
@@ -3028,9 +3034,15 @@
   ],
   "needs_key": true,
   "local": false,
-  "cost": "about $10 of 480p drafts for 30 s on Seedance 2.5; Recast from $1.50 a run",
+  "cost": "measured: $3.00 for a 10 s Recast at 768p, $2.48 for 10 s on Seedance 2.5 at 480p",
   "output": "5-30 s remake MP4 and a stacked original-vs-remake MP4",
-  "card": true
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bdf35f76a7dd.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ec79b0a030ef.jpg",
+   "alt": "An old wizard in a blue star robe does a goofy dance in a retro kitchen: an invented character recast into a stock dance clip, same moves, same room.",
+   "credit": null
+  }
  },
  "multi-angle-monologue": {
   "title": "How to make an AI character monologue with multiple camera angles",
@@ -3062,6 +3074,12 @@
   "local": false,
   "cost": "under $2 for stills and voice, plus 6-12 lip-synced parts (estimate first)",
   "output": "30-90 s monologue MP4 cut across four angles",
-  "card": true
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a9b7dde96277.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7e6f408861c5.jpg",
+   "alt": "An old wizard in an open-plan office complains to the camera about the printer, cut from a front angle to a side close-up with the lips on the words.",
+   "credit": null
+  }
  }
 }

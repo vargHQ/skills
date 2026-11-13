@@ -10,7 +10,7 @@ Judge a finished AI-made video, image or track by measuring it, then rank takes 
 ```bash
 npx skills add vargHQ/skills --skill media-judge                # Claude Code, Codex, Cursor, Grok, Gemini CLI, OpenCode…
 gh skill install vargHQ/skills media-judge --agent github-copilot --scope user
-# or all 78 skills as a Claude Code plugin:
+# or all 81 skills as a Claude Code plugin:
 claude plugin marketplace add vargHQ/skills
 claude plugin install varg@varg
 ```
@@ -39,6 +39,7 @@ claude plugin install varg@varg
 - [How to make an AI movie or short film with Claude Code, script to final cut](../how-to/make-an-ai-movie/README.md)
 - [How to keep a consistent character in AI video (same face in every shot)](../how-to/consistent-character-ai-video/README.md)
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../how-to/kling-4-and-seedance-prompt-guide/README.md)
+- [How to make AI parody videos of movie scenes with Claude Code](../how-to/make-ai-parody-videos/README.md)
 
 ## Works well with
 
@@ -55,4 +56,4 @@ claude plugin install varg@varg
 </tr>
 </table>
 
-More: [all 78 skills](../README.md#all-78-skills) · [varg.ai](https://varg.ai)
+More: [all 81 skills](../README.md#all-81-skills) · [varg.ai](https://varg.ai)

@@ -78,7 +78,7 @@ Apparel try-on is one format here, but to put a garment on a model and keep it i
 - [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](../make-ai-ugc-ads/README.md) — Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.
 - [How to make an AI virtual try-on video from a flat-lay clothing photo](../ai-virtual-try-on-video/README.md) — Turn a flat-lay photo of clothing into a model wearing it and fit-check clips (turn, walk, mirror selfie) with the garment kept intact.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
-- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Creatify, Pippit, Higgsfield.</sub><br>
 <sub>People also search: product photo to video ai · product photo to video ai free · product photo to video prompt · product image to video · ai product video generator · ai product video generator from image · ai product video prompt · how to make product video with ai free · ai unboxing video generator · ai unboxing video prompt · ai unboxing video asmr · how to make asmr product video · ai product video ads · image to video product photography keep object rigid no warping 2026</sub>

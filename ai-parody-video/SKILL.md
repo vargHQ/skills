@@ -90,7 +90,7 @@ Length: 10 to 30 s for a single gag, up to 45 s only when a speech carries it. T
 
 ## 4. Template: the one-prompt sketch
 
-For a model with native dialogue and multi-shot prompts (`minimax_h3`, `seedance_2_5`, `kling_v4`). Structure from the posted prompt: place and camera style, who is where, dialogue with camera beats between the lines, the button, a style line.
+For a model with native dialogue and multi-shot prompts (`minimax_h3_max`, `seedance_2_5`, `kling_v4`). Structure from the posted prompt: place and camera style, who is where, dialogue with camera beats between the lines, the button, a style line.
 
 ```
 <Show format> style. <Room>, <time of day>, <light>, <three set details>. <Camera: handheld
@@ -126,6 +126,8 @@ on-screen text.
 
 Describe characters by role, age, build and clothes. If the cast must match specific faces, make stills first and use them as references.
 
+Tested on varg on 2026-11-12: a three-shot, three-line sketch on `minimax_h3_max` (`"audio": true`, 12 s, 720p, text only) came back in one run for $0.96 with all three shots, each line spoken by the right character and a sigh it added itself. Two things it got wrong: the lines were over by second 9 and the last shot held three seconds too long, and it put a pointed hat on a wizard the prompt never gave one. Write what a character does not wear, and ask for 2 s less than the dialogue seems to need.
+
 ## 5. Template: the fake live news shot
 
 ```
@@ -152,7 +154,7 @@ Add the red LIVE bug and the lower third in the edit (`social-overlays` or ffmpe
 
 ## 7. What it costs
 
-Plan before spending (`estimate_cost`): a 15 s one-prompt sketch is one to four generations; a 30 s recast is about $10 of 480p drafts plus the keepers (`scene-recast-video`); a 60 s monologue is 6 lip-synced parts (`multi-angle-monologue`). The creator's own numbers for his tool: a 30 s render in about 5 minutes, "easier shots can land in one try, harder ones usually need a few prompt passes".
+Plan before spending (`estimate_cost`): a 12 s one-prompt sketch cost $0.96 a run; a 10 s recast cost $3.00 on MiniMax H3 Max Recast and $2.48 on Seedance 2.5 at 480p (`scene-recast-video`); a 60 s monologue is 6 lip-synced parts at about $0.90 each (`multi-angle-monologue`). Measured on varg on 2026-11-12. The creator's own numbers for his tool: a 30 s render in about 5 minutes, "easier shots can land in one try, harder ones usually need a few prompt passes".
 
 ## Sources
 
