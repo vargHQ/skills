@@ -5,7 +5,7 @@
 
 <p><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_57bb4952ff0a.webp" alt="A terminal table from the take-finder script: a 3 min 24 s film scene split into eight uncut takes with start, end and length, the longest marked green and the channel end card marked to drop." width="480"></p>
 
-Find the video clip of a movie or TV scene and turn it into a clean reference take for an AI remake, a parody, an edit or a motion-control run. Covers which clip database to open for what you know (a quote, a film and scene, a look, a character), which of them an agent may fetch and which only a person may open, a tested yt-dlp search and download, cutting ten seconds straight out of a public-domain film on the Internet Archive, a script that splits a scene into its uncut takes with a contact sheet per take, the rules for a take a video model can follow (one take, one person, real movement, 720p or more) and what to check about rights before using it. Use when someone asks where to find movie clips, film scene references, a scene by its quote, scene packs, "the clip where he says X", a reference video for Seedance, Kling Motion Control, MiniMax Recast or Higgsfield Genjutsu, or says their remake source has cuts, watermarks or black bars. For still frames and look references use find-references; for the remake itself use scene-recast-video.
+Finds the video clip of a movie or TV scene and turns it into one clean reference take for an AI remake, a parody, an edit or a motion-control run. Covers which clip database fits a quote, a film and scene, a look or a character; which of them an agent may fetch and which only a person opens; a tested yt-dlp search and download; cutting straight from a public-domain film on the Internet Archive; a script that splits a scene into uncut takes with a contact sheet; the rules for a take a video model can follow; and a rights check. Use when someone asks where to find movie clips, film scene references, a scene by its quote, scene packs, a reference video for Seedance, Kling Motion Control, MiniMax Recast or Higgsfield Genjutsu, or says the source has cuts, watermarks or black bars. For still frames use find-references; for the remake itself use scene-recast-video.
 
 ```bash
 npx skills add vargHQ/skills --skill find-movie-clips                # Claude Code, Codex, Cursor, Grok, Gemini CLI, OpenCode…
@@ -21,7 +21,7 @@ claude plugin install varg@varg
 | Needs | nothing paid: runs locally |
 | Uses | yt-dlp, FFmpeg, Internet Archive, bash |
 | Works in | Claude Code, Codex, Grok, Cursor, Gemini CLI, Copilot, OpenCode and other Agent Skills tools |
-| Agent instructions | [SKILL.md](./SKILL.md) (v1.1.0) |
+| Agent instructions | [SKILL.md](./SKILL.md) (v1.2.0) |
 
 ## Ask your agent
 

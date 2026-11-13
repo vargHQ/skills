@@ -8,6 +8,8 @@
 set -euo pipefail
 in="${1:?usage: takes.sh <video> [min_seconds] [max_seconds] [out_dir]}"
 min="${2:-5}"; max="${3:-30}"; out="${4:-takes}"
+[ -f "$in" ] || { echo "takes.sh: no such file: $in" >&2; exit 1; }
+for tool in ffmpeg ffprobe bc; do command -v "$tool" >/dev/null || { echo "takes.sh: $tool is not installed" >&2; exit 1; }; done
 mkdir -p "$out"
 dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$in")
 cuts=$(ffmpeg -hide_banner -i "$in" -vf "select='gt(scene,0.3)',showinfo" -an -f null - 2>&1 \

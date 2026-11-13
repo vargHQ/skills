@@ -1,22 +1,20 @@
 ---
 name: find-movie-clips
 description: >-
-  Find the video clip of a movie or TV scene and turn it into a clean reference take for an AI
-  remake, a parody, an edit or a motion-control run. Covers which clip database to open for what
-  you know (a quote, a film and scene, a look, a character), which of them an agent may fetch and
-  which only a person may open, a tested yt-dlp search and download, cutting ten seconds straight
-  out of a public-domain film on the Internet Archive, a script that splits a scene into its
-  uncut takes with a contact sheet per take, the rules for a take a video model can follow
-  (one take, one person, real movement, 720p or more) and what to check about rights before
-  using it. Use when someone asks where to find movie clips, film scene references, a scene by
-  its quote, scene packs, "the clip where he says X", a reference video for Seedance, Kling
-  Motion Control, MiniMax Recast or Higgsfield Genjutsu, or says their remake source has cuts,
-  watermarks or black bars. For still frames and look references use find-references; for the
-  remake itself use scene-recast-video.
+  Finds the video clip of a movie or TV scene and turns it into one clean reference take for an
+  AI remake, a parody, an edit or a motion-control run. Covers which clip database fits a quote,
+  a film and scene, a look or a character; which of them an agent may fetch and which only a
+  person opens; a tested yt-dlp search and download; cutting straight from a public-domain film
+  on the Internet Archive; a script that splits a scene into uncut takes with a contact sheet;
+  the rules for a take a video model can follow; and a rights check. Use when someone asks
+  where to find movie clips, film scene references, a scene by its quote, scene packs, a
+  reference video for Seedance, Kling Motion Control, MiniMax Recast or Higgsfield Genjutsu, or
+  says the source has cuts, watermarks or black bars. For still frames use find-references; for
+  the remake itself use scene-recast-video.
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.1.0"
+  version: "1.2.0"
   openclaw:
     requires:
       anyBins:
@@ -32,6 +30,18 @@ allowed-tools: Bash(yt-dlp:*) Bash(ffmpeg:*) Bash(ffprobe:*) Bash(curl:*) Bash(j
 # Find movie clips: the scene, the clean take, the rights
 
 A remake is only as good as its reference clip. Still-frame libraries (ShotDeck, Film-Grab, Shot Cafe) give you a look, not motion; for a video reference you need a clip database, a download and a cut down to one usable take. Everything marked "tested" below was run on 2026-11-13.
+
+## Best practices, in one screen
+
+1. **Start from what is known** (a line, a film and moment, a look, a character) and open the one database built for it. Do not browse.
+2. **Respect access.** Fetch only what allows it (YouTube through yt-dlp, the Internet Archive). For the rest, name the site and the search words and let the person open it.
+3. **Read the result list before downloading.** One download per scene, at 720p, from the upload that holds the scene in the film's own cut.
+4. **Never hand over a scene. Hand over a take:** one uncut shot, one person, real movement, 5 to 30 s, no logo, no subtitles, no black bars.
+5. **Look at the frames.** Cut detection finds the takes; only the contact sheet shows an end card, a second person or a logo.
+6. **Check the resolution column, not the file name,** and prefer the original file over a derivative.
+7. **Settle rights before the work:** own footage, licensed stock, public domain, then a short clip of a known scene for parody. A refusal from a model is an answer, not an obstacle.
+8. **Write the source down:** film, year, link, film time, licence. The next step and the caption both need it.
+9. **No take passes? Change the scene,** not the rules.
 
 ## 1. Ask, then go
 
