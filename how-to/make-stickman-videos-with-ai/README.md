@@ -58,7 +58,7 @@ Then ask your agent in plain words, for example: *"Make a 20-second stickman sur
 
 ### Is there a free AI stickman video generator?
 
-Yes. stickman-video draws and animates the figures in code and renders on your machine for free; only a narrator voice is a paid call (4 credits, $0.04, for 60 words on varg), and your own recording costs nothing. kaomei/stickman-video-director is a free MIT skill for clip prompts or its own local renderer.
+Yes. stickman-video draws and animates the figures in code and renders on your machine for free; only a narrator voice is a paid call, $0.04 (4 credits) for 60 words on varg, and your own recording costs nothing. kaomei/stickman-video-director is a free MIT skill for clip prompts or its own local renderer.
 
 ### Why do my stick figures look stiff?
 
