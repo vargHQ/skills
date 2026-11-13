@@ -90,7 +90,7 @@ varg-character-keynote says one run is roughly 350 credits at Seedance's 720p de
 - [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](../add-ai-voiceover-to-video/README.md) — Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix.
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
 - [How to make an AI influencer or AI character people remember](../make-an-ai-influencer/README.md) — Turn an idea into an AI influencer or character with a locked look: premise, details, styling, a character sheet, then reuse in video.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: HeyGen, D-ID, Hedra, Synthesia.</sub><br>
 <sub>People also search: ai talking avatar · ai talking avatar free · ai talking avatar generator · talking photo ai · ai lip sync video generator · talking head video ai generator · how to make ai talking video free · how to make ai videos with talking characters · ai podcast video generator · ai podcast video · ai talking avatar open source · make a talking avatar video from my photo · best AI talking head generator from single photo realistic lip sync 2026</sub>

@@ -123,6 +123,7 @@
       "description": "Cut, caption, reframe and repurpose footage you already have; download sources; find assets you may legally use.",
       "skills": [
         "edit-footage-with-code",
+        "find-movie-clips",
         "media-download",
         "model-split-screen",
         "short-form-ffmpeg-cookbook",

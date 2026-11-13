@@ -7,11 +7,11 @@
 
 <p><a href="../../media-download/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5ec6a143fa1e.webp" alt="A downloaded NASA clip plays: an astronaut drives a lunar rover across grey regolith, then a technician in a clean suit works at a lab bench." width="480"></a></p>
 
-**Short answer:** start with [`media-download`](../../media-download/README.md): yt-dlp and gallery-dl: best-quality MP4, audio-only MP3, playlists, logged-in sessions, Pinterest pins, boards and searches. The other 2 skills below add the steps around it. Ask your agent for the result in your own words; it asks the few choices that matter before anything is paid for and hands back the files.
+**Short answer:** start with [`media-download`](../../media-download/README.md): yt-dlp and gallery-dl: best-quality MP4, audio-only MP3, playlists, logged-in sessions, Pinterest pins, boards and searches. The other 3 skills below add the steps around it. Ask your agent for the result in your own words; it asks the few choices that matter before anything is paid for and hands back the files.
 
 ```bash
 # Claude Code, Codex, Grok, Cursor, Gemini CLI, Copilot, OpenCode and other agents
-npx skills add vargHQ/skills --skill media-download --skill find-references --skill video-asset-sources
+npx skills add vargHQ/skills --skill media-download --skill find-references --skill video-asset-sources --skill find-movie-clips
 ```
 
 Then ask your agent in plain words, for example: *"Download this X video in the best quality: https://x.com/user/status/123"*
@@ -23,13 +23,14 @@ Then ask your agent in plain words, for example: *"Download this X video in the 
 | 1 | [`media-download`](../../media-download/README.md) | Yt-dlp and gallery-dl: best-quality MP4, audio-only MP3, playlists, logged-in sessions, Pinterest pins, boards and searches. <sub>no key · local</sub> |
 | 2 | [`find-references`](../../find-references/README.md) | Study downloaded clips as references and prove who made them. <sub>no key · local</sub> |
 | 3 | [`video-asset-sources`](../../video-asset-sources/README.md) | Clips, music and SFX whose license lets you put them in a video. <sub>no key · local</sub> |
+| 4 | [`find-movie-clips`](../../find-movie-clips/README.md) | Find a film or TV scene by its quote or title and split it into uncut takes. <sub>no key · local</sub> |
 
 <table>
 <tr>
 <td width="25%" valign="top"><a href="../../media-download/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5ec6a143fa1e.webp" alt="A downloaded NASA clip plays: an astronaut drives a lunar rover across grey regolith, then a technician in a clean suit works at a lab bench." width="100%"></a><br><a href="../../media-download/README.md"><b>Media download</b></a><br><sub>Local MP4, MP3 or image files</sub></td>
 <td width="25%" valign="top"><a href="../../find-references/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c02ffe003ee2.webp" alt="A board of four cinematic references, a woman reading by a lamp, a warmly lit dinner, a modern house at dusk and a sunlit pool, then each reference in turn." width="100%"></a><br><a href="../../find-references/README.md"><b>Reference finder</b></a><br><sub>board.html with three picks per job</sub></td>
 <td width="25%" valign="top"><a href="../../video-asset-sources/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ca358f236497.webp" alt="Public-domain B-roll fetched by an agent from the NASA library: the Orion Nebula in infrared, Earth from the space station, green aurora over a treeline and Cassini passing Saturn." width="100%"></a><br><a href="../../video-asset-sources/README.md"><b>Video asset sources</b></a><br><sub>Licensed asset files and a credits file</sub></td>
-<td width="25%"></td>
+<td width="25%" valign="top"><a href="../../find-movie-clips/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_57bb4952ff0a.webp" alt="A terminal table from the take-finder script: a 3 min 24 s film scene split into eight uncut takes with start, end and length, the longest marked green and the channel end card marked to drop." width="100%"></a><br><a href="../../find-movie-clips/README.md"><b>Find movie clips</b></a><br><sub>One uncut take as MP4 (720p or more), a contact sheet per take and a source note</sub></td>
 </tr>
 </table>
 
@@ -77,7 +78,7 @@ Downloading doesn't give you a license. Use video-asset-sources for footage you 
 - [Claude Code video editing: cut dead air and turn podcasts into Shorts](../edit-video-with-claude-code/README.md) — Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg.
 - [How to make AI ad variations for creative testing on Meta and TikTok](../make-ad-variations-for-testing/README.md) — Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.
 - [Claude Code video skills: find the right one, or publish your own](../claude-code-video-skills/README.md) — Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: download twitter video · download twitter video to mp4 · download twitter video from link · tiktok downloader no watermark · tiktok downloader github · youtube video downloader for pc · instagram reel downloader · pinterest downloader · pinterest board downloader · yt-dlp mp4 command · yt-dlp best quality · yt-dlp cookies from browser · yt-dlp mp3</sub>
 

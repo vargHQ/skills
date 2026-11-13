@@ -99,7 +99,7 @@ A premise, an archetype and a contrast, one signature detail and one loud colour
 - [How to make an AI talking avatar video from a photo (lip sync, podcasts)](../make-an-ai-talking-avatar-video/README.md) — Turn a photo and a script into a lip-synced talking avatar, a keynote speaker clip or a two-host AI podcast with steady faces.
 - [How to use GPT Image 2.6: prompts, GIFs, sticker packs and sprite sheets](../gpt-image-2-6/README.md) — Turn a prompt or photo into GPT Image 2.6 posters and infographics, precise spot edits, looping GIFs, sticker packs or game sprite sheets.
 - [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](../make-ai-ugc-ads/README.md) — Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield.</sub><br>
 <sub>People also search: how to make an ai influencer · how to make an ai influencer for free · ai influencer generator · how to make an ai influencer video · ai influencer prompts · ai influencer girl · ai fitness influencer · ai character generator · pixar style ai · pixar style ai video generator · ai cartoon character generator · me as a cartoon character · ai mascot generator · ai grandma videos · italian brainrot characters</sub>

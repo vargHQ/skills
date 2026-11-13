@@ -137,6 +137,7 @@
       "title": "Edit footage and FFmpeg",
       "skills": [
         "edit-footage-with-code",
+        "find-movie-clips",
         "media-download",
         "model-split-screen",
         "short-form-ffmpeg-cookbook",
@@ -761,6 +762,49 @@
         "alt": "A talking-head take edited in code: a woman at a podcast desk speaks with word-by-word captions that highlight the active word, then the shot punches in at the sentence break."
       },
       "description": "Edit real footage with an agent: turn raw takes of a talking head, podcast, vlog, course or ad into a clean cut, then add captions, B-roll, motion graphics and sound with HyperFrames or Remotion. Reads the take as text and audio, removes dead air, retakes and stumbles without clipping words, writes the cut as an edit list a person can review, keeps every graphic on the spoken word, and checks the result with numbers and frames before a person watches; tested scripts and defaults from 2,318 editors' posts. Use for \"edit this video\", \"cut my footage\", \"remove the pauses\", \"cut the dead air\", \"clean up my talking head\", \"rough cut\", \"edit with HyperFrames\", \"edit with Remotion\", \"make it look edited\", when an agent's edit keeps coming back wrong, or to rank cuts with an unbiased LLM judge (\"which edit is better\"). Not for generating video from a prompt (varg-ai), for choosing a hosted editing service (varg-video-editing), or for finding music, B-roll or sound effects (video-asset-sources)."
+    },
+    {
+      "name": "find-movie-clips",
+      "title": "How to find movie clips and film scenes for AI remakes and edits",
+      "tagline": "A quote, a film or a look becomes one clean, uncut reference take: the right clip database, a tested download, the scene split into takes and a rights check.",
+      "category": "editing",
+      "version": "1.1.0",
+      "needs_key": false,
+      "local": true,
+      "cost": null,
+      "output": "One uncut take as MP4 (720p or more), a contact sheet per take and a source note",
+      "stack": [
+        "yt-dlp",
+        "FFmpeg",
+        "Internet Archive",
+        "bash"
+      ],
+      "keywords": [
+        "find movie clips",
+        "movie scene database",
+        "search movie clips by quote",
+        "film clips for edits",
+        "scene packs",
+        "reference video for seedance",
+        "kling motion control reference clip",
+        "public domain film clips",
+        "playphrase",
+        "clip cafe"
+      ],
+      "use_cases": [
+        "download-videos-from-x-youtube-tiktok",
+        "make-ai-parody-videos"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/find-movie-clips/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/find-movie-clips/README.md",
+      "how_to": "https://varg.ai/how-to/skills/find-movie-clips",
+      "install": "npx skills add vargHQ/skills --skill find-movie-clips",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_57bb4952ff0a.webp",
+        "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dcbe0ee4651e.jpg",
+        "alt": "A terminal table from the take-finder script: a 3 min 24 s film scene split into eight uncut takes with start, end and length, the longest marked green and the channel end card marked to drop."
+      },
+      "description": "Find the video clip of a movie or TV scene and turn it into a clean reference take for an AI remake, a parody, an edit or a motion-control run. Covers which clip database to open for what you know (a quote, a film and scene, a look, a character), which of them an agent may fetch and which only a person may open, a tested yt-dlp search and download, cutting ten seconds straight out of a public-domain film on the Internet Archive, a script that splits a scene into its uncut takes with a contact sheet per take, the rules for a take a video model can follow (one take, one person, real movement, 720p or more) and what to check about rights before using it. Use when someone asks where to find movie clips, film scene references, a scene by its quote, scene packs, \"the clip where he says X\", a reference video for Seedance, Kling Motion Control, MiniMax Recast or Higgsfield Genjutsu, or says their remake source has cuts, watermarks or black bars. For still frames and look references use find-references; for the remake itself use scene-recast-video."
     },
     {
       "name": "find-references",
@@ -4320,7 +4364,8 @@
       "skills": [
         "media-download",
         "find-references",
-        "video-asset-sources"
+        "video-asset-sources",
+        "find-movie-clips"
       ],
       "queries": [
         "download twitter video",
@@ -4379,6 +4424,7 @@
         "ai-parody-video",
         "scene-recast-video",
         "multi-angle-monologue",
+        "find-movie-clips",
         "media-download",
         "varg-character-design",
         "caption-styles",

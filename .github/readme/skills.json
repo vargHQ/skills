@@ -3120,5 +3120,45 @@
    "alt": "A white stick figure crouches in fear by a lighthouse door at 12:01 AM, under a DAY 1 counter and three keeper's rules, with the caption YOURS.",
    "credit": null
   }
+ },
+ "find-movie-clips": {
+  "title": "How to find movie clips and film scenes for AI remakes and edits",
+  "short": "Find movie clips",
+  "tagline": "A quote, a film or a look becomes one clean, uncut reference take: the right clip database, a tested download, the scene split into takes and a rights check.",
+  "category": "editing",
+  "prompts": [
+   "Find the clip of the 'they're coming to get you' scene and cut it into uncut takes of 8 s or more",
+   "Where can I find movie scenes by a line of dialogue? I need a reference clip for a Seedance remake",
+   "Cut 10 seconds at 5:00 from a public-domain film on the Internet Archive without downloading it"
+  ],
+  "keywords": [
+   "find movie clips",
+   "movie scene database",
+   "search movie clips by quote",
+   "film clips for edits",
+   "scene packs",
+   "reference video for seedance",
+   "kling motion control reference clip",
+   "public domain film clips",
+   "playphrase",
+   "clip cafe"
+  ],
+  "stack": [
+   "yt-dlp",
+   "FFmpeg",
+   "Internet Archive",
+   "bash"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": null,
+  "output": "One uncut take as MP4 (720p or more), a contact sheet per take and a source note",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_57bb4952ff0a.webp",
+   "jpg": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dcbe0ee4651e.jpg",
+   "alt": "A terminal table from the take-finder script: a 3 min 24 s film scene split into eight uncut takes with start, end and length, the longest marked green and the channel end card marked to drop.",
+   "credit": null
+  }
  }
 }

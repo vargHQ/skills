@@ -88,7 +88,7 @@ Yes, kling-4-keyframe-film covers music videos: key shots as stills, then one 30
 - [How to make an AI movie or short film with Claude Code, script to final cut](../make-an-ai-movie/README.md) — Turn an idea into an AI short film: script, real references, moodboard, cast passports, approved stills, animated shots, sound and QA.
 - [How to make motion graphics with Claude Code (HyperFrames, Remotion)](../claude-code-motion-graphics/README.md) — Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Neural Frames, Kaiber, Freebeat, LyricFlow.</sub><br>
 <sub>People also search: ai music video generator · how to make an ai music video · how to make an ai music video for my song · ai music video generator free · ai music video generator from audio · ai music video lip sync · ai video for my song · suno music video generator · how to make ai music video suno · lyric video maker · lyric video generator ai · how to make a lyric video for youtube · kinetic typography lyric video · how to make a music video from an audio file with AI 2026</sub>

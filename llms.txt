@@ -1,10 +1,10 @@
 # vargHQ/skills
 
-> 82 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
+> 83 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
 
 ## Install (for an agent asked to "install varg video skills")
 
-1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 82 makes a long skill list that some agents shorten.
+1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 83 makes a long skill list that some agents shorten.
 2. Run `npx skills add vargHQ/skills --skill <skill> --skill <skill>` (add `-a <agent> -g -y` for a global, non-interactive install; agents: claude-code, codex, cursor, grok, gemini-cli, github-copilot, opencode and 60+ more). Claude Code can take all of them as a plugin instead: `claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg`.
 3. For generation, connect the varg MCP (`https://mcp.varg.ai/mcp`, OAuth sign-in) or set `VARG_API_KEY` from https://varg.ai. Skills marked "no key" need neither.
 4. Read the chosen skill's SKILL.md before using it. AGENTS.md has the task → skill index; catalog.json has the same data as JSON.
@@ -141,6 +141,7 @@
 ## Skills: Edit footage and FFmpeg
 
 - [edit-footage-with-code](https://raw.githubusercontent.com/vargHQ/skills/main/edit-footage-with-code/SKILL.md): Raw takes become a reviewed edit list, a clean cut between words, then captions, B-roll and sound checked by numbers and frames. (no key · local)
+- [find-movie-clips](https://raw.githubusercontent.com/vargHQ/skills/main/find-movie-clips/SKILL.md): A quote, a film or a look becomes one clean, uncut reference take: the right clip database, a tested download, the scene split into takes and a rights check. (no key · local)
 - [media-download](https://raw.githubusercontent.com/vargHQ/skills/main/media-download/SKILL.md): A link becomes a local MP4, MP3 or playlist from 1,800+ sites, or Pinterest images from a pin, board or search query. (no key · local)
 - [model-split-screen](https://raw.githubusercontent.com/vargHQ/skills/main/model-split-screen/SKILL.md): Two runs of one prompt become a side-by-side or stacked video with each model's measured time and cost, optionally blind until the reveal. (no key · local)
 - [short-form-ffmpeg-cookbook](https://raw.githubusercontent.com/vargHQ/skills/main/short-form-ffmpeg-cookbook/SKILL.md): Raw footage, an SRT and a music track become a 1080×1920 MP4 with burned-in captions, trims, joins and ducked music. (no key · local)
