@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: vargHQ
-  version: "1.2.0"
+  version: "1.4.0"
   openclaw:
     requires:
       anyBins:
@@ -30,6 +30,14 @@ allowed-tools: Bash(yt-dlp:*) Bash(ffmpeg:*) Bash(ffprobe:*) Bash(curl:*) Bash(j
 # Find movie clips: the scene, the clean take, the rights
 
 A remake is only as good as its reference clip. Still-frame libraries (ShotDeck, Film-Grab, Shot Cafe) give you a look, not motion; for a video reference you need a clip database, a download and a cut down to one usable take. Everything marked "tested" below was run on 2026-11-13.
+
+## Setup
+
+```bash
+brew install yt-dlp ffmpeg jq        # macOS; bc and curl ship with the system
+# Debian or Ubuntu: sudo apt install ffmpeg jq bc curl && pipx install yt-dlp
+yt-dlp --version && ffmpeg -version | head -1 && jq --version      # all three must answer
+```
 
 ## Best practices, in one screen
 
@@ -76,7 +84,14 @@ yt-dlp "ytsearch8:<film> <year> <the line or the moment> scene" --flat-playlist 
 # 2. download the one you picked at 720p with sound
 yt-dlp -f "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]" --merge-output-format mp4 \
   -o "scene.%(ext)s" "https://www.youtube.com/watch?v=<id>"
+
+# 3. find where the line is said: captions with time codes, no download
+yt-dlp --skip-download --write-subs --write-auto-subs --sub-langs "en.*" --sub-format vtt \
+  -o "subs.%(ext)s" "https://www.youtube.com/watch?v=<id>"
+grep -i -B3 "<three words of the line>" subs.en.vtt | grep -E "^[0-9]{2}:"      # 00:00:13.360 --> 00:00:16.080
 ```
+
+The take you want is the one whose start and end (section 6) contain that time. A download that answers `HTTP Error 403` usually passes on a second try.
 
 How to read the list (tested on one scene, eight results):
 
@@ -99,7 +114,7 @@ for t in $(seq 0 120 5400); do ffmpeg -v error -ss $t -i "$SMALL_URL" -frames:v 
 ffmpeg -v error -pattern_type glob -i "scout_*.jpg" -vf tile=8x6 scout.jpg     # read it, pick the minutes
 
 # 4. cut up to 3 minutes around it from the best file, without downloading the film
-ffmpeg -ss 1770 -t 180 -i "$BEST_URL" -map 0:v:0 -map 0:a:0? -map_chapters -1 \
+ffmpeg -ss 1770 -t 180 -i "$BEST_URL" -map 0:v:0 -map "0:a:0?" -map_chapters -1 \
   -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a aac cut.mp4
 ```
 
@@ -110,6 +125,9 @@ Tested twice (once by a fresh agent following this page): ten seconds at 1920x10
 - **The `.mp4` is usually the Archive's own downscaled copy** (`derivative`, 480p). The HD file is the `original`, often an `.mkv`. Read the resolution column, not the file name: a file named `1080p` was 640x480.
 - **The best item is rarely on top.** The 720p item was result 26 of 30 by downloads.
 - **Licence:** `licenseurl` is set by the uploader. Pass: a public-domain mark or CC0 (`publicdomain/mark`, `publicdomain/zero`, `licenses/publicdomain`) on a film that is itself known to be public domain. Not a pass: no field, or a `by-nc` or `by-nd` licence. A public-domain mark on a recent film is an uploader's mistake.
+- **Confirm the film itself on a second source** before trusting the mark or the person's word: the film's Wikipedia article or "List of films in the public domain in the United States". Read the sentence, not just the yes: for one 1963 film it says the picture is public domain "immediately upon its release" but "the original music remains under copyright". Put that in `source.txt`, and mute the track if the music matters.
+- **A public-domain film goes here first, even when all you know is the line.** Many items carry a subtitle file (`.srt`, `.asr.srt`) in the same file list: download it and `grep` the line to get the film time.
+- **A 4K original is slow and more than a model takes.** A 90 s cut from a 38 GB file took 3 minutes. Add `-vf scale=-2:1080` to the cut.
 - **Write down film time.** The time code that matters for the source note is the `-ss` offset plus the take's start inside the cut.
 
 ## 5. What a model can follow
@@ -129,13 +147,15 @@ Tested twice (once by a fresh agent following this page): ten seconds at 1920x10
 bash scripts/takes.sh scene.mp4 8 30 takes     # min seconds, max seconds, out dir
 ```
 
-Run it by its path inside this skill's folder; the output folder can be anywhere. It finds every cut (`ffmpeg` scene detection at 0.3), prints the uncut takes, and for each one of at least the minimum length writes `take_NN.mp4` and `take_NN.jpg` (a frame every 1.5 s, ten at most). A take longer than the maximum is kept as its first seconds and marked `(first 30 s kept)`. Look at the sheets, or give them to a vision model, and choose by section 5. After any further trim, make the sheet again: a second person can enter in the last two seconds.
+Run it by its path inside this skill's folder; the output folder can be anywhere. It finds every cut, prints the uncut takes, and for each one of at least the minimum length writes `take_NN.mp4` and `take_NN.jpg` (a frame every 1.5 s, ten at most). A take longer than the maximum is kept as its first seconds and marked `(first 30 s kept)`. Look at the sheets, or give them to a vision model, and choose by section 5. Each file is 0.3 s shorter than the listed length, because 0.15 s is shaved off both ends; ask for a minimum half a second above what you need. After any further trim, make the sheet again: a second person can enter in the last two seconds.
 
-Tested on a 3 min 24 s scene from a clip channel: 34 cuts, 8 takes of 8 s or more, the longest 17.8 s. What the sheets showed, and what to do about each:
+How a cut is found: ffmpeg's scene score with a threshold of 0.17, set by looking at the frames around every candidate in a 3 minute handheld scene. All real cuts scored 0.177 or more; pans, runs and blows without a cut scored 0.168 or less. The usual advice of 0.3 found 33 cuts where there were about 49, and one of the cuts it missed sat in the middle of the "longest take". The margin is thin, so the script errs toward splitting, and a dissolve or a cut between two dark, similar shots can still pass. The contact sheet is the final check, not the table.
 
-- **The last "take" was the channel's end card** (subscribe panel, 31 s). Drop the final take of any clip-channel upload.
-- **A channel logo is burned into a corner.** Crop it out if the frame allows, or find another upload; it will be redrawn in your remake otherwise.
-- **Black bars at the sides** (a 4:3 film in a 16:9 file). Find and remove them:
+Tested on a 3 min 24 s scene from a clip channel: 49 cuts in the film part, 4 takes of 8 s or more, the longest 14.1 s. What the sheets showed, and what to do about each:
+
+- **The last two "takes" were the channel's end card** (subscribe panel, 31 s in two parts). Drop whatever follows the film's last frame in a clip-channel upload.
+- **A channel logo is burned into a corner.** It sits inside the picture, so cropping the bars does not remove it. Crop tighter only if the subject survives; otherwise find another upload or the film itself (section 4). Left in, it is redrawn in the remake.
+- **Black bars at the sides** (a 4:3 film in a 16:9 file). Find and remove them (`cropdetect=24:2:0`: pixels darker than 24 of 255 count as black, sizes rounded to even numbers; take the crop printed most often, measured on a bright moment: in a dark shot the detector counts shadows as bars):
 
 ```bash
 ffmpeg -ss 2 -t 4 -i take_01.mp4 -vf cropdetect=24:2:0 -f null - 2>&1 | grep -o "crop=[0-9:]*" | sort | uniq -c | sort -rn | head -1
@@ -145,14 +165,30 @@ ffmpeg -i take_01.mp4 -vf "crop=1060:720:60:0" -c:v libx264 -crf 18 -c:a copy ta
 - **A take can start with two people and end with one.** Trim to the part with one: `ffmpeg -ss 7 -t 6 -i take_01.mp4 ...`.
 - **Fights and handheld chaos fail rule 2** even when uncut: bodies overlap and faces leave the frame.
 
-A dialogue scene rarely has one take over 10 s. If no take passes, pick another scene, or a moment where one character speaks or moves alone.
+**Verify the take before handing it over.** Run the script on the chosen take itself and read its numbers:
+
+```bash
+bash scripts/takes.sh take.mp4 1 30 verify       # must print exactly one row: no cut inside
+ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 take.mp4   # short side 720 or more
+```
+
+Two rows mean a cut is still inside: trim and run it again. Then read `verify/take_01.jpg` once more for a logo, a subtitle or a second person. Only a take that passes goes to section 8.
+
+A dialogue scene rarely has one take over 10 s. When the take that was asked for cannot pass, do not hand over a different take in silence and do not hand over nothing. Say which rule fails and by how much, and offer the choices:
+
+1. the asked-for moment trimmed to the seconds that do pass ("he is alone for 7.1 s of the 8 asked");
+2. the nearest take that passes, named as a different moment;
+3. the asked-for take as it is, with `rules not met` filled in, for a tool that can take it (MiniMax Recast replaces people left to right);
+4. another scene.
+
+"One person" means one person a model could follow: a still shoulder or a hat at the frame edge passes, a second face or a moving body does not.
 
 ## 7. Rights and filters: check before the work, not after
 
 - **A film clip is someone's copyright.** Parody that changes the meaning has a fair-use argument in the US; it is an argument, not a licence, and other countries are stricter. Client work and ads need a licensed or public-domain source.
 - **Platforms act on the soundtrack and on known footage.** Creators report film and TV sources "get claimed and muted" more than phone footage ([@everestchris6](https://x.com/everestchris6/status/2107135574469746896)).
 - **Video models refuse known footage and real faces.** A refused job means the provider said no to this input. Change the scene (a public-domain film, your own footage, an original scene in the same style); do not look for a setting that slips it through.
-- **Real actors are real people.** Their face and voice are theirs: recast with invented characters, and do not clone an actor's voice.
+- **Real actors are real people.** Their face and voice are theirs: recast with invented characters, and do not clone an actor's voice. Putting a real person (a founder, a client) into a known scene needs that person's consent and a source you may use; for an ad, the parody argument does not apply.
 - **Label the result** as AI-made and as parody where you post it.
 - **Scene packs and full-film downloads** are other people's copies of copyrighted films. This skill names them because editors use them; it does not fetch them.
 
@@ -177,6 +213,10 @@ Then:
 - `ai-parody-video`: the joke and the format around it.
 - `find-references`: still frames for the look, from the libraries this skill does not cover.
 
+## Evaluations
+
+`evals/evals.json` holds three test requests with what a correct run does: a scene found by its quote, a take from a public-domain film, and a request that must not be fetched. Run them after any change to this skill.
+
 ## Sources
 
-Posts and guides read on 2026-11-12 and 2026-11-13: [@everestchris6](https://x.com/everestchris6/status/2107135574469746896) (how remake sources are chosen and checked), [@malummiivt](https://x.com/malummiivt/status/2027822155426103388), [@graceea29887132](https://x.com/graceea29887132/status/2105729889030574170), [@xpg0970](https://x.com/xpg0970/status/2074264672887595432), [@tgprovod](https://x.com/tgprovod/status/1969851511476736000), [@kawaiidinof](https://x.com/kawaiidinof/status/2121220961944948980), the [Kling Motion Control guide](https://kling.ai/quickstart/motion-control-user-guide), the [Higgsfield character swap guide](https://higgsfield.ai/blog/AI-Face-Character-Swap-in-Video-Photo-PRO-Guide). The commands and `scripts/takes.sh` were run on a public-domain scene; the databases marked "person" were not searched by the agent.
+Posts and guides read on 2026-11-12 and 2026-11-13: [@everestchris6](https://x.com/everestchris6/status/2107135574469746896) (how remake sources are chosen and checked), [@malummiivt](https://x.com/malummiivt/status/2027822155426103388), [@graceea29887132](https://x.com/graceea29887132/status/2105729889030574170), [@xpg0970](https://x.com/xpg0970/status/2074264672887595432), [@tgprovod](https://x.com/tgprovod/status/1969851511476736000), [@kawaiidinof](https://x.com/kawaiidinof/status/2121220961944948980), the [Kling Motion Control guide](https://kling.ai/quickstart/motion-control-user-guide), the [Higgsfield character swap guide](https://higgsfield.ai/blog/AI-Face-Character-Swap-in-Video-Photo-PRO-Guide). The commands and `scripts/takes.sh` were run on a public-domain scene; the databases marked "person" were not searched by the agent. Access rules change: read a site's `robots.txt` again before relying on the "agent" or "person" column.

@@ -12,8 +12,13 @@ min="${2:-5}"; max="${3:-30}"; out="${4:-takes}"
 for tool in ffmpeg ffprobe bc; do command -v "$tool" >/dev/null || { echo "takes.sh: $tool is not installed" >&2; exit 1; }; done
 mkdir -p "$out"
 dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$in")
-cuts=$(ffmpeg -hide_banner -i "$in" -vf "select='gt(scene,0.3)',showinfo" -an -f null - 2>&1 \
-  | grep -oE "pts_time:[0-9.]+" | cut -d: -f2 | tr '\n' ' ')
+# Cut threshold 0.17 on ffmpeg's scene score, measured by looking at the frames around
+# every candidate in a 3 minute handheld scene: all real cuts scored 0.177 or more,
+# all pans, runs and blows without a cut scored 0.168 or less. The usual 0.3 missed
+# about 15 real cuts there. The margin is thin, so the script errs toward splitting: a
+# false split only shortens a take, a missed cut ruins one.
+cuts=$(ffmpeg -hide_banner -i "$in" -vf "select='gt(scene,0.17)',showinfo" -an -f null - 2>&1 \
+  | { grep -oE "pts_time:[0-9.]+" || true; } | cut -d: -f2 | awk '$1>0.2' | tr '\n' ' ')   # no cut at all is a valid answer
 n=0; prev=0
 printf "%-4s %8s %8s %7s  %s\n" take start end length file
 for t in $cuts "$dur"; do
@@ -21,7 +26,7 @@ for t in $cuts "$dur"; do
   if (( $(echo "$len >= $min" | bc -l) )); then
     n=$((n+1)); id=$(printf "%02d" "$n")
     # 0.15 s inside both cuts so no frame of the neighbouring shot leaks in
-    s=$(echo "$prev + 0.15" | bc -l); l=$(echo "$len - 0.30" | bc -l)
+    s=$(printf "%.3f" "$(echo "$prev + 0.15" | bc -l)"); l=$(printf "%.3f" "$(echo "$len - 0.30" | bc -l)")
     note=""
     if (( $(echo "$l > $max" | bc -l) )); then l=$max; note="  (first $max s kept)"; fi
     ffmpeg -v error -y -ss "$s" -t "$l" -i "$in" -map 0:v:0 -map 0:a:0? -map_chapters -1 \
