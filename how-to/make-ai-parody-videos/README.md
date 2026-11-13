@@ -3,15 +3,15 @@
 
 **Turn a known movie scene and one wrong element into a 10-45 second parody: recast the scene, write the sketch, or cut a monologue across four angles.**
 
-**Typical cost** with `ai-parody-video`: measured: $0.96 for a 12 s one-prompt sketch; $3.00 for a 10 s recast. Models are billed at provider price, and the agent shows an estimate before you pay. **Free, no key:** `media-download`, `caption-styles`, `media-judge`.
+**Typical cost** with `ai-parody-video`: measured: $0.96 for a 12 s one-prompt sketch; $3.00 for a 10 s recast. Models are billed at provider price, and the agent shows an estimate before you pay. **Free, no key:** `find-movie-clips`, `media-download`, `caption-styles`, `media-judge`.
 
 <p><a href="../../ai-parody-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_350a40cd23d4.webp" alt="A mockumentary office sketch from one prompt: a wizard points a wand at a printer, a deadpan colleague holds a mug, then the wizard talks to the camera." width="480"></a></p>
 
-**Short answer:** start with [`ai-parody-video`](../../ai-parody-video/README.md): the joke, the format, the plan table and what is allowed with real people, characters and footage. The other 7 skills below add the steps around it. Ask your agent for the result in your own words; it asks the few choices that matter before anything is paid for and hands back the files.
+**Short answer:** start with [`ai-parody-video`](../../ai-parody-video/README.md): the joke, the format, the plan table and what is allowed with real people, characters and footage. The other 8 skills below add the steps around it. Ask your agent for the result in your own words; it asks the few choices that matter before anything is paid for and hands back the files.
 
 ```bash
 # Claude Code, Codex, Grok, Cursor, Gemini CLI, Copilot, OpenCode and other agents
-npx skills add vargHQ/skills --skill ai-parody-video --skill scene-recast-video --skill multi-angle-monologue --skill media-download --skill varg-character-design --skill caption-styles --skill video-sound --skill media-judge
+npx skills add vargHQ/skills --skill ai-parody-video --skill scene-recast-video --skill multi-angle-monologue --skill find-movie-clips --skill media-download --skill varg-character-design --skill caption-styles --skill video-sound --skill media-judge
 ```
 
 Then ask your agent in plain words, for example: *"Plan a 30-second parody of a famous sci-fi training scene where a founder gets the speech about this week's AI news. Stop for my approval before spending."*
@@ -23,24 +23,31 @@ Then ask your agent in plain words, for example: *"Plan a 30-second parody of a 
 | 1 | [`ai-parody-video`](../../ai-parody-video/README.md) | The joke, the format, the plan table and what is allowed with real people, characters and footage. <sub>varg key</sub> |
 | 2 | [`scene-recast-video`](../../scene-recast-video/README.md) | A reference clip plus your cast becomes your version with the same motion and camera. <sub>varg key</sub> |
 | 3 | [`multi-angle-monologue`](../../multi-angle-monologue/README.md) | A speech cut across four angles of one moment, lip-synced part by part. <sub>varg key</sub> |
-| 4 | [`media-download`](../../media-download/README.md) | The source clip as a local file. <sub>no key · local</sub> |
-| 5 | [`varg-character-design`](../../varg-character-design/README.md) | The new cast as sheets. <sub>varg key</sub> |
-| 6 | [`caption-styles`](../../caption-styles/README.md) | Two-line subtitles that carry the joke with the sound off. <sub>no key · local</sub> |
-| 7 | [`video-sound`](../../video-sound/README.md) | One voice track, effects and music over the cut. <sub>varg key</sub> |
-| 8 | [`media-judge`](../../media-judge/README.md) | Face drift, lip sync and leftover text before posting. <sub>no key · local</sub> |
+| 4 | [`find-movie-clips`](../../find-movie-clips/README.md) | The clip database for a quote, a film or a look, and the scene cut down to one uncut take. <sub>no key · local</sub> |
+| 5 | [`media-download`](../../media-download/README.md) | The source clip as a local file. <sub>no key · local</sub> |
+| 6 | [`varg-character-design`](../../varg-character-design/README.md) | The new cast as sheets. <sub>varg key</sub> |
+| 7 | [`caption-styles`](../../caption-styles/README.md) | Two-line subtitles that carry the joke with the sound off. <sub>no key · local</sub> |
+| 8 | [`video-sound`](../../video-sound/README.md) | One voice track, effects and music over the cut. <sub>varg key</sub> |
+| 9 | [`media-judge`](../../media-judge/README.md) | Face drift, lip sync and leftover text before posting. <sub>no key · local</sub> |
 
 <table>
 <tr>
 <td width="25%" valign="top"><a href="../../ai-parody-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_350a40cd23d4.webp" alt="A mockumentary office sketch from one prompt: a wizard points a wand at a printer, a deadpan colleague holds a mug, then the wizard talks to the camera." width="100%"></a><br><a href="../../ai-parody-video/README.md"><b>AI parody video</b></a><br><sub>10-45 s parody MP4 with subtitles, plus the plan table</sub></td>
 <td width="25%" valign="top"><a href="../../scene-recast-video/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bdf35f76a7dd.webp" alt="An old wizard in a blue star robe does a goofy dance in a retro kitchen: an invented character recast into a stock dance clip, same moves, same room." width="100%"></a><br><a href="../../scene-recast-video/README.md"><b>Scene recast</b></a><br><sub>5-30 s remake MP4 and a stacked original-vs-remake MP4</sub></td>
 <td width="25%" valign="top"><a href="../../multi-angle-monologue/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a9b7dde96277.webp" alt="An old wizard in an open-plan office complains to the camera about the printer, cut from a front angle to a side close-up with the lips on the words." width="100%"></a><br><a href="../../multi-angle-monologue/README.md"><b>Multi-angle monologue</b></a><br><sub>30-90 s monologue MP4 cut across four angles</sub></td>
-<td width="25%" valign="top"><a href="../../media-download/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5ec6a143fa1e.webp" alt="A downloaded NASA clip plays: an astronaut drives a lunar rover across grey regolith, then a technician in a clean suit works at a lab bench." width="100%"></a><br><a href="../../media-download/README.md"><b>Media download</b></a><br><sub>Local MP4, MP3 or image files</sub></td>
+<td width="25%" valign="top"><a href="../../find-movie-clips/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_57bb4952ff0a.webp" alt="A terminal table from the take-finder script: a 3 min 24 s film scene split into eight uncut takes with start, end and length, the longest marked green and the channel end card marked to drop." width="100%"></a><br><a href="../../find-movie-clips/README.md"><b>Find movie clips</b></a><br><sub>One uncut take as MP4 (720p or more), a contact sheet per take and a source note</sub></td>
 </tr>
 <tr>
+<td width="25%" valign="top"><a href="../../media-download/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5ec6a143fa1e.webp" alt="A downloaded NASA clip plays: an astronaut drives a lunar rover across grey regolith, then a technician in a clean suit works at a lab bench." width="100%"></a><br><a href="../../media-download/README.md"><b>Media download</b></a><br><sub>Local MP4, MP3 or image files</sub></td>
 <td width="25%" valign="top"><a href="../../varg-character-design/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6baed9973414.webp" alt="A grid of eight memorable AI characters, from a grandma in leopard print to a sheep accountant in glasses, then the grandma speeds toward the camera on a red scooter." width="100%"></a><br><a href="../../varg-character-design/README.md"><b>AI character design</b></a><br><sub>Character card and reusable character sheet</sub></td>
 <td width="25%" valign="top"><a href="../../caption-styles/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8d9492b7cbfe.webp" alt="The same line, &quot;Say less, show more&quot;, is captioned in four looks over a vertical sunset clip: yellow karaoke fill, blue word pop, white highlight and a translucent box." width="100%"></a><br><a href="../../caption-styles/README.md"><b>Caption styles</b></a><br><sub>Burned-in MP4, transparent caption layer or ASS</sub></td>
 <td width="25%" valign="top"><a href="../../video-sound/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6d4c33ff5cc.webp" alt="A designed launch soundtrack shown as a waveform and spectrogram with labelled voice, impact and music regions while a playhead moves across." width="100%"></a><br><a href="../../video-sound/README.md"><b>Video sound</b></a><br><sub>Mixed master with cue sheet and checks</sub></td>
+</tr>
+<tr>
 <td width="25%" valign="top"><a href="../../media-judge/README.md"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1283ff3c284b.webp" alt="Media-judge output for a vertical product reel: attention heat maps over frames beside a facts table where checks are marked clear, flagged or info." width="100%"></a><br><a href="../../media-judge/README.md"><b>Media judge</b></a><br><sub>Verdict with timed defects and evidence</sub></td>
+<td width="25%"></td>
+<td width="25%"></td>
+<td width="25%"></td>
 </tr>
 </table>
 
@@ -93,7 +100,7 @@ Yes. YouTube requires disclosure for realistic content that shows a real person 
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
 - [How to download videos from X, YouTube and TikTok with yt-dlp (no key)](../download-videos-from-x-youtube-tiktok/README.md) — Turn a link from X, YouTube, Instagram, TikTok or 1,800+ other sites into a local MP4 or MP3, or a Pinterest board into reference images.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield Genjutsu, Viggle.</sub><br>
 <sub>People also search: how to make ai parody videos · ai parody video · ai movie parody · ai celebrity parody video · how to make ai movie mashup · ai scene remake with different characters · seedance motion control tutorial · higgsfield genjutsu tutorial · how to make ai meme videos · ai fake news video parody · character swap in video ai · how are viral ai parody videos made</sub>

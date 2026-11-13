@@ -89,7 +89,7 @@ The skills apply AI labels, TikTok Shop's bans on AI voices, slideshows and mism
 - [Product photo to video with AI: product ads that keep your real label](../product-photo-to-video/README.md) — Turn 1-3 product photos into a TikTok, Reels or listing video (unboxing, ASMR, 360 loop, in-hand demo) with the label locked.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
 - [How to make AI ad variations for creative testing on Meta and TikTok](../make-ad-variations-for-testing/README.md) — Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Creatify, Arcads, Pippit.</sub><br>
 <sub>People also search: ai video ad generator · ai video ads · ai product video ads · ai video ads for products · ai video ads for ecommerce · ecommerce product video · ecommerce product video skill · ai video ads for dropshipping · dropshipping video ads · dropshipping video ads ai · how to make dropshipping video ads · product ad ai · claymation ai ads</sub>

@@ -82,7 +82,7 @@ A second-person situation in the first second, a DAY counter that promises a ser
 - [How to make motion graphics with Claude Code (HyperFrames, Remotion)](../claude-code-motion-graphics/README.md) — Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.
 - [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](../add-ai-voiceover-to-video/README.md) — Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix.
 - [How to add captions to a video with AI: TikTok, Hormozi and karaoke styles](../add-captions-to-video/README.md) — Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: kaomei/stickman-video-director, Higgsfield Stickman Cartoon skill, StykAnimate (desktop app).</sub><br>
 <sub>People also search: how to make stickman videos with ai · stickman video ai generator · ai stickman video generator free · stickman video generator github · stickman animation with claude code · faceless stickman youtube channel · stickman survival story video · stickman video prompt · stick figure animation ai · pov stickman video</sub>

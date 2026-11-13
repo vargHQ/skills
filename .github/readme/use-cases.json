@@ -3093,6 +3093,10 @@
    {
     "name": "video-asset-sources",
     "role": "clips, music and SFX whose license lets you put them in a video"
+   },
+   {
+    "name": "find-movie-clips",
+    "role": "find a film or TV scene by its quote or title and split it into uncut takes"
    }
   ],
   "start_with": "media-download",
@@ -3291,6 +3295,10 @@
    {
     "name": "multi-angle-monologue",
     "role": "a speech cut across four angles of one moment, lip-synced part by part"
+   },
+   {
+    "name": "find-movie-clips",
+    "role": "the clip database for a quote, a film or a look, and the scene cut down to one uncut take"
    },
    {
     "name": "media-download",

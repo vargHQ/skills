@@ -84,7 +84,7 @@ No. An identical prompt and parameters is a free cache hit locally and on api.va
 - [How to make an AI movie or short film with Claude Code, script to final cut](../make-an-ai-movie/README.md) — Turn an idea into an AI short film: script, real references, moodboard, cast passports, approved stills, animated shots, sound and QA.
 - [How to make an AI talking avatar video from a photo (lip sync, podcasts)](../make-an-ai-talking-avatar-video/README.md) — Turn a photo and a script into a lip-synced talking avatar, a keynote speaker clip or a two-host AI podcast with steady faces.
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield, OpenArt, Midjourney.</sub><br>
 <sub>People also search: consistent character ai video · consistent character ai video generator · how to keep character consistency in ai · how to keep character consistency in veo 3 · how to keep character consistency in nano banana · consistent character video ai · how to create consistent character ai video from a single image · character sheet ai prompt · character turnaround sheet ai · consistent character kling ai · consistent character prompt · AI video prompt techniques for consistent characters across shots</sub>

@@ -83,7 +83,7 @@ No. threejs-animatic ships a working starter project with no npm, and varg-previ
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
 - [How to make an AI music video for your song with Claude Code](../make-an-ai-music-video/README.md) — Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
-- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 83 skills](../../README.md#all-83-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Boords, Katalist, Higgsfield.</sub><br>
 <sub>People also search: ai storyboard generator · ai storyboard generator from script · ai storyboard to video · storyboard to video ai · storyboard to video seedance · storyboard to video kling · ai storyboard workflow · 3d previs seedance · 3d previs to ai · blender previs · script and location reference photos to animatic workflow beat by beat · create storyboard shots from location photos preserve architecture camera angles AI</sub>
