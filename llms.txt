@@ -1,10 +1,10 @@
 # vargHQ/skills
 
-> 78 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
+> 81 open-source Agent Skills for AI video, image, voice and music: UGC ads, product videos, music videos, consistent characters, captions, motion graphics (HyperFrames, Remotion) and FFmpeg edits. Generation runs on the varg API (Seedance 2.5, Kling 4, Veo 3.1, Wan 3, GPT Image 2.6, Nano Banana 2.1, ElevenLabs v4, Lyria) with one key; many skills run locally with no key.
 
 ## Install (for an agent asked to "install varg video skills")
 
-1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 78 makes a long skill list that some agents shorten.
+1. Ask which jobs the person wants (ads, music video, characters, captions, motion graphics, editing…) and pick the skills for them from the guides below; installing all 81 makes a long skill list that some agents shorten.
 2. Run `npx skills add vargHQ/skills --skill <skill> --skill <skill>` (add `-a <agent> -g -y` for a global, non-interactive install; agents: claude-code, codex, cursor, grok, gemini-cli, github-copilot, opencode and 60+ more). Claude Code can take all of them as a plugin instead: `claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg`.
 3. For generation, connect the varg MCP (`https://mcp.varg.ai/mcp`, OAuth sign-in) or set `VARG_API_KEY` from https://varg.ai. Skills marked "no key" need neither.
 4. Read the chosen skill's SKILL.md before using it. AGENTS.md has the task → skill index; catalog.json has the same data as JSON.
@@ -40,6 +40,7 @@
 - [AI storyboard to video: previz in three.js or Blender before you pay](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/ai-storyboard-to-video/README.md): Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video. Start with `varg-previz`.
 - [How to download videos from X, YouTube and TikTok with yt-dlp (no key)](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/download-videos-from-x-youtube-tiktok/README.md): Turn a link from X, YouTube, Instagram, TikTok or 1,800+ other sites into a local MP4 or MP3, or a Pinterest board into reference images. Start with `media-download`.
 - [Claude Code video skills: find the right one, or publish your own](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/claude-code-video-skills/README.md): Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key. Start with `how-to-make-ai-video`.
+- [How to make AI parody videos of movie scenes with Claude Code](https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-ai-parody-videos/README.md): Turn a known movie scene and one wrong element into a 10-45 second parody: recast the scene, write the sketch, or cut a monologue across four angles. Start with `ai-parody-video`.
 
 ## Skills: Start here
 
@@ -68,6 +69,7 @@
 
 ## Skills: Characters, avatars and dialogue
 
+- [multi-angle-monologue](https://raw.githubusercontent.com/vargHQ/skills/main/multi-angle-monologue/SKILL.md): One still becomes four angles, one acted voice track is cut at the pauses, and each part is lip-synced to its own angle. (varg key)
 - [varg-character-absurd](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-absurd/SKILL.md): A food or object, an animal and one human detail become an original mascot with a turnaround sheet ready for video. (varg key)
 - [varg-character-beautiful-woman](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-beautiful-woman/SKILL.md): A model-casting description, real skin and fashion styling become a believable shoot of an adult woman, with no nudity. (varg key)
 - [varg-character-big-guy](https://raw.githubusercontent.com/vargHQ/skills/main/varg-character-big-guy/SKILL.md): A big body and a small, delicate job become a character sheet where the contrast is the joke, never the body. (varg key)
@@ -82,11 +84,13 @@
 
 ## Skills: Music videos and ready formats
 
+- [ai-parody-video](https://raw.githubusercontent.com/vargHQ/skills/main/ai-parody-video/SKILL.md): A known scene, one wrong element and a payoff become a 10-45 second parody, with six measured formats and the rules for real people. (varg key)
 - [blender-code-film](https://raw.githubusercontent.com/vargHQ/skills/main/blender-code-film/SKILL.md): A brief becomes a Blender film built and rendered from one Python file: shots as data, stills first, critic loop, Eevee or Cycles. (no key · local)
 - [code-3d-explainer](https://raw.githubusercontent.com/vargHQ/skills/main/code-3d-explainer/SKILL.md): A cell, atom, virus or engine built in three.js part by part, zooming through scales to a cutaway, with every fact checked first. (no key · local)
 - [code-game-trailer](https://raw.githubusercontent.com/vargHQ/skills/main/code-game-trailer/SKILL.md): Record the three.js game your agent built with exact frames, scripted shots and trailer cameras, then cut it on the beat to a 1080p trailer. (no key · local)
 - [code-path-traced-film](https://raw.githubusercontent.com/vargHQ/skills/main/code-path-traced-film/SKILL.md): A story becomes a short film from a path tracer the agent writes itself: SDF characters, analytic grass, a numpy score, no assets. (no key · local)
 - [make-a-woke-profile-with-chatgpt](https://raw.githubusercontent.com/vargHQ/skills/main/make-a-woke-profile-with-chatgpt/SKILL.md): One selfie becomes 11 satirical woke tiles, a 4:5 collage for X and an MP4, made on GPT Image 2.6 (aka Wokify). (varg key)
+- [scene-recast-video](https://raw.githubusercontent.com/vargHQ/skills/main/scene-recast-video/SKILL.md): A reference clip, photos of your cast and a replace-keep-never prompt become your version with the original motion, timing and camera. (varg key)
 - [varg-birthday-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-birthday-video/SKILL.md): A name, an age and a few photos become a 15–60 s video with their name sung and their photo coming to life. (varg key)
 - [varg-dropship-reel](https://raw.githubusercontent.com/vargHQ/skills/main/varg-dropship-reel/SKILL.md): A product, its cost and its sell price become a 60-second faceless reel with price math, steps and a comment CTA. (varg key)
 - [varg-music-video](https://raw.githubusercontent.com/vargHQ/skills/main/varg-music-video/SKILL.md): Your song is measured to the beat, storyboarded, shot on Seedance 2.5, lip-synced and cut on every downbeat. (varg key)

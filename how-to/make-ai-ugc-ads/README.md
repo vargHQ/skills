@@ -90,7 +90,7 @@ Make one creator still and an identity sheet, pass the same image plus the produ
 - [Product photo to video with AI: product ads that keep your real label](../product-photo-to-video/README.md) — Turn 1-3 product photos into a TikTok, Reels or listing video (unboxing, ASMR, 360 loop, in-hand demo) with the label locked.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
 - [How to make AI ad variations for creative testing on Meta and TikTok](../make-ad-variations-for-testing/README.md) — Turn one winning ad into 20 variants Meta and TikTok treat as different, plus file names, a test plan and when to kill or scale.
-- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Arcads, Creatify, MakeUGC, HeyGen.</sub><br>
 <sub>People also search: how to make ai ugc ads · how to make ai ugc videos · ai ugc ads · ai ugc video generator · how to make ai ugc ads for free · ai ugc video generator open source · ai ugc video generator github · arcads ai alternative free · cheaper alternative to arcads · how to make ai ugc that looks 100 real · ai ugc ads with product · best AI UGC video ad generator tools 2026 · how to make a UGC ad that converts 2026 step by step</sub>

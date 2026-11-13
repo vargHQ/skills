@@ -99,7 +99,7 @@ video-project-github keeps it in a private GitHub repo with a version after ever
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
 - [How to add an AI voiceover that doesn't sound fake (plus music and SFX)](../add-ai-voiceover-to-video/README.md) — Turn a script and a cut into a finished soundtrack: an auditioned AI voice, SFX on the right frame, music with a quiet part, a measured mix.
-- [All 29 guides](../README.md) · [all 78 skills](../../README.md#all-78-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield, Google Flow.</sub><br>
 <sub>People also search: how to make an ai movie · how to make an ai movie for free · how to make an ai movie from a script · how to make an ai movie trailer · ai short film · ai short film workflow · ai filmmaking workflow · how to make an ai short movie · ai short film generator · seedance 2.5 short film · kling 4.0 short film · how to make ai videos look realistic · how to write a cinematic short film script structure</sub>

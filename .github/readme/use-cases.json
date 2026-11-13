@@ -3241,5 +3241,121 @@
    "edit-video-with-claude-code",
    "make-a-product-launch-video"
   ]
+ },
+ {
+  "rank": 27,
+  "slug": "make-ai-parody-videos",
+  "h1": "How to make AI parody videos of movie scenes with Claude Code",
+  "short_title": "AI parody videos",
+  "one_liner": "Turn a known movie scene and one wrong element into a 10-45 second parody: recast the scene, write the sketch, or cut a monologue across four angles.",
+  "queries": [
+   "how to make ai parody videos",
+   "ai parody video",
+   "ai movie parody",
+   "ai celebrity parody video",
+   "how to make ai movie mashup",
+   "ai scene remake with different characters",
+   "seedance motion control tutorial",
+   "higgsfield genjutsu tutorial",
+   "how to make ai meme videos",
+   "ai fake news video parody",
+   "character swap in video ai",
+   "how are viral ai parody videos made"
+  ],
+  "demand": [
+   {
+    "signal": "X posts of one parody creator, @Arminn_Ai (read 2026-11-12)",
+    "detail": "scene recast with new dialogue 6.3M views and 23K bookmarks in under a day; fake live news shot 9.1M views; the first original-vs-remake test 594K, follow-ups up to 1.2M",
+    "value": "6.3M and 9.1M views"
+   },
+   {
+    "signal": "X how-to posts on the same method (2026-10)",
+    "detail": "@ViralOps_ two-step character-swap recipe 810K views; @Sayajiiinz thread on the same pipeline 10.7K bookmarks",
+    "value": "10.7K bookmarks"
+   },
+   {
+    "signal": "Web search for tutorials (2026-11-12)",
+    "detail": "no YouTube or Reddit tutorial specific to movie or celebrity parody found; the best material is prompts in X threads and vendor blogs",
+    "value": "0 dedicated tutorials"
+   }
+  ],
+  "skills": [
+   {
+    "name": "ai-parody-video",
+    "role": "the joke, the format, the plan table and what is allowed with real people, characters and footage"
+   },
+   {
+    "name": "scene-recast-video",
+    "role": "a reference clip plus your cast becomes your version with the same motion and camera"
+   },
+   {
+    "name": "multi-angle-monologue",
+    "role": "a speech cut across four angles of one moment, lip-synced part by part"
+   },
+   {
+    "name": "media-download",
+    "role": "the source clip as a local file"
+   },
+   {
+    "name": "varg-character-design",
+    "role": "the new cast as sheets"
+   },
+   {
+    "name": "caption-styles",
+    "role": "two-line subtitles that carry the joke with the sound off"
+   },
+   {
+    "name": "video-sound",
+    "role": "one voice track, effects and music over the cut"
+   },
+   {
+    "name": "media-judge",
+    "role": "face drift, lip sync and leftover text before posting"
+   }
+  ],
+  "start_with": "ai-parody-video",
+  "example_prompts": [
+   "Plan a 30-second parody of a famous sci-fi training scene where a founder gets the speech about this week's AI news. Stop for my approval before spending.",
+   "Remake ./scene.mp4 with the characters in ./cast/ and give me the original and the remake stacked.",
+   "Make a 60-second monologue for my character in four camera angles.",
+   "Check my parody before I post it and tell me which label each platform needs: ./parody.mp4"
+  ],
+  "faq": [
+   {
+    "q": "How are the viral AI movie parodies made?",
+    "a": "Mostly by video-to-video: a short reference clip supplies motion, timing, camera and cuts, photos supply the new cast, and a short prompt says what to replace and what to keep. Dialogue pieces use a second route: stills in several angles, one voice track, lip sync per shot."
+   },
+   {
+    "q": "Can I use a celebrity or a politician?",
+    "a": "Only as clear, labelled parody of a public figure's public role, never private people, sexual content, fake news, endorsements or ads. Providers block many real faces; when a job is refused, change the idea rather than the input. ai-parody-video lists the lines and the platform labels."
+   },
+   {
+    "q": "Is there an alternative to Higgsfield Genjutsu?",
+    "a": "The same inputs (a reference video, character images, a prompt) run on varg with Seedance 2.5 video reference, MiniMax H3 Max Recast or Wan 3. scene-recast-video has the calls and the prompt."
+   },
+   {
+    "q": "Why does my recast still look like the original actor?",
+    "a": "The character reference is too small or too far from the clip's angle, or the clip's look is leaking. Add a second angle, describe the face in the prompt, and use a greyscale or depth plate so only motion carries over."
+   },
+   {
+    "q": "How long should a parody be?",
+    "a": "10 to 30 seconds for one gag; up to 45 when a speech carries it. In the measured hit the picture changes every 2.5 seconds and the known beat of the scene lands at about three quarters."
+   },
+   {
+    "q": "Do I have to label it as AI?",
+    "a": "Yes. YouTube requires disclosure for realistic content that shows a real person doing something they did not do, Meta and TikTok label AI video, and the clips studied here carry X's AI-generated declaration. Add 'parody' to the caption too."
+   }
+  ],
+  "alternatives": [
+   "Higgsfield Genjutsu",
+   "Viggle"
+  ],
+  "needs_key": true,
+  "related": [
+   "make-an-ai-movie",
+   "consistent-character-ai-video",
+   "kling-4-and-seedance-prompt-guide",
+   "download-videos-from-x-youtube-tiktok"
+  ]
  }
 ]

@@ -37,6 +37,7 @@
       "title": "Characters",
       "description": "Characters people remember, the same face in every scene, talking heads, keynotes and two-person podcasts.",
       "skills": [
+        "multi-angle-monologue",
         "varg-character-absurd",
         "varg-character-beautiful-woman",
         "varg-character-big-guy",
@@ -54,11 +55,13 @@
       "title": "Ready formats",
       "description": "Formats that already spread: music videos, birthday and holiday videos, faceless reels, selfie series.",
       "skills": [
+        "ai-parody-video",
         "blender-code-film",
         "code-3d-explainer",
         "code-game-trailer",
         "code-path-traced-film",
         "make-a-woke-profile-with-chatgpt",
+        "scene-recast-video",
         "varg-birthday-video",
         "varg-dropship-reel",
         "varg-music-video",
