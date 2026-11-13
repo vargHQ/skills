@@ -93,7 +93,7 @@ Yes. YouTube requires disclosure for realistic content that shows a real person 
 - [How to keep a consistent character in AI video (same face in every shot)](../consistent-character-ai-video/README.md) — Turn actor photos or a generated character into multi-scene video where the face, outfit and location stay the same in every shot.
 - [Kling 4 vs Seedance 2.5: how to prompt AI video that doesn't look like AI](../kling-4-and-seedance-prompt-guide/README.md) — Turn an idea into shots that come out right in one or two takes: pick Kling 4 or Seedance 2.5 per shot, then prompt it from approved stills.
 - [How to download videos from X, YouTube and TikTok with yt-dlp (no key)](../download-videos-from-x-youtube-tiktok/README.md) — Turn a link from X, YouTube, Instagram, TikTok or 1,800+ other sites into a local MP4 or MP3, or a Pinterest board into reference images.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield Genjutsu, Viggle.</sub><br>
 <sub>People also search: how to make ai parody videos · ai parody video · ai movie parody · ai celebrity parody video · how to make ai movie mashup · ai scene remake with different characters · seedance motion control tutorial · higgsfield genjutsu tutorial · how to make ai meme videos · ai fake news video parody · character swap in video ai · how are viral ai parody videos made</sub>

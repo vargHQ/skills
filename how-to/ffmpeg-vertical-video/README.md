@@ -78,7 +78,7 @@ Yes, on the varg ffmpeg tool, which costs credits; with a shell everything here 
 - [Claude Code video editing: cut dead air and turn podcasts into Shorts](../edit-video-with-claude-code/README.md) — Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg.
 - [How to make AI video ads for ecommerce: TikTok, Reels and Meta product ads](../make-ecommerce-video-ads/README.md) — Turn a product and four answers into ad creatives that sell: angle, hook, format, script, compliant AI shots, variants and a final cut.
 - [How to make motion graphics with Claude Code (HyperFrames, Remotion)](../claude-code-motion-graphics/README.md) — Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>People also search: ffmpeg vertical video · ffmpeg crop video · ffmpeg burn subtitles into video · ffmpeg burn in srt subtitles · ffmpeg hardcode subtitles · ffmpeg add background music to video · ffmpeg instagram reels · ffmpeg tiktok quality · ffmpeg glitch effect · ffmpeg crop horizontal video to vertical 1080x1920 9:16 center crop scale · ffmpeg crop 16:9 to 9:16 vertical video with burned-in captions · FFmpeg background music ducking voiceover sidechaincompress -18 dB 45 second video · ffmpeg remove silence auto cut video jump cuts script</sub>
 

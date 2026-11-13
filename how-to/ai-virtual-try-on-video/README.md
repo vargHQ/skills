@@ -78,7 +78,7 @@ Yes: an AI label on TikTok and Meta, and in ads reaching New York a visible synt
 - [How to make AI video ads for ecommerce: TikTok, Reels and Meta product ads](../make-ecommerce-video-ads/README.md) — Turn a product and four answers into ad creatives that sell: angle, hook, format, script, compliant AI shots, variants and a final cut.
 - [How to make an AI influencer or AI character people remember](../make-an-ai-influencer/README.md) — Turn an idea into an AI influencer or character with a locked look: premise, details, styling, a character sheet, then reuse in video.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Kling AI, Canva.</sub><br>
 <sub>People also search: virtual try on ai · virtual try on ai video · ai virtual try on video · ai try on clothes video · virtual try on ai clothes · virtual try on ai free · ai video for clothing brand · ai video generator for clothing brand · ai model video for clothing brand · ai fashion model video generator · how to make ai fashion model video · kling ai virtual try on</sub>

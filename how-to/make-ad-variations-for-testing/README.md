@@ -83,7 +83,7 @@ Its angle, not its footage. varg-ad-library-remix ranks ads by winner signals (r
 - [How to make AI UGC ads with Claude Code (open-source Arcads alternative)](../make-ai-ugc-ads/README.md) — Turn a product photo into a phone-real UGC ad: an AI creator holds your real product, the label stays exact and the script stays FTC-safe.
 - [AI video translator for ads: dub, lip-sync and recaption in 8+ markets](../translate-and-dub-video-ads/README.md) — Turn one video ad into versions for 8+ markets: transcreated script, same voice on ElevenLabs v4, lip sync on talking shots, new captions.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Creatomate, Sovran, Pencil.</sub><br>
 <sub>People also search: meta ads creative testing framework · meta ad creative testing · tiktok ads creative testing · ai ad creative testing · ad creative testing tools · winning ad creatives · meta ad library product research · meta ad library video download · meta ad library claude · hook variations ugc · make 10 variations of my video ad for A/B testing · best practices A/B testing video ad hooks and CTA closing lines 2026 · Remotion render multiple video variants batch props 15 second ads</sub>

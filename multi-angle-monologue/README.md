@@ -10,7 +10,7 @@ Make a one-minute character monologue that plays like a filmed scene: one base s
 ```bash
 npx skills add vargHQ/skills --skill multi-angle-monologue                # Claude Code, Codex, Cursor, Grok, Gemini CLI, OpenCode…
 gh skill install vargHQ/skills multi-angle-monologue --agent github-copilot --scope user
-# or all 81 skills as a Claude Code plugin:
+# or all 82 skills as a Claude Code plugin:
 claude plugin marketplace add vargHQ/skills
 claude plugin install varg@varg
 ```
@@ -49,4 +49,4 @@ claude plugin install varg@varg
 </tr>
 </table>
 
-More: [all 81 skills](../README.md#all-81-skills) · [this skill on varg how to](https://varg.ai/how-to/skills/multi-angle-monologue) · [varg.ai](https://varg.ai)
+More: [all 82 skills](../README.md#all-82-skills) · [this skill on varg how to](https://varg.ai/how-to/skills/multi-angle-monologue) · [varg.ai](https://varg.ai)

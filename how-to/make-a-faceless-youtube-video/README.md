@@ -86,7 +86,7 @@ Yes. varg-dropship-reel makes the 60-second faceless dropshipping 'guide' reel: 
 - [How to add captions to a video with AI: TikTok, Hormozi and karaoke styles](../add-captions-to-video/README.md) — Turn a video into one with burned-in, word-timed captions: 17 animated styles or plain SRT, rendered locally with FFmpeg or HyperFrames.
 - [Claude Code video editing: cut dead air and turn podcasts into Shorts](../edit-video-with-claude-code/README.md) — Turn raw talking-head or podcast footage into a clean cut and vertical Shorts: word-level transcript, silence cuts, captions, FFmpeg.
 - [How to make TikTok Shop affiliate videos with AI (without violations)](../make-tiktok-shop-videos/README.md) — Turn a product link into a TikTok Shop script and shot list that sells and passes Shop rules: a real presenter, AI only for b-roll.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: InVideo, MoneyPrinterTurbo.</sub><br>
 <sub>People also search: how to make a faceless youtube video · how to make a faceless youtube channel with ai · faceless youtube videos · faceless video ai generator · faceless video ai agent · faceless video ai workflow · faceless youtube automation · faceless youtube shorts · faceless ai video automation · faceless tiktok shop affiliate videos · AI tools to generate YouTube videos from script 2026</sub>

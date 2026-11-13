@@ -84,7 +84,7 @@ code-3d-explainer writes a fact sheet with a source for every claim and has a fr
 - [AI storyboard to video: previz in three.js or Blender before you pay](../ai-storyboard-to-video/README.md) — Turn a script into an approved storyboard and a 3D previz with real cameras, then the reference for Seedance 2.5 video-to-video.
 - [How to make an AI music video for your song with Claude Code](../make-an-ai-music-video/README.md) — Turn your song into a beat-synced AI music video: measured beat grid, approved stills, Seedance shots, lip sync and lyrics drawn in code.
 - [How to make a product launch video with Claude Code (HyperFrames, Remotion)](../make-a-product-launch-video/README.md) — Turn your app and a few lines of copy into a code-made launch, demo or explainer video: UI mockups, motion, charts, sound, no footage.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Higgsfield MCP, Blender MCP, Remotion.</sub><br>
 <sub>People also search: fable 5.2 video generation · claude fable 5.2 video · fable 5.2 vs opus 5.5 · fable 5.2 blender · claude blender animation · claude blender skill · make a video with claude code · create video games with claude code · record a three.js game as a video · 3d explainer video with code · same prompt two models comparison video</sub>
