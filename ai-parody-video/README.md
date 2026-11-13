@@ -10,7 +10,7 @@ Plan and make a short AI parody video: a known movie scene, TV format or news sh
 ```bash
 npx skills add vargHQ/skills --skill ai-parody-video                # Claude Code, Codex, Cursor, Grok, Gemini CLI, OpenCode…
 gh skill install vargHQ/skills ai-parody-video --agent github-copilot --scope user
-# or all 81 skills as a Claude Code plugin:
+# or all 82 skills as a Claude Code plugin:
 claude plugin marketplace add vargHQ/skills
 claude plugin install varg@varg
 ```
@@ -49,4 +49,4 @@ claude plugin install varg@varg
 </tr>
 </table>
 
-More: [all 81 skills](../README.md#all-81-skills) · [this skill on varg how to](https://varg.ai/how-to/skills/ai-parody-video) · [varg.ai](https://varg.ai)
+More: [all 82 skills](../README.md#all-82-skills) · [this skill on varg how to](https://varg.ai/how-to/skills/ai-parody-video) · [varg.ai](https://varg.ai)

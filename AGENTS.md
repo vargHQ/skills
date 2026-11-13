@@ -13,7 +13,7 @@ vargHQ/skills is a library of Agent Skills for AI video, image, voice and music.
 Generate with the varg MCP (`https://mcp.varg.ai/mcp`, OAuth) or `VARG_API_KEY` against `https://api.varg.ai/v2`. Current model ids, inputs and limits: https://varg.ai/models/llms.txt.
 
 <!-- index:start -->
-## Which skill for which task (81 skills)
+## Which skill for which task (82 skills)
 
 | The person wants | Install and read first | Then | Guide |
 |---|---|---|---|
@@ -47,8 +47,9 @@ Generate with the varg MCP (`https://mcp.varg.ai/mcp`, OAuth) or `VARG_API_KEY` 
 | Download videos: Turn a link from X, YouTube, Instagram, TikTok or 1,800+ other sites into a local MP4 or MP3, or a Pinterest board into reference images. | `media-download` | `find-references`, `video-asset-sources` | [how-to/download-videos-from-x-youtube-tiktok](how-to/download-videos-from-x-youtube-tiktok/README.md) |
 | Find video skills: Turn a video request in any language into the best-matching agent skill, its install command and the options to offer, with no key. | `how-to-make-ai-video` | `video-skills`, `varg-ai`, `varg-publish-skill` | [how-to/claude-code-video-skills](how-to/claude-code-video-skills/README.md) |
 | AI parody videos: Turn a known movie scene and one wrong element into a 10-45 second parody: recast the scene, write the sketch, or cut a monologue across four angles. | `ai-parody-video` | `scene-recast-video`, `multi-angle-monologue`, `media-download`, `varg-character-design`, `caption-styles`, `video-sound`, `media-judge` | [how-to/make-ai-parody-videos](how-to/make-ai-parody-videos/README.md) |
+| Stickman videos: Turn a topic into a viral stickman reel: a jointed figure drawn in code, rules that appear one at a time, a two-choice ending and a 4-credit voice. | `stickman-video` | `video-script`, `video-sound`, `caption-styles`, `media-judge` | [how-to/make-stickman-videos-with-ai](how-to/make-stickman-videos-with-ai/README.md) |
 
-No key needed: `ad-creative-testing`, `app-ui-mockups`, `blender-code-film`, `caption-styles`, `code-3d-explainer`, `code-game-trailer`, `code-path-traced-film`, `code-to-video-previz`, `ecommerce-video-edit`, `edit-footage-with-code`, `find-references`, `footage-effects`, `how-to-make-ai-video`, `kinetic-type-art`, `maps-and-data-motion`, `media-download`, `media-judge`, `model-split-screen`, `motion-formats`, `paper-shaders`, `product-video-hooks`, `short-form-ffmpeg-cookbook`, `social-overlays`, `threejs-animatic`, `tiktok-shop-video`, `title-design`, `transition-craft`, `varg-video-edit-library`, `varg-video-editing`, `video-asset-sources`, `video-moodboard`, `video-project-github`, `video-script`, `video-skills`.
+No key needed: `ad-creative-testing`, `app-ui-mockups`, `blender-code-film`, `caption-styles`, `code-3d-explainer`, `code-game-trailer`, `code-path-traced-film`, `code-to-video-previz`, `ecommerce-video-edit`, `edit-footage-with-code`, `find-references`, `footage-effects`, `how-to-make-ai-video`, `kinetic-type-art`, `maps-and-data-motion`, `media-download`, `media-judge`, `model-split-screen`, `motion-formats`, `paper-shaders`, `product-video-hooks`, `short-form-ffmpeg-cookbook`, `social-overlays`, `stickman-video`, `threejs-animatic`, `tiktok-shop-video`, `title-design`, `transition-craft`, `varg-video-edit-library`, `varg-video-editing`, `video-asset-sources`, `video-moodboard`, `video-project-github`, `video-script`, `video-skills`.
 <!-- index:end -->
 
 ## Work on this repo

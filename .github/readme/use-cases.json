@@ -3357,5 +3357,109 @@
    "kling-4-and-seedance-prompt-guide",
    "download-videos-from-x-youtube-tiktok"
   ]
+ },
+ {
+  "rank": 28,
+  "slug": "make-stickman-videos-with-ai",
+  "h1": "How to make stickman videos with AI: viral survival reels drawn in code",
+  "short_title": "Stickman videos",
+  "one_liner": "Turn a topic into a viral stickman reel: a jointed figure drawn in code, rules that appear one at a time, a two-choice ending and a 4-credit voice.",
+  "queries": [
+   "how to make stickman videos with ai",
+   "stickman video ai generator",
+   "ai stickman video generator free",
+   "stickman video generator github",
+   "stickman animation with claude code",
+   "faceless stickman youtube channel",
+   "stickman survival story video",
+   "stickman video prompt",
+   "stick figure animation ai",
+   "pov stickman video"
+  ],
+  "demand": [
+   {
+    "signal": "Google Search Console, varg.ai (founder's export, 2026-11-12)",
+    "detail": "'stickman video director' is the third query by clicks for varg.ai; the stickman-video-director card page had 1,831 impressions",
+    "value": "1,171 impressions"
+   },
+   {
+    "signal": "Google + YouTube autocomplete (2026-11-13)",
+    "detail": "'stickman video' completes to ai generator, generator github, prompt, maker; YouTube to 'how to make stickman videos', 'faceless stickman youtube channel', 'stickman ai video prompt'",
+    "value": "navigational + how-to"
+   },
+   {
+    "signal": "X posts (read 2026-11-13)",
+    "detail": "code-made documentary skill 540,864 views and 11,073 bookmarks; free 'stickman in full code, $0' prompt 65,440 views and 1,160 bookmarks; stickman-video-director launch 89,661 views, its top post 361,787",
+    "value": "65K-540K views"
+   },
+   {
+    "signal": "GitHub (2026-11-13)",
+    "detail": "kaomei/stickman-video-director 5,925 stars and 993 forks in three months; filippocalippo/StykAnimate-App 1,570 stars",
+    "value": "5,925 stars"
+   }
+  ],
+  "skills": [
+   {
+    "name": "stickman-video",
+    "role": "the format, the script with word counts, the jointed rig, the build in HyperFrames and the checks"
+   },
+   {
+    "name": "video-script",
+    "role": "the hook, the beats and the timing check for longer episodes"
+   },
+   {
+    "name": "video-sound",
+    "role": "a narrator picked from candidates, effects on their frames, a measured mix"
+   },
+   {
+    "name": "caption-styles",
+    "role": "word-timed captions people read with the sound off"
+   },
+   {
+    "name": "media-judge",
+    "role": "detached limbs, holds over 2.5 s and text outside the safe zone, before posting"
+   }
+  ],
+  "start_with": "stickman-video",
+  "example_prompts": [
+   "Make a 20-second stickman survival reel, 9:16: Day 1, you're the night guard at an empty aquarium, three rules, a choice at the end. Show me the script and six frames before the voice and the render.",
+   "Make episode 2 of my lighthouse series with the same figure, the same voice and a new rule.",
+   "Make a fake friend vs real friend stickman reel about borrowing money, no voice, captions and sound only.",
+   "Turn this history fact into a 60-second deadpan stickman explainer: ./notes.md"
+  ],
+  "faq": [
+   {
+    "q": "Is there a free AI stickman video generator?",
+    "a": "Yes. stickman-video draws and animates the figures in code and renders on your machine for free; only a narrator voice is a paid call (4 credits, $0.04, for 60 words on varg), and your own recording costs nothing. kaomei/stickman-video-director is a free MIT skill for clip prompts or its own local renderer."
+   },
+   {
+    "q": "Why do my stick figures look stiff?",
+    "a": "They move one joint at a time and hold poses too long. Use fixed bones posed by joint angles, two-bone legs with planted feet, a wind-up before each big move, breathing and blinks, and give the figure a new action at least every 2.5 seconds. The stickman-video rig does all of this."
+   },
+   {
+    "q": "Claude Code or Codex?",
+    "a": "Both work. The code route needs no image or video model, so any agent that can write HTML and run a command can build it. Codex users who want generated stills often use its built-in image model."
+   },
+   {
+    "q": "Can a video model like Kling or Seedance make stickman videos?",
+    "a": "It can make a painted 2.5D look, but video models drift on thin limbs: arms multiply, heads detach, two shots rarely match. Keep generated video for backgrounds or one hero shot and keep the acting figure in code."
+   },
+   {
+    "q": "What makes a stickman reel travel?",
+    "a": "A second-person situation in the first second, a DAY counter that promises a series, three or four rules that appear one at a time, a rule tested on screen, and a two-choice ending that asks for a comment."
+   }
+  ],
+  "alternatives": [
+   "kaomei/stickman-video-director",
+   "Higgsfield Stickman Cartoon skill",
+   "StykAnimate (desktop app)"
+  ],
+  "needs_key": false,
+  "related": [
+   "make-a-faceless-youtube-video",
+   "claude-code-motion-graphics",
+   "add-ai-voiceover-to-video",
+   "add-captions-to-video"
+  ]
  }
 ]

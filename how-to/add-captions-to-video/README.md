@@ -78,7 +78,7 @@ varg-ad-localize rebuilds captions and on-screen text in the target language for
 - [How to make vertical 9:16 video with FFmpeg: crop, burn captions, add music](../ffmpeg-vertical-video/README.md) — Turn any footage into a 1080x1920 MP4 for Reels, TikTok and Shorts with copyable FFmpeg commands tested on real media, free and local.
 - [AI video translator for ads: dub, lip-sync and recaption in 8+ markets](../translate-and-dub-video-ads/README.md) — Turn one video ad into versions for 8+ markets: transcreated script, same voice on ElevenLabs v4, lip sync on talking shots, new captions.
 - [How to make motion graphics with Claude Code (HyperFrames, Remotion)](../claude-code-motion-graphics/README.md) — Turn text, a logo or numbers into kinetic type, titles, transitions, overlays, maps or shader stings, rendered locally for free.
-- [All 30 guides](../README.md) · [all 81 skills](../../README.md#all-81-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
+- [All 31 guides](../README.md) · [all 82 skills](../../README.md#all-82-skills) · search 2,000+ more on [varg how to](https://varg.ai/how-to)
 
 <sub>Often compared with: Captions, CapCut, Submagic, VEED.</sub><br>
 <sub>People also search: add captions to video · add captions to video free · add captions to video ai · ai captions for videos · ai captions generator · animated captions · word by word captions · hormozi captions · hormozi style captions · karaoke captions · remotion captions · remotion tiktok captions · ffmpeg burn subtitles into video · how to add captions to a video automatically with ffmpeg and whisper · add captions to my video</sub>

@@ -76,6 +76,7 @@
         "code-path-traced-film",
         "make-a-woke-profile-with-chatgpt",
         "scene-recast-video",
+        "stickman-video",
         "varg-birthday-video",
         "varg-dropship-reel",
         "varg-music-video",
@@ -420,7 +421,8 @@
         "make-a-faceless-youtube-video",
         "add-captions-to-video",
         "translate-and-dub-video-ads",
-        "make-ai-parody-videos"
+        "make-ai-parody-videos",
+        "make-stickman-videos-with-ai"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/caption-styles/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/caption-styles/README.md",
@@ -1391,7 +1393,8 @@
         "make-an-ai-movie",
         "consistent-character-ai-video",
         "kling-4-and-seedance-prompt-guide",
-        "make-ai-parody-videos"
+        "make-ai-parody-videos",
+        "make-stickman-videos-with-ai"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/media-judge/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/media-judge/README.md",
@@ -1763,6 +1766,47 @@
         "alt": "Vertical clips get creator overlays: a CTA pill, a notification banner dropping in, a review proof card and a LIVE badge with viewer count."
       },
       "description": "Eleven conversion overlays for short-form ads, UGC and creator videos, with presets per platform: CTA pill, follow tap prompt, story sticker tag, LIVE badge with viewer count, notification drop, review proof card, story caption bar, photo wall loop, follower counter and goal bar, comment callout (reply-to-comment) and subscribe-and-bell nudge. Presets use one universal 9:16 safe box built from TikTok, Meta Reels, YouTube Shorts and Snap specs, CTA timing from creator analysts (ask after value, never in the intro), native number formats, contrast and motion tokens, plus the FTC rules: reviews, comments and counts come from real data only and paid content is disclosed. Use when an ad or creator video needs a call to action, a subscribe or follow ask, a review or comment on screen, a LIVE badge or a counter. NOT for fake reviews, fake follower counts or copying a platform's logo."
+    },
+    {
+      "name": "stickman-video",
+      "title": "How to make stickman videos with AI: survival-choice reels drawn in code",
+      "tagline": "A topic becomes a 20-25 s stickman reel drawn in code: a jointed figure that walks and reacts, rules on screen, a two-choice ending, a 4-credit voice.",
+      "category": "formats",
+      "version": "1.0.0",
+      "needs_key": false,
+      "local": true,
+      "cost": "measured: 4 credits ($0.04) for a 60-word voice; picture, sound and render free",
+      "output": "20-25 s 1080x1920 MP4 with word-timed captions and sound, plus a contact sheet",
+      "stack": [
+        "HyperFrames",
+        "varg API",
+        "ElevenLabs v3",
+        "whisper.cpp",
+        "FFmpeg"
+      ],
+      "keywords": [
+        "stickman video",
+        "stickman animation ai",
+        "ai stickman video generator",
+        "stick figure animation",
+        "faceless stickman channel",
+        "stickman survival story",
+        "pov stickman video",
+        "how to make stickman videos with ai"
+      ],
+      "use_cases": [
+        "make-stickman-videos-with-ai"
+      ],
+      "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/stickman-video/SKILL.md",
+      "page": "https://github.com/vargHQ/skills/blob/main/stickman-video/README.md",
+      "how_to": "https://varg.ai/how-to/skills/stickman-video",
+      "install": "npx skills add vargHQ/skills --skill stickman-video",
+      "preview": {
+        "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_5b22d8d7cb61.webp",
+        "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_db56063e1155.jpg",
+        "alt": "A white stick figure crouches in fear by a lighthouse door at 12:01 AM, under a DAY 1 counter and three keeper's rules, with the caption YOURS."
+      },
+      "description": "Make a viral stickman video in code, with no video model: a jointed SVG stick figure (round head, two-bone arms and legs with fixed bone lengths, poses written as joint angles) acts out a survival-choice story, a POV story, a \"fake friend vs real friend\" contrast, a history explainer or a stick fight, with a DAY counter, rules that appear one at a time, word-timed captions, procedural sound and a two-choice \"FOLLOW FOR DAY 2\" ending, rendered to a 1080x1920 MP4 with HyperFrames. Ships the working rig (planted-foot walk, breathing idle, head turns, blinks, shock, crouch), script templates with word counts, the fixes for stiff head-only stickman animation, and a 24 s example whose voice cost 4 credits. Use when someone asks for a stickman video, stick figure animation, a faceless stickman channel, a survival choice story, POV stickman, or wants to \"make videos like the viral stickman reels\". For Google Flow or Veo clip prompts use kaomei/stickman-video-director instead."
     },
     {
       "name": "threejs-animatic",
@@ -3345,7 +3389,8 @@
         "make-a-product-launch-video",
         "make-a-faceless-youtube-video",
         "make-an-ai-movie",
-        "add-ai-voiceover-to-video"
+        "add-ai-voiceover-to-video",
+        "make-stickman-videos-with-ai"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/video-script/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/video-script/README.md",
@@ -3429,7 +3474,8 @@
         "make-an-ai-movie",
         "add-ai-voiceover-to-video",
         "make-videos-with-claude-fable-5-2",
-        "make-ai-parody-videos"
+        "make-ai-parody-videos",
+        "make-stickman-videos-with-ai"
       ],
       "skill_md": "https://raw.githubusercontent.com/vargHQ/skills/main/video-sound/SKILL.md",
       "page": "https://github.com/vargHQ/skills/blob/main/video-sound/README.md",
@@ -4355,6 +4401,33 @@
       ],
       "page": "https://github.com/vargHQ/skills/blob/main/how-to/make-ai-parody-videos/README.md",
       "markdown": "https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-ai-parody-videos/README.md"
+    },
+    {
+      "slug": "make-stickman-videos-with-ai",
+      "title": "How to make stickman videos with AI: viral survival reels drawn in code",
+      "one_liner": "Turn a topic into a viral stickman reel: a jointed figure drawn in code, rules that appear one at a time, a two-choice ending and a 4-credit voice.",
+      "start_with": "stickman-video",
+      "skills": [
+        "stickman-video",
+        "video-script",
+        "video-sound",
+        "caption-styles",
+        "media-judge"
+      ],
+      "queries": [
+        "how to make stickman videos with ai",
+        "stickman video ai generator",
+        "ai stickman video generator free",
+        "stickman video generator github",
+        "stickman animation with claude code",
+        "faceless stickman youtube channel",
+        "stickman survival story video",
+        "stickman video prompt",
+        "stick figure animation ai",
+        "pov stickman video"
+      ],
+      "page": "https://github.com/vargHQ/skills/blob/main/how-to/make-stickman-videos-with-ai/README.md",
+      "markdown": "https://raw.githubusercontent.com/vargHQ/skills/main/how-to/make-stickman-videos-with-ai/README.md"
     }
   ]
 }

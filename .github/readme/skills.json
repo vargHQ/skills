@@ -3081,5 +3081,44 @@
    "alt": "An old wizard in an open-plan office complains to the camera about the printer, cut from a front angle to a side close-up with the lips on the words.",
    "credit": null
   }
+ },
+ "stickman-video": {
+  "title": "How to make stickman videos with AI: survival-choice reels drawn in code",
+  "short": "Stickman video",
+  "tagline": "A topic becomes a 20-25 s stickman reel drawn in code: a jointed figure that walks and reacts, rules on screen, a two-choice ending, a 4-credit voice.",
+  "category": "formats",
+  "prompts": [
+   "Make a 20-second stickman survival reel, 9:16: Day 1, you're the night guard at an empty aquarium, three rules, a choice at the end",
+   "Make a fake friend vs real friend stickman reel about borrowing money, no voice, captions and sound only",
+   "My stickman only moves its head and the limbs look stiff. Fix the animation in ./reel/index.html"
+  ],
+  "keywords": [
+   "stickman video",
+   "stickman animation ai",
+   "ai stickman video generator",
+   "stick figure animation",
+   "faceless stickman channel",
+   "stickman survival story",
+   "pov stickman video",
+   "how to make stickman videos with ai"
+  ],
+  "stack": [
+   "HyperFrames",
+   "varg API",
+   "ElevenLabs v3",
+   "whisper.cpp",
+   "FFmpeg"
+  ],
+  "needs_key": false,
+  "local": true,
+  "cost": "measured: 4 credits ($0.04) for a 60-word voice; picture, sound and render free",
+  "output": "20-25 s 1080x1920 MP4 with word-timed captions and sound, plus a contact sheet",
+  "card": true,
+  "preview": {
+   "webp": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_5b22d8d7cb61.webp",
+   "jpg": "https://s3.varg.ai/files/4325c578-378d-4c43-ae53-3cc3218df1ea/file_db56063e1155.jpg",
+   "alt": "A white stick figure crouches in fear by a lighthouse door at 12:01 AM, under a DAY 1 counter and three keeper's rules, with the caption YOURS.",
+   "credit": null
+  }
  }
 }
