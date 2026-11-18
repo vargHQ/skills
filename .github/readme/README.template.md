@@ -10,7 +10,7 @@ Seedance 2.5, Kling 4, Veo 3.1, GPT Image 2.6 and ElevenLabs v4 on one key, or f
 
 {{HERO}}
 
-[Use cases](#what-do-you-want-to-make) · [All {{N}} skills](#all-{{N}}-skills) · [Install](#install) · [How it works](#how-it-works) · [For AI agents](#for-ai-agents) · [FAQ](#faq)
+[Use cases](#what-do-you-want-to-make) · [All {{N}} skills](#all-{{N}}-skills) · [Install](#install) · [How it works](#how-it-works) · [For AI agents](#for-ai-agents) · [FAQ](#faq) · [Every video skill, from every publisher](https://varg.ai/how-to/skills)
 
 </div>
 
